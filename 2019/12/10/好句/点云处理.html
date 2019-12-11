@@ -1,0 +1,13 @@
+<hr>
+<p>title: 点云处理优秀链接<br>date: 2019-12-11，13:14<br>categories:</p>
+<ul>
+<li>点云<br>tags:</li>
+<li>点云</li>
+<li>PCL</li>
+</ul>
+<hr>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云</a></p>
+<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
+<blockquote>
+<p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p>
+</blockquote>
