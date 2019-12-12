@@ -19,6 +19,14 @@
 <li>ITSVC 智能交通系统国际会议（Intelligent Transportation Systems Conference，简称ITSC）</li>
 <li>ICVES</li>
 </ol>
+<h2 id="邂逅其他相关会议"><a href="#邂逅其他相关会议" class="headerlink" title="邂逅其他相关会议"></a>邂逅其他相关会议</h2><ol>
+<li>IEEE International Conference on Robotics and Biomimetics (ROBIO)</li>
+<li>New Energy &amp; Intelligent Connected Vehicle Technology Conference</li>
+</ol>
+<h2 id="学院要求"><a href="#学院要求" class="headerlink" title="学院要求"></a>学院要求</h2><ol>
+<li>A类：SAE/ITSC/IV/JSAE/ICRA（机器人与自动化会议)</li>
+<li>B类：ICIRA/ICON（自然语言处理会议）/ICCV<br><img src="/2019/12/12/work/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/1.png" alt></li>
+</ol>
 ]]></content>
       <categories>
         <category>学习链接</category>
@@ -52,9 +60,9 @@
 <p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
 </blockquote>
 <p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
-<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="BoxNet深度学习2DBB"><a href="#BoxNet深度学习2DBB" class="headerlink" title="BoxNet深度学习2DBB"></a>BoxNet深度学习2DBB</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud</a></p>
+<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="BoxNet深度学习2DBB"><a href="#BoxNet深度学习2DBB" class="headerlink" title="BoxNet深度学习2DBB"></a>BoxNet深度学习2DBB</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud，2019</a></p>
 <h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
-<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast segmentation of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
+<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast <strong>segmentation</strong> of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
 </blockquote>
 <blockquote>
 <p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
@@ -68,7 +76,13 @@
 <li>预测了点云均值的中心,提高bb位置精度.</li>
 </ol>
 <h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/work/L-shape%20fitting/2-3.gif" alt><br><img src="/2019/12/12/work/L-shape%20fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
-<h2 id="LATTE一个开源点云注释标签的工具"><a href="#LATTE一个开源点云注释标签的工具" class="headerlink" title="LATTE一个开源点云注释标签的工具"></a>LATTE一个开源点云注释标签的工具</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a></p>
+<h2 id="LATTE一个开源点云注释标签的工具"><a href="#LATTE一个开源点云注释标签的工具" class="headerlink" title="LATTE一个开源点云注释标签的工具"></a>LATTE一个开源点云注释标签的工具</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
+<h2 id="L形端点搜索和角点定位，2018-同济"><a href="#L形端点搜索和角点定位，2018-同济" class="headerlink" title="L形端点搜索和角点定位，2018 同济"></a>L形端点搜索和角点定位，2018 同济</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
+<h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
+<p>·decomposes the L-Shape fitting problem into two steps: L-Shape vertexes searching and L-Shape corner point locating.<br>·highly computationally efficient<br>·robust enough and able to accommodate various situations.<br>·does not depend on the laser scanning sequential information</p>
+</blockquote>
+<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>the mean-shift &amp; DBSCAN</p>
+<h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
 ]]></content>
       <categories>
         <category>目标检测</category>
@@ -77,6 +91,7 @@
         <tag>L形状拟合</tag>
         <tag>点云</tag>
         <tag>读书笔记</tag>
+        <tag>标注工具</tag>
       </tags>
   </entry>
   <entry>
@@ -117,20 +132,6 @@
       </tags>
   </entry>
   <entry>
-    <title>句2</title>
-    <url>/2019/12/10/life/%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/12/10/code/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -158,6 +159,20 @@
     <title>句1</title>
     <url>/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</url>
     <content><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句2</title>
+    <url>/2019/12/10/life/%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
 ]]></content>
       <categories>
         <category>生活</category>
