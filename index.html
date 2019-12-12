@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/work/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -221,7 +221,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/" class="post-title-link" itemprop="url">顶会常关注优质文章,快乐科研</a>
+            <a href="/2019/12/12/work/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/" class="post-title-link" itemprop="url">顶会常关注优质文章,快乐科研</a>
         </h1>
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/L-shape%20fitting/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/work/L-shape%20fitting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -306,7 +306,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/12/L-shape%20fitting/" class="post-title-link" itemprop="url">L-shape Fitting Research</a>
+            <a href="/2019/12/12/work/L-shape%20fitting/" class="post-title-link" itemprop="url">《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</a>
         </h1>
 
         <div class="post-meta">
@@ -317,7 +317,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-12 10:00:00 / 修改时间：18:11:38" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
+              <time title="创建时间：2019-12-12 10:00:00 / 修改时间：19:56:42" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -342,21 +342,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
-<h1 id="From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》"><a href="#From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》" class="headerlink" title="From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》"></a>From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h3 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h3><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/L-shape%20fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/L-shape%20fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/L-shape%20fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/2019/12/12/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/L-shape%20fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文章算法清晰,值得参考的点:</p>
+          <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
+<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
+<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/work/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/work/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/work/L-shape%20fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/work/L-shape%20fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/work/L-shape%20fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/work/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/work/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/work/L-shape%20fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
 <ol>
 <li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
 <li>多个优化标准相互弥补</li>
 <li>衡量拟合结果好坏的标准。</li>
 <li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
 </ol>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><blockquote>
+<h1 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h1><blockquote>
 <p>Comparing poses among successive cycles also helps to find the target’s heading direction.</p>
 </blockquote>
-<h2 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h2><blockquote>
+<h1 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h1><blockquote>
 <p>[17]X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
 </blockquote>
 <p>在文中，利用距离点的排序，即<strong>扫描序列的信息</strong>，有效地将这些点分割成两个互不相交的集合，然后将这两个集合的点分别拟合成两条正交直线，分别对应于小车的两条边;按照扫描序列迭代所有这些二维范围点，该算法搜索一个轴心点，并使用该轴心点生成这两个不相交集，即，在主元之前扫描的点集和在主元之后扫描的点集。</p>
@@ -364,8 +364,23 @@
 <p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
 </blockquote>
 <p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
-<h2 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h2><blockquote>
+<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="BoxNet深度学习2DBB"><a href="#BoxNet深度学习2DBB" class="headerlink" title="BoxNet深度学习2DBB"></a>BoxNet深度学习2DBB</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud</a></p>
+<h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
+<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast segmentation of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
 </blockquote>
+<blockquote>
+<p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
+</blockquote>
+<blockquote>
+<p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
+</blockquote>
+<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input:Points(x,y)<br>        output:[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
+<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
+<li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
+<li>预测了点云均值的中心,提高bb位置精度.</li>
+</ol>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt>, <center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/work/L-shape%20fitting/2-3.gif" alt>,<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt>, <center>IoU重叠部分更好,估计扩展目标的原本尺寸更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
+<h2 id="LATTE一个开源点云注释标签的工具"><a href="#LATTE一个开源点云注释标签的工具" class="headerlink" title="LATTE一个开源点云注释标签的工具"></a>LATTE一个开源点云注释标签的工具</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a></p>
 
       
     </div>
@@ -385,7 +400,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/11/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/11/work/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -399,7 +414,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/11/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">点云处理优秀链接</a>
+            <a href="/2019/12/11/work/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">点云处理优秀链接</a>
         </h1>
 
         <div class="post-meta">
@@ -465,7 +480,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/11/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/11/code/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -479,7 +494,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/11/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Hexo撰文指南</a>
+            <a href="/2019/12/11/code/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Hexo撰文指南</a>
         </h1>
 
         <div class="post-meta">
@@ -516,7 +531,7 @@
 
       
           <p><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a></p>
-<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><p>1.在<code>source/_posts</code>文件夹下面建立<em>.md新文档。<br>2.使用的markdown是一种程序化的写文章语言，方便放代码块，但是插图片不方便。<br>3.插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。文中引用图片时候,`![pngName](</em>.png)`<br><img src="/2019/12/11/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/test.JPG" alt="jpg"><br>4.md语言：<br><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">超链接</a></p>
+<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><p>1.在<code>source/_posts</code>文件夹下面建立<em>.md新文档。<br>2.使用的markdown是一种程序化的写文章语言，方便放代码块，但是插图片不方便。<br>3.插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。文中引用图片时候,`![pngName](</em>.png)`<br><img src="/2019/12/11/code/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/test.JPG" alt="jpg"><br>4.md语言：<br><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">超链接</a></p>
 <blockquote>
 <p>这是引用&gt;的内容</p>
 </blockquote>
@@ -543,7 +558,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/code/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -557,7 +572,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/2019/12/10/code/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
         </h1>
 
         <div class="post-meta">
@@ -631,7 +646,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/%E5%A5%BD%E5%8F%A5/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -645,84 +660,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/10/%E5%A5%BD%E5%8F%A5/" class="post-title-link" itemprop="url">句2</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-10T00:00:00+08:00">2019-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-11 19:42:17" itemprop="dateModified" datetime="2019-12-11T19:42:17+08:00">2019-12-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/" class="post-title-link" itemprop="url">句1</a>
+            <a href="/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/" class="post-title-link" itemprop="url">句1</a>
         </h1>
 
         <div class="post-meta">
@@ -765,6 +703,83 @@
 
       
           <h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/" class="post-title-link" itemprop="url">句2</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-10T00:00:00+08:00">2019-12-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-11 19:42:17" itemprop="dateModified" datetime="2019-12-11T19:42:17+08:00">2019-12-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
 
       
     </div>
