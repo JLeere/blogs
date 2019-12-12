@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2019-12-12T10:11:38.816Z</updated>
+  <updated>2019-12-12T10:31:44.999Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>顶会常关注优质文章,快乐科研</title>
+    <link href="http://www.jaylee.top/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/"/>
+    <id>http://www.jaylee.top/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/</id>
+    <published>2019-12-12T10:00:00.000Z</published>
+    <updated>2019-12-12T10:31:44.999Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="机器人邻域"><a href="#机器人邻域" class="headerlink" title="机器人邻域"></a>机器人邻域</h2><ol><li>RSS（Robotics: Science and System）</li><li>IROS（IEEE\RSJ International Conference on Intelligent Robots and Systems）</li><li>ICRA（IEEE International Conference on Robotics and Automation）</li></ol><h2 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h2><ol><li>CVPR 国际计算机视觉与模式识别会议（CVPR）</li><li>ICCV 全称是 IEEE International Conference on Computer Vision，即国际计算机视觉大会</li><li>ECCV 全称是European Conference on Computer Vision(欧洲计算机视觉国际会议) ，两年一次，是计算机视觉三大会议（另外两个是ICCV和CVPR）之一。</li><li>ICPR</li></ol><h2 id="智能车邻域"><a href="#智能车邻域" class="headerlink" title="智能车邻域"></a>智能车邻域</h2><ol><li>IV Intelligent Vehicle Symposium</li><li>ITSVC 智能交通系统国际会议（Intelligent Transportation Systems Conference，简称ITSC）</li><li>ICVES</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;机器人邻域&quot;&gt;&lt;a href=&quot;#机器人邻域&quot; class=&quot;headerlink&quot; title=&quot;机器人邻域&quot;&gt;&lt;/a&gt;机器人邻域&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;RSS（Robotics: Science and System）&lt;/li&gt;
+&lt;li&gt;IROS（IEEE
+      
+    
+    </summary>
+    
+    
+      <category term="学习链接" scheme="http://www.jaylee.top/categories/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/"/>
+    
+    
+      <category term="顶会" scheme="http://www.jaylee.top/tags/%E9%A1%B6%E4%BC%9A/"/>
+    
+  </entry>
   
   <entry>
     <title>L-shape Fitting Research</title>
@@ -43,34 +71,6 @@
       <category term="点云" scheme="http://www.jaylee.top/tags/%E7%82%B9%E4%BA%91/"/>
     
       <category term="读书笔记" scheme="http://www.jaylee.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>L-shape Fitting Research</title>
-    <link href="http://www.jaylee.top/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/"/>
-    <id>http://www.jaylee.top/2019/12/12/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/</id>
-    <published>2019-12-12T02:00:00.000Z</published>
-    <updated>2019-12-12T10:29:43.061Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="机器人邻域"><a href="#机器人邻域" class="headerlink" title="机器人邻域"></a>机器人邻域</h2><ol><li>RSS（Robotics: Science and System）</li><li>IROS（IEEE\RSJ International Conference on Intelligent Robots and Systems）</li><li>ICRA（IEEE International Conference on Robotics and Automation）</li></ol><h2 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h2><ol><li>国际计算机视觉与模式识别会议（CVPR）</li><li>ICCV 的全称是 IEEE International Conference on Computer Vision，即国际计算机视觉大会</li><li>ECCV的全称是European Conference on Computer Vision(欧洲计算机视觉国际会议) ，两年一次，是计算机视觉三大会议（另外两个是ICCV和CVPR）之一。</li><li>ICPR</li></ol><h2 id="智能车邻域"><a href="#智能车邻域" class="headerlink" title="智能车邻域"></a>智能车邻域</h2><ol><li>IV Intelligent Vehicle Symposium</li><li>智能交通系统国际会议（Intelligent Transportation Systems Conference，简称ITSC）</li><li>ICVES</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;机器人邻域&quot;&gt;&lt;a href=&quot;#机器人邻域&quot; class=&quot;headerlink&quot; title=&quot;机器人邻域&quot;&gt;&lt;/a&gt;机器人邻域&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;RSS（Robotics: Science and System）&lt;/li&gt;
-&lt;li&gt;IROS（IEEE
-      
-    
-    </summary>
-    
-    
-      <category term="学习链接" scheme="http://www.jaylee.top/categories/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/"/>
-    
-    
-      <category term="顶会" scheme="http://www.jaylee.top/tags/%E9%A1%B6%E4%BC%9A/"/>
     
   </entry>
   
@@ -129,6 +129,32 @@
   </entry>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://www.jaylee.top/2019/12/10/hello-world/"/>
+    <id>http://www.jaylee.top/2019/12/10/hello-world/</id>
+    <published>2019-12-09T16:00:00.000Z</published>
+    <updated>2019-12-11T01:58:50.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+      <category term="coding" scheme="http://www.jaylee.top/categories/coding/"/>
+    
+    
+      <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>句2</title>
     <link href="http://www.jaylee.top/2019/12/10/%E5%A5%BD%E5%8F%A5/"/>
     <id>http://www.jaylee.top/2019/12/10/%E5%A5%BD%E5%8F%A5/</id>
@@ -153,32 +179,6 @@
       <category term="摘抄" scheme="http://www.jaylee.top/tags/%E6%91%98%E6%8A%84/"/>
     
       <category term="生活" scheme="http://www.jaylee.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.jaylee.top/2019/12/10/hello-world/"/>
-    <id>http://www.jaylee.top/2019/12/10/hello-world/</id>
-    <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T01:58:50.749Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-      <category term="coding" scheme="http://www.jaylee.top/categories/coding/"/>
-    
-    
-      <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
     
   </entry>
   
