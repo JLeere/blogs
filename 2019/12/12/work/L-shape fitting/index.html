@@ -63,9 +63,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;12&#x2F;work&#x2F;L-shape%20fitting&#x2F;8.gif">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;12&#x2F;work&#x2F;L-shape%20fitting&#x2F;2-1.gif">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;12&#x2F;work&#x2F;L-shape%20fitting&#x2F;2-3.gif">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;12&#x2F;work&#x2F;L-shape%20fitting&#x2F;2-1.gif">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;12&#x2F;work&#x2F;L-shape%20fitting&#x2F;2-2.gif">
 <meta property="article:published_time" content="2019-12-12T02:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-12T11:56:42.129Z">
+<meta property="article:modified_time" content="2019-12-12T12:08:33.881Z">
 <meta property="article:author" content="Lee Jay">
 <meta property="article:tag" content="L形状拟合">
 <meta property="article:tag" content="点云">
@@ -248,7 +248,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-12 10:00:00 / 修改时间：19:56:42" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
+              <time title="创建时间：2019-12-12 10:00:00 / 修改时间：20:08:33" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,12 +305,12 @@
 <blockquote>
 <p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
 </blockquote>
-<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input:Points(x,y)<br>        output:[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
+<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input|Points(x,y)<br>        output|[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
 <h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
 <li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
 <li>预测了点云均值的中心,提高bb位置精度.</li>
 </ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt>, <center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/work/L-shape%20fitting/2-3.gif" alt>,<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt>, <center>IoU重叠部分更好,估计扩展目标的原本尺寸更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/work/L-shape%20fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/work/L-shape%20fitting/2-3.gif" alt><br><img src="/2019/12/12/work/L-shape%20fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
 <h2 id="LATTE一个开源点云注释标签的工具"><a href="#LATTE一个开源点云注释标签的工具" class="headerlink" title="LATTE一个开源点云注释标签的工具"></a>LATTE一个开源点云注释标签的工具</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a></p>
 
     </div>
