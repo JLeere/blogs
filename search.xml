@@ -3,16 +3,18 @@
   <entry>
     <title>L-shape Fitting Research</title>
     <url>/2019/12/12/L-shape%20fitting/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">范文</a></p>
-<h1 id="From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》"><a href="#From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》" class="headerlink" title="From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》"></a>From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="1-分割"><a href="#1-分割" class="headerlink" title="1.分割"></a>1.分割</h3><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h3 id="2-L-Shape拟合"><a href="#2-L-Shape拟合" class="headerlink" title="2.L-Shape拟合"></a>2.L-Shape拟合</h3><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><strong>Area Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/3.gif" alt><br><strong>Closeness Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/4.gif" alt><br><strong>Variance Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/5.gif" alt></p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/2019/12/12/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/L-shape%20fitting/8.png" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
+    <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
+<h1 id="From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》"><a href="#From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》" class="headerlink" title="From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》"></a>From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h3><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
+<h3 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h3><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/L-shape%20fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/L-shape%20fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/L-shape%20fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/2019/12/12/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/L-shape%20fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文章算法清晰,参考的点:</p>
 <ol>
 <li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
 <li>多个优化标准相互弥补</li>
-<li>最小二乘法量化拟合结果好坏。</li>
+<li>衡量拟合结果好坏的标准。</li>
+<li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
 </ol>
+<h2 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h2><p> X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
 ]]></content>
       <categories>
         <category>目标检测</category>
@@ -61,19 +63,6 @@
       </tags>
   </entry>
   <entry>
-    <title>句1</title>
-    <url>/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</url>
-    <content><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2019/12/10/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -95,6 +84,19 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句1</title>
+    <url>/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</url>
+    <content><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
