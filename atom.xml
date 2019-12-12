@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2019-12-11T11:41:26.773Z</updated>
+  <updated>2019-12-12T05:56:07.273Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -17,13 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>L-shape Fitting Research</title>
+    <link href="http://www.jaylee.top/2019/12/12/L-shape%20fitting/"/>
+    <id>http://www.jaylee.top/2019/12/12/L-shape%20fitting/</id>
+    <published>2019-12-12T02:00:00.000Z</published>
+    <updated>2019-12-12T05:56:07.273Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">范文</a></p><h1 id="From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》"><a href="#From《Efficient-L-Shape-Fitting-for-Vehicle-Detection-Using-Laser-Scanners》" class="headerlink" title="From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》"></a>From《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</h1><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="1-分割"><a href="#1-分割" class="headerlink" title="1.分割"></a>1.分割</h3><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p><h3 id="2-L-Shape拟合"><a href="#2-L-Shape拟合" class="headerlink" title="2.L-Shape拟合"></a>2.L-Shape拟合</h3><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><strong>Area Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/3.gif" alt><br><strong>Closeness Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/4.gif" alt><br><strong>Variance Criterion</strong><br><img src="/2019/12/12/L-shape%20fitting/5.gif" alt></p><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="/2019/12/12/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/L-shape%20fitting/8.png" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>文章算法清晰,参考的点:</p><ol><li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li><li>多个优化标准相互弥补</li><li>最小二乘法量化拟合结果好坏。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/RNG_uzi_/article/details/90146844#7&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;范文&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;From《Efficient-L-Sh
+      
+    
+    </summary>
+    
+    
+      <category term="目标检测" scheme="http://www.jaylee.top/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/"/>
+    
+    
+      <category term="L形状拟合" scheme="http://www.jaylee.top/tags/L%E5%BD%A2%E7%8A%B6%E6%8B%9F%E5%90%88/"/>
+    
+      <category term="点云" scheme="http://www.jaylee.top/tags/%E7%82%B9%E4%BA%91/"/>
+    
+      <category term="读书笔记" scheme="http://www.jaylee.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>点云处理优秀链接</title>
     <link href="http://www.jaylee.top/2019/12/11/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/"/>
     <id>http://www.jaylee.top/2019/12/11/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/</id>
     <published>2019-12-11T04:54:12.756Z</published>
-    <updated>2019-12-11T11:41:26.773Z</updated>
+    <updated>2019-12-12T02:57:42.920Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云</a></p><h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p><blockquote><p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p><h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p><blockquote><p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p></blockquote>]]></content>
     
     <summary type="html">
     
@@ -71,6 +102,34 @@
   </entry>
   
   <entry>
+    <title>句1</title>
+    <link href="http://www.jaylee.top/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/"/>
+    <id>http://www.jaylee.top/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</id>
+    <published>2019-12-09T16:00:00.000Z</published>
+    <updated>2019-12-11T02:05:09.052Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;find-something-beutiful&quot;&gt;&lt;a href=&quot;#find-something-beutiful&quot; class=&quot;headerlink&quot; title=&quot;find something beutiful&quot;&gt;&lt;/a&gt;find something be
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.jaylee.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="摘抄" scheme="http://www.jaylee.top/tags/%E6%91%98%E6%8A%84/"/>
+    
+      <category term="生活" scheme="http://www.jaylee.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://www.jaylee.top/2019/12/10/hello-world/"/>
     <id>http://www.jaylee.top/2019/12/10/hello-world/</id>
@@ -110,34 +169,6 @@
       
       
         &lt;p&gt;总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地&lt;br&gt;我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的
-      
-    
-    </summary>
-    
-    
-      <category term="生活" scheme="http://www.jaylee.top/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="摘抄" scheme="http://www.jaylee.top/tags/%E6%91%98%E6%8A%84/"/>
-    
-      <category term="生活" scheme="http://www.jaylee.top/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>句1</title>
-    <link href="http://www.jaylee.top/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/"/>
-    <id>http://www.jaylee.top/2019/12/10/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</id>
-    <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T02:05:09.052Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;find-something-beutiful&quot;&gt;&lt;a href=&quot;#find-something-beutiful&quot; class=&quot;headerlink&quot; title=&quot;find something beutiful&quot;&gt;&lt;/a&gt;find something be
       
     
     </summary>
