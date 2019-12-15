@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2019-12-13T06:14:41.790Z</updated>
+  <updated>2019-12-15T05:35:11.929Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux系统安装注意</title>
+    <link href="http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/"/>
+    <id>http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</id>
+    <published>2019-12-15T05:15:00.000Z</published>
+    <updated>2019-12-15T05:35:11.929Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p><h1 id="Wanted：安装Ubuntu到移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
+    
+    
+      <category term="系统安装" scheme="http://www.jaylee.top/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    
+  </entry>
   
   <entry>
     <title>trips</title>
@@ -50,9 +76,9 @@
     <link href="http://www.jaylee.top/2019/12/13/L-Shape-Fitting2/"/>
     <id>http://www.jaylee.top/2019/12/13/L-Shape-Fitting2/</id>
     <published>2019-12-13T02:04:20.000Z</published>
-    <updated>2019-12-13T07:19:45.126Z</updated>
+    <updated>2019-12-13T07:29:27.171Z</updated>
     
-    <content type="html"><![CDATA[<p><em>Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。</em></p><h1 id="应用文献"><a href="#应用文献" class="headerlink" title="应用文献"></a>应用文献</h1><blockquote><p>F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building detection in complex sites using the lidar height variation and point density,” in International Conferenceon mage and Vision Computing New Zealand, 2013.</p></blockquote><p>generates a height map by using height threshold and extracts only <strong><em>parallel edges</em></strong> to fit a rectangle model.</p><h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p><h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol><li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/L-Shape-Fitting2/concave.png" alt><center>concavity determination</center></li><li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong>判据的偏差。因此作者拟合的是轮廓框。</li></ol><p><img src="/2019/12/13/L-Shape-Fitting2/curve.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/f.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/CTAGC.png" alt><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></p><h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><ol><li>NUA（normalized unoverlapped area）：未重叠的面积与真值的比</li><li>角度误差</li><li>计算时间</li></ol><p><img src="/2019/12/13/L-Shape-Fitting2/result1.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/result2.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/result3.png" alt><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>]]></content>
+    <content type="html"><![CDATA[<p><em>Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。</em></p><h1 id="应用文献"><a href="#应用文献" class="headerlink" title="应用文献"></a>应用文献</h1><blockquote><p>F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building detection in complex sites using the lidar height variation and point density,” in International Conferenceon mage and Vision Computing New Zealand, 2013.</p></blockquote><p>generates a height map by using height threshold and extracts only <strong><em>parallel edges</em></strong> to fit a rectangle model.</p><h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p><h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol><li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/L-Shape-Fitting2/concave.png" alt><center>concavity determination</center></li><li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。</li></ol><p><img src="/2019/12/13/L-Shape-Fitting2/curve.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/f.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/CTAGC.png" alt><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></p><h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><ol><li>NUA（normalized unoverlapped area）：未重叠的面积与真值的比</li><li>角度误差</li><li>计算时间</li></ol><p><img src="/2019/12/13/L-Shape-Fitting2/result1.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/result2.png" alt><br><img src="/2019/12/13/L-Shape-Fitting2/result3.png" alt><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>]]></content>
     
     <summary type="html">
     
@@ -220,32 +246,6 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://www.jaylee.top/2019/12/10/code/hello-world/"/>
-    <id>http://www.jaylee.top/2019/12/10/code/hello-world/</id>
-    <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T01:58:50.749Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-      <category term="coding" scheme="http://www.jaylee.top/categories/coding/"/>
-    
-    
-      <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>句2</title>
     <link href="http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/"/>
     <id>http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/</id>
@@ -270,6 +270,32 @@
       <category term="摘抄" scheme="http://www.jaylee.top/tags/%E6%91%98%E6%8A%84/"/>
     
       <category term="生活" scheme="http://www.jaylee.top/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://www.jaylee.top/2019/12/10/code/hello-world/"/>
+    <id>http://www.jaylee.top/2019/12/10/code/hello-world/</id>
+    <published>2019-12-09T16:00:00.000Z</published>
+    <updated>2019-12-11T01:58:50.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+      <category term="coding" scheme="http://www.jaylee.top/categories/coding/"/>
+    
+    
+      <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
     
   </entry>
   
