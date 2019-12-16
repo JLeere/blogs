@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2019-12-16T02:16:32.391Z</updated>
+  <updated>2019-12-16T02:21:00.135Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/"/>
     <id>http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</id>
     <published>2019-12-15T05:15:00.000Z</published>
-    <updated>2019-12-16T02:16:32.391Z</updated>
+    <updated>2019-12-16T02:21:00.135Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p><h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p><h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol><li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li></ol><p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p><blockquote><p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p></blockquote><ol start="2"><li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p><blockquote><p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p></blockquote></li><li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p></li><li><p>尝试能否在UEFI系统中打开。都不能打开。</p></li><li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p></li><li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p><blockquote><p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p></blockquote></li></ol><p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p><h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol><li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li><li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li></ol><h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。<br><strong>华硕2014年笔记本：</strong><br>状态 | 参数 | 说明</p><ul><li>| :-: | :-: | :-:<br>launch CSM | enable | CSM “兼容性支持模块”,使系统兼容UEFI<br>Lauch PXE opROM | disenable | PXE 网络服务器,通过网络启动电脑,一直关闭<br>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.</li></ul><p><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>]]></content>
+    <content type="html"><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p><h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p><h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol><li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li></ol><p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p><blockquote><p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p></blockquote><ol start="2"><li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p><blockquote><p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p></blockquote></li><li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p></li><li><p>尝试能否在UEFI系统中打开。都不能打开。</p></li><li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p></li><li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p><blockquote><p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p></blockquote></li></ol><p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p><h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol><li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li><li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li></ol><h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。<br><strong>华硕2014年笔记本：</strong><br>| 状态 | 参数 | 说明 |<br>| :-: | :-: | :-: |<br>| launch CSM | enable | CSM “兼容性支持模块”,使系统兼容UEFI |<br>| Lauch PXE opROM | disenable | PXE 网络服务器,通过网络启动电脑,一直关闭 |<br>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.<br><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>]]></content>
     
     <summary type="html">
     
@@ -218,19 +218,19 @@
   </entry>
   
   <entry>
-    <title>句2</title>
-    <link href="http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/"/>
-    <id>http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/</id>
+    <title>句1</title>
+    <link href="http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/"/>
+    <id>http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</id>
     <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T11:42:17.537Z</updated>
+    <updated>2019-12-11T02:05:09.052Z</updated>
     
-    <content type="html"><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/asd.png" alt></p><p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地&lt;br&gt;我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的
+        &lt;h1 id=&quot;find-something-beutiful&quot;&gt;&lt;a href=&quot;#find-something-beutiful&quot; class=&quot;headerlink&quot; title=&quot;find something beutiful&quot;&gt;&lt;/a&gt;find something be
       
     
     </summary>
@@ -246,19 +246,19 @@
   </entry>
   
   <entry>
-    <title>句1</title>
-    <link href="http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/"/>
-    <id>http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</id>
+    <title>句2</title>
+    <link href="http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/"/>
+    <id>http://www.jaylee.top/2019/12/10/life/%E5%A5%BD%E5%8F%A5/</id>
     <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T02:05:09.052Z</updated>
+    <updated>2019-12-11T11:42:17.537Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>]]></content>
+    <content type="html"><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/life/%E5%A5%BD%E5%8F%A5/asd.png" alt></p><p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;find-something-beutiful&quot;&gt;&lt;a href=&quot;#find-something-beutiful&quot; class=&quot;headerlink&quot; title=&quot;find something beutiful&quot;&gt;&lt;/a&gt;find something be
+        &lt;p&gt;总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地&lt;br&gt;我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的
       
     
     </summary>
