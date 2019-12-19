@@ -46,20 +46,31 @@
   };
 </script>
 
-  <meta name="description" content="较好的教程 Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择&#x2F;boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。 操作： 直接在硬盘前面上分配出150G的 “未分配” 空间，再去Ubuntu划分挂载等空间，出现此问题：  问题1：提示“分配到&#x2F;">
+  <meta name="description" content="Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。 应用文献 F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building de">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统安装注意">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;15&#x2F;Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F&#x2F;Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F&#x2F;index.html">
+<meta property="og:title" content="L-Shape_Fitting2">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;index.html">
 <meta property="og:site_name" content="Lee&#39;s House">
-<meta property="og:description" content="较好的教程 Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择&#x2F;boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。 操作： 直接在硬盘前面上分配出150G的 “未分配” 空间，再去Ubuntu划分挂载等空间，出现此问题：  问题1：提示“分配到&#x2F;">
+<meta property="og:description" content="Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。 应用文献 F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building de">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-15T05:15:00.000Z">
-<meta property="article:modified_time" content="2019-12-19T04:04:38.463Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;concave.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;curve.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;f.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;%E4%BC%98%E5%8C%96.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;CTAGC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;result1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;result2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;result3.png">
+<meta property="article:published_time" content="2019-12-13T02:04:20.000Z">
+<meta property="article:modified_time" content="2019-12-19T04:04:07.329Z">
 <meta property="article:author" content="Lee Jay">
-<meta property="article:tag" content="系统安装">
+<meta property="article:tag" content="L形状拟合">
+<meta property="article:tag" content="点云">
+<meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;work&#x2F;L-Shape-Fitting2&#x2F;concave.png">
 
-<link rel="canonical" href="http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">
+<link rel="canonical" href="http://www.jaylee.top/2019/12/13/work/L-Shape-Fitting2/">
 
 
 <script id="page-configurations">
@@ -71,7 +82,7 @@
   };
 </script>
 
-  <title>Linux系统安装注意 | Lee's House</title>
+  <title>L-Shape_Fitting2 | Lee's House</title>
   
 
 
@@ -210,7 +221,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/13/work/L-Shape-Fitting2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -223,7 +234,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux系统安装注意
+          L-Shape_Fitting2
         </h1>
 
         <div class="post-meta">
@@ -233,14 +244,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-12-15 13:15:00" itemprop="dateCreated datePublished" datetime="2019-12-15T13:15:00+08:00">2019-12-15</time>
+              <time title="创建时间：2019-12-13 10:04:20" itemprop="dateCreated datePublished" datetime="2019-12-13T10:04:20+08:00">2019-12-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-19 12:04:38" itemprop="dateModified" datetime="2019-12-19T12:04:38+08:00">2019-12-19</time>
+                <time title="修改时间：2019-12-19 12:04:07" itemprop="dateModified" datetime="2019-12-19T12:04:07+08:00">2019-12-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +259,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
+                  <a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">目标检测</span>
                   </a>
                 </span>
             </span>
@@ -265,39 +276,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p>
-<h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p>
-<h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol>
-<li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li>
-</ol>
-<p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p>
-<blockquote>
-<p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p>
+        <p><em>Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。</em></p>
+<h1 id="应用文献"><a href="#应用文献" class="headerlink" title="应用文献"></a>应用文献</h1><blockquote>
+<p>F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building detection in complex sites using the lidar height variation and point density,” in International Conferenceon mage and Vision Computing New Zealand, 2013.</p>
 </blockquote>
-<ol start="2">
-<li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p>
-<blockquote>
-<p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p>
-</blockquote>
-</li>
-<li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p>
-</li>
-<li><p>尝试能否在UEFI系统中打开。都不能打开。</p>
-</li>
-<li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p>
-</li>
-<li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p>
-<blockquote>
-<p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p>
-</blockquote>
-</li>
+<p>generates a height map by using height threshold and extracts only <strong><em>parallel edges</em></strong> to fit a rectangle model.</p>
+<h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p>
+<h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol>
+<li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/work/L-Shape-Fitting2/concave.png" alt><center>concavity determination</center></li>
+<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。</li>
 </ol>
-<p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p>
-<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol>
-<li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li>
-<li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li>
+<p><img src="/2019/12/13/work/L-Shape-Fitting2/curve.png" alt><br><img src="/2019/12/13/work/L-Shape-Fitting2/f.png" alt><br><img src="/2019/12/13/work/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png" alt><br><img src="/2019/12/13/work/L-Shape-Fitting2/CTAGC.png" alt><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><ol>
+<li>NUA（normalized unoverlapped area）：未重叠的面积与真值的比</li>
+<li>角度误差</li>
+<li>计算时间</li>
 </ol>
-<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。<br><strong>华硕2014年笔记本：</strong><br>| 状态 | 参数 | 说明 |<br>| :-: | :-: | :-: |<br>| launch CSM | enable | CSM “兼容性支持模块”,使系统兼容UEFI |<br>| Lauch PXE opROM | disenable | PXE 网络服务器,通过网络启动电脑,一直关闭 |<br>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.<br><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>
+<p><img src="/2019/12/13/work/L-Shape-Fitting2/result1.png" alt><br><img src="/2019/12/13/work/L-Shape-Fitting2/result2.png" alt><br><img src="/2019/12/13/work/L-Shape-Fitting2/result3.png" alt><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>
 
     </div>
 
@@ -308,7 +303,9 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" rel="tag"><i class="fa fa-tag"></i> 系统安装</a>
+              <a href="/tags/L%E5%BD%A2%E7%8A%B6%E6%8B%9F%E5%90%88/" rel="tag"><i class="fa fa-tag"></i> L形状拟合</a>
+              <a href="/tags/%E7%82%B9%E4%BA%91/" rel="tag"><i class="fa fa-tag"></i> 点云</a>
+              <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
           </div>
 
         
@@ -317,12 +314,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/13/trips/trips/" rel="prev" title="trips">
-      <i class="fa fa-chevron-left"></i> trips
+    <a href="/2019/12/12/work/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/" rel="prev" title="顶会常关注优质文章,快乐科研">
+      <i class="fa fa-chevron-left"></i> 顶会常关注优质文章,快乐科研
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/12/16/work/L-Shape-Fitting3/L-Shape-Fitting3/" rel="next" title="L-Shape-Fitting3">
-      L-Shape-Fitting3 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/13/trips/" rel="next" title="trips">
+      trips <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -383,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><span class="nav-number">1.</span> <span class="nav-text">Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作："><span class="nav-number">2.</span> <span class="nav-text">操作：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题总结"><span class="nav-number">3.</span> <span class="nav-text">问题总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续"><span class="nav-number">4.</span> <span class="nav-text">后续</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#应用文献"><span class="nav-number">1.</span> <span class="nav-text">应用文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题提出"><span class="nav-number">2.</span> <span class="nav-text">问题提出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要贡（chui）献（bi"><span class="nav-number">3.</span> <span class="nav-text">主要贡（chui）献（bi)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果"><span class="nav-number">4.</span> <span class="nav-text">结果</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
