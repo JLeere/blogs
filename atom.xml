@@ -242,9 +242,9 @@
     <link href="http://www.jaylee.top/2019/12/13/trips/"/>
     <id>http://www.jaylee.top/2019/12/13/trips/</id>
     <published>2019-12-13T03:16:38.000Z</published>
-    <updated>2019-12-19T12:50:47.486Z</updated>
+    <updated>2019-12-23T05:31:12.056Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><strong><em>arg</em></strong> 是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li><li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/trips/1.png" alt></li><li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li><li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><strong><em>arg</em></strong> 是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li><li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/trips/1.png" alt></li><li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li><li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li><li><strong>matlab画图</strong><br> line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br> <strong>color</strong>：<br> red,’r’,[1 0 0];green,’g’,[0 1 0];blue,’b’,[0 0 1];<br> cyan,’c’,[0 1 1]; magenta,’m’,[1 0 1]; yellow,’y’,[1 1 0];<br> ‘black’,’k’,[1 1 1]</li></ol>]]></content>
     
     <summary type="html">
     
