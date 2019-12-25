@@ -232,7 +232,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-25 16:15:29 / 修改时间：16:20:01" itemprop="dateCreated datePublished" datetime="2019-12-25T16:15:29+08:00">2019-12-25</time>
+              <time title="创建时间：2019-12-25 16:15:29 / 修改时间：17:14:14" itemprop="dateCreated datePublished" datetime="2019-12-25T16:15:29+08:00">2019-12-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,6 +263,7 @@
 <li><strong><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></strong><br><img src="/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</li>
 <li><strong>分离轴定律</strong></li>
 <li><strong>射线检测</strong></li>
+<li><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></li>
 </ul>
 
       
@@ -308,7 +309,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-25 15:56:04 / 修改时间：16:33:12" itemprop="dateCreated datePublished" datetime="2019-12-25T15:56:04+08:00">2019-12-25</time>
+              <time title="创建时间：2019-12-25 15:56:04 / 修改时间：17:14:48" itemprop="dateCreated datePublished" datetime="2019-12-25T15:56:04+08:00">2019-12-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,11 +350,7 @@
 <li>输入，占据栅格图10cm检测障碍物ABB的框（绿色）</li>
 <li>“可见边界”概念提出。<br> 就是将边缘点提取出来，利用射线追踪检查得到可见边界<br> <img src="/2019/12/25/work/L-ShapeFitting4/2.png" alt>    </li>
 <li>拟合垂直线模型RANSAC<br> 将提取出来的边界点拟合直线L1，再利用RANSAC选择其余点拟合L2<br> <img src="/2019/12/25/work/L-ShapeFitting4/3.png" alt></li>
-<li>根据RANSAC的评分和未占据栅格的面积准则评估和验证最优方向<br> 在第一条线L的内部数上设置一个小的绝对阈值（= 8个像元），所以不适用于鸟瞰图小的物体。<br> 考虑只能观测到障碍物的一条边时的两种情况：<pre><code>a. 该边具有很好的方向性，如建筑物/大车一边
-解决办法：设定ransac拟合评分（即inlier的数目）阈值，大于这个阈值认为可靠度高。阈值的设定应当能够区别开车头的曲线和车辆侧方。
-b. 该边不能很好的拟合，如小车车头
-解决：当主方向线拟合的评分小于阈值，考虑次方向线的评分。若次方向依然不满足要求，则可以采取两个办法：①时间域跟踪滤波②根据拟合的框/ABB/视线方向框三者中未占据栅格的面积最小来选择最佳的主方向。
-![](4.png)</code></pre></li>
+<li>根据RANSAC的评分和未占据栅格的面积准则评估和验证最优方向<br> 在第一条线L的内部数上设置一个小的绝对阈值（= 8个像元），所以不适用于鸟瞰图小的物体。<br> 考虑只能观测到障碍物的一条边时的两种情况：<br>a. 该边具有很好的方向性，如建筑物/大车一边<pre><code>解决办法：设定ransac拟合评分（即inlier的数目）阈值，大于这个阈值认为可靠度高。阈值的设定应当能够区别开车头的曲线和车辆侧方。</code></pre>b. 该边不能很好的拟合，如小车车头<pre><code>解决：当主方向线拟合的评分小于阈值，考虑次方向线的评分。若次方向依然不满足要求，则可以采取两个办法：①时间域跟踪滤波②根据拟合的框/ABB/视线方向框三者中未占据栅格的面积最小来选择最佳的主方向。</code></pre><img src="/2019/12/25/work/L-ShapeFitting4/4.png" alt></li>
 </ol>
 <h2 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h2><p><strong>时间：</strong><br>本方法：C++2.5GHz，0.2ms.<br>Lshape: C++ 1.6ms<br><strong>方向精度：</strong><br>选择了几个场景进行评估，第一个场景手动依据点云路沿估计真值。第二个场景在直的路上采的，默认真值为0°。<br>    <img src="/2019/12/25/work/L-ShapeFitting4/5.png" alt>    <img src="/2019/12/25/work/L-ShapeFitting4/6.png" alt>    </p>
 <p>不足：<br>在近观测到车头和车尾情况下精度在4~6°，此外由于长方形拟合的局限性，对弯曲的栅栏等障碍物就不再适用。此时可以利用文献分享的西安交通大学的方法。<br><img src="/2019/12/25/work/L-ShapeFitting4/7.png" alt></p>
