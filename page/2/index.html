@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/trips/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/16/work/L-Shape-Fitting3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -221,7 +221,219 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/trips/" class="post-title-link" itemprop="url">tips收集</a>
+            <a href="/2019/12/16/work/L-Shape-Fitting3/" class="post-title-link" itemprop="url">L-Shape-Fitting3</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-16 10:37:20" itemprop="dateCreated datePublished" datetime="2019-12-16T10:37:20+08:00">2019-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-19 12:04:10" itemprop="dateModified" datetime="2019-12-19T12:04:10+08:00">2019-12-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">目标检测</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header" target="_blank" rel="noopener">链接</a></p>
+<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
+<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
+<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/work/L-Shape-Fitting3/1.gif" alt></li>
+</ol>
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/work/L-Shape-Fitting3/2.gif" alt> <img src="/2019/12/16/work/L-Shape-Fitting3/3.png" alt> <img src="/2019/12/16/work/L-Shape-Fitting3/4.png" alt> <img src="/2019/12/16/work/L-Shape-Fitting3/5.png" alt></p>
+<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/work/L-Shape-Fitting3/6.png" alt> <img src="/2019/12/16/work/L-Shape-Fitting3/7.png" alt> <img src="/2019/12/16/work/L-Shape-Fitting3/8.png" alt></p>
+<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/" class="post-title-link" itemprop="url">Linux系统安装注意</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-15 13:15:00" itemprop="dateCreated datePublished" datetime="2019-12-15T13:15:00+08:00">2019-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-25 16:26:31" itemprop="dateModified" datetime="2019-12-25T16:26:31+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">工具技能</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p>
+<h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p>
+<h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol>
+<li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li>
+</ol>
+<p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p>
+<blockquote>
+<p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p>
+</blockquote>
+<ol start="2">
+<li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p>
+<blockquote>
+<p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p>
+</blockquote>
+</li>
+<li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p>
+</li>
+<li><p>尝试能否在UEFI系统中打开。都不能打开。</p>
+</li>
+<li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p>
+</li>
+<li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p>
+<blockquote>
+<p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p>
+</blockquote>
+</li>
+</ol>
+<p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p>
+<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol>
+<li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li>
+<li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li>
+</ol>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。</p>
+<p><strong>华硕2014年笔记本：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">状态</th>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">launch CSM</td>
+<td align="center">enable</td>
+<td align="center">CSM 兼容性支持模块,使系统兼容UEFI</td>
+</tr>
+<tr>
+<td align="center">Lauch PXE opROM</td>
+<td align="center">disenable</td>
+<td align="center">PXE网络服务器,通过网络启动电脑,一直关闭</td>
+</tr>
+</tbody></table>
+<p>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.<br><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%BD%AF%E4%BB%B6trips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%BD%AF%E4%BB%B6trips/" class="post-title-link" itemprop="url">软件tips收集</a>
         </h1>
 
         <div class="post-meta">
@@ -238,7 +450,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-25 16:27:14" itemprop="dateModified" datetime="2019-12-25T16:27:14+08:00">2019-12-25</time>
+                <time title="修改时间：2019-12-27 15:36:45" itemprop="dateModified" datetime="2019-12-27T15:36:45+08:00">2019-12-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,7 +477,7 @@
       
           <ul>
 <li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
-<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/trips/1.png" alt></li>
+<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%BD%AF%E4%BB%B6trips/1.png" alt></li>
 <li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
 <li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
 <li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
@@ -1032,7 +1244,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1045,7 +1257,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1084,7 +1296,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

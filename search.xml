@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据关联</title>
+    <url>/2020/02/22/C++/dataAssociation/</url>
+    <content><![CDATA[<p>数据关联（data association)是指将多个观测值与已有的多条预测航迹关联起来。</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>数据关联</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>科普常识收集</title>
     <url>/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/</url>
     <content><![CDATA[<ul>
-<li><strong>四元素表示旋转</strong></li>
-<li><strong>PCA</strong></li>
-<li><strong><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></strong><br><img src="/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</li>
-<li><strong>分离轴定律</strong></li>
-<li><strong>射线检测</strong></li>
-<li><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></li>
+<li><p><strong>四元素表示旋转</strong></p>
+</li>
+<li><p><strong>PCA</strong></p>
+</li>
+<li><p><strong><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></strong><br><img src="/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+</li>
+<li><p><strong>分离轴定律</strong></p>
+</li>
+<li><p><strong>射线检测</strong></p>
+</li>
+<li><p><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></p>
+</li>
+<li><p><strong>先验与后验</strong><br>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
+<blockquote>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
+</blockquote>
+</li>
+<li><p><strong>参数和超参数hyper parameter</strong></p>
+</li>
+</ul>
+<ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。</li>
+</ol>
+<ul>
+<li><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">旋转坐标变换</a></strong></li>
 </ul>
 ]]></content>
       <categories>
@@ -75,7 +108,18 @@
       </tags>
   </entry>
   <entry>
-    <title>C++Learning</title>
+    <title>hashList</title>
+    <url>/2019/12/19/hashList/</url>
+    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.<span class="built_in">find</span>(target-nums[i]) != hash.<span class="built_in">end</span>())&#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;i,hash[target-nums[i]]&#125; ;              </span><br><span class="line">            &#125;</span><br><span class="line">            hash[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vector</title>
     <url>/2019/12/19/work/C-Learning/</url>
     <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">学习教材</a><br>学习要及时总结</p>
 <h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; obj(N);<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj2(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M));<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.<span class="built_in">clear</span>();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -142,6 +186,60 @@
 ]]></content>
   </entry>
   <entry>
+    <title>PCL入门</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/PCL%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
+<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.<span class="built_in">read</span>&lt;pcl::PointXYZ&gt; (<span class="string">"/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd"</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">"/home/lijie/catkin_ws/src/pcd_load/13.pcd"</span>, cloud);</span><br></pre></td></tr></table></figure>
+
+<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a href="https://blog.csdn.net/ethan_guo/article/details/80110023" target="_blank" rel="noopener"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a href="https://www.cnblogs.com/li-yao7758258/p/6651326.html" target="_blank" rel="noopener">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
+<ol>
+<li>在一个package/src中建立两个<em>.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>${PROJECT_NAME}_node</code>（即节点名）修改为你的节点名（建议与</em>.cpp一致或添加*_node）如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
+
+<p>2.在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。</p>
+<p>发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
+<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
+</li>
+<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a href="https://blog.csdn.net/HHH_go_/article/details/83148472" target="_blank" rel="noopener">SAC_RANSAC分割地面</a></p>
+<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
+<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
+<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers" target="_blank" rel="noopener">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>点云</category>
+      </categories>
+      <tags>
+        <tag>PCL</tag>
+        <tag>基本工具</tag>
+        <tag>ROS</tag>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS入门</title>
     <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>@<a href="目录">TOC</a></p>
@@ -196,60 +294,6 @@
       <tags>
         <tag>ROS</tag>
         <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PCL入门</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/PCL%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
-<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.<span class="built_in">read</span>&lt;pcl::PointXYZ&gt; (<span class="string">"/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd"</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">"/home/lijie/catkin_ws/src/pcd_load/13.pcd"</span>, cloud);</span><br></pre></td></tr></table></figure>
-
-<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a href="https://blog.csdn.net/ethan_guo/article/details/80110023" target="_blank" rel="noopener"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a href="https://www.cnblogs.com/li-yao7758258/p/6651326.html" target="_blank" rel="noopener">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
-<ol>
-<li>在一个package/src中建立两个<em>.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>${PROJECT_NAME}_node</code>（即节点名）修改为你的节点名（建议与</em>.cpp一致或添加*_node）如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
-
-<p>2.在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。</p>
-<p>发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
-<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
-</li>
-<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a href="https://blog.csdn.net/HHH_go_/article/details/83148472" target="_blank" rel="noopener">SAC_RANSAC分割地面</a></p>
-<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
-<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
-<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers" target="_blank" rel="noopener">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>点云</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
-        <tag>ROS</tag>
-        <tag>Ubuntu</tag>
-        <tag>基本工具</tag>
       </tags>
   </entry>
   <entry>
@@ -339,11 +383,11 @@
       </tags>
   </entry>
   <entry>
-    <title>tips收集</title>
-    <url>/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/trips/</url>
+    <title>软件tips收集</title>
+    <url>/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%BD%AF%E4%BB%B6trips/</url>
     <content><![CDATA[<ul>
 <li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
-<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/trips/1.png" alt></li>
+<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%BD%AF%E4%BB%B6trips/1.png" alt></li>
 <li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
 <li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
 <li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
