@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2020-03-20T14:21:15.389Z</updated>
+  <updated>2020-03-22T12:55:54.278Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>时间管理</title>
+    <link href="http://www.jaylee.top/2020/03/22/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    <id>http://www.jaylee.top/2020/03/22/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</id>
+    <published>2020-03-22T07:01:44.000Z</published>
+    <updated>2020-03-22T12:55:54.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p><blockquote><p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p></blockquote><p><a href="https://www.zhihu.com/question/21914698/answer/459907860" target="_blank" rel="noopener">https://www.zhihu.com/question/21914698/answer/459907860</a></p><ul><li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li><li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li></ul><p>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</p><h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul><li>工具：三星S9+</li><li>软件: 日历，TODO，提醒</li><li>目标：管理好daily schedule，培养好习惯</li><li>实施<br>每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;日程表和待办事项区别&quot;&gt;&lt;a href=&quot;#日程表和待办事项区别&quot; class=&quot;headerlink&quot; title=&quot;日程表和待办事项区别&quot;&gt;&lt;/a&gt;日程表和待办事项区别&lt;/h1&gt;&lt;p&gt;经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为
+      
+    
+    </summary>
+    
+    
+      <category term="生活" scheme="http://www.jaylee.top/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="时间管理" scheme="http://www.jaylee.top/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/"/>
+    
+      <category term="工具技能" scheme="http://www.jaylee.top/tags/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>matlab-Compiler</title>
@@ -549,34 +577,6 @@
     
     
       <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>句1</title>
-    <link href="http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/"/>
-    <id>http://www.jaylee.top/2019/12/10/life/%E5%8F%91%E7%8E%B0%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E7%BE%8E/</id>
-    <published>2019-12-09T16:00:00.000Z</published>
-    <updated>2019-12-11T02:05:09.052Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="find-something-beutiful"><a href="#find-something-beutiful" class="headerlink" title="find something beutiful"></a>find something beutiful</h1><p>“山有木兮木有枝，心悦君兮君不知。”<br>                    ——《越人歌》</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;find-something-beutiful&quot;&gt;&lt;a href=&quot;#find-something-beutiful&quot; class=&quot;headerlink&quot; title=&quot;find something beutiful&quot;&gt;&lt;/a&gt;find something be
-      
-    
-    </summary>
-    
-    
-      <category term="生活" scheme="http://www.jaylee.top/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="摘抄" scheme="http://www.jaylee.top/tags/%E6%91%98%E6%8A%84/"/>
-    
-      <category term="生活" scheme="http://www.jaylee.top/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
