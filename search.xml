@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>笔记管理工具为知笔记/typora</title>
+    <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
+<h2 id="ubuntu16-04工作环境优化"><a href="#ubuntu16-04工作环境优化" class="headerlink" title="ubuntu16.04工作环境优化"></a>ubuntu16.04工作环境优化</h2><p><a href="https://zhuanlan.zhihu.com/p/56253982" target="_blank" rel="noopener">习惯配置知乎</a></p>
+<ul>
+<li>窗口栏项目跟随窗口</li>
+<li>alt+tab优化Compizeconfig</li>
+<li><a href="https://www.jianshu.com/p/f8f53be35512" target="_blank" rel="noopener">Mac主题</a></li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/68921091" target="_blank" rel="noopener">软件推荐知乎</a></p>
+<ol>
+<li><strong>聊天工具</strong>：QQ/Tim/WeChat</li>
+<li><strong>影音工具：</strong>网易云/百度网盘/迅雷极速版</li>
+<li><strong>系统工具：</strong>indicator-sysmonitor，显示cpu内存网速等情况</li>
+<li><strong>文档编辑:</strong> WPS, Typora+为知笔记,</li>
+<li><strong>主题</strong>: MacOS</li>
+</ol>
+<h2 id="写作工具"><a href="#写作工具" class="headerlink" title="写作工具"></a>写作工具</h2><p><strong>Wiznote</strong>: 网络笔记本,一年60元,简洁无广告.可以写各种文档包括markdown.手机,win10,linux,web都可以用. 比OneNote方便,网速也快.我有一个网页所以好想并不需要,但是私密的东西是不能放在网页上的.100天试用,暂时还是不用这个,专注于自己的网页好啦.</p>
+<img src="/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/lee/图片/icon/76c59a5bd832a4c3f74dd3b266b665fd.jpg" alt="76c59a5bd832a4c3f74dd3b266b665fd" style="zoom:10%;">
+
+<p><strong>typora</strong>: 这个是真的理想中的md文档编辑器,不起网络服务器的功能,所以搭配上传到域名还挺好用.</p>
+<p>​    </p>
+]]></content>
+      <categories>
+        <category>工具技能学习</category>
+        <category>笔记方法</category>
+      </categories>
+      <tags>
+        <tag>笔记本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ROS/vscode调试运行</title>
     <url>/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C/</url>
     <content><![CDATA[<h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
@@ -807,8 +839,8 @@
         <category>点云处理</category>
       </categories>
       <tags>
-        <tag>PCL</tag>
         <tag>点云</tag>
+        <tag>PCL</tag>
       </tags>
   </entry>
 </search>
