@@ -826,6 +826,11 @@
       </tags>
   </entry>
   <entry>
+    <title>test</title>
+    <url>/1970/01/01/test/</url>
+    <content><![CDATA[<h1 id="saksjdnkcnxzonx"><a href="#saksjdnkcnxzonx" class="headerlink" title="saksjdnkcnxzonx"></a>saksjdnkcnxzonx</h1>]]></content>
+  </entry>
+  <entry>
     <title>点云处理优秀链接</title>
     <url>/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p>
