@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2020-06-18T15:12:49.138Z</updated>
+  <updated>2020-06-19T09:53:25.351Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>笔记管理工具为知笔记/typora</title>
+    <link href="http://www.jaylee.top/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BE%BF%E7%AD%BE/"/>
+    <id>http://www.jaylee.top/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BE%BF%E7%AD%BE/</id>
+    <published>2020-06-19T07:00:00.000Z</published>
+    <updated>2020-06-19T09:53:25.351Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p><h2 id="ubuntu16-04工作环境优化"><a href="#ubuntu16-04工作环境优化" class="headerlink" title="ubuntu16.04工作环境优化"></a>ubuntu16.04工作环境优化</h2><p><a href="https://zhuanlan.zhihu.com/p/56253982" target="_blank" rel="noopener">习惯配置知乎</a></p><ul><li>窗口栏项目跟随窗口</li><li>alt+tab优化Compizeconfig</li><li><a href="https://www.jianshu.com/p/f8f53be35512" target="_blank" rel="noopener">Mac主题</a></li></ul><p><a href="https://zhuanlan.zhihu.com/p/68921091" target="_blank" rel="noopener">软件推荐知乎</a></p><ol><li><strong>聊天工具</strong>：QQ/Tim/WeChat</li><li><strong>影音工具：</strong>网易云/百度网盘/迅雷极速版</li><li><strong>系统工具：</strong>indicator-sysmonitor，显示cpu内存网速等情况</li><li><strong>文档编辑:</strong> WPS, Typora+为知笔记,</li><li><strong>主题</strong>: MacOS</li></ol><h2 id="写作工具"><a href="#写作工具" class="headerlink" title="写作工具"></a>写作工具</h2><p><strong>Wiznote</strong>: 网络笔记本,一年60元,简洁无广告.可以写各种文档包括markdown.手机,win10,linux,web都可以用. 比OneNote方便,网速也快.我有一个网页所以好想并不需要,但是私密的东西是不能放在网页上的.100天试用,暂时还是不用这个,专注于自己的网页好啦.</p><img src="/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E4%BE%BF%E7%AD%BE/lee/图片/icon/76c59a5bd832a4c3f74dd3b266b665fd.jpg" alt="76c59a5bd832a4c3f74dd3b266b665fd" style="zoom:10%;"><p><strong>typora</strong>: 这个是真的理想中的md文档编辑器,不起网络服务器的功能,所以搭配上传到域名还挺好用.</p><p>​    </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Hexo网页文献分类&quot;&gt;&lt;a href=&quot;#Hexo网页文献分类&quot; class=&quot;headerlink&quot; title=&quot;Hexo网页文献分类&quot;&gt;&lt;/a&gt;Hexo网页文献分类&lt;/h2&gt;&lt;p&gt;-lovelife&lt;br&gt;-研究生学习笔记&lt;br&gt;-编程学习笔记&lt;br&gt;-工
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能学习" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="笔记方法" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="笔记本" scheme="http://www.jaylee.top/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>ROS/vscode调试运行</title>
@@ -340,37 +368,6 @@
   </entry>
   
   <entry>
-    <title>ROS入门</title>
-    <link href="http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS%E5%85%A5%E9%97%A8/"/>
-    <id>http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS%E5%85%A5%E9%97%A8/</id>
-    <published>2019-12-17T03:00:00.000Z</published>
-    <updated>2020-06-17T11:25:29.247Z</updated>
-    
-    <content type="html"><![CDATA[<p>官方学习文档：<a href="http://wiki.ros.org/" target="_blank" rel="noopener">http://wiki.ros.org/</a></p><h2 id="1-移动硬盘-Ubuntu-16-04系统安装"><a href="#1-移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="1.移动硬盘 Ubuntu 16.04系统安装"></a>1.移动硬盘 Ubuntu 16.04系统安装</h2><p>[见这篇文章]<a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</a></p><h2 id="2-Ubuntu-16-04"><a href="#2-Ubuntu-16-04" class="headerlink" title="2. Ubuntu 16.04"></a>2. Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p><h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p><blockquote><p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p></blockquote><h2 id="3-ROS准备"><a href="#3-ROS准备" class="headerlink" title="3. ROS准备"></a>3. ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu" target="_blank" rel="noopener">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html" target="_blank" rel="noopener">建立ROS工作空间</a></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/<span class="built_in">setup</span>.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure><p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"source my_ws/devel/setup.bash"</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure><p>可以查看系统包含的package路径</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure><h2 id="4-ROS基础知识"><a href="#4-ROS基础知识" class="headerlink" title="4. ROS基础知识"></a>4. ROS基础知识</h2><h3 id="4-1-ROS概念"><a href="#4-1-ROS概念" class="headerlink" title="4.1. ROS概念"></a>4.1. ROS概念</h3><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378" target="_blank" rel="noopener">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p><blockquote><p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5" target="_blank" rel="noopener">MOOC ROS入门视频：</a></p></blockquote><h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p><blockquote><p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p></blockquote><h3 id="4-2-ROS项目操作"><a href="#4-2-ROS项目操作" class="headerlink" title="4.2. ROS项目操作"></a>4.2. ROS项目操作</h3><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p><p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p><p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p><p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p><h4 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h4><h5 id="PCL点云库从入门到精通"><a href="#PCL点云库从入门到精通" class="headerlink" title="PCL点云库从入门到精通"></a>PCL点云库从入门到精通</h5><p>由于《PCL点云库从入门到精通》配套代码只有C++语言，不能直接用于ROS平台，遂可先在Ubuntu中编译学习。</p><ol><li>在source文件夹（含有cpp，CMake，pcd）中新建文件夹build：<code>cd source/;mkdir build/</code></li><li>编译source文件夹中的cpp代码：<code>cd build/; cmake ..</code></li><li>生成可执行文件：<code>make</code></li><li>运行可执行文件：<code>./execute_name</code></li></ol><h5 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668" target="_blank" rel="noopener">Hello world</a></h5><p><strong>流程：</strong></p><blockquote><p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p></blockquote><p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p><h3 id="4-3-CmakeList"><a href="#4-3-CmakeList" class="headerlink" title="4.3 CmakeList"></a>4.3 CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>ROS：依赖文件和环境</strong></a><br>  <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html" target="_blank" rel="noopener"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p><p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p><p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ {PCL_LIBRARY_DIRS})</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>${PCL_LIBRARIES}</code>。</p><p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;官方学习文档：&lt;a href=&quot;http://wiki.ros.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://wiki.ros.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;1-移动硬盘-Ubuntu-16-04系统安装&quot;&gt;&lt;a hre
-      
-    
-    </summary>
-    
-    
-      <category term="工具技能学习" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="ROS" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/ROS/"/>
-    
-    
-      <category term="ROS" scheme="http://www.jaylee.top/tags/ROS/"/>
-    
-      <category term="Ubuntu" scheme="http://www.jaylee.top/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PCL入门</title>
     <link href="http://www.jaylee.top/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/PCL%E5%85%A5%E9%97%A8/"/>
     <id>http://www.jaylee.top/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/PCL%E5%85%A5%E9%97%A8/</id>
@@ -401,6 +398,37 @@
       <category term="Ubuntu" scheme="http://www.jaylee.top/tags/Ubuntu/"/>
     
       <category term="PCL" scheme="http://www.jaylee.top/tags/PCL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROS入门</title>
+    <link href="http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/ROS%E5%85%A5%E9%97%A8/</id>
+    <published>2019-12-17T03:00:00.000Z</published>
+    <updated>2020-06-17T11:25:29.247Z</updated>
+    
+    <content type="html"><![CDATA[<p>官方学习文档：<a href="http://wiki.ros.org/" target="_blank" rel="noopener">http://wiki.ros.org/</a></p><h2 id="1-移动硬盘-Ubuntu-16-04系统安装"><a href="#1-移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="1.移动硬盘 Ubuntu 16.04系统安装"></a>1.移动硬盘 Ubuntu 16.04系统安装</h2><p>[见这篇文章]<a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</a></p><h2 id="2-Ubuntu-16-04"><a href="#2-Ubuntu-16-04" class="headerlink" title="2. Ubuntu 16.04"></a>2. Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p><h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p><blockquote><p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p></blockquote><h2 id="3-ROS准备"><a href="#3-ROS准备" class="headerlink" title="3. ROS准备"></a>3. ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu" target="_blank" rel="noopener">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html" target="_blank" rel="noopener">建立ROS工作空间</a></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/<span class="built_in">setup</span>.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure><p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"source my_ws/devel/setup.bash"</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure><p>可以查看系统包含的package路径</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure><h2 id="4-ROS基础知识"><a href="#4-ROS基础知识" class="headerlink" title="4. ROS基础知识"></a>4. ROS基础知识</h2><h3 id="4-1-ROS概念"><a href="#4-1-ROS概念" class="headerlink" title="4.1. ROS概念"></a>4.1. ROS概念</h3><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378" target="_blank" rel="noopener">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p><blockquote><p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5" target="_blank" rel="noopener">MOOC ROS入门视频：</a></p></blockquote><h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p><blockquote><p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p></blockquote><h3 id="4-2-ROS项目操作"><a href="#4-2-ROS项目操作" class="headerlink" title="4.2. ROS项目操作"></a>4.2. ROS项目操作</h3><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p><p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p><p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p><p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p><h4 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h4><h5 id="PCL点云库从入门到精通"><a href="#PCL点云库从入门到精通" class="headerlink" title="PCL点云库从入门到精通"></a>PCL点云库从入门到精通</h5><p>由于《PCL点云库从入门到精通》配套代码只有C++语言，不能直接用于ROS平台，遂可先在Ubuntu中编译学习。</p><ol><li>在source文件夹（含有cpp，CMake，pcd）中新建文件夹build：<code>cd source/;mkdir build/</code></li><li>编译source文件夹中的cpp代码：<code>cd build/; cmake ..</code></li><li>生成可执行文件：<code>make</code></li><li>运行可执行文件：<code>./execute_name</code></li></ol><h5 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668" target="_blank" rel="noopener">Hello world</a></h5><p><strong>流程：</strong></p><blockquote><p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p></blockquote><p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p><h3 id="4-3-CmakeList"><a href="#4-3-CmakeList" class="headerlink" title="4.3 CmakeList"></a>4.3 CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>ROS：依赖文件和环境</strong></a><br>  <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html" target="_blank" rel="noopener"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p><p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p><p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ {PCL_LIBRARY_DIRS})</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>${PCL_LIBRARIES}</code>。</p><p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;官方学习文档：&lt;a href=&quot;http://wiki.ros.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://wiki.ros.org/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-移动硬盘-Ubuntu-16-04系统安装&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能学习" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="ROS" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/ROS/"/>
+    
+    
+      <category term="ROS" scheme="http://www.jaylee.top/tags/ROS/"/>
+    
+      <category term="Ubuntu" scheme="http://www.jaylee.top/tags/Ubuntu/"/>
     
   </entry>
   
@@ -588,36 +616,6 @@
       <category term="读书笔记" scheme="http://www.jaylee.top/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
       <category term="标注工具" scheme="http://www.jaylee.top/tags/%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo撰文指南</title>
-    <link href="http://www.jaylee.top/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/"/>
-    <id>http://www.jaylee.top/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</id>
-    <published>2019-12-10T16:00:00.000Z</published>
-    <updated>2020-06-17T12:47:45.609Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a><br><a href="https://zhuanlan.zhihu.com/p/98782798" target="_blank" rel="noopener">安装nodejs</a><br>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</p><h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><p><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown基本语法链接</a><br>1.在<code>source/_posts</code>文件夹下面建立<em>.md新文档。<br>2.使用的markdown是一种程序化的写文章语言，方便放代码块，但是插图片不方便。<br>3.插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。文中引用图片时候,`![pngName](</em>.png)`<br><img src="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/test.JPG" alt="jpg"><br>4.md语言：<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></p><blockquote><p>这是引用的内容 前添加符号”&gt;”</p></blockquote><p> <strong>加粗两对*星号</strong><br><code>单行代码,一对反单引号</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">多行代码</span><br><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&amp;mid=2247483933&amp;idx=1&amp;sn=83025d4b28a2e942b6f6b03afc307e00&amp;chksm=c0745e73f703d76
-      
-    
-    </summary>
-    
-    
-      <category term="工具技能学习" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Hexo" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://www.jaylee.top/tags/Hexo/"/>
-    
-      <category term="markdown" scheme="http://www.jaylee.top/tags/markdown/"/>
     
   </entry>
   
