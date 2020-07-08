@@ -1,9 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CXX学习笔记（二）</title>
+    <url>/2020/07/08/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
+<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
+<p>初始化（动态创建）：</p>
+<p><code>m = new Intcell();</code></p>
+<p><code>m = new Intcell{};//C++11</code></p>
+<p><code>m = new Intcell;</code></p>
+<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
+<p><code>delete m</code></p>
+<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
+<li><p>给复杂的名称取别名</p>
+<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
+<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
+</li>
+<li><p>范围for循环</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免不必要的拷贝</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
+<blockquote>
+<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
+<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
+<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
+</blockquote>
+<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
+<p>传常量引用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>初始化表列：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
+
+<p>explicit构造函数，英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    	: membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
+
+<p>举例explicit的作用：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
+
+<p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
+<ul>
+<li><p>析构函数</p>
+</li>
+<li><p>复制构造函数</p>
+</li>
+<li><p>移动构造函数</p>
+</li>
+<li><p>拷贝赋值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>移动复制</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>What I Want todo</title>
+    <url>/2020/07/07/What-I-Want-todo/</url>
+    <content><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
+<li><p>C++</p>
+<ul>
+<li>ROS</li>
+<li>PCL</li>
+<li>Opencv</li>
+</ul>
+</li>
+<li><p>Python</p>
+<ul>
+<li>pytorch</li>
+</ul>
+</li>
+<li><p>点云匹配</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>lovelife</category>
+      </categories>
+      <tags>
+        <tag>todolist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV</title>
+    <url>/2020/07/07/OpenCV/</url>
+    <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p>
+<p>在步骤：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+
+<p>保存bash.bashrc时候提示不支持。</p>
+<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2>]]></content>
+      <categories>
+        <category>工具技能学习笔记</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法小知识</title>
+    <url>/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1>]]></content>
+      <categories>
+        <category>科学知识收集</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>链表</title>
     <url>/2020/06/30/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -13,8 +143,8 @@
       </tags>
   </entry>
   <entry>
-    <title>CXX学习笔记</title>
-    <url>/2020/06/28/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <title>CXX学习笔记(一)</title>
+    <url>/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
     <content><![CDATA[<h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
 <p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">rect</span>(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            <span class="built_in">width</span> = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*<span class="built_in">width</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="built_in">rect</span> B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> <span class="built_in">width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -73,6 +203,27 @@
 <p>第一个参数是函数，被隐式转换为了函数指针，</p>
 <p>第二个参数_1表示占位符，std::placeholders::__1</p>
 <p>第三个参数便是输入值double y为2</p>
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a><code>std::transform</code></h1><p><a href="http://c.biancheng.net/view/623.html" target="_blank" rel="noopener">http://c.biancheng.net/view/623.html</a></p>
+<p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
+<p>一元函数情况下包含3个参数：</p>
+<ul>
+<li>数组</li>
+<li>输出的存储数组</li>
+<li>函数/匿名函数</li>
+</ul>
+<p>二元函数情况下包括5个参数：</p>
+<ul>
+<li><p>第一个变量的数组的开始</p>
+</li>
+<li><p>第一个变量的数组的结束</p>
+</li>
+<li><p>第二个变量的数组</p>
+</li>
+<li><p>输出的保存数组</p>
+</li>
+<li><p>处理函数/匿名函数</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>C++</category>

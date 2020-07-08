@@ -48,18 +48,18 @@
 
   <meta name="description" content="类和对象友元函数this指针每个成员函数通过this指针指向自己这个对象&#x2F;类. 把搭建的类&#x2F;对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址. 往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用. 1234567891011121314151617181920clas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CXX学习笔记">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2020&#x2F;06&#x2F;28&#x2F;CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:title" content="CXX学习笔记(一)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2020&#x2F;06&#x2F;28&#x2F;%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0&#x2F;CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)&#x2F;index.html">
 <meta property="og:site_name" content="Lee&#39;s House">
 <meta property="og:description" content="类和对象友元函数this指针每个成员函数通过this指针指向自己这个对象&#x2F;类. 把搭建的类&#x2F;对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址. 往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用. 1234567891011121314151617181920clas">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-28T13:00:14.000Z">
-<meta property="article:modified_time" content="2020-06-30T11:37:45.757Z">
+<meta property="article:modified_time" content="2020-07-08T09:54:46.740Z">
 <meta property="article:author" content="Lee Jay">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://www.jaylee.top/2020/06/28/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://www.jaylee.top/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -71,7 +71,7 @@
   };
 </script>
 
-  <title>CXX学习笔记 | Lee's House</title>
+  <title>CXX学习笔记(一) | Lee's House</title>
   
 
 
@@ -210,7 +210,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -223,7 +223,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CXX学习笔记
+          CXX学习笔记(一)
         </h1>
 
         <div class="post-meta">
@@ -240,7 +240,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 19:37:45" itemprop="dateModified" datetime="2020-06-30T19:37:45+08:00">2020-06-30</time>
+                <time title="修改时间：2020-07-08 17:54:46" itemprop="dateModified" datetime="2020-07-08T17:54:46+08:00">2020-07-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,6 +323,27 @@
 <p>第一个参数是函数，被隐式转换为了函数指针，</p>
 <p>第二个参数_1表示占位符，std::placeholders::__1</p>
 <p>第三个参数便是输入值double y为2</p>
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a><code>std::transform</code></h1><p><a href="http://c.biancheng.net/view/623.html" target="_blank" rel="noopener">http://c.biancheng.net/view/623.html</a></p>
+<p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
+<p>一元函数情况下包含3个参数：</p>
+<ul>
+<li>数组</li>
+<li>输出的存储数组</li>
+<li>函数/匿名函数</li>
+</ul>
+<p>二元函数情况下包括5个参数：</p>
+<ul>
+<li><p>第一个变量的数组的开始</p>
+</li>
+<li><p>第一个变量的数组的结束</p>
+</li>
+<li><p>第二个变量的数组</p>
+</li>
+<li><p>输出的保存数组</p>
+</li>
+<li><p>处理函数/匿名函数</p>
+</li>
+</ul>
 
     </div>
 
@@ -408,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类和对象"><span class="nav-number">1.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#友元函数"><span class="nav-number">1.1.</span> <span class="nav-text">友元函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this指针"><span class="nav-number">1.2.</span> <span class="nav-text">this指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数和纯虚函数"><span class="nav-number">2.1.</span> <span class="nav-text">虚函数和纯虚函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预处理功能"><span class="nav-number">3.</span> <span class="nav-text">预处理功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义"><span class="nav-number">3.1.</span> <span class="nav-text">宏定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含"><span class="nav-number">3.2.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件编译"><span class="nav-number">3.3.</span> <span class="nav-text">条件编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-11"><span class="nav-number">4.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#default，-delete"><span class="nav-number">4.1.</span> <span class="nav-text">&#x3D;default，&#x3D;delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-lt-functional-gt"><span class="nav-number">4.2.</span> <span class="nav-text">include &lt;functional&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#std-function"><span class="nav-number">4.2.1.</span> <span class="nav-text">std::function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-bind"><span class="nav-number">4.2.2.</span> <span class="nav-text">std::bind</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#类和对象"><span class="nav-number">1.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#友元函数"><span class="nav-number">1.1.</span> <span class="nav-text">友元函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this指针"><span class="nav-number">1.2.</span> <span class="nav-text">this指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚函数和纯虚函数"><span class="nav-number">2.1.</span> <span class="nav-text">虚函数和纯虚函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预处理功能"><span class="nav-number">3.</span> <span class="nav-text">预处理功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#宏定义"><span class="nav-number">3.1.</span> <span class="nav-text">宏定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含"><span class="nav-number">3.2.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件编译"><span class="nav-number">3.3.</span> <span class="nav-text">条件编译</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-11"><span class="nav-number">4.</span> <span class="nav-text">C++11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#default，-delete"><span class="nav-number">4.1.</span> <span class="nav-text">&#x3D;default，&#x3D;delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-lt-functional-gt"><span class="nav-number">4.2.</span> <span class="nav-text">include &lt;functional&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#std-function"><span class="nav-number">4.2.1.</span> <span class="nav-text">std::function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#std-bind"><span class="nav-number">4.2.2.</span> <span class="nav-text">std::bind</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#std-transform"><span class="nav-number">5.</span> <span class="nav-text">std::transform</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -424,20 +445,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
