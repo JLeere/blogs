@@ -3,7 +3,6 @@ title: PCL入门
 date: 2019-12-17,11:00:00
 categories: 
 - 编程学习
-- C++
 - PCL
 tags:
 - ROS
@@ -14,6 +13,8 @@ tags:
 PCL在windows中配置环境十分麻烦，相反在ros中非常方便。
 **学习资料**:
 [http://pointclouds.org/documentation/tutorials/](http://pointclouds.org/documentation/tutorials/)
+
+[工作空间配置实例](https://blog.csdn.net/qq_42367689/article/details/104358046)
 
 ## [PCL：点云数据格式bin转pcd](https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox)
 注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud < T >, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令`pcl::fromROSMsg` 和 `pcl::toROSMsg`
@@ -27,7 +28,7 @@ pcl::io::loadPCDFile ("/home/lijie/catkin_ws/src/pcd_load/13.pcd", cloud);
 ## [**PCL：PCD文件拼接**](https://blog.csdn.net/ethan_guo/article/details/80110023)
 
 ## [**PCL：下采样和地面过滤**](https://blog.csdn.net/AdamShan/article/details/82901295)
-  
+
 ## [数据集的读取和滤波处理](https://www.cnblogs.com/li-yao7758258/p/6651326.html)
 
 **Q&A:**  
@@ -46,10 +47,9 @@ add_executable(pcd_pub_node  src/pcd_pub.cpp )
 target_link_libraries(pcd_pub_node ${catkin_LIBRARIES} )
 ```
 
-2.在建立数据读取和发布节点**pcd_pub.cpp**时：
-注意点云数据格式转换：`pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)`, `pcl::formROSMsg( )`,他们包含于				`pcl_conversions/pcl_conversions.h`头文件中。
+2. 在建立数据读取和发布节点**pcd_pub.cpp**时：
+   注意点云数据格式转换：`pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)`, `pcl::formROSMsg( )`,他们包含于				`pcl_conversions/pcl_conversions.h`头文件中。发布到topic中时若需要在rviz中显示，这需要fix_frame命令：
 
-发布到topic中时若需要在rviz中显示，这需要fix_frame命令：
 ```
 topic.header.frame_id="velodyne";//是后面rviz的 fixed_frame
 ```
@@ -62,7 +62,7 @@ topic.header.frame_id="velodyne";//是后面rviz的 fixed_frame
 	pcl::fromROSMsg(*cloud, *scan_ptr);
 	```
 其中`new pcl::PointCloud<pcl::PointXYZI>（scan）`用于初始化指针指向scan类所在地址，也可不申明指向对象。
-		
+	
 4. 使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。
 ```
   pcl::PassThrough<pcl::PointXYZI> pass;
@@ -94,7 +94,7 @@ Ray Ground Filter的路面过滤方法。
  ````
  for(int i = 0; i < cloud_cluster->points.size(); ++i)
       cloud_cluster->points[i].z=0; 
-````
+ ````
 ### 3.提取边界
 Q1:
 ````

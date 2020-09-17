@@ -54,7 +54,7 @@ rviz
 >variant。有4种，debug,release是其中两种。
 
 
-## 编译
+## 编译 
 vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools, 
 终端中打开vscode当前目录`code .`，会自动生成‘.vscode'文件夹,里面包含两个.json配置文件:
 >c_cpp_properties.json 主要是ROS插件生成,用于识别配置ros相关头文件等
@@ -66,7 +66,8 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
 这个文件可以帮助我们关联编译所需要的文件路径，需要添加在c_cpp_properties.json里面"compileCommond"配置中
 `"compileCommands":"${workspaceFolder}/build/compile_commands.json"`
 
-**c_cpp_properties.json**
+### **c_cpp_properties.json**
+
 ```json
 {//c_cpp_properties.json
     "configurations": [
@@ -77,12 +78,10 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
             },
             "includePath": [
                 "/opt/ros/kinetic/include/**",
-                "/home/lee/APA_ws/src/lidar_perception/include/**",
-                "/home/lee/Graduated-Time/catkin_ws/src/tutorials/include/**",
                 "/usr/include/**"
             ],
             "name": "ROS",
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu11",
             "cppStandard": "c++17",
@@ -94,9 +93,10 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
     "version": 4
 }
 ```
-**task.json**
+### **task.json**
+
 ```json
-{//task.json
+{//task.json chen
 	"version": "2.0.0",
 	"tasks": [
 		{
@@ -121,6 +121,42 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
 	]
 }
 ```
+```json
+{//task from Bilibili
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "build",
+			"command": "source /opt/ros/kinetic/setup.bash && catkin_make -DCMAKE_BUILD_TYPE=Debug",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label":"release",
+			"command":"source /opt/ros/kinetic/setup.bash && catkin_make -DCMAKE_BUILD_TYPE=Release",
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"group": "build",
+		}
+
+	]
+}
+```
+
+
+
 以上就可以和在终端中一样运行程序了。但是想要设置断点对程序进行调试debug则需要更多配置，生成debug版本的可执行程序。
 后话：实际上还是会提示找不到ros.h.是不是ws目录必须在～下？
 
@@ -128,7 +164,10 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
 >GDB调试器是调试C++代码的神器，ROS项目本质上也是一个ROS项目，因此也可以用GDB进行调试
 >在vscode里面已经继承了GDB调试器，我们需要做的就是配置launch.json文件
 
-点击左侧工具栏调试按钮，自动生成launch.json
+点击左侧工具栏调试按钮，自动生成launch.json.
+
+[B站视频链接](https://www.bilibili.com/video/BV1Ft411M7Uk)
+
 ```json
 {
     // 使用 IntelliSense 了解相关属性。 
@@ -155,8 +194,7 @@ vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "catkin_make",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "preLaunchTask": "build",//若没有修改就不需要每次都编译.也可以每次调试前先catkin_make
         }
     ]
 }
