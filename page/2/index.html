@@ -207,7 +207,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -221,7 +221,94 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Github学习笔记</a>
+            <a href="/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">CXX环境值和编译运行</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-08 20:57:06 / 修改时间：22:16:27" itemprop="dateCreated datePublished" datetime="2020-07-08T20:57:06+08:00">2020-07-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">工具技能学习笔记</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h1 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h1><h2 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h2><p>任何一个文本程序生成可执行文件的步骤都是:</p>
+<ol>
+<li>编辑器编写源代码,.cpp</li>
+<li>编译器编译代码生成目标文件,.o文件</li>
+<li>链接器链接各个目标文件,生成可执行文件,.exe</li>
+</ol>
+<p>流程如下:</p>
+<blockquote>
+<p>源文件–&gt;CmakeLists–&gt;cmake–&gt;makefiles–&gt;make–&gt;.exe可执行文件.</p>
+</blockquote>
+<p>其中gcc和g++在make阶段编译和链接文件,g++在gcc的基础上默认关联了C++库。</p>
+<h2 id="cmake一个实例"><a href="#cmake一个实例" class="headerlink" title="cmake一个实例"></a>cmake一个实例</h2><p><a href="https://www.cnblogs.com/haijian/p/12039160.html" target="_blank" rel="noopener">https://www.cnblogs.com/haijian/p/12039160.html</a></p>
+<img src="/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/lee/图片/2020-07-08 20-59-28屏幕截图.png" style="zoom:50%;">
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">CXX学习笔记（二）</a>
         </h1>
 
         <div class="post-meta">
@@ -231,14 +318,874 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-15 16:15:29" itemprop="dateCreated datePublished" datetime="2020-06-15T16:15:29+08:00">2020-06-15</time>
+              <time title="创建时间：2020-07-08 17:57:06" itemprop="dateCreated datePublished" datetime="2020-07-08T17:57:06+08:00">2020-07-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
+                <time title="修改时间：2020-09-03 13:59:29" itemprop="dateModified" datetime="2020-09-03T13:59:29+08:00">2020-09-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
+<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
+<p>初始化（动态创建）：</p>
+<p><code>m = new Intcell();</code></p>
+<p><code>m = new Intcell{};//C++11</code></p>
+<p><code>m = new Intcell;</code></p>
+<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
+<p><code>delete m</code></p>
+<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
+<li><p>给复杂的名称取别名</p>
+<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
+<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
+</li>
+<li><p>范围for循环</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免不必要的拷贝</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
+<blockquote>
+<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
+<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
+<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
+</blockquote>
+<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
+<p>传常量引用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>初始化表列：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
+
+<p>explicit构造函数，英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    	: membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
+
+<p>举例explicit的作用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
+
+<p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
+<ul>
+<li><p>析构函数</p>
+</li>
+<li><p>复制构造函数</p>
+</li>
+<li><p>移动构造函数</p>
+</li>
+<li><p>拷贝赋值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>移动复制</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/07/What-I-Want-todo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/What-I-Want-todo/" class="post-title-link" itemprop="url">What I Want todo</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 21:17:49" itemprop="dateCreated datePublished" datetime="2020-07-07T21:17:49+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-17 16:10:58" itemprop="dateModified" datetime="2020-07-17T16:10:58+08:00">2020-07-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/lovelife/" itemprop="url" rel="index">
+                    <span itemprop="name">lovelife</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
+<li>C++<ul>
+<li>ROS</li>
+<li>PCL</li>
+<li>Opencv</li>
+</ul>
+</li>
+<li>Python<ul>
+<li>pytorch</li>
+</ul>
+</li>
+<li>点云匹配</li>
+<li>CAN</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/07/OpenCV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/OpenCV/" class="post-title-link" itemprop="url">OpenCV</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-07 21:01:19" itemprop="dateCreated datePublished" datetime="2020-07-07T21:01:19+08:00">2020-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-13 16:37:13" itemprop="dateModified" datetime="2020-07-13T16:37:13+08:00">2020-07-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">工具技能学习笔记</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p>
+<p>在步骤：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
+
+<p>保存bash.bashrc时候提示不支持。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>open source computer vision library</p>
+</blockquote>
+<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
+<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/" class="post-title-link" itemprop="url">深度学习视觉算法杂碎</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-03 18:22:41" itemprop="dateCreated datePublished" datetime="2020-07-03T18:22:41+08:00">2020-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-07 11:12:23" itemprop="dateModified" datetime="2020-08-07T11:12:23+08:00">2020-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/" itemprop="url" rel="index">
+                    <span itemprop="name">算法知识收集</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;">
+
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
+<ul>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
+</ul>
+<h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p>
+<p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p>
+<h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p>
+<img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;">
+
+<p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p>
+<pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p>
+<p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p>
+<img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;">
+
+
+
+<h2 id="图像内核，filter"><a href="#图像内核，filter" class="headerlink" title="图像内核，filter"></a>图像内核，filter</h2><p>有趣的互动链接：<a href="https://setosa.io/ev/image-kernels/" target="_blank" rel="noopener">https://setosa.io/ev/image-kernels/</a></p>
+<h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>上诉的卷积操作都是线性运算，不足以模拟非线性的过程，因此对每个神经元进行激活函数的操作，使得更加复杂。</p>
+<p>常见的激活函数：</p>
+<ul>
+<li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li>
+<li>ReLU函数使用更广泛：f(x)=max{0,x}</li>
+</ul>
+<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;">
+
+<p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/30/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%93%BE%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">链表</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-30 22:15:45" itemprop="dateCreated datePublished" datetime="2020-06-30T22:15:45+08:00">2020-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-13 16:37:34" itemprop="dateModified" datetime="2020-07-13T16:37:34+08:00">2020-07-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" class="post-title-link" itemprop="url">CXX学习笔记(一)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-28 21:00:14" itemprop="dateCreated datePublished" datetime="2020-06-28T21:00:14+08:00">2020-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-08 17:54:46" itemprop="dateModified" datetime="2020-07-08T17:54:46+08:00">2020-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
+<p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">rect</span>(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            <span class="built_in">width</span> = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*<span class="built_in">width</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="built_in">rect</span> B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> <span class="built_in">width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p><code>class A : public B</code></p>
+<p>A为派生类(子类)derive, B为基类(父类)base</p>
+<p>A类公有继承B类(public), 即A类可以访问B类所有公有和保护的成员(public,protect),但不能访问B类的私有成员.</p>
+<h2 id="虚函数和纯虚函数"><a href="#虚函数和纯虚函数" class="headerlink" title="虚函数和纯虚函数"></a><a href="https://www.runoob.com/w3cnote/cpp-virtual-functions.html" target="_blank" rel="noopener">虚函数和纯虚函数</a></h2><p><strong>虚函数</strong>: 基类函数最前面添加<code>virtual</code>指令, 父类中定义了虚函数的一种实现方式,子类中可以存在与之同名同参数同返回值的成员函数,并给出不同的实现.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"A::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"B::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A *a = <span class="keyword">new</span> B();</span><br><span class="line">    a-&gt;foo();   <span class="comment">// 在这里，a虽然是指向A的指针，但是被调用的函数(foo)却是B的!因此输出显示"B::foo() is called"</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>纯虚函数</strong>: 当父类是一种抽象类,比如动物,是无法定义一个具体的对象实例的,因此不能得到其animalType. 所以定义一个纯虚函数,让子类(比如大象)自己去定义编写.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">animalType</span><span class="params">()</span> </span>= <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>作用就是规范类的接口.</p>
+<p>注意的是有纯虚函数定义的类是不能初始化实例对象的.而虚函数是必须要有定义的,否则会报错.</p>
+<h1 id="预处理功能"><a href="#预处理功能" class="headerlink" title="预处理功能"></a>预处理功能</h1><h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a><a href="https://www.cnblogs.com/challenger-vip/p/3386819.html" target="_blank" rel="noopener">条件编译</a></h2><p><code>#ifndef，#define，#endif</code></p>
+<p>ifndef: if not define. 实例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> x                 <span class="comment">//先测试x是否被宏定义过</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x</span></span><br><span class="line">   程序段<span class="number">1b</span>labla~    <span class="comment">//如果x没有被宏定义过，定义x，并编译程序段 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>   </span></span><br><span class="line">　　程序段<span class="number">2b</span>labla~　　 <span class="comment">//如果x已经定义过了则编译程序段2的语句，“忽视”程序段 1</span></span><br></pre></td></tr></table></figure>
+
+<p>主要目的是防止头文件的重复编译和包含。避免多个cpp文件都包含同一个h文件时，全局变量被重定义的错误。</p>
+<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="default，-delete"><a href="#default，-delete" class="headerlink" title="=default，=delete"></a><a href="https://www.cnblogs.com/lsgxeva/p/7787438.html" target="_blank" rel="noopener"><code>=default，=delete</code></a></h2><p>四类特殊的成员函数：构造函数、析构函数、拷贝构造函数、拷贝赋值函数。负责类的对象的创建、初始化、销毁、和拷贝。C++11 标准引入了一个新特性：”=default”函数。程序员只需在函数声明后加上“=default;”，就可将该函数声明为 “=default”函数，编译器将为显式声明的 “=default”函数自动生成函数体。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// "=default"函数既可以在类体里（inline）定义，也可以在类体外（out-of-line）定义。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X2() = <span class="keyword">default</span>; <span class="comment">//Inline defaulted 默认构造函数</span></span><br><span class="line">    X2(<span class="keyword">const</span> X&amp;);</span><br><span class="line">    X2&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;);</span><br><span class="line">    ~X2() = <span class="keyword">default</span>;  <span class="comment">//Inline defaulted 析构函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">X2::X2(<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;  <span class="comment">//Out-of-line defaulted 拷贝构造函数</span></span><br><span class="line">X2&amp; X2::<span class="keyword">operator</span>= (<span class="keyword">const</span> X2&amp;) = <span class="keyword">default</span>;   <span class="comment">//Out-of-line defaulted  拷贝赋值操作符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为了能够让程序员显式的禁用某个函数，C++11 标准引入了一个新特性："=delete"函数。程序员只需在函数声明后上“=delete;”，就可将该函数禁用。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X3();</span><br><span class="line">    X3(<span class="keyword">const</span> X3&amp;) = <span class="keyword">delete</span>;  <span class="comment">// 声明拷贝构造函数为 deleted 函数</span></span><br><span class="line">    X3&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X3 &amp;) = <span class="keyword">delete</span>; <span class="comment">// 声明拷贝赋值操作符为 deleted 函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="include-lt-functional-gt"><a href="#include-lt-functional-gt" class="headerlink" title="include &lt;functional&gt;"></a><code>include &lt;functional&gt;</code></h2><p><a href="https://www.jianshu.com/p/f191e88dcc80" target="_blank" rel="noopener">链接一</a></p>
+<p><a href="https://blog.csdn.net/shuilan0066/article/details/82788954" target="_blank" rel="noopener">链接二</a></p>
+<h3 id="std-function"><a href="#std-function" class="headerlink" title="std::function"></a>std::function</h3><blockquote>
+<ul>
+<li><p>std::function 是一个可调用对象包装器，是一个类模板，可以容纳除了类成员函数指针之外的所有可调用对象，它可以用统一的方式处理函数、函数对象、函数指针，并允许保存和延迟它们的执行。</p>
+</li>
+<li><p>定义格式：std::function&lt;函数类型&gt;。</p>
+</li>
+<li><p>std::function可以取代函数指针的作用，因为它可以延迟函数的执行，特别适合作为回调函数使用。它比普通函数指针更加的灵活和便利。</p>
+</li>
+</ul>
+</blockquote>
+<p>可以理解为类似std::string, std::vector<int>, 只是它是一个模板需要传入某一个函数，因此需要说明&lt;返回值(输入参数)&gt;，如下：</int></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>,<span class="keyword">int</span>)&gt; f = functionname();</span><br></pre></td></tr></table></figure>
+
+<p>对于类成员函数的替代如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class">	<span class="title">static</span> <span class="title">T</span> <span class="title">AddT</span>(<span class="title">T</span> <span class="title">i</span>, <span class="title">T</span> <span class="title">j</span>)</span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">AddN</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//存储对成员函数的调用 </span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//1、 类静态函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; f = &amp;Computer::Add;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; f(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//2、 类静态模板函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; ft = &amp;Computer::AddT&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ft(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="comment">//普通函数绑定  需要构造类对象</span></span><br><span class="line">	Computer c;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//3、 普通函数 需使用bind,将类对象地址 &amp;c 绑定上</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN = <span class="built_in">std</span>::bind(&amp;Computer::AddN, &amp;c, placeholders::_1, placeholders::_2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="comment">//4、普通函数， 也可以这样调用  个人觉得这个比 bind 麻烦，不建议</span></span><br><span class="line">	<span class="built_in">std</span>::function &lt;<span class="keyword">int</span>(<span class="keyword">const</span> Computer ＆, <span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN2 = &amp;Computer::AddN;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN2(c,<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><p>参见链接二。</p>
+<blockquote>
+<p>std::bind将可调用对象与其参数一起进行绑定，绑定后的结果可以使用std::function保存。std::bind主要有以下两个作用：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>将可调用对象和其参数绑定成一个防函数；</li>
+<li>只绑定部分参数，减少可调用对象传入的参数。</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">my_divide</span> <span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;<span class="keyword">return</span> x/y;&#125;</span><br><span class="line"><span class="keyword">auto</span> fn_half = <span class="built_in">std</span>::bind (my_divide,_1,<span class="number">2</span>);  </span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; fn_half(<span class="number">10</span>) &lt;&lt; <span class="string">'\n'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数是函数，被隐式转换为了函数指针，</p>
+<p>第二个参数_1表示占位符，std::placeholders::__1</p>
+<p>第三个参数便是输入值double y为2</p>
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a><code>std::transform</code></h1><p><a href="http://c.biancheng.net/view/623.html" target="_blank" rel="noopener">http://c.biancheng.net/view/623.html</a></p>
+<p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
+<p>一元函数情况下包含3个参数：</p>
+<ul>
+<li>数组</li>
+<li>输出的存储数组</li>
+<li>函数/匿名函数</li>
+</ul>
+<p>二元函数情况下包括5个参数：</p>
+<ul>
+<li><p>第一个变量的数组的开始</p>
+</li>
+<li><p>第一个变量的数组的结束</p>
+</li>
+<li><p>第二个变量的数组</p>
+</li>
+<li><p>输出的保存数组</p>
+</li>
+<li><p>处理函数/匿名函数</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/loveLife/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/loveLife/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/" class="post-title-link" itemprop="url">0712旅游计划</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-28 19:39:39" itemprop="dateCreated datePublished" datetime="2020-06-28T19:39:39+08:00">2020-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-10 15:50:01" itemprop="dateModified" datetime="2020-07-10T15:50:01+08:00">2020-07-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E6%97%85%E6%B8%B8/" itemprop="url" rel="index">
+                    <span itemprop="name">旅游</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="目的地"><a href="#目的地" class="headerlink" title="目的地"></a>目的地</h1><ol>
+<li>上海:(1天)<ul>
+<li>学校(可能进不来)</li>
+<li>外滩豫园东方明珠</li>
+</ul>
+</li>
+<li>苏州:(1天)<ul>
+<li>拙政园林</li>
+<li>古街</li>
+</ul>
+</li>
+<li>南京(1天)<ul>
+<li>中山陵</li>
+</ul>
+</li>
+<li>杭州(2天)<ul>
+<li>西湖</li>
+<li>千岛湖</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/0628%E6%B3%8A%E8%BD%A6%E6%A1%86%E6%9E%B6_%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/0628%E6%B3%8A%E8%BD%A6%E6%A1%86%E6%9E%B6_%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">20200628问题记录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-28 14:22:12 / 修改时间：20:58:33" itemprop="dateCreated datePublished" datetime="2020-06-28T14:22:12+08:00">2020-06-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Q-A/" itemprop="url" rel="index">
+                    <span itemprop="name">Q&A</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h3><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
+<p>??为什么要添加这个??</p>
+<h2 id="4-this-指针"><a href="#4-this-指针" class="headerlink" title="4. this 指针"></a>4. this 指针</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-PCL点云数据结构"><a href="#5-PCL点云数据结构" class="headerlink" title="5.PCL点云数据结构"></a>5.PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li><p>width(int),每一束激光扫描的点数</p>
+</li>
+<li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p>
+</li>
+<li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ol>
+<li><p>PointXYZ</p>
+<p>结构: <code>float x,y,z</code> </p>
+<p>用cloud.points[i].x访问</p>
+</li>
+<li><p>PointXYZI</p>
+<p>结构:<code>float x,y,z,Indensity;</code></p>
+<p>用cloud.points[i].Data[4]访问强度</p>
+</li>
+<li><p>PointXYZRGB</p>
+<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">笔记管理工具为知笔记/typora</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-19 15:00:00" itemprop="dateCreated datePublished" datetime="2020-06-19T15:00:00+08:00">2020-06-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-20 11:34:19" itemprop="dateModified" datetime="2020-06-20T11:34:19+08:00">2020-06-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,8 +1199,8 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/Github/" itemprop="url" rel="index">
-                    <span itemprop="name">Github</span>
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记方法</span>
                   </a>
                 </span>
             </span>
@@ -269,889 +1216,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h2><p><a href="https://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">教程</a></p>
-<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><ul>
-<li>克隆 Git 资源作为工作目录。</li>
-<li>在克隆的资源上添加或修改文件。</li>
-<li>如果其他人修改了，你可以更新资源。</li>
-<li>在提交前查看修改。</li>
-<li>提交修改。</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ul>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
-<li>工作区:当前电脑下的工作目录空间</li>
-<li>暂存区index:.git文件夹中,保存目录文件的索引</li>
-<li>版本库: 远端存储的工作空间<br><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
-</ol>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：<br><code>$ git clone git://github.com/schacon/grit.git mygrit</code></p>
-<h3 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h3><p>git add. //add all files of workspace工作区 to stage暂存区<br>git commit -m “add files” // 将暂存区的文档commit到本地的master，并记录此次commit消息的名称为“add files”<br>git push //将本地master的文档push到Github的master上保存实现同步<br>git status<br>git log –oneline //查看历史记录简洁信息<br>git commit -am “修改…” //跳过git add步骤</p>
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p>git branch newbranchname<br>git branch //查看分支<br>git checkout branchname //切换到分支<br>git checkout -b newbranchname<br>git merge branchname //合并分支到master<br>git branch -d (name)</p>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了" target="_blank" rel="noopener">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:git@github.com">git@github.com</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3" target="_blank" rel="noopener">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:email@example.com">email@example.com</a>“</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">C++ 知识点</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 19:23:42" itemprop="dateModified" datetime="2020-06-30T19:23:42+08:00">2020-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++ 知识点</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-30 22:15:05" itemprop="dateModified" datetime="2020-06-30T22:15:05+08:00">2020-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="申明和定义"><a href="#申明和定义" class="headerlink" title="申明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">申明和定义</a></h1><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h1><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h1><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="tf变换"><a href="#tf变换" class="headerlink" title="tf变换?"></a>tf变换?</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Matlab小知识记录</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-23 13:24:30" itemprop="dateCreated datePublished" datetime="2020-03-23T13:24:30+08:00">2020-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
-<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
-<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
-<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
-</ol>
-<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
-<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
-<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
-<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
-<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列</code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
-<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
-</blockquote>
-</li>
-<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png" alt></li>
-<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
-<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
-</ol>
-<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
-<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/22/loveLife/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/22/loveLife/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">时间管理</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/loveLife/" itemprop="url" rel="index">
-                    <span itemprop="name">loveLife</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
-<blockquote>
-<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
-</blockquote>
-<p><a href="https://www.zhihu.com/question/21914698/answer/459907860" target="_blank" rel="noopener">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
+          <h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
+<h2 id="ubuntu16-04工作环境优化"><a href="#ubuntu16-04工作环境优化" class="headerlink" title="ubuntu16.04工作环境优化"></a>ubuntu16.04工作环境优化</h2><p><a href="https://zhuanlan.zhihu.com/p/56253982" target="_blank" rel="noopener">习惯配置知乎</a></p>
 <ul>
-<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
-<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
-<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
+<li>窗口栏项目跟随窗口</li>
+<li>alt+tab优化Compizeconfig</li>
+<li><a href="https://www.jianshu.com/p/f8f53be35512" target="_blank" rel="noopener">Mac主题</a></li>
 </ul>
-<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
-<li>工具：三星S9+</li>
-<li>软件: 日历，TODO，提醒</li>
-<li>目标：管理好daily schedule，培养好习惯</li>
-<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/matlab-Compiler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/matlab-Compiler/" class="post-title-link" itemprop="url">matlab-Compiler</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-20 22:08:40" itemprop="dateCreated datePublished" datetime="2020-03-20T22:08:40+08:00">2020-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用simulink或者coder常常需要C++的编译器，经常因为版本等问题报错。</p>
-<h1 id="matlab不同模块需要的编译器版本"><a href="#matlab不同模块需要的编译器版本" class="headerlink" title="matlab不同模块需要的编译器版本"></a>matlab不同模块需要的编译器版本</h1><p> <a href="https://ww2.mathworks.cn/support/requirements/previous-releases.html" target="_blank" rel="noopener">https://ww2.mathworks.cn/support/requirements/previous-releases.html</a><br> vc2012版本真的很低了，建议MINGW</p>
-<h1 id="MINGW安装配置"><a href="#MINGW安装配置" class="headerlink" title="MINGW安装配置"></a>MINGW安装配置</h1><ol>
-<li><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/6.3.0/" target="_blank" rel="noopener">MINGW官网下载6.3版本</a></li>
-<li>下载安装教程 <a href="https://tieba.baidu.com/p/5487544851?pv=1" target="_blank" rel="noopener">https://tieba.baidu.com/p/5487544851?pv=1</a><br>下载好了直接解压即可</li>
-<li>注意不要把路径安装在带有中文字符和空格的文件夹下，尤其是<strong>program files</strong></li>
-<li>环境变量：系统变量path中添加mingw路径（这是在电脑中添加C环境）；<br> 新建系统变量：MW_MINGW64_LOC，C:\MinGW<br> <code>setenv(&#39;MW_MINGW64_LOC&#39;,&#39;C:\mingw64\bin&#39;)</code> 这个好像就是matlab命令行中添加环境变量</li>
-<li>在matlab命令行中： <code>mex -setup</code> 查看编译器</li>
+<p><a href="https://zhuanlan.zhihu.com/p/68921091" target="_blank" rel="noopener">软件推荐知乎</a></p>
+<p><a href="https://github.com/wszqkzqk/deepin-wine-ubuntu" target="_blank" rel="noopener">deepin-wine安装软件Github</a></p>
+<ol>
+<li><strong>聊天工具</strong>：QQ/Tim/WeChat</li>
+<li><strong>影音工具：</strong>网易云/百度网盘/迅雷极速版</li>
+<li><strong>系统工具：</strong>indicator-sysmonitor，显示cpu内存网速等情况</li>
+<li><strong>文档编辑:</strong> WPS, Typora+为知笔记,</li>
+<li><strong>主题</strong>: MacOS</li>
 </ol>
+<h2 id="写作工具"><a href="#写作工具" class="headerlink" title="写作工具"></a>写作工具</h2><p><strong>Wiznote</strong>: 网络笔记本,一年60元,简洁无广告.可以写各种文档包括markdown.手机,win10,linux,web都可以用. 比OneNote方便,网速也快.我有一个网页所以好想并不需要,但是私密的东西是不能放在网页上的.100天试用,暂时还是不用这个,专注于自己的网页好啦.</p>
+<img src="/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/lee/图片/icon/76c59a5bd832a4c3f74dd3b266b665fd.jpg" alt="76c59a5bd832a4c3f74dd3b266b665fd" style="zoom:10%;">
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/" class="post-title-link" itemprop="url">科普常识收集</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 16:15:29" itemprop="dateCreated datePublished" datetime="2019-12-25T16:15:29+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-29 16:05:09" itemprop="dateModified" datetime="2020-06-29T16:05:09+08:00">2020-06-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A7%91%E5%AD%A6%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/" itemprop="url" rel="index">
-                    <span itemprop="name">科学知识收集</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml" target="_blank" rel="noopener">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">数字规律</a></p>
-<h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><blockquote>
-<p>open source computer vision library</p>
-</blockquote>
-<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/" class="post-title-link" itemprop="url">L-ShapeFitting4</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 15:56:04" itemprop="dateCreated datePublished" datetime="2019-12-25T15:56:04+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生学习笔记</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86/" itemprop="url" rel="index">
-                    <span itemprop="name">点云处理</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP"><a href="#A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP" class="headerlink" title="A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP"></a><a href="https://ieeexplore.ieee.org/abstract/document/8516642" target="_blank" rel="noopener">A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP</a></h1><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>“最近，作为普通的1、2、4层和昂贵的64层激光雷达之间的中间解决方案，引入了16层或32层激光雷达传感器。”</p>
-</blockquote>
-<blockquote>
-<p>D. Kim et al., “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, pp. 598-612, 2018.<br>依赖线束结构顺序L形状拟合，但是跟踪部分值得看“Tracking is further employed to smooth the results and to estimate dynamic features. ”<br>The rectangle fit is preferred if available. Tracking is then used for temporal filtering and smoothing.</p>
-</blockquote>
-<blockquote>
-<p>X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.<br>群集中的每个点都被视为枢轴（两条线的公共点），并且找到了最佳的一对线。<br>将要提出的方法不需要点的原始扫描顺序，也不需要分别为计算方向而对每个激光雷达层进行处理。因此，这是一种更通用的方法，适用于多层激光雷达</p>
-</blockquote>
-<h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ol>
-<li>低复杂度</li>
-<li>RANSAC拟合到直角模型</li>
-<li>占据面积准则选择最佳方向<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/1.png" alt></li>
-<li>输入，占据栅格图10cm检测障碍物ABB的框（绿色）</li>
-<li>“可见边界”概念提出。<br> 就是将边缘点提取出来，利用射线追踪检查得到可见边界<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/2.png" alt>    </li>
-<li>拟合垂直线模型RANSAC<br> 将提取出来的边界点拟合直线L1，再利用RANSAC选择其余点拟合L2<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/3.png" alt></li>
-<li>根据RANSAC的评分和未占据栅格的面积准则评估和验证最优方向<br> 在第一条线L的内部数上设置一个小的绝对阈值（= 8个像元），所以不适用于鸟瞰图小的物体。<br> 考虑只能观测到障碍物的一条边时的两种情况：<br>a. 该边具有很好的方向性，如建筑物/大车一边<pre><code>解决办法：设定ransac拟合评分（即inlier的数目）阈值，大于这个阈值认为可靠度高。阈值的设定应当能够区别开车头的曲线和车辆侧方。</code></pre>b. 该边不能很好的拟合，如小车车头<pre><code>解决：当主方向线拟合的评分小于阈值，考虑次方向线的评分。若次方向依然不满足要求，则可以采取两个办法：①时间域跟踪滤波②根据拟合的框/ABB/视线方向框三者中未占据栅格的面积最小来选择最佳的主方向。</code></pre><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/4.png" alt></li>
-</ol>
-<h2 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h2><p><strong>时间：</strong><br>本方法：C++2.5GHz，0.2ms.<br>Lshape: C++ 1.6ms<br><strong>方向精度：</strong><br>选择了几个场景进行评估，第一个场景手动依据点云路沿估计真值。第二个场景在直的路上采的，默认真值为0°。<br>    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/5.png" alt>    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/6.png" alt>    </p>
-<p>不足：<br>在近观测到车头和车尾情况下精度在4~6°，此外由于长方形拟合的局限性，对弯曲的栅栏等障碍物就不再适用。此时可以利用文献分享的西安交通大学的方法。<br><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/L-ShapeFitting4/7.png" alt></p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><pre><code>1. 占据栅格？or点云？--&gt;精度？or实时性？
-2. 仅栅格聚类？or栅格拟合？
-3. 这篇文章同我目前的预研究最为贴切，值得深思
-4. 所有场景配备视频资料，很信服。
-5. 利用跟踪进行部分误差修正。</code></pre><h1 id="An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints"><a href="#An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints" class="headerlink" title="An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints"></a><a href="https://ieeexplore.ieee.org/abstract/document/8500692/authors#authors" target="_blank" rel="noopener">An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints</a></h1><h2 id="摘抄-1"><a href="#摘抄-1" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>基于点云的MODT问题经典处理思路是：<br>    1. 地面和障碍物分离<br>    2. 不同障碍物分割成类<br>    3. 簇拟合形状获取尺寸和位置信息<br>    4. 状态估计滤波器<br>Lshape的相关工作总结的挺好</p>
-</blockquote>
-<blockquote>
-<p>P. Kmiotek and Y. Ruichek, “Representing and Tracking of Dynamics<br>Objects using Oriented Bounding Box and Extended Kalman Filter,”<br>in Proc. IEEE Intelligent Transportation Syst. Conf. (ITSC), 2008</p>
-</blockquote>
-<h2 id="主要贡献："><a href="#主要贡献：" class="headerlink" title="主要贡献："></a>主要贡献：</h2><ol>
-<li>foucus on runtime</li>
-<li>从凸包方法得到的点云加上旋转框（rotating calipers）得到初步的最小面积矩形。然后用了几种方法去做修正。<br>数学公式有点多解释又不清晰，感觉原理应该不难，就是故意整一堆数学模型复杂化又不说清楚。不想看了。</li>
-</ol>
-<h1 id="Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder"><a href="#Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder" class="headerlink" title="Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder"></a><a href="https://ieeexplore.ieee.org/document/1706758?arnumber=1706758&tag=1" target="_blank" rel="noopener">Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder</a></h1><h2 id="摘抄-2"><a href="#摘抄-2" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>跟踪的主要步骤是：分割，特征提取，数据关联，卡尔曼滤波和跟踪验证<br>“在 [16] 中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在 [16] 中同时进行了线拟合和直角角拟合，只有当角拟合明显好于线拟合时，才选择角拟合。”</p>
-</blockquote>
-<blockquote>
-<p>试拟合后，最差的20％的点将被丢弃。我们还对密集采样的区域（由于距离扫描仪较近）减轻了点的权重。<br>The scanner can see at most two sides of the rectangle,<br>尝试将对象中心用作参考点被证明是徒劳的，因为很少能直接测量中心。</p>
-</blockquote>
-<h2 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h2><p>提到一些用于跟踪的卡尔曼滤波的方法值得参考：<br>    1. 用跟踪解决雷达稀疏效应造成的过分割和无效点，以及近处遮挡造成的分块<br>    2. 将噪声分成两部分：静态噪声和自适应噪声，分别由于硬件限制和分割拟合算法造成。<strong>其中自适应噪声用了前15次测量的预测值和观测值之间的残差的协方差矩阵作为噪音矩阵，再加上静态噪声的倍数确保下限。</strong>每次误差中心偏离零值过多再利用观测值重置。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/19/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Vector/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Vector/" class="post-title-link" itemprop="url">Vector</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 12:03:48" itemprop="dateCreated datePublished" datetime="2019-12-19T12:03:48+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">学习教材</a><br>学习要及时总结</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">vector</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; obj(N);<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj2(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M));<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.<span class="built_in">clear</span>();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/19/loveLife/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/loveLife/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/" class="post-title-link" itemprop="url">遇见百分百女孩</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T11:00:00+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-19 23:13:02" itemprop="dateModified" datetime="2020-06-19T23:13:02+08:00">2020-06-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/loveLife/" itemprop="url" rel="index">
-                    <span itemprop="name">loveLife</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/2019/12/19/loveLife/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9.jpg" alt="遇见百分百女孩"></p>
-<p>四月一个晴朗的早晨，在原宿后街，我同一个百分百女孩擦肩而过。</p>
-<p>老实说，这女孩不见得有多漂亮，并不是很吸引人，穿着也不出众，脑后的头发还带有睡觉挤压的痕迹，年龄也不小了，应该快有30吧–严格地说来，恐怕很难称之为女孩。然而,在50米外我便一眼看出：她就是我的百分百女孩。看见她身影的那一瞬间，我的胸口受到地震一般的震颤，嘴里干得象沙沙作响的沙漠。</p>
-<p>或许你也有你的百分百女孩。比如喜欢手脚纤细的女孩，喜欢眼睛大，手指绝对好看的女孩，或者不明所以地迷上慢慢吃东西的女孩。我当然也有自己的偏爱，在饭店时就曾看着邻桌一个女孩的鼻形发呆。但要明确勾勒出百分百女孩的形象，任何人都无法做到。我就绝对想不起她长有怎样的鼻子，甚至连是否有鼻子都已记不清楚。现在我所能记住的，只有她不是很漂亮这一点，事情真是不可思议。</p>
-<p>“昨天，我在路上同一个百分百女孩擦肩而过。”我对一个人说。<br>“喔，”他应道，“她人可漂亮？”<br>“不，不是说这个。”<br>“那，是合你口味那种类型喽？”<br>“记不清了。眼睛长什么样啦，胸部是大是小啦，统统忘得一干二净。”<br>“莫名其妙啊！”<br>“是莫名其妙。”<br>“那么，”他显得兴味索然，“你干了什么？搭话了？还是跟踪了？”<br>“什么都没有做。”我说，“仅仅是擦肩而过。”</p>
-<p>真的，仅仅是擦肩而过。<br>她由东往西，我从西向东，在四月里一个神清气爽的早晨。<br>我想和她说话，哪怕30分钟也好。我想知道她的一切，也想全盘托出自己。最重要的，是弄清到底是什么原因使我们有这样的命运，让我们在1981年4月一个晴朗的早晨，在原宿后街擦肩而过，这里面肯定充满着像和平时代的古老机器般温馨的秘密。说完了这些，我们可以找地方吃午饭，看伍迪.爱伦的影片，再顺路到宾馆里的酒吧喝点鸡尾酒什么的。弄得好，说不定还能同她睡上一觉。种种可能性在扣击着我的心扉。</p>
-<p>我和她之间的距离只有十五六米了。问题是，我到底该如何向她搭话呢？</p>
-<p>“你好！和我说说话可以吗？哪怕３０分钟也好。”<br>太傻气，简直象劝人买保险。<br>“请问，这一带有２４小时营业的洗衣店吗？”<br>一样的傻气，何况我连洗衣袋都没带！有谁能相信我的道白呢？<br>也许开门见山好些。“你好！你可是我的百分百女孩哟！”<br>不，不成，她不会相信我的表白。纵然相信，也未必愿意同我说话。她可能这样说：“即便我是你的百分百女孩，可是很抱歉，你不是我的百分百男孩呀。”这是很有可能的。假如真是这样，我肯定会被一下子打懵。这一打击说不定使我一蹶不振。我已３２岁，再也禁不起打击了，所谓上年纪归根结底便是这么一回事。我是在花店门前和她擦肩而过的，那暖暖的小小的气块儿触到了我的肌肤。柏油路面洒了水，周围荡漾着玫瑰花香。可我连向她打声招呼都做不到。她穿白毛衣，右手拿一个未贴邮票的四方信封。她给写了封信，你看她那样睡眼惺忪，说不定写了整整一个晚上。那四方信封里可能装有她全部的秘密。</p>
-<p>走几步再回头时，她的身影早已消失在人群中。当然，今天我已完全清楚当时应怎样向她搭话。但不管怎么说，那道白实在太长，我肯定表达不好――就是这样，我想到的每次都不实用。<br>总之，这篇道白以“很久很久以前”开始，以“你不觉得这是个忧伤的故事吗”结束。<br>很久很久以前，有个地方有一个男孩和一个女孩。男孩十八岁，女孩十七岁。<br>男孩算不上英俊，女孩也不怎么漂亮，无非随处可见的孤独而平常的少男少女。但两人一直坚信世上某个地方一定存在百分之百适合自己的女孩和男孩。两人相信奇迹，而奇迹真的发生了。一天，两人在街头不期而遇。<br>“真巧！我一直在寻找你。也许你不相信，你就是我的百分百男孩。从头到脚都跟我想象的一模一样。简直像是在做梦。”两人坐在公园长椅上，手拉手，百谈不厌。两人已不再孤独，百分之百需求对方，也百分之百被对方需求。而百分之百需求对方和百分之百被对方需求是何等美妙的事情啊！这已是宇宙奇迹！</p>
-<p>但两人心中掠过一个小小的，的确是小而又小的疑虑：梦想如此轻易成真是否真的就是好事？</p>
-<p>交谈突然中断，男孩这样说道：“我说，再尝试一次吧！如果我们两人真是一对百分之百的恋人的话，肯定会有一天在哪里重逢。下次相遇时如果仍觉得对方百分之百，就马上在那里结婚，好么？</p>
-<p>“好的。” 女孩回答。<br>于是两人分开，各奔东西。<br>不过说实在话，根本没有必要再尝试，这纯属多此一举。为什么呢？因为两人的的确确是一对百分之百的恋人，因为那的的确确是奇迹般的邂逅。但两人过于年轻，没办法知道这么多。于是无情的命运开始捉弄两人。</p>
-<p>一年冬天，两人都染上了那年肆虐的恶性流感，在死亡线上徘徊几个星期后，过去的记忆丧失殆尽。事情也真是离奇，当两人睁眼醒来时，脑袋里犹如劳伦斯少年时代的贮币盒一样空空如也。但这对青年男女毕竟聪明豁达且极有毅力，经过不懈努力，终于再度获得了新的知识和新的情感，愉快地重返社会生活了。啊，我的上帝！这两人真是无可挑剔！他们又能够换乘地铁，能够在邮局寄快信了。并且分别体验了百分之七十五和百分之八十五的爱情。</p>
-<p>如此来来往往，男孩32，女孩31岁了。时光以惊人的速度流逝。</p>
-<p>四月一个晴朗的早晨，男孩为喝折价早咖啡沿原宿后街由西向东走，女孩为买快信邮票沿同一条街由东向西去，两人恰在路中间擦肩而过。失却记忆的微光刹那间照亮两颗心灵。</p>
-<p>两人胸口陡然颤动，并且明白：<br>她就是我的百分百女孩。<br>他就是我的百分百男孩。</p>
-<p>然而两人记忆的烛光实在过于微弱，两人的话语也不似十四年前那般清晰。结果连句话也没说便擦肩而过，径直消失在人群中，永远永远。<br>你不觉得这是个令人感伤的故事么？</p>
-<p>是的，我本该这样向她搭话。</p>
+<p><strong>typora</strong>: 这个是真的理想中的md文档编辑器,不起网络服务器的功能,所以搭配上传到域名还挺好用.</p>
+<p>​    </p>
 
       
     </div>
@@ -1171,7 +1256,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1239,20 +1324,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
