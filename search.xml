@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>字符串</title>
+    <url>/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="字符数组Char"><a href="#字符数组Char" class="headerlink" title="字符数组Char"></a>字符数组Char</h2><p>初始化：<code>char s[8] = &quot;China&quot;</code>最后一位以<code>‘/0’</code>保存结束标记符。</p>
+<p>输入：<code>cin&gt;&gt;s</code>, 空格/Tab/回车都是输入字符串的结束符；<code>gets(s)</code>, 只有回车才结束. 自动补全’\0’. </p>
+<p>输出: <code>cout&lt;&lt;s</code>, <code>puts(s)</code></p>
+<p>赋值: <code>strcpy(s,&quot;China&quot;)</code></p>
+<p>头文件: <code>#include &quot;stdio.h&quot;</code>包含了上述gets/puts函数;</p>
+<p>​            <code>&quot;string.h&quot;</code>包含了字符串处理函数. <code>strlen(s);strcmp(s1,s2);strcpy(s,&quot;china&quot;)</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s2[<span class="number">100</span>];</span><br><span class="line">    gets(s2);</span><br><span class="line">    <span class="built_in">puts</span>(s2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="标准库–字符串string"><a href="#标准库–字符串string" class="headerlink" title="标准库–字符串string"></a>标准库–字符串string</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">string</span> s1 = <span class="string">"china"</span>;		<span class="comment">// 初始化,赋值构造函数</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(<span class="string">"China"</span>)</span></span>;		<span class="comment">// 直接构造函数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s)&#123;		<span class="comment">// 输入,以空格/tab/回车为结束符</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>,s))	<span class="comment">//输入, getline函数相当于符号"&gt;&gt;",参数为数据流cin,和保存的字符串变量</span></span><br><span class="line">        <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//非空才输出s</span></span><br><span class="line">    s1 = s1+<span class="string">"NO1"</span>;</span><br><span class="line">    s2 = s1 + s2 ;			<span class="comment">//字符串连接</span></span><br><span class="line">    <span class="keyword">int</span> l = s.<span class="built_in">size</span>();		<span class="comment">//返回长度</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isalnum</span>(ch))&#123;</span><br><span class="line">                s2 += <span class="built_in">tolower</span>(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left ++;</span><br><span class="line">            right --;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LiDAR_Perception</title>
+    <url>/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/LiDAR-Perception/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>研究生学习笔记</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>递归</title>
     <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
@@ -15,20 +53,65 @@
       </tags>
   </entry>
   <entry>
-    <title>C++基础巩固</title>
+    <title>C++基础巩固(一)</title>
     <url>/2020/09/11/CXX/C-%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
-    <content><![CDATA[<h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">gets();getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
 
 <p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
 <p>宏定义</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>整形int：short 2字节，long 4字节；实形float（4），double（8）；bool（1）；char（1）；void;</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>整形int: short 2字节，long 4字节；</p>
+<p>实形float（4），double（8）；</p>
+<p>bool (1)；char（1）；void;</p>
 <h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x, *p = &amp;x ;<span class="comment">//*只是申明p为指针变量，&amp;表示取地址</span></span><br><span class="line"><span class="keyword">int</span> y,*q;q=&amp;y; <span class="comment">//与上一行等价</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);<span class="comment">//初始化指针变量</span></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//动态数组</span></span><br><span class="line"><span class="keyword">delete</span>(k);<span class="comment">//释放存储空间</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h3><p>字符数组,<code>char s[] = &quot;China&quot;</code>;</p>
+<p>字符指针<code>char *p = &quot;china&quot;; *q = s</code>;</p>
+<p>字符指针数组<code>char * book[] = {&quot;C&quot;, &quot;python&quot;,&quot;Matlab&quot;}</code></p>
+<h4 id="输入流"><a href="#输入流" class="headerlink" title="输入流"></a>输入流</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从终端接收字符：</span></span><br><span class="line"><span class="keyword">char</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;arr;	<span class="comment">//空格，tab，enter都能结束</span></span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(arr,<span class="number">5</span>);		</span><br><span class="line"><span class="built_in">cin</span>.getline(arr,<span class="number">5</span>);		<span class="comment">//取5个字符，包含'\0',可收取空格</span></span><br><span class="line">getline(<span class="built_in">cin</span>,str);	<span class="comment">//</span></span><br><span class="line">gets(arr)；	<span class="comment">//新标准有用gets_s()</span></span><br><span class="line">getchar(arr)；	<span class="comment">//后三个需`#include &lt;string&gt;</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br></pre></td></tr></table></figure>
 
+<p>  <a href="https://www.cnblogs.com/rever/p/4360826.html" target="_blank" rel="noopener">详细参见1</a> <a href="https://blog.csdn.net/u011486738/article/details/82082405" target="_blank" rel="noopener">参见2</a></p>
+<p><strong>scanf和printf不能直接作用于string</strong>，即<code>scanf(&quot;%s&quot;, arr)</code></p>
+<h4 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">puts</span>(arr);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%.3f"</span>,<span class="number">3.14156</span>);		<span class="comment">//"stdio.h"</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="printf修饰符"><a href="#printf修饰符" class="headerlink" title="printf修饰符"></a>printf修饰符</h4><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>d或i</td>
+<td>十进制整数</td>
+</tr>
+<tr>
+<td>f</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符</td>
+</tr>
+<tr>
+<td>.3</td>
+<td>宽度</td>
+</tr>
+</tbody></table>
 ]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++基础巩固(二)</title>
+    <url>/2020/09/11/CXX/%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[]]></content>
       <tags>
         <tag>C++</tag>
       </tags>
@@ -76,30 +159,6 @@
       </tags>
   </entry>
   <entry>
-    <title>经典排序算法</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/" target="_blank" rel="noopener">优秀连接</a></p>
-<p><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F.png" alt="排序"></p>
-<h3 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200904105656076.png" alt="image-20200904105656076" style="zoom:80%;">
-
-<p>双指针。copy一个nums1内存空间res保存结果。</p>
-<p>p&lt;q, 则p值放入res，p++;反之同。退出循环的条件，指针没到末尾</p>
-<p>注意：p,q长度不一致，把未排完的依次放入res末尾。</p>
-<h3 id="第一个错误版本"><a href="#第一个错误版本" class="headerlink" title="第一个错误版本"></a>第一个错误版本</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200909183836225.png" alt="image-20200909183836225" style="zoom:80%;">
-
-<p>二分法查找。复杂度o(logn)</p>
-<p>初始化边界：left为1，right为n. </p>
-<p>判断中间值：isBadVersion(left+(right-left)/2)</p>
-<p>退出循环的条件： left &lt; right</p>
-]]></content>
-      <categories>
-        <category>编程学习笔记</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树</title>
     <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
@@ -111,6 +170,34 @@
 <p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
 <p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
 <p>递归初始化：若当前节点为空，返回true。</p>
+]]></content>
+      <categories>
+        <category>编程学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经典排序算法</title>
+    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/" target="_blank" rel="noopener">优秀连接</a></p>
+<p><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F.png" alt="排序"></p>
+<h2 id="经典排序算法"><a href="#经典排序算法" class="headerlink" title="经典排序算法"></a>经典排序算法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">8</span>] = &#123;<span class="number">1</span>,<span class="number">56</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">65</span>,<span class="number">85</span>,<span class="number">43</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n =<span class="number">8</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//冒泡排序；</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])</span><br><span class="line">                &#123;<span class="keyword">int</span> temp = a[j];a[j] = a[j+<span class="number">1</span>];a[j+<span class="number">1</span>] = temp;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j =i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[j])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = a[j];a[j] = a[i];a[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[i];</span><br><span class="line">        <span class="keyword">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; temp &lt; a[j])&#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k =<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[k]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200904105656076.png" alt="image-20200904105656076" style="zoom:80%;">
+
+<p>双指针。copy一个nums1内存空间res保存结果。</p>
+<p>p&lt;q, 则p值放入res，p++;反之同。退出循环的条件，指针没到末尾</p>
+<p>注意：p,q长度不一致，把未排完的依次放入res末尾。</p>
+<h3 id="第一个错误版本"><a href="#第一个错误版本" class="headerlink" title="第一个错误版本"></a>第一个错误版本</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200909183836225.png" alt="image-20200909183836225" style="zoom:80%;">
+
+<p>二分法查找。复杂度o(logn)</p>
+<p>初始化边界：left为1，right为n. </p>
+<p>判断中间值：isBadVersion(left+(right-left)/2)</p>
+<p>退出循环的条件： left &lt; right</p>
 ]]></content>
       <categories>
         <category>编程学习笔记</category>
@@ -393,8 +480,28 @@
       </tags>
   </entry>
   <entry>
+    <title>算法小知识</title>
+    <url>/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
+<ul>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>科学知识收集</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>链表</title>
-    <url>/2020/06/30/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%93%BE%E8%A1%A8/</url>
+    <url>/2020/06/30/CXX/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -410,7 +517,7 @@
   </entry>
   <entry>
     <title>CXX学习笔记(一)</title>
-    <url>/2020/06/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <url>/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
     <content><![CDATA[<h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
 <p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">rect</span>(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            <span class="built_in">width</span> = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*<span class="built_in">width</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="built_in">rect</span> B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> <span class="built_in">width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -535,9 +642,9 @@
   <entry>
     <title>20200628问题记录</title>
     <url>/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/0628%E6%B3%8A%E8%BD%A6%E6%A1%86%E6%9E%B6_%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h3 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h3><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
+<h2 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h2><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
 <p>??为什么要添加这个??</p>
 <h2 id="4-this-指针"><a href="#4-this-指针" class="headerlink" title="4. this 指针"></a>4. this 指针</h2><figure class="highlight d"><table><tr><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
 
@@ -750,6 +857,7 @@
 <h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
 <p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
 <p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><p>​    </p>
 ]]></content>
       <categories>
         <category>编程学习笔记</category>
@@ -921,7 +1029,7 @@
   </entry>
   <entry>
     <title>Vector</title>
-    <url>/2019/12/19/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Vector/</url>
+    <url>/2019/12/19/CXX/Vector/</url>
     <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">学习教材</a><br>学习要及时总结</p>
 <h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; obj(N);<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj2(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M));<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.<span class="built_in">clear</span>();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -1373,7 +1481,7 @@
     <title>Hexo撰文指南</title>
     <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a><br><a href="https://zhuanlan.zhihu.com/p/98782798" target="_blank" rel="noopener">安装nodejs</a><br>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</p>
-<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><p><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown基本语法链接</a><br>1.在<code>source/_posts</code>文件夹下面建立<em>.md新文档。<br>2.使用的markdown是一种程序化的写文章语言，方便放代码块，但是插图片不方便。<br>3.插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。文中引用图片时候,`![pngName](</em>.png)`<br><img src="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/test.JPG" alt="jpg"><br>4.md语言：<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></p>
+<h3 id="写"><a href="#写" class="headerlink" title="写"></a>写</h3><p><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank" rel="noopener">Markdown基本语法链接</a><br>1.在<code>source/_posts</code>文件夹下面建立<em>.md新文档。<br>2.使用的markdown是一种程序化的写文章语言，方便放代码块，但是插图片不方便。<br>3.插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。文中引用图片时候,`![pngName](</em>.png)`<br><img src="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"><br>4.md语言：<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></p>
 <blockquote>
 <p>这是引用的内容 前添加符号”&gt;”</p>
 </blockquote>
