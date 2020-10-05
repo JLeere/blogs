@@ -46,20 +46,23 @@
   };
 </script>
 
-  <meta name="description" content="1. my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned">
+  <meta name="description" content="arg是变元（即自变量argument）的英文缩写。arg min 就是使后面这个式子达到最小值时的变量的取值arg max 就是使后面这个式子达到最大值时的变量的取值例如 函数F(x,y):arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值 the Hadamard product：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="泊车感知框架阅读笔记（一）">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2020&#x2F;06&#x2F;28&#x2F;%E7%A0%94%E7%A9%B6%E7%94%9F&#x2F;LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89&#x2F;index.html">
+<meta property="og:title" content="科学常识收集(一)">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E5%B8%B8%E8%AF%86%E5%BA%93&#x2F;%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)&#x2F;index.html">
 <meta property="og:site_name" content="Lee&#39;s House">
-<meta property="og:description" content="1. my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned">
+<meta property="og:description" content="arg是变元（即自变量argument）的英文缩写。arg min 就是使后面这个式子达到最小值时的变量的取值arg max 就是使后面这个式子达到最大值时的变量的取值例如 函数F(x,y):arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值 the Hadamard product：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-28T06:22:12.000Z">
-<meta property="article:modified_time" content="2020-10-05T06:39:04.855Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E5%B8%B8%E8%AF%86%E5%BA%93&#x2F;%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)&#x2F;1.png">
+<meta property="article:published_time" content="2019-12-13T03:16:38.000Z">
+<meta property="article:modified_time" content="2020-10-05T06:42:14.862Z">
 <meta property="article:author" content="Lee Jay">
-<meta property="article:tag" content="ROS框架">
+<meta property="article:tag" content="trips">
+<meta property="article:tag" content="小知识">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E5%B8%B8%E8%AF%86%E5%BA%93&#x2F;%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)&#x2F;1.png">
 
-<link rel="canonical" href="http://www.jaylee.top/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+<link rel="canonical" href="http://www.jaylee.top/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/">
 
 
 <script id="page-configurations">
@@ -71,7 +74,7 @@
   };
 </script>
 
-  <title>泊车感知框架阅读笔记（一） | Lee's House</title>
+  <title>科学常识收集(一) | Lee's House</title>
   
 
 
@@ -210,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -223,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          泊车感知框架阅读笔记（一）
+          科学常识收集(一)
         </h1>
 
         <div class="post-meta">
@@ -233,14 +236,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-28 14:22:12" itemprop="dateCreated datePublished" datetime="2020-06-28T14:22:12+08:00">2020-06-28</time>
+              <time title="创建时间：2019-12-13 11:16:38" itemprop="dateCreated datePublished" datetime="2019-12-13T11:16:38+08:00">2019-12-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:39:04" itemprop="dateModified" datetime="2020-10-05T14:39:04+08:00">2020-10-05</time>
+                <time title="修改时间：2020-10-05 14:42:14" itemprop="dateModified" datetime="2020-10-05T14:42:14+08:00">2020-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -248,8 +251,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
+                  <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">常识库</span>
                   </a>
                 </span>
             </span>
@@ -265,37 +268,57 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h2><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
-<p>??为什么要添加这个??</p>
-<h2 id="4-this-指针"><a href="#4-this-指针" class="headerlink" title="4. this 指针"></a>4. this 指针</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-PCL点云数据结构"><a href="#5-PCL点云数据结构" class="headerlink" title="5.PCL点云数据结构"></a>5.PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li><p>width(int),每一束激光扫描的点数</p>
-</li>
-<li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p>
-</li>
-<li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-
+        <ul>
+<li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
+<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/1.png" alt></li>
+<li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
+<li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
+<li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
+<thead>
+<tr>
+<th align="center">颜色</th>
+<th align="center">代号</th>
+<th align="center">RGB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">red</td>
+<td align="center">‘r’</td>
+<td align="center">[1 0 0]</td>
+</tr>
+<tr>
+<td align="center">green</td>
+<td align="center">‘g’</td>
+<td align="center">[0 1 0]</td>
+</tr>
+<tr>
+<td align="center">blue</td>
+<td align="center">‘b’</td>
+<td align="center">[0 0 1]</td>
+</tr>
+<tr>
+<td align="center">cyan</td>
+<td align="center">‘c’</td>
+<td align="center">[0 1 1]</td>
+</tr>
+<tr>
+<td align="center">magenta</td>
+<td align="center">‘m’</td>
+<td align="center">[1 0 1]</td>
+</tr>
+<tr>
+<td align="center">yellow</td>
+<td align="center">‘y’</td>
+<td align="center">[1 1 0]</td>
+</tr>
+<tr>
+<td align="center">‘black’</td>
+<td align="center">‘k’</td>
+<td align="center">[1 1 1]</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z</code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
 
     </div>
 
@@ -306,7 +329,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/ROS%E6%A1%86%E6%9E%B6/" rel="tag"><i class="fa fa-tag"></i> ROS框架</a>
+              <a href="/tags/trips/" rel="tag"><i class="fa fa-tag"></i> trips</a>
+              <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/" rel="tag"><i class="fa fa-tag"></i> 小知识</a>
           </div>
 
         
@@ -315,12 +339,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/" rel="prev" title="笔记管理工具为知笔记/typora">
-      <i class="fa fa-chevron-left"></i> 笔记管理工具为知笔记/typora
+    <a href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/" rel="prev" title="L-Shape_Fitting2">
+      <i class="fa fa-chevron-left"></i> L-Shape_Fitting2
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/28/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/" rel="next" title="0712旅游计划">
-      0712旅游计划 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/" rel="next" title="Linux系统安装注意">
+      Linux系统安装注意 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -381,7 +405,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-my-point-type-h"><span class="nav-number">1.</span> <span class="nav-text">1. my_point_type.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><span class="nav-number">2.</span> <span class="nav-text">2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-endif"><span class="nav-number">3.</span> <span class="nav-text">3. #endif</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-this-指针"><span class="nav-number">4.</span> <span class="nav-text">4. this 指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-PCL点云数据结构"><span class="nav-number">5.</span> <span class="nav-text">5.PCL点云数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PointCLoud"><span class="nav-number">5.1.</span> <span class="nav-text">PointCLoud:</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -404,7 +427,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
