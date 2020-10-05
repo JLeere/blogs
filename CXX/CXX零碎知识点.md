@@ -2,7 +2,8 @@
 title: C++ 知识点
 date: 2020-05-14 22:47:00
 categories:
-- 编程学习笔记
+- 编程学习
+- C++
 tags:
 - C++
 ---
@@ -96,3 +97,6 @@ short 是2字节，16位；int是32位，4字节；long在32位计算器中也�
 
 C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)
 
+# Boost::shared_ptr
+
+​	

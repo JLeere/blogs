@@ -2,9 +2,11 @@
 title: 动态规划
 date: 2020-09-11 14:18:00
 categories:
-- 编程学习笔记
+- 编程学习
+- C++
 tags:
 - Leecode
+- DP
 ---
 
 <img src="dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;" />

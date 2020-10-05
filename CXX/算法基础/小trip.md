@@ -3,7 +3,8 @@
 title: 动态规划
 date: 2020-09-09 14:18:00
 categories:
-- 编程学习笔记
+- 编程学习
+- C++
 tags:
 - Leecode
 ​---
