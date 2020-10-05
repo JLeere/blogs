@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jaylee.top/"/>
-  <updated>2020-09-20T13:44:55.529Z</updated>
+  <updated>2020-10-05T06:30:36.356Z</updated>
   <id>http://www.jaylee.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.jaylee.top/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://www.jaylee.top/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
     <published>2020-09-20T12:39:57.000Z</published>
-    <updated>2020-09-20T13:44:55.529Z</updated>
+    <updated>2020-10-05T06:30:36.356Z</updated>
     
     <content type="html"><![CDATA[<h2 id="字符数组Char"><a href="#字符数组Char" class="headerlink" title="字符数组Char"></a>字符数组Char</h2><p>初始化：<code>char s[8] = &quot;China&quot;</code>最后一位以<code>‘/0’</code>保存结束标记符。</p><p>输入：<code>cin&gt;&gt;s</code>, 空格/Tab/回车都是输入字符串的结束符；<code>gets(s)</code>, 只有回车才结束. 自动补全’\0’. </p><p>输出: <code>cout&lt;&lt;s</code>, <code>puts(s)</code></p><p>赋值: <code>strcpy(s,&quot;China&quot;)</code></p><p>头文件: <code>#include &quot;stdio.h&quot;</code>包含了上述gets/puts函数;</p><p>​            <code>&quot;string.h&quot;</code>包含了字符串处理函数. <code>strlen(s);strcmp(s1,s2);strcpy(s,&quot;china&quot;)</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s2[<span class="number">100</span>];</span><br><span class="line">    gets(s2);</span><br><span class="line">    <span class="built_in">puts</span>(s2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="标准库–字符串string"><a href="#标准库–字符串string" class="headerlink" title="标准库–字符串string"></a>标准库–字符串string</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">string</span> s1 = <span class="string">"china"</span>;<span class="comment">// 初始化,赋值构造函数</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(<span class="string">"China"</span>)</span></span>;<span class="comment">// 直接构造函数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s)&#123;<span class="comment">// 输入,以空格/tab/回车为结束符</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>,s))<span class="comment">//输入, getline函数相当于符号"&gt;&gt;",参数为数据流cin,和保存的字符串变量</span></span><br><span class="line">        <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//非空才输出s</span></span><br><span class="line">    s1 = s1+<span class="string">"NO1"</span>;</span><br><span class="line">    s2 = s1 + s2 ;<span class="comment">//字符串连接</span></span><br><span class="line">    <span class="keyword">int</span> l = s.<span class="built_in">size</span>();<span class="comment">//返回长度</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isalnum</span>(ch))&#123;</span><br><span class="line">                s2 += <span class="built_in">tolower</span>(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left ++;</span><br><span class="line">            right --;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -35,7 +35,9 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
@@ -44,8 +46,8 @@
   
   <entry>
     <title>LiDAR_Perception</title>
-    <link href="http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/LiDAR-Perception/"/>
-    <id>http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/LiDAR-Perception/</id>
+    <link href="http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception/"/>
+    <id>http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception/</id>
     <published>2020-09-17T07:18:16.000Z</published>
     <updated>2020-09-17T07:20:10.024Z</updated>
     
@@ -66,7 +68,7 @@
     <link href="http://www.jaylee.top/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/"/>
     <id>http://www.jaylee.top/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</id>
     <published>2020-09-15T06:51:46.000Z</published>
-    <updated>2020-09-17T00:50:14.762Z</updated>
+    <updated>2020-10-05T06:30:15.348Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p><p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p><p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p><h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
     
@@ -82,7 +84,9 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
@@ -94,7 +98,7 @@
     <link href="http://www.jaylee.top/2020/09/11/CXX/C-%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/"/>
     <id>http://www.jaylee.top/2020/09/11/CXX/C-%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</id>
     <published>2020-09-11T15:23:16.000Z</published>
-    <updated>2020-09-29T08:55:13.518Z</updated>
+    <updated>2020-10-05T06:29:50.035Z</updated>
     
     <content type="html"><![CDATA[<h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line"><span class="built_in">printf</span>();</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line">gets();getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line"><span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line"><span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure><p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p><p>宏定义</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>整形int: short 2字节，long 4字节；</p><p>实形float（4），double（8）；</p><p>bool (1)；char（1）；void;</p><h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x, *p = &amp;x ;<span class="comment">//*只是申明p为指针变量，&amp;表示取地址</span></span><br><span class="line"><span class="keyword">int</span> y,*q;q=&amp;y; <span class="comment">//与上一行等价</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);<span class="comment">//初始化指针变量</span></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//动态数组</span></span><br><span class="line"><span class="keyword">delete</span>(k);<span class="comment">//释放存储空间</span></span><br></pre></td></tr></table></figure><h3 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h3><p>字符数组,<code>char s[] = &quot;China&quot;</code>;</p><p>字符指针<code>char *p = &quot;china&quot;; *q = s</code>;</p><p>字符指针数组<code>char * book[] = {&quot;C&quot;, &quot;python&quot;,&quot;Matlab&quot;}</code></p><h4 id="输入流"><a href="#输入流" class="headerlink" title="输入流"></a>输入流</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从终端接收字符：</span></span><br><span class="line"><span class="keyword">char</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;arr;<span class="comment">//空格，tab，enter都能结束</span></span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(arr,<span class="number">5</span>);</span><br><span class="line"><span class="built_in">cin</span>.getline(arr,<span class="number">5</span>);<span class="comment">//取5个字符，包含'\0',可收取空格</span></span><br><span class="line">getline(<span class="built_in">cin</span>,str);<span class="comment">//</span></span><br><span class="line">gets(arr)；<span class="comment">//新标准有用gets_s()</span></span><br><span class="line">getchar(arr)；<span class="comment">//后三个需`#include &lt;string&gt;</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br></pre></td></tr></table></figure><p>  <a href="https://www.cnblogs.com/rever/p/4360826.html" target="_blank" rel="noopener">详细参见1</a> <a href="https://blog.csdn.net/u011486738/article/details/82082405" target="_blank" rel="noopener">参见2</a></p><p><strong>scanf和printf不能直接作用于string</strong>，即<code>scanf(&quot;%s&quot;, arr)</code></p><h4 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">puts</span>(arr);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%.3f"</span>,<span class="number">3.14156</span>);<span class="comment">//"stdio.h"</span></span><br></pre></td></tr></table></figure><h4 id="printf修饰符"><a href="#printf修饰符" class="headerlink" title="printf修饰符"></a>printf修饰符</h4><table><thead><tr><th>符号</th><th>含义</th></tr></thead><tbody><tr><td>d或i</td><td>十进制整数</td></tr><tr><td>f</td><td>浮点数</td></tr><tr><td>s</td><td>字符串</td></tr><tr><td>c</td><td>字符</td></tr><tr><td>.3</td><td>宽度</td></tr></tbody></table>]]></content>
     
@@ -108,6 +112,10 @@
     </summary>
     
     
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
+    
     
       <category term="C++" scheme="http://www.jaylee.top/tags/C/"/>
     
@@ -118,12 +126,16 @@
     <link href="http://www.jaylee.top/2020/09/11/CXX/%E5%87%BD%E6%95%B0/"/>
     <id>http://www.jaylee.top/2020/09/11/CXX/%E5%87%BD%E6%95%B0/</id>
     <published>2020-09-11T15:23:16.000Z</published>
-    <updated>2020-09-29T08:56:42.852Z</updated>
+    <updated>2020-10-05T06:29:44.312Z</updated>
     
     <summary type="html">
     
     </summary>
     
+    
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="C++" scheme="http://www.jaylee.top/tags/C/"/>
@@ -135,7 +147,7 @@
     <link href="http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/"/>
     <id>http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</id>
     <published>2020-09-11T06:18:00.000Z</published>
-    <updated>2020-09-11T14:26:15.034Z</updated>
+    <updated>2020-10-05T06:30:49.767Z</updated>
     
     <content type="html"><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;"><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;"><p>斐波那契数列，可以递归/求通项/动态规划。</p><p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p><h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote><p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p></blockquote><p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p><h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure><p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p><p><code>dp[i] = max(dp[i-1], nums[i]);</code></p><h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote><p>示例 1：</p><p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p></blockquote><p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p><p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>]]></content>
     
@@ -149,10 +161,14 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
+    
+      <category term="DP" scheme="http://www.jaylee.top/tags/DP/"/>
     
   </entry>
   
@@ -161,17 +177,49 @@
     <link href="http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/"/>
     <id>http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</id>
     <published>2020-09-11T06:18:00.000Z</published>
-    <updated>2020-09-11T08:52:43.700Z</updated>
+    <updated>2020-10-05T06:30:22.582Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科普常识收集</title>
+    <link href="http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/"/>
+    <id>http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/</id>
+    <published>2020-09-07T06:15:29.000Z</published>
+    <updated>2020-10-05T06:24:13.761Z</updated>
+    
+    <content type="html"><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p><p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p><h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p><p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p><p>类似的网络：pixorNet,pointNet++02</p><h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p><p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因
+      
+    
+    </summary>
+    
+    
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="LiDAR" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/"/>
+    
+    
+      <category term="小知识" scheme="http://www.jaylee.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="点云" scheme="http://www.jaylee.top/tags/%E7%82%B9%E4%BA%91/"/>
     
   </entry>
   
@@ -180,7 +228,7 @@
     <link href="http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     <id>http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
     <published>2020-09-03T06:18:00.000Z</published>
-    <updated>2020-09-04T01:32:14.346Z</updated>
+    <updated>2020-10-05T06:30:19.403Z</updated>
     
     <content type="html"><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;"><p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p><p>递归初始化：空节点深度为空</p><h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;"><p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p><p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p><p>递归初始化：若当前节点为空，返回true。</p>]]></content>
     
@@ -194,7 +242,9 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
@@ -206,7 +256,7 @@
     <link href="http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/"/>
     <id>http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/</id>
     <published>2020-09-03T06:18:00.000Z</published>
-    <updated>2020-09-21T03:58:38.786Z</updated>
+    <updated>2020-10-05T06:30:25.799Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/" target="_blank" rel="noopener">优秀连接</a></p><p><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F.png" alt="排序"></p><h2 id="经典排序算法"><a href="#经典排序算法" class="headerlink" title="经典排序算法"></a>经典排序算法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">8</span>] = &#123;<span class="number">1</span>,<span class="number">56</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">65</span>,<span class="number">85</span>,<span class="number">43</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n =<span class="number">8</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//冒泡排序；</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])</span><br><span class="line">                &#123;<span class="keyword">int</span> temp = a[j];a[j] = a[j+<span class="number">1</span>];a[j+<span class="number">1</span>] = temp;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j =i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[j])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = a[j];a[j] = a[i];a[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[i];</span><br><span class="line">        <span class="keyword">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; temp &lt; a[j])&#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k =<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[k]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200904105656076.png" alt="image-20200904105656076" style="zoom:80%;"><p>双指针。copy一个nums1内存空间res保存结果。</p><p>p&lt;q, 则p值放入res，p++;反之同。退出循环的条件，指针没到末尾</p><p>注意：p,q长度不一致，把未排完的依次放入res末尾。</p><h3 id="第一个错误版本"><a href="#第一个错误版本" class="headerlink" title="第一个错误版本"></a>第一个错误版本</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200909183836225.png" alt="image-20200909183836225" style="zoom:80%;"><p>二分法查找。复杂度o(logn)</p><p>初始化边界：left为1，right为n. </p><p>判断中间值：isBadVersion(left+(right-left)/2)</p><p>退出循环的条件： left &lt; right</p>]]></content>
     
@@ -220,7 +270,9 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="Leecode" scheme="http://www.jaylee.top/tags/Leecode/"/>
@@ -228,9 +280,43 @@
   </entry>
   
   <entry>
+    <title>科普常识收集</title>
+    <link href="http://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <id>http://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</id>
+    <published>2020-07-25T08:15:29.000Z</published>
+    <updated>2020-10-05T06:23:32.158Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><h2 id="1-距离变换"><a href="#1-距离变换" class="headerlink" title="1 距离变换"></a>1 距离变换</h2></li><li><p><a href="https://blog.csdn.net/trent1985/article/details/18081761" target="_blank" rel="noopener">优秀链接</a>： </p></li><li><p>主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊</p></li><li><p>假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:</p></li><li><p><img src="file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg" alt="img"></p></li><li></li><li><p>欧氏距离</p></li><li><p>曼哈顿距离（街区距离） =<img src="file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png" alt="img"></p></li><li><p>契比雪夫距离（棋盘距离）=,可以理解为国际象棋的王后的走法：<img src="file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png" alt="img"></p></li><li><p><img src="file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png" alt="计算机生成了可选文字: 8 7 6 5 45 3丰 3 2 1 5 5 5 5 5 5 4 4 4 4 4 4 4 5 b 3 3 3 3 3 3 4 5 c 2 2 2 2 3 4 5 d 222 111 21罾1 2 2 2 2 2 4 5 h 8 7 O&#39;ebyshev-- 1 2 3 4 5 e 1 2 3 4 5 f 1 2 3 4 5 g 6 5 4 2 1 1 1 1 1 1 1 1"></p></li><li><p>倒角距离（chamfer）：优化二值图像的距离运算速度。</p></li><li><h2 id="2-边缘图像检测"><a href="#2-边缘图像检测" class="headerlink" title="2 边缘图像检测"></a>2 边缘图像检测</h2></li><li><h2 id="3-直方图处理"><a href="#3-直方图处理" class="headerlink" title="3 直方图处理"></a>3 直方图处理</h2></li><li><h2 id="4-检测库位内是否占据"><a href="#4-检测库位内是否占据" class="headerlink" title="4 检测库位内是否占据"></a>4 检测库位内是否占据</h2></li><li><ol><li><ol><li>两条线之间的灰度直方图</li></ol></li></ol></li><li><p><img src="file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image005.png" alt="img"></p></li><li><ol start="2"><li>距离变换后的边缘图寻找垂直轮廓的直方图</li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;h2 id=&quot;1-距离变换&quot;&gt;&lt;a href=&quot;#1-距离变换&quot; class=&quot;headerlink&quot; title=&quot;1 距离变换&quot;&gt;&lt;/a&gt;1 距离变换&lt;/h2&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/tren
+      
+    
+    </summary>
+    
+    
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="CV" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/CV/"/>
+    
+    
+      <category term="小知识" scheme="http://www.jaylee.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="CV" scheme="http://www.jaylee.top/tags/CV/"/>
+    
+      <category term="计算机视觉" scheme="http://www.jaylee.top/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
     <title>L-ShapeFitting4</title>
-    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/DeepPS/"/>
-    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/DeepPS/</id>
+    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/"/>
+    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</id>
     <published>2020-07-13T13:56:04.000Z</published>
     <updated>2020-07-13T13:49:33.477Z</updated>
     
@@ -259,10 +345,10 @@
   
   <entry>
     <title>Python深度学习笔记(一)</title>
-    <link href="http://www.jaylee.top/2020/07/13/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
-    <id>http://www.jaylee.top/2020/07/13/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</id>
+    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
+    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</id>
     <published>2020-07-13T10:22:41.000Z</published>
-    <updated>2020-07-21T14:09:56.663Z</updated>
+    <updated>2020-10-05T06:26:56.156Z</updated>
     
     <content type="html"><![CDATA[<p>待整理:</p><ul><li>卷积层池化层</li><li>梯度下降</li><li>pytorch</li><li>numpy</li></ul><p>学习网站:B站莫烦python</p><p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>]]></content>
     
@@ -284,17 +370,21 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Python" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Python/"/>
     
     
       <category term="Python" scheme="http://www.jaylee.top/tags/Python/"/>
+    
+      <category term="深度学习" scheme="http://www.jaylee.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>DMPR—PS</title>
-    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/DMPR-PS%20SLot%20detection/"/>
-    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/DMPR-PS%20SLot%20detection/</id>
+    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DMPR-PS%20SLot%20detection/"/>
+    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DMPR-PS%20SLot%20detection/</id>
     <published>2020-07-13T07:17:49.000Z</published>
     <updated>2020-07-14T05:48:55.810Z</updated>
     
@@ -327,11 +417,11 @@
   </entry>
   
   <entry>
-    <title>Questions need to do</title>
-    <link href="http://www.jaylee.top/2020/07/10/Questions%20need%20to%20do/"/>
-    <id>http://www.jaylee.top/2020/07/10/Questions%20need%20to%20do/</id>
+    <title>How to read a paper</title>
+    <link href="http://www.jaylee.top/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/"/>
+    <id>http://www.jaylee.top/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</id>
     <published>2020-07-10T07:17:49.000Z</published>
-    <updated>2020-07-13T11:55:03.591Z</updated>
+    <updated>2020-10-05T06:28:09.901Z</updated>
     
     <content type="html"><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote><p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p><p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p><p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p></blockquote><h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p><p>自己要思考精读一篇文献，</p><ul><li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li><li>文章如何针对该问题进行解决的？创新之处在哪？</li><li>研究的具体方法是什么？用到了哪些工具手段？</li><li>结果如何？哪些得到了征明？</li><li>总结，可以参考和不足之处在哪？</li></ul><h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
     
@@ -345,21 +435,21 @@
     </summary>
     
     
-      <category term="算法常识资料收集" scheme="http://www.jaylee.top/categories/%E7%AE%97%E6%B3%95%E5%B8%B8%E8%AF%86%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
     
     
-      <category term="Q&amp;A" scheme="http://www.jaylee.top/tags/Q-A/"/>
+      <category term="方法论" scheme="http://www.jaylee.top/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>CXX环境值和编译运行</title>
-    <link href="http://www.jaylee.top/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/"/>
-    <id>http://www.jaylee.top/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/</id>
+    <link href="http://www.jaylee.top/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/"/>
+    <id>http://www.jaylee.top/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/</id>
     <published>2020-07-08T12:57:06.000Z</published>
-    <updated>2020-07-08T14:16:27.021Z</updated>
+    <updated>2020-10-05T06:18:16.998Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h1 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h1><h2 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h2><p>任何一个文本程序生成可执行文件的步骤都是:</p><ol><li>编辑器编写源代码,.cpp</li><li>编译器编译代码生成目标文件,.o文件</li><li>链接器链接各个目标文件,生成可执行文件,.exe</li></ol><p>流程如下:</p><blockquote><p>源文件–&gt;CmakeLists–&gt;cmake–&gt;makefiles–&gt;make–&gt;.exe可执行文件.</p></blockquote><p>其中gcc和g++在make阶段编译和链接文件,g++在gcc的基础上默认关联了C++库。</p><h2 id="cmake一个实例"><a href="#cmake一个实例" class="headerlink" title="cmake一个实例"></a>cmake一个实例</h2><p><a href="https://www.cnblogs.com/haijian/p/12039160.html" target="_blank" rel="noopener">https://www.cnblogs.com/haijian/p/12039160.html</a></p><img src="/2020/07/08/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/lee/图片/2020-07-08 20-59-28屏幕截图.png" style="zoom:50%;">]]></content>
+    <content type="html"><![CDATA[<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h1 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h1><h2 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h2><p>任何一个文本程序生成可执行文件的步骤都是:</p><ol><li>编辑器编写源代码,.cpp</li><li>编译器编译代码生成目标文件,.o文件</li><li>链接器链接各个目标文件,生成可执行文件,.exe</li></ol><p>流程如下:</p><blockquote><p>源文件–&gt;CmakeLists–&gt;cmake–&gt;makefiles–&gt;make–&gt;.exe可执行文件.</p></blockquote><p>其中gcc和g++在make阶段编译和链接文件,g++在gcc的基础上默认关联了C++库。</p><h2 id="cmake一个实例"><a href="#cmake一个实例" class="headerlink" title="cmake一个实例"></a>cmake一个实例</h2><p><a href="https://www.cnblogs.com/haijian/p/12039160.html" target="_blank" rel="noopener">https://www.cnblogs.com/haijian/p/12039160.html</a></p><img src="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/lee/图片/2020-07-08 20-59-28屏幕截图.png" style="zoom:50%;">]]></content>
     
     <summary type="html">
     
@@ -371,12 +461,14 @@
     </summary>
     
     
-      <category term="工具技能学习笔记" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="C++" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/C/"/>
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
-      <category term="C++" scheme="http://www.jaylee.top/tags/C/"/>
+      <category term="C++编译" scheme="http://www.jaylee.top/tags/C-%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="CMake" scheme="http://www.jaylee.top/tags/CMake/"/>
     
   </entry>
   
@@ -385,7 +477,7 @@
     <link href="http://www.jaylee.top/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
     <id>http://www.jaylee.top/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
     <published>2020-07-08T09:57:06.000Z</published>
-    <updated>2020-09-03T05:59:29.244Z</updated>
+    <updated>2020-10-05T06:30:01.844Z</updated>
     
     <content type="html"><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p><h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p><p>初始化（动态创建）：</p><p><code>m = new Intcell();</code></p><p><code>m = new Intcell{};//C++11</code></p><p><code>m = new Intcell;</code></p><p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p><p><code>delete m</code></p><h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul><li><p>给复杂的名称取别名</p><p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p><p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p></li><li><p>范围for循环</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;<span class="comment">//可行</span></span><br></pre></td></tr></table></figure></li><li><p>避免不必要的拷贝</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure><h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p><blockquote><p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p><p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p><p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p></blockquote><p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure><h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p><p>传常量引用</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure><h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>初始化表列：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure><p>explicit构造函数，英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    : membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span><span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure><p>举例explicit的作用：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; <span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p><ul><li><p>析构函数</p></li><li><p>复制构造函数</p></li><li><p>移动构造函数</p></li><li><p>拷贝赋值</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><ul><li>移动复制</li></ul>]]></content>
     
@@ -400,7 +492,9 @@
     </summary>
     
     
-      <category term="编程学习笔记" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
     
     
       <category term="C++" scheme="http://www.jaylee.top/tags/C/"/>
@@ -409,10 +503,10 @@
   
   <entry>
     <title>What I Want todo</title>
-    <link href="http://www.jaylee.top/2020/07/07/What-I-Want-todo/"/>
-    <id>http://www.jaylee.top/2020/07/07/What-I-Want-todo/</id>
+    <link href="http://www.jaylee.top/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/"/>
+    <id>http://www.jaylee.top/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/</id>
     <published>2020-07-07T13:17:49.000Z</published>
-    <updated>2020-07-17T08:10:58.201Z</updated>
+    <updated>2020-10-05T06:28:46.822Z</updated>
     
     <content type="html"><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul><li>C++<ul><li>ROS</li><li>PCL</li><li>Opencv</li></ul></li><li>Python<ul><li>pytorch</li></ul></li><li>点云匹配</li><li>CAN</li></ul>]]></content>
     
@@ -426,7 +520,7 @@
     </summary>
     
     
-      <category term="lovelife" scheme="http://www.jaylee.top/categories/lovelife/"/>
+      <category term="生活随笔" scheme="http://www.jaylee.top/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
     
     
       <category term="todolist" scheme="http://www.jaylee.top/tags/todolist/"/>
@@ -435,10 +529,10 @@
   
   <entry>
     <title>OpenCV</title>
-    <link href="http://www.jaylee.top/2020/07/07/OpenCV/"/>
-    <id>http://www.jaylee.top/2020/07/07/OpenCV/</id>
+    <link href="http://www.jaylee.top/2020/07/07/%E7%A0%94%E7%A9%B6%E7%94%9F/OpenCV/"/>
+    <id>http://www.jaylee.top/2020/07/07/%E7%A0%94%E7%A9%B6%E7%94%9F/OpenCV/</id>
     <published>2020-07-07T13:01:19.000Z</published>
-    <updated>2020-07-13T08:37:13.246Z</updated>
+    <updated>2020-10-05T06:25:11.949Z</updated>
     
     <content type="html"><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p><p>在步骤：</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure><p>保存bash.bashrc时候提示不支持。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote><p>open source computer vision library</p></blockquote><p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p><h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote></blockquote>]]></content>
     
@@ -452,7 +546,9 @@
     </summary>
     
     
-      <category term="工具技能学习笔记" scheme="http://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="Opencv" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/Opencv/"/>
     
     
       <category term="OpenCV" scheme="http://www.jaylee.top/tags/OpenCV/"/>
@@ -461,18 +557,18 @@
   
   <entry>
     <title>深度学习视觉算法杂碎</title>
-    <link href="http://www.jaylee.top/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/"/>
-    <id>http://www.jaylee.top/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</id>
+    <link href="http://www.jaylee.top/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/"/>
+    <id>http://www.jaylee.top/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</id>
     <published>2020-07-03T10:22:41.000Z</published>
     <updated>2020-08-07T03:12:23.863Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;"><p>1为正类，0为负类。</p><p>TP为true positive；FN为false negative.</p><ul><li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li><li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li><li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li></ul><h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p><p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p><h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;"><p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p><pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p><p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;"><h2 id="图像内核，filter"><a href="#图像内核，filter" class="headerlink" title="图像内核，filter"></a>图像内核，filter</h2><p>有趣的互动链接：<a href="https://setosa.io/ev/image-kernels/" target="_blank" rel="noopener">https://setosa.io/ev/image-kernels/</a></p><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>上诉的卷积操作都是线性运算，不足以模拟非线性的过程，因此对每个神经元进行激活函数的操作，使得更加复杂。</p><p>常见的激活函数：</p><ul><li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li><li>ReLU函数使用更广泛：f(x)=max{0,x}</li></ul><h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;"><p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;"><p>1为正类，0为负类。</p><p>TP为true positive；FN为false negative.</p><ul><li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li><li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li><li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li></ul><h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p><p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p><h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;"><p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p><pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p><p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;"><h2 id="图像内核，filter"><a href="#图像内核，filter" class="headerlink" title="图像内核，filter"></a>图像内核，filter</h2><p>有趣的互动链接：<a href="https://setosa.io/ev/image-kernels/" target="_blank" rel="noopener">https://setosa.io/ev/image-kernels/</a></p><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>上诉的卷积操作都是线性运算，不足以模拟非线性的过程，因此对每个神经元进行激活函数的操作，使得更加复杂。</p><p>常见的激活函数：</p><ul><li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li><li>ReLU函数使用更广泛：f(x)=max{0,x}</li></ul><h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;"><p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;准确率，召回率&quot;&gt;&lt;a href=&quot;#准确率，召回率&quot; class=&quot;headerlink&quot; title=&quot;准确率，召回率&quot;&gt;&lt;/a&gt;准确率，召回率&lt;/h1&gt;&lt;img src=&quot;/2020/07/03/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%
+        &lt;h1 id=&quot;准确率，召回率&quot;&gt;&lt;a href=&quot;#准确率，召回率&quot; class=&quot;headerlink&quot; title=&quot;准确率，召回率&quot;&gt;&lt;/a&gt;准确率，召回率&lt;/h1&gt;&lt;img src=&quot;/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6
       
     
     </summary>
@@ -484,62 +580,6 @@
       <category term="trips" scheme="http://www.jaylee.top/tags/trips/"/>
     
       <category term="小知识" scheme="http://www.jaylee.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法小知识</title>
-    <link href="http://www.jaylee.top/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    <id>http://www.jaylee.top/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</id>
-    <published>2020-07-03T10:22:41.000Z</published>
-    <updated>2020-09-17T05:24:52.969Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p><p>1为正类，0为负类。</p><p>TP为true positive；FN为false negative.</p><ul><li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li><li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li><li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;std-transform&quot;&gt;&lt;a href=&quot;#std-transform&quot; class=&quot;headerlink&quot; title=&quot;std::transform&quot;&gt;&lt;/a&gt;std::transform&lt;/h1&gt;&lt;h1 id=&quot;准确率，召回率&quot;&gt;&lt;a href=&quot;#
-      
-    
-    </summary>
-    
-    
-      <category term="科学知识收集" scheme="http://www.jaylee.top/categories/%E7%A7%91%E5%AD%A6%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/"/>
-    
-    
-      <category term="trips" scheme="http://www.jaylee.top/tags/trips/"/>
-    
-      <category term="小知识" scheme="http://www.jaylee.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>链表</title>
-    <link href="http://www.jaylee.top/2020/06/30/CXX/%E9%93%BE%E8%A1%A8/"/>
-    <id>http://www.jaylee.top/2020/06/30/CXX/%E9%93%BE%E8%A1%A8/</id>
-    <published>2020-06-30T14:15:45.000Z</published>
-    <updated>2020-07-13T08:37:34.032Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;设置哑结点&quot;&gt;&lt;a href=&quot;#设置哑结点&quot; class=&quot;headerlink&quot; title=&quot;设置哑结点&quot;&gt;&lt;/a&gt;设置哑结点&lt;/h1&gt;&lt;figure class=&quot;highlight md&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
-      
-    
-    </summary>
-    
-    
-      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="C++" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
-    
-    
-      <category term="C++" scheme="http://www.jaylee.top/tags/C/"/>
     
   </entry>
   
