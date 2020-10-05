@@ -46,17 +46,19 @@
   
   <entry>
     <title>LiDAR_Perception</title>
-    <link href="http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception/"/>
-    <id>http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception/</id>
+    <link href="http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://www.jaylee.top/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</id>
     <published>2020-09-17T07:18:16.000Z</published>
-    <updated>2020-09-17T07:20:10.024Z</updated>
+    <updated>2020-10-05T06:37:37.415Z</updated>
     
     <summary type="html">
     
     </summary>
     
     
-      <category term="研究生学习笔记" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="LiDAR" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/"/>
     
     
       <category term="算法" scheme="http://www.jaylee.top/tags/%E7%AE%97%E6%B3%95/"/>
@@ -194,11 +196,11 @@
   </entry>
   
   <entry>
-    <title>科普常识收集</title>
-    <link href="http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/"/>
-    <id>http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/</id>
+    <title>点云处理算法综述</title>
+    <link href="http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/"/>
+    <id>http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</id>
     <published>2020-09-07T06:15:29.000Z</published>
-    <updated>2020-10-05T06:24:13.761Z</updated>
+    <updated>2020-10-05T06:38:18.270Z</updated>
     
     <content type="html"><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p><p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p><h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p><p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p><p>类似的网络：pixorNet,pointNet++02</p><h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p><p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>]]></content>
     
@@ -314,11 +316,11 @@
   </entry>
   
   <entry>
-    <title>L-ShapeFitting4</title>
+    <title>DeepPS</title>
     <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/"/>
     <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</id>
     <published>2020-07-13T13:56:04.000Z</published>
-    <updated>2020-07-13T13:49:33.477Z</updated>
+    <updated>2020-10-05T06:36:32.917Z</updated>
     
     <content type="html"><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p><h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul><li>引出: 视觉检测库位重要, 但是干扰因素多鲁棒性不好, 本文要解决这问题.</li></ul><h2 id="创新贡献"><a href="#创新贡献" class="headerlink" title="创新贡献"></a>创新贡献</h2><ol><li>DeepPS, 一个DCNN网络, 可以解决标记点的识别/ 分类.</li><li>建立了便于学习的数据集.</li></ol><h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
     
@@ -334,9 +336,9 @@
     </summary>
     
     
-      <category term="研究生学习笔记" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
     
-      <category term="库位图像识别" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%BA%93%E4%BD%8D%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+      <category term="深度学习" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="DeepPs" scheme="http://www.jaylee.top/tags/DeepPs/"/>
@@ -348,7 +350,7 @@
     <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/"/>
     <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</id>
     <published>2020-07-13T10:22:41.000Z</published>
-    <updated>2020-10-05T06:26:56.156Z</updated>
+    <updated>2020-10-05T06:38:33.024Z</updated>
     
     <content type="html"><![CDATA[<p>待整理:</p><ul><li>卷积层池化层</li><li>梯度下降</li><li>pytorch</li><li>numpy</li></ul><p>学习网站:B站莫烦python</p><p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>]]></content>
     
@@ -370,49 +372,14 @@
     </summary>
     
     
-      <category term="编程学习" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
     
-      <category term="Python" scheme="http://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Python/"/>
+      <category term="深度学习" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="Python" scheme="http://www.jaylee.top/tags/Python/"/>
     
       <category term="深度学习" scheme="http://www.jaylee.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DMPR—PS</title>
-    <link href="http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DMPR-PS%20SLot%20detection/"/>
-    <id>http://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DMPR-PS%20SLot%20detection/</id>
-    <published>2020-07-13T07:17:49.000Z</published>
-    <updated>2020-07-14T05:48:55.810Z</updated>
-    
-    <content type="html"><![CDATA[<p>研究问题</p><p>创新贡献</p><p>方法和内容</p><ol><li><p>用CNN输出带方向的标记点，</p></li><li><p>然后再用模板匹配的方式推理出库位。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;研究问题&lt;/p&gt;
-&lt;p&gt;创新贡献&lt;/p&gt;
-&lt;p&gt;方法和内容&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;用CNN输出带方向的标记点，&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;然后再用模板匹配的方式推理出库位。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="研究生学习笔记" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="DMPR" scheme="http://www.jaylee.top/tags/DMPR/"/>
     
   </entry>
   
@@ -556,11 +523,39 @@
   </entry>
   
   <entry>
+    <title>算法小知识（一）</title>
+    <link href="http://www.jaylee.top/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    <id>http://www.jaylee.top/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-07-03T10:22:41.000Z</published>
+    <updated>2020-10-05T06:33:11.266Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p><p>1为正类，0为负类。</p><p>TP为true positive；FN为false negative.</p><ul><li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li><li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li><li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;std-transform&quot;&gt;&lt;a href=&quot;#std-transform&quot; class=&quot;headerlink&quot; title=&quot;std::transform&quot;&gt;&lt;/a&gt;std::transform&lt;/h1&gt;&lt;h1 id=&quot;准确率，召回率&quot;&gt;&lt;a href=&quot;#
+      
+    
+    </summary>
+    
+    
+      <category term="常识库" scheme="http://www.jaylee.top/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/"/>
+    
+    
+      <category term="trips" scheme="http://www.jaylee.top/tags/trips/"/>
+    
+      <category term="小知识" scheme="http://www.jaylee.top/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>深度学习视觉算法杂碎</title>
     <link href="http://www.jaylee.top/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/"/>
     <id>http://www.jaylee.top/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</id>
     <published>2020-07-03T10:22:41.000Z</published>
-    <updated>2020-08-07T03:12:23.863Z</updated>
+    <updated>2020-10-05T06:36:08.433Z</updated>
     
     <content type="html"><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;"><p>1为正类，0为负类。</p><p>TP为true positive；FN为false negative.</p><ul><li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li><li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li><li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li></ul><h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p><p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p><h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;"><p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p><pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p><p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;"><h2 id="图像内核，filter"><a href="#图像内核，filter" class="headerlink" title="图像内核，filter"></a>图像内核，filter</h2><p>有趣的互动链接：<a href="https://setosa.io/ev/image-kernels/" target="_blank" rel="noopener">https://setosa.io/ev/image-kernels/</a></p><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>上诉的卷积操作都是线性运算，不足以模拟非线性的过程，因此对每个神经元进行激活函数的操作，使得更加复杂。</p><p>常见的激活函数：</p><ul><li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li><li>ReLU函数使用更广泛：f(x)=max{0,x}</li></ul><h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;"><p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>]]></content>
     
@@ -574,7 +569,9 @@
     </summary>
     
     
-      <category term="算法知识收集" scheme="http://www.jaylee.top/categories/%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86%E6%94%B6%E9%9B%86/"/>
+      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="深度学习" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
       <category term="trips" scheme="http://www.jaylee.top/tags/trips/"/>

@@ -30,10 +30,11 @@
   </entry>
   <entry>
     <title>LiDAR_Perception</title>
-    <url>/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception/</url>
+    <url>/2020/09/17/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>研究生学习笔记</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -172,8 +173,8 @@
       </tags>
   </entry>
   <entry>
-    <title>科普常识收集</title>
-    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/</url>
+    <title>点云处理算法综述</title>
+    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</url>
     <content><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
 <p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
 <h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
@@ -294,7 +295,7 @@
       </tags>
   </entry>
   <entry>
-    <title>L-ShapeFitting4</title>
+    <title>DeepPS</title>
     <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
     <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
 <h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul>
@@ -306,8 +307,8 @@
 </ol>
 <h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>库位图像识别</category>
+        <category>研究生</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>DeepPs</tag>
@@ -327,32 +328,12 @@
 <p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
 ]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>Python</category>
+        <category>研究生</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>Python</tag>
         <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DMPR—PS</title>
-    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DMPR-PS%20SLot%20detection/</url>
-    <content><![CDATA[<p>研究问题</p>
-<p>创新贡献</p>
-<p>方法和内容</p>
-<ol>
-<li><p>用CNN输出带方向的标记点，</p>
-</li>
-<li><p>然后再用模板匹配的方式推理出库位。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>研究生学习笔记</category>
-      </categories>
-      <tags>
-        <tag>DMPR</tag>
       </tags>
   </entry>
   <entry>
@@ -529,6 +510,26 @@
       </tags>
   </entry>
   <entry>
+    <title>算法小知识（一）</title>
+    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
+<ul>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深度学习视觉算法杂碎</title>
     <url>/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</url>
     <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;">
@@ -564,27 +565,8 @@
 <p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>
 ]]></content>
       <categories>
-        <category>算法知识收集</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法小知识</title>
-    <url>/2020/07/03/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>科学知识收集</category>
+        <category>研究生</category>
+        <category>深度学习</category>
       </categories>
       <tags>
         <tag>trips</tag>
@@ -732,8 +714,8 @@
       </tags>
   </entry>
   <entry>
-    <title>20200628问题记录</title>
-    <url>/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/0628%E6%B3%8A%E8%BD%A6%E6%A1%86%E6%9E%B6_%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <title>泊车感知框架阅读笔记（一）</title>
+    <url>/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h2 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h2><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
@@ -767,10 +749,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>Q&amp;A</category>
+        <category>研究生</category>
       </categories>
       <tags>
-        <tag>Q&amp;A</tag>
+        <tag>ROS框架</tag>
       </tags>
   </entry>
   <entry>
@@ -1113,8 +1095,8 @@
 <h2 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h2><p>提到一些用于跟踪的卡尔曼滤波的方法值得参考：<br>    1. 用跟踪解决雷达稀疏效应造成的过分割和无效点，以及近处遮挡造成的分块<br>    2. 将噪声分成两部分：静态噪声和自适应噪声，分别由于硬件限制和分割拟合算法造成。<strong>其中自适应噪声用了前15次测量的预测值和观测值之间的残差的协方差矩阵作为噪音矩阵，再加上静态噪声的倍数确保下限。</strong>每次误差中心偏离零值过多再利用观测值重置。</p>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>点云处理</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>L形状拟合</tag>
@@ -1304,8 +1286,8 @@
 <h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>点云处理</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>L形状拟合</tag>
@@ -1464,8 +1446,8 @@
 <p><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result1.png" alt><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result2.png" alt><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result3.png" alt><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>点云处理</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>L形状拟合</tag>
@@ -1502,7 +1484,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
+        <category>研究生</category>
       </categories>
       <tags>
         <tag>顶会</tag>
@@ -1559,8 +1541,8 @@
 <h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>点云处理</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>L形状拟合</tag>
@@ -1640,8 +1622,8 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>研究生学习笔记</category>
-        <category>点云处理</category>
+        <category>研究生</category>
+        <category>LiDAR</category>
       </categories>
       <tags>
         <tag>点云</tag>
