@@ -207,6 +207,546 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">ROS/vscode调试运行</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-17 19:55:25" itemprop="dateCreated datePublished" datetime="2020-06-17T19:55:25+08:00">2020-06-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:20:25" itemprop="dateModified" datetime="2020-10-05T14:20:25+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">工具技能</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/" itemprop="url" rel="index">
+                    <span itemprop="name">vscode</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;***</span><br><span class="line">git checkout dev</span><br><span class="line">git checkout -b dev_Lee</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件架构"><a href="#文件架构" class="headerlink" title="文件架构"></a>文件架构</h2><p><strong>根目录</strong>:拉取下来的lidar_perception是ros工作空间的一个packege<br><strong>一级目录</strong>:</p>
+<ul>
+<li>include(头文件.h,每个阶段步骤所包括的类及其方法的声明),</li>
+<li>src(源文件.cpp,对头文件类的方法的具体实现进行描述,类外申明),</li>
+<li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
+<li>rviz(显示的配置设置)</li>
+</ul>
+<h2 id="catkin-make"><a href="#catkin-make" class="headerlink" title="catkin_make"></a>catkin_make</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
+<blockquote>
+<p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
+</blockquote>
+<p>打开roscore,运行主节点node,将采集的点云包rosbag文件play,自动发布到topic中,打开rviz进行显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun &lt;rospackage&gt; node</span><br><span class="line">rosbag play ~&#x2F;rosbagfiles&#x2F;**.bag -l -r 0.1</span><br><span class="line">rviz</span><br></pre></td></tr></table></figure>
+
+<p>当然，更方便的方法就是将多节点运行顺序写到roslaunch文件中，一键启动。<br><code>roslaunch &lt;rospackage&gt; **.launch</code></p>
+<h2 id="算法细节笔记"><a href="#算法细节笔记" class="headerlink" title="算法细节笔记"></a>算法细节笔记</h2><h1 id="vscode编辑器下调试ROS程序配置"><a href="#vscode编辑器下调试ROS程序配置" class="headerlink" title="vscode编辑器下调试ROS程序配置"></a>vscode编辑器下调试ROS程序配置</h1><p><a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html" target="_blank" rel="noopener">阅读vscode官方插件cmake tools说明文档</a></p>
+<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><blockquote>
+<p>选择kit。Kit是一组工具包，包括编译器、链接器等其他工具，如gcc,clang等</p>
+</blockquote>
+<blockquote>
+<p>variant。有4种，debug,release是其中两种。</p>
+</blockquote>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,<br>终端中打开vscode当前目录<code>code .</code>，会自动生成‘.vscode’文件夹,里面包含两个.json配置文件:</p>
+<blockquote>
+<p>c_cpp_properties.json 主要是ROS插件生成,用于识别配置ros相关头文件等<br>settings.json vscode编辑器设置文档</p>
+</blockquote>
+<p>通过另一个配置文件task.json, 这里可以直接在vscode进行catkin_make。ctrl+shift+P调出vscode的命令行，输入Task:Config default task生成*.json文件。修改其内容见链接内容，主要是配置catkin_make或者g++编译的参数。<br>编译后出现compile_commands.json，<br><code>catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes</code><br>这个文件可以帮助我们关联编译所需要的文件路径，需要添加在c_cpp_properties.json里面”compileCommond”配置中<br><code>&quot;compileCommands&quot;:&quot;${workspaceFolder}/build/compile_commands.json&quot;</code></p>
+<h3 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a><strong>c_cpp_properties.json</strong></h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//c_cpp_properties.json</span></span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"browse"</span>:&#123;</span><br><span class="line">                <span class="attr">"databaseFilename"</span>:<span class="string">""</span>,</span><br><span class="line">                <span class="attr">"limitSymbolsToIncludedHeaders"</span>:<span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"includePath"</span>: [</span><br><span class="line">                <span class="string">"/opt/ros/kinetic/include/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/**"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"ROS"</span>,</span><br><span class="line">            <span class="attr">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span>,</span><br><span class="line">            <span class="attr">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="attr">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="attr">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="attr">"configurationProvider"</span>: <span class="string">"ms-vscode.cmake-tools"</span>, </span><br><span class="line">            <span class="attr">"compileCommands"</span>: <span class="string">"$&#123;workspaceFolder&#125;/build/compile_commands.json"</span></span><br><span class="line">            <span class="comment">//上述两行可解决找不到ros.h的类似问题</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="task-json"><a href="#task-json" class="headerlink" title="task.json"></a><strong>task.json</strong></h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task.json chen</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [</span><br><span class="line">				<span class="string">"-j4"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_CXX_STANDARD=14"</span></span><br><span class="line">			],</span><br><span class="line">			</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task from Bilibili</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Debug"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [],</span><br><span class="line">			<span class="attr">"options"</span>: &#123;</span><br><span class="line">				<span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>:<span class="string">"release"</span>,</span><br><span class="line">			<span class="attr">"command"</span>:<span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: <span class="string">"build"</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以上就可以和在终端中一样运行程序了。但是想要设置断点对程序进行调试debug则需要更多配置，生成debug版本的可执行程序。<br>后话：实际上还是会提示找不到ros.h.是不是ws目录必须在～下？</p>
+<h2 id="GDB-debug"><a href="#GDB-debug" class="headerlink" title="GDB debug"></a>GDB debug</h2><blockquote>
+<p>GDB调试器是调试C++代码的神器，ROS项目本质上也是一个ROS项目，因此也可以用GDB进行调试<br>在vscode里面已经继承了GDB调试器，我们需要做的就是配置launch.json文件</p>
+</blockquote>
+<p>点击左侧工具栏调试按钮，自动生成launch.json.</p>
+<p><a href="https://www.bilibili.com/video/BV1Ft411M7Uk" target="_blank" rel="noopener">B站视频链接</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb)Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/devel/lib/tutorials/talker"</span>, </span><br><span class="line">            <span class="comment">//修改，将需要调试的节点在编译后生成的可执行文件的路径添加</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,<span class="comment">//若没有修改就不需要每次都编译.也可以每次调试前先catkin_make</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Github学习笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-15 16:15:29" itemprop="dateCreated datePublished" datetime="2020-06-15T16:15:29+08:00">2020-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 20:01:09" itemprop="dateModified" datetime="2020-10-05T20:01:09+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">工具技能</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github/" itemprop="url" rel="index">
+                    <span itemprop="name">Github</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/" target="_blank" rel="noopener">简明教程</a></p>
+<p><a href="https://git-scm.com/docs" target="_blank" rel="noopener">完整教程</a></p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
+<li>工作区: 当前电脑下的工作目录空间</li>
+<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
+<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
+<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m "add files" #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am "修改..." #跳过git add步骤</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了" target="_blank" rel="noopener">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:git@github.com">git@github.com</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3" target="_blank" rel="noopener">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:email@example.com">email@example.com</a>“</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">C++ 知识点</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:30:55" itemprop="dateModified" datetime="2020-10-05T14:30:55+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++ 知识点</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:29:58" itemprop="dateModified" datetime="2020-10-05T14:29:58+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
+<h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
+<p>相关函数查一查。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="申明和定义"><a href="#申明和定义" class="headerlink" title="申明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">申明和定义</a></h1><blockquote>
+<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
+</blockquote>
+<blockquote>
+<p>所以有回复说：</p>
+<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h1><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h1><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
+<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
+<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
+<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><p>​    </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Matlab小知识记录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-23 13:24:30" itemprop="dateCreated datePublished" datetime="2020-03-23T13:24:30+08:00">2020-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:15:17" itemprop="dateModified" datetime="2020-10-05T14:15:17+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Matlab</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
+<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
+<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
+<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
+</ol>
+<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
+<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
+<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
+<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
+<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列</code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
+<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
+</blockquote>
+</li>
+<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png" alt></li>
+<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
+<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
+</ol>
+<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
+<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -677,525 +1217,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/" class="post-title-link" itemprop="url">遇见百分百女孩</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-19 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T11:00:00+08:00">2019-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:29:02" itemprop="dateModified" datetime="2020-10-05T14:29:02+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><img src="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9.jpg" alt="遇见百分百女孩"></p>
-<p>四月一个晴朗的早晨，在原宿后街，我同一个百分百女孩擦肩而过。</p>
-<p>老实说，这女孩不见得有多漂亮，并不是很吸引人，穿着也不出众，脑后的头发还带有睡觉挤压的痕迹，年龄也不小了，应该快有30吧–严格地说来，恐怕很难称之为女孩。然而,在50米外我便一眼看出：她就是我的百分百女孩。看见她身影的那一瞬间，我的胸口受到地震一般的震颤，嘴里干得象沙沙作响的沙漠。</p>
-<p>或许你也有你的百分百女孩。比如喜欢手脚纤细的女孩，喜欢眼睛大，手指绝对好看的女孩，或者不明所以地迷上慢慢吃东西的女孩。我当然也有自己的偏爱，在饭店时就曾看着邻桌一个女孩的鼻形发呆。但要明确勾勒出百分百女孩的形象，任何人都无法做到。我就绝对想不起她长有怎样的鼻子，甚至连是否有鼻子都已记不清楚。现在我所能记住的，只有她不是很漂亮这一点，事情真是不可思议。</p>
-<p>“昨天，我在路上同一个百分百女孩擦肩而过。”我对一个人说。<br>“喔，”他应道，“她人可漂亮？”<br>“不，不是说这个。”<br>“那，是合你口味那种类型喽？”<br>“记不清了。眼睛长什么样啦，胸部是大是小啦，统统忘得一干二净。”<br>“莫名其妙啊！”<br>“是莫名其妙。”<br>“那么，”他显得兴味索然，“你干了什么？搭话了？还是跟踪了？”<br>“什么都没有做。”我说，“仅仅是擦肩而过。”</p>
-<p>真的，仅仅是擦肩而过。<br>她由东往西，我从西向东，在四月里一个神清气爽的早晨。<br>我想和她说话，哪怕30分钟也好。我想知道她的一切，也想全盘托出自己。最重要的，是弄清到底是什么原因使我们有这样的命运，让我们在1981年4月一个晴朗的早晨，在原宿后街擦肩而过，这里面肯定充满着像和平时代的古老机器般温馨的秘密。说完了这些，我们可以找地方吃午饭，看伍迪.爱伦的影片，再顺路到宾馆里的酒吧喝点鸡尾酒什么的。弄得好，说不定还能同她睡上一觉。种种可能性在扣击着我的心扉。</p>
-<p>我和她之间的距离只有十五六米了。问题是，我到底该如何向她搭话呢？</p>
-<p>“你好！和我说说话可以吗？哪怕３０分钟也好。”<br>太傻气，简直象劝人买保险。<br>“请问，这一带有２４小时营业的洗衣店吗？”<br>一样的傻气，何况我连洗衣袋都没带！有谁能相信我的道白呢？<br>也许开门见山好些。“你好！你可是我的百分百女孩哟！”<br>不，不成，她不会相信我的表白。纵然相信，也未必愿意同我说话。她可能这样说：“即便我是你的百分百女孩，可是很抱歉，你不是我的百分百男孩呀。”这是很有可能的。假如真是这样，我肯定会被一下子打懵。这一打击说不定使我一蹶不振。我已３２岁，再也禁不起打击了，所谓上年纪归根结底便是这么一回事。我是在花店门前和她擦肩而过的，那暖暖的小小的气块儿触到了我的肌肤。柏油路面洒了水，周围荡漾着玫瑰花香。可我连向她打声招呼都做不到。她穿白毛衣，右手拿一个未贴邮票的四方信封。她给写了封信，你看她那样睡眼惺忪，说不定写了整整一个晚上。那四方信封里可能装有她全部的秘密。</p>
-<p>走几步再回头时，她的身影早已消失在人群中。当然，今天我已完全清楚当时应怎样向她搭话。但不管怎么说，那道白实在太长，我肯定表达不好――就是这样，我想到的每次都不实用。<br>总之，这篇道白以“很久很久以前”开始，以“你不觉得这是个忧伤的故事吗”结束。<br>很久很久以前，有个地方有一个男孩和一个女孩。男孩十八岁，女孩十七岁。<br>男孩算不上英俊，女孩也不怎么漂亮，无非随处可见的孤独而平常的少男少女。但两人一直坚信世上某个地方一定存在百分之百适合自己的女孩和男孩。两人相信奇迹，而奇迹真的发生了。一天，两人在街头不期而遇。<br>“真巧！我一直在寻找你。也许你不相信，你就是我的百分百男孩。从头到脚都跟我想象的一模一样。简直像是在做梦。”两人坐在公园长椅上，手拉手，百谈不厌。两人已不再孤独，百分之百需求对方，也百分之百被对方需求。而百分之百需求对方和百分之百被对方需求是何等美妙的事情啊！这已是宇宙奇迹！</p>
-<p>但两人心中掠过一个小小的，的确是小而又小的疑虑：梦想如此轻易成真是否真的就是好事？</p>
-<p>交谈突然中断，男孩这样说道：“我说，再尝试一次吧！如果我们两人真是一对百分之百的恋人的话，肯定会有一天在哪里重逢。下次相遇时如果仍觉得对方百分之百，就马上在那里结婚，好么？</p>
-<p>“好的。” 女孩回答。<br>于是两人分开，各奔东西。<br>不过说实在话，根本没有必要再尝试，这纯属多此一举。为什么呢？因为两人的的确确是一对百分之百的恋人，因为那的的确确是奇迹般的邂逅。但两人过于年轻，没办法知道这么多。于是无情的命运开始捉弄两人。</p>
-<p>一年冬天，两人都染上了那年肆虐的恶性流感，在死亡线上徘徊几个星期后，过去的记忆丧失殆尽。事情也真是离奇，当两人睁眼醒来时，脑袋里犹如劳伦斯少年时代的贮币盒一样空空如也。但这对青年男女毕竟聪明豁达且极有毅力，经过不懈努力，终于再度获得了新的知识和新的情感，愉快地重返社会生活了。啊，我的上帝！这两人真是无可挑剔！他们又能够换乘地铁，能够在邮局寄快信了。并且分别体验了百分之七十五和百分之八十五的爱情。</p>
-<p>如此来来往往，男孩32，女孩31岁了。时光以惊人的速度流逝。</p>
-<p>四月一个晴朗的早晨，男孩为喝折价早咖啡沿原宿后街由西向东走，女孩为买快信邮票沿同一条街由东向西去，两人恰在路中间擦肩而过。失却记忆的微光刹那间照亮两颗心灵。</p>
-<p>两人胸口陡然颤动，并且明白：<br>她就是我的百分百女孩。<br>他就是我的百分百男孩。</p>
-<p>然而两人记忆的烛光实在过于微弱，两人的话语也不似十四年前那般清晰。结果连句话也没说便擦肩而过，径直消失在人群中，永远永远。<br>你不觉得这是个令人感伤的故事么？</p>
-<p>是的，我本该这样向她搭话。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">日常计算机小问题记录</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-17 16:15:29" itemprop="dateCreated datePublished" datetime="2019-12-17T16:15:29+08:00">2019-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:17:17" itemprop="dateModified" datetime="2020-10-05T14:17:17+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index">
-                    <span itemprop="name">问题记录</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369" target="_blank" rel="noopener">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">ROS入门</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-17 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-17T11:00:00+08:00">2019-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:20:08" itemprop="dateModified" datetime="2020-10-05T14:20:08+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>官方学习文档：<a href="http://wiki.ros.org/" target="_blank" rel="noopener">http://wiki.ros.org/</a></p>
-<h2 id="1-移动硬盘-Ubuntu-16-04系统安装"><a href="#1-移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="1.移动硬盘 Ubuntu 16.04系统安装"></a>1.移动硬盘 Ubuntu 16.04系统安装</h2><p>[见这篇文章]<a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</a></p>
-<h2 id="2-Ubuntu-16-04"><a href="#2-Ubuntu-16-04" class="headerlink" title="2. Ubuntu 16.04"></a>2. Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
-<h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p>
-<blockquote>
-<p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p>
-</blockquote>
-<h2 id="3-ROS准备"><a href="#3-ROS准备" class="headerlink" title="3. ROS准备"></a>3. ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu" target="_blank" rel="noopener">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html" target="_blank" rel="noopener">建立ROS工作空间</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/<span class="built_in">setup</span>.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"source my_ws/devel/setup.bash"</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>可以查看系统包含的package路径</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-ROS基础知识"><a href="#4-ROS基础知识" class="headerlink" title="4. ROS基础知识"></a>4. ROS基础知识</h2><h3 id="4-1-ROS概念"><a href="#4-1-ROS概念" class="headerlink" title="4.1. ROS概念"></a>4.1. ROS概念</h3><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378" target="_blank" rel="noopener">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
-<blockquote>
-<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5" target="_blank" rel="noopener">MOOC ROS入门视频：</a></p>
-</blockquote>
-<h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p>
-<blockquote>
-<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
-</blockquote>
-<h3 id="4-2-ROS项目操作"><a href="#4-2-ROS项目操作" class="headerlink" title="4.2. ROS项目操作"></a>4.2. ROS项目操作</h3><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
-<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
-<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
-<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
-<h4 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h4><h5 id="PCL点云库从入门到精通"><a href="#PCL点云库从入门到精通" class="headerlink" title="PCL点云库从入门到精通"></a>PCL点云库从入门到精通</h5><p>由于《PCL点云库从入门到精通》配套代码只有C++语言，不能直接用于ROS平台，遂可先在Ubuntu中编译学习。</p>
-<ol>
-<li>在source文件夹（含有cpp，CMake，pcd）中新建文件夹build：<code>cd source/;mkdir build/</code></li>
-<li>编译source文件夹中的cpp代码：<code>cd build/; cmake ..</code></li>
-<li>生成可执行文件：<code>make</code></li>
-<li>运行可执行文件：<code>./execute_name</code></li>
-</ol>
-<h5 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668" target="_blank" rel="noopener">Hello world</a></h5><p><strong>流程：</strong></p>
-<blockquote>
-<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
-</blockquote>
-<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
-<h3 id="4-3-CmakeList"><a href="#4-3-CmakeList" class="headerlink" title="4.3 CmakeList"></a>4.3 CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>ROS：依赖文件和环境</strong></a><br>  <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html" target="_blank" rel="noopener"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ {PCL_LIBRARY_DIRS})</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>${PCL_LIBRARIES}</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/17/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">PCL入门</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-17 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-17T11:00:00+08:00">2019-12-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:25:02" itemprop="dateModified" datetime="2020-10-05T14:25:02+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL/" itemprop="url" rel="index">
-                    <span itemprop="name">PCL</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
-<p><a href="https://blog.csdn.net/qq_42367689/article/details/104358046" target="_blank" rel="noopener">工作空间配置实例</a></p>
-<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.<span class="built_in">read</span>&lt;pcl::PointXYZ&gt; (<span class="string">"/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd"</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">"/home/lijie/catkin_ws/src/pcd_load/13.pcd"</span>, cloud);</span><br></pre></td></tr></table></figure>
-
-<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a href="https://blog.csdn.net/ethan_guo/article/details/80110023" target="_blank" rel="noopener"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a href="https://www.cnblogs.com/li-yao7758258/p/6651326.html" target="_blank" rel="noopener">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
-<ol>
-<li>在一个package/src中建立两个<em>.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>${PROJECT_NAME}_node</code>（即节点名）修改为你的节点名（建议与</em>.cpp一致或添加*_node）如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
-<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
-</li>
-<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a href="https://blog.csdn.net/HHH_go_/article/details/83148472" target="_blank" rel="noopener">SAC_RANSAC分割地面</a></p>
-<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
-<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
-<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers" target="_blank" rel="noopener">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/" class="post-title-link" itemprop="url">L-Shape-Fitting3</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-16 10:37:20" itemprop="dateCreated datePublished" datetime="2019-12-16T10:37:20+08:00">2019-12-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:37:26" itemprop="dateModified" datetime="2020-10-05T14:37:26+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index">
-                    <span itemprop="name">LiDAR</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header" target="_blank" rel="noopener">链接</a></p>
-<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
-<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
-<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif" alt></li>
-</ol>
-<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png" alt></p>
-<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png" alt></p>
-<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1263,20 +1289,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

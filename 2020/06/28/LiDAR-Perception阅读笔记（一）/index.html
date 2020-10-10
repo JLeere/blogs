@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="1. my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned">
+  <meta name="description" content="my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned    P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泊车感知框架阅读笔记（一）">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;2020&#x2F;06&#x2F;28&#x2F;LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89&#x2F;index.html">
 <meta property="og:site_name" content="Lee&#39;s House">
-<meta property="og:description" content="1. my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned">
+<meta property="og:description" content="my_point_type.h123456789101112struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators are aligned    P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-28T06:22:12.000Z">
-<meta property="article:modified_time" content="2020-10-05T06:39:04.855Z">
+<meta property="article:modified_time" content="2020-10-10T05:32:32.770Z">
 <meta property="article:author" content="Lee Jay">
 <meta property="article:tag" content="ROS框架">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:39:04" itemprop="dateModified" datetime="2020-10-05T14:39:04+08:00">2020-10-05</time>
+                <time title="修改时间：2020-10-10 13:32:32" itemprop="dateModified" datetime="2020-10-10T13:32:32+08:00">2020-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,37 +265,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-my-point-type-h"><a href="#1-my-point-type-h" class="headerlink" title="1. my_point_type.h"></a>1. my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
+        <h2 id="my-point-type-h"><a href="#my-point-type-h" class="headerlink" title="my_point_type.h"></a>my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><a href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中" class="headerlink" title="2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中"></a>2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</h2><h2 id="3-endif"><a href="#3-endif" class="headerlink" title="3. #endif"></a>3. #endif</h2><p>//LIDAR_PERCEPTION_SRC_GROUND_REMOVER_GROUND_REMOVER_H_ </p>
-<p>??为什么要添加这个??</p>
-<h2 id="4-this-指针"><a href="#4-this-指针" class="headerlink" title="4. this 指针"></a>4. this 指针</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定义CTimer的目的是干嘛"><a href="#定义CTimer的目的是干嘛" class="headerlink" title="定义CTimer的目的是干嘛?"></a>定义CTimer的目的是干嘛?</h2><p>在聚类中</p>
+<h2 id="this-指针"><a href="#this-指针" class="headerlink" title="this 指针"></a>this 指针</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-PCL点云数据结构"><a href="#5-PCL点云数据结构" class="headerlink" title="5.PCL点云数据结构"></a>5.PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li><p>width(int),每一束激光扫描的点数</p>
-</li>
-<li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p>
-</li>
-<li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-
-</li>
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
+<li>共享指针</li>
 </ul>
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z</code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
 
     </div>
 
@@ -381,7 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-my-point-type-h"><span class="nav-number">1.</span> <span class="nav-text">1. my_point_type.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-定义CTimer的目的是干嘛-gt-gt-在聚类中"><span class="nav-number">2.</span> <span class="nav-text">2. 定义CTimer的目的是干嘛?&gt;&gt;在聚类中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-endif"><span class="nav-number">3.</span> <span class="nav-text">3. #endif</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-this-指针"><span class="nav-number">4.</span> <span class="nav-text">4. this 指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-PCL点云数据结构"><span class="nav-number">5.</span> <span class="nav-text">5.PCL点云数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PointCLoud"><span class="nav-number">5.1.</span> <span class="nav-text">PointCLoud:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#my-point-type-h"><span class="nav-number">1.</span> <span class="nav-text">my_point_type.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义CTimer的目的是干嘛"><span class="nav-number">2.</span> <span class="nav-text">定义CTimer的目的是干嘛?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-指针"><span class="nav-number">3.</span> <span class="nav-text">this 指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#todo"><span class="nav-number"></span> <span class="nav-text">todo</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -397,20 +374,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

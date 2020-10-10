@@ -207,6 +207,464 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/" class="post-title-link" itemprop="url">动态规划</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-11 14:18:00" itemprop="dateCreated datePublished" datetime="2020-09-11T14:18:00+08:00">2020-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:30:49" itemprop="dateModified" datetime="2020-10-05T14:30:49+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
+
+<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;">
+
+<p>斐波那契数列，可以递归/求通项/动态规划。</p>
+<p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p>
+<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote>
+<p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p>
+</blockquote>
+<p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p>
+<h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure>
+
+<p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p>
+<p><code>dp[i] = max(dp[i-1], nums[i]);</code></p>
+<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote>
+<p>示例 1：</p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p>
+</blockquote>
+<p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p>
+<p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/" class="post-title-link" itemprop="url">枚举</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-11 14:18:00" itemprop="dateCreated datePublished" datetime="2020-09-11T14:18:00+08:00">2020-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:30:22" itemprop="dateModified" datetime="2020-10-05T14:30:22+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/" class="post-title-link" itemprop="url">点云处理算法综述</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-07 14:15:29" itemprop="dateCreated datePublished" datetime="2020-09-07T14:15:29+08:00">2020-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:38:18" itemprop="dateModified" datetime="2020-10-05T14:38:18+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">研究生</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index">
+                    <span itemprop="name">LiDAR</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
+<p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
+<h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
+<p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p>
+<p>类似的网络：pixorNet,pointNet++02</p>
+<h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p>
+<p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">二叉树</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-03 14:18:00" itemprop="dateCreated datePublished" datetime="2020-09-03T14:18:00+08:00">2020-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:30:19" itemprop="dateModified" datetime="2020-10-05T14:30:19+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+
+<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
+<p>递归初始化：空节点深度为空</p>
+<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+
+<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
+<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
+<p>递归初始化：若当前节点为空，返回true。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">经典排序算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-03 14:18:00" itemprop="dateCreated datePublished" datetime="2020-09-03T14:18:00+08:00">2020-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-05 14:30:25" itemprop="dateModified" datetime="2020-10-05T14:30:25+08:00">2020-10-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/" target="_blank" rel="noopener">优秀连接</a></p>
+<p><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F.png" alt="排序"></p>
+<h2 id="经典排序算法"><a href="#经典排序算法" class="headerlink" title="经典排序算法"></a>经典排序算法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">8</span>] = &#123;<span class="number">1</span>,<span class="number">56</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">65</span>,<span class="number">85</span>,<span class="number">43</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n =<span class="number">8</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//冒泡排序；</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])</span><br><span class="line">                &#123;<span class="keyword">int</span> temp = a[j];a[j] = a[j+<span class="number">1</span>];a[j+<span class="number">1</span>] = temp;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j =i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[j])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = a[j];a[j] = a[i];a[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[i];</span><br><span class="line">        <span class="keyword">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; temp &lt; a[j])&#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k =<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[k]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200904105656076.png" alt="image-20200904105656076" style="zoom:80%;">
+
+<p>双指针。copy一个nums1内存空间res保存结果。</p>
+<p>p&lt;q, 则p值放入res，p++;反之同。退出循环的条件，指针没到末尾</p>
+<p>注意：p,q长度不一致，把未排完的依次放入res末尾。</p>
+<h3 id="第一个错误版本"><a href="#第一个错误版本" class="headerlink" title="第一个错误版本"></a>第一个错误版本</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200909183836225.png" alt="image-20200909183836225" style="zoom:80%;">
+
+<p>二分法查找。复杂度o(logn)</p>
+<p>初始化边界：left为1，right为n. </p>
+<p>判断中间值：isBadVersion(left+(right-left)/2)</p>
+<p>退出循环的条件： left &lt; right</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -608,7 +1066,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">CXX环境值和编译运行</a>
+            <a href="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">cmake</a>
         </h1>
 
         <div class="post-meta">
@@ -625,7 +1083,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:18:16" itemprop="dateModified" datetime="2020-10-05T14:18:16+08:00">2020-10-05</time>
+                <time title="修改时间：2020-10-10 13:47:16" itemprop="dateModified" datetime="2020-10-10T13:47:16+08:00">2020-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -656,538 +1114,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><h1 id="编译运行"><a href="#编译运行" class="headerlink" title="编译运行"></a>编译运行</h1><h2 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h2><p>任何一个文本程序生成可执行文件的步骤都是:</p>
+          <h1 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h1><p><a href="http://blog.sina.com.cn/s/blog_74a459380102uxlz.html" target="_blank" rel="noopener">学习链接</a></p>
+<p>任何一个文本程序生成可执行文件的步骤都是:</p>
 <ol>
 <li>编辑器编写源代码,.cpp</li>
 <li>编译器编译代码生成目标文件,.o文件</li>
 <li>链接器链接各个目标文件,生成可执行文件,.exe</li>
 </ol>
+<p>由于很多cpp相互关联,一个一个编译就很麻烦,于是出现了利用makefile规则文件自动编译这些cpp. 但是makefile的编写也很麻烦,于是又出现了cmake工具自动编写makefile.</p>
 <p>流程如下:</p>
 <blockquote>
 <p>源文件–&gt;CmakeLists–&gt;cmake–&gt;makefiles–&gt;make–&gt;.exe可执行文件.</p>
 </blockquote>
 <p>其中gcc和g++在make阶段编译和链接文件,g++在gcc的基础上默认关联了C++库。</p>
-<h2 id="cmake一个实例"><a href="#cmake一个实例" class="headerlink" title="cmake一个实例"></a>cmake一个实例</h2><p><a href="https://www.cnblogs.com/haijian/p/12039160.html" target="_blank" rel="noopener">https://www.cnblogs.com/haijian/p/12039160.html</a></p>
-<img src="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/lee/图片/2020-07-08 20-59-28屏幕截图.png" style="zoom:50%;">
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">CXX学习笔记（二）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-08 17:57:06" itemprop="dateCreated datePublished" datetime="2020-07-08T17:57:06+08:00">2020-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:30:01" itemprop="dateModified" datetime="2020-10-05T14:30:01+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
-<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
-<p>初始化（动态创建）：</p>
-<p><code>m = new Intcell();</code></p>
-<p><code>m = new Intcell{};//C++11</code></p>
-<p><code>m = new Intcell;</code></p>
-<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
-<p><code>delete m</code></p>
-<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
-<li><p>给复杂的名称取别名</p>
-<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
-<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
-</li>
-<li><p>范围for循环</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>避免不必要的拷贝</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
-<blockquote>
-<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
-<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
-<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
-</blockquote>
-<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
-<p>传常量引用</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><p>初始化表列：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
-
-<p>explicit构造函数，英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    	: membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
-
-<p>举例explicit的作用：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
-
-<p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
-<ul>
-<li><p>析构函数</p>
-</li>
-<li><p>复制构造函数</p>
-</li>
-<li><p>移动构造函数</p>
-</li>
-<li><p>拷贝赋值</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>移动复制</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/" class="post-title-link" itemprop="url">What I Want todo</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-07 21:17:49" itemprop="dateCreated datePublished" datetime="2020-07-07T21:17:49+08:00">2020-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:28:46" itemprop="dateModified" datetime="2020-10-05T14:28:46+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
-<li>C++<ul>
-<li>ROS</li>
-<li>PCL</li>
-<li>Opencv</li>
-</ul>
-</li>
-<li>Python<ul>
-<li>pytorch</li>
-</ul>
-</li>
-<li>点云匹配</li>
-<li>CAN</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/07/%E7%A0%94%E7%A9%B6%E7%94%9F/OpenCV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/07/%E7%A0%94%E7%A9%B6%E7%94%9F/OpenCV/" class="post-title-link" itemprop="url">OpenCV</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-07 21:01:19" itemprop="dateCreated datePublished" datetime="2020-07-07T21:01:19+08:00">2020-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:25:11" itemprop="dateModified" datetime="2020-10-05T14:25:11+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/Opencv/" itemprop="url" rel="index">
-                    <span itemprop="name">Opencv</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p>
-<p>在步骤：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
-
-<p>保存bash.bashrc时候提示不支持。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>open source computer vision library</p>
-</blockquote>
-<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
-<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">算法小知识（一）</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-03 18:22:41" itemprop="dateCreated datePublished" datetime="2020-07-03T18:22:41+08:00">2020-07-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:33:11" itemprop="dateModified" datetime="2020-10-05T14:33:11+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">常识库</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/" class="post-title-link" itemprop="url">深度学习视觉算法杂碎</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-03 18:22:41" itemprop="dateCreated datePublished" datetime="2020-07-03T18:22:41+08:00">2020-07-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:36:08" itemprop="dateModified" datetime="2020-10-05T14:36:08+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/Lijie\Documents\05_CodeRepository\Blog\source\_posts\深度学习杂碎\image-20200711205519057.png" alt="price" style="zoom:200%;">
-
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-<h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p>
-<p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p>
-<h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p>
-<img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;">
-
-<p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p>
-<pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p>
-<p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p>
-<img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;">
-
-
-
-<h2 id="图像内核，filter"><a href="#图像内核，filter" class="headerlink" title="图像内核，filter"></a>图像内核，filter</h2><p>有趣的互动链接：<a href="https://setosa.io/ev/image-kernels/" target="_blank" rel="noopener">https://setosa.io/ev/image-kernels/</a></p>
-<h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>上诉的卷积操作都是线性运算，不足以模拟非线性的过程，因此对每个神经元进行激活函数的操作，使得更加复杂。</p>
-<p>常见的激活函数：</p>
-<ul>
-<li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li>
-<li>ReLU函数使用更广泛：f(x)=max{0,x}</li>
-</ul>
-<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;">
-
-<p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>
+<h1 id="cmake一个helloworld实例"><a href="#cmake一个helloworld实例" class="headerlink" title="cmake一个helloworld实例"></a>cmake一个helloworld实例</h1><p><a href="https://www.cnblogs.com/haijian/p/12039160.html" target="_blank" rel="noopener">https://www.cnblogs.com/haijian/p/12039160.html</a></p>
+<img src="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/1365039-20191214155830875-1005241267.png" alt="1365039-20191214155830875-1005241267" style="zoom:50%;">
+
+<h2 id="PCL点云库从入门到精通"><a href="#PCL点云库从入门到精通" class="headerlink" title="PCL点云库从入门到精通"></a>PCL点云库从入门到精通</h2><p>由于《PCL点云库从入门到精通》配套代码只有C++语言，不能直接用于ROS平台，遂可先在Ubuntu中编译学习。</p>
+<ol>
+<li>在source文件夹（含有cpp，CMake，pcd）中新建文件夹build：<code>cd source/;mkdir build/</code></li>
+<li>编译source文件夹中的cpp代码：<code>cd build/; cmake ..</code></li>
+<li>生成可执行文件：<code>make</code></li>
+<li>运行可执行文件：`./execute_name</li>
+</ol>
+<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p><a href="https://cmake.org/cmake/help/v3.1/" target="_blank" rel="noopener">官网教程</a></p>
+<p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>ROS：依赖文件和环境</strong></a><br>  <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html" target="_blank" rel="noopener"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
+<p><code>SET(CMAKE_BUILD_TYPE Release)</code>: 指定编译类型</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set(EXECUTABLE_OUTPUT_PATH $&#123;PROJECT_SOURCE_DIR&#125;/bin) #指定可执行文件生成目录</span><br><span class="line">set(LIBRARY_OUTPUT_PATH $&#123;PROJECT_SOURCE_DIR&#125;/lib)#指定链接文件生成目录</span><br></pre></td></tr></table></figure>
+
+<p><code>include_directories(${PROJECT_SOURCE_DIR}/include)</code> : 添加头文件存放的目录</p>
+<p><code>add_executable(helloworld src/helloworld.cpp src/main.cpp)</code>:选择要编译的程序文件</p>
+<p><code>target_link_libraries(myProject a.cpp)</code>: 将二者链接起来</p>
+<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
+<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ {PCL_LIBRARY_DIRS})</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>${PCL_LIBRARIES}</code>。</p>
+<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
 
       
     </div>
@@ -1207,7 +1167,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1275,20 +1235,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
