@@ -165,17 +165,41 @@
   <entry>
     <title>C++基础巩固(一)</title>
     <url>/2020/09/11/CXX/C-%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
-    <content><![CDATA[<h2 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">gets();getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="C对比回顾"><a href="#C对比回顾" class="headerlink" title="C对比回顾"></a>C对比回顾</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><p><code>int &amp; a = x;</code>只能对<strong>变量</strong>进行引用，并且后续一直对该变量x保持引用。相当于变量x的别名，改变a的值即改变了x的值。</p>
+</li>
+<li><p>作为<strong>函数参数</strong>时, 可帮助函数传递实参，改变形参即可改变实参的值</p>
+</li>
+<li><p><strong>常引用</strong>: <code>const int &amp; b = y;</code> 后续不能改变其值; 也不能将常引用用于初始化非常引用. </p>
+</li>
+</ul>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ul>
+<li><strong>定义</strong>: <code>const string Str = &quot;China&quot;;</code> <code>const int * p = &amp; x</code></li>
+<li><strong>常量指针p</strong>: <ul>
+<li>不能通过p修改指向内容的值, 因此常量指针作为函数参数时可防止其指向的变量被函数内部修改; </li>
+<li>p所指向的变量的地址可以改变为其他变量, <code>p = &amp; y;</code></li>
+<li>常量指针不能被赋值为非常量指针,反之可以; </li>
+</ul>
+</li>
+</ul>
+<h2 id="动态内存分配-new"><a href="#动态内存分配-new" class="headerlink" title="动态内存分配 new"></a>动态内存分配 new</h2><p><strong>定义</strong>: <code>int * p = new int;</code> <code>int * pn = new int[10]</code>,初始化时就分配好地址空间.</p>
+<p><strong>使用new就必须使用<code>delete</code>释放空间</strong>: <code>delete p</code> <code>delete [] p</code></p>
+<h2 id="内联函数-重载-缺省"><a href="#内联函数-重载-缺省" class="headerlink" title="内联函数, 重载, 缺省"></a>内联函数, 重载, 缺省</h2><ul>
+<li>内联函数<code>inline int Max(int a, int b){}</code>: 函数体比较简单时,为了节约函数调用的<strong>时间</strong>,采用内联在编译时直接将函数体代码复制过去, 不再调用.</li>
+<li>函数重载: <code>int Max(double a,double b); int Max( int a, int b); int Max(int a, int b, int c)</code>:不同的参数列表用同样的函数名</li>
+<li>缺省参数:<code>int Max(int a, int b=2, int c = 3)</code>调用函数时后两个参数可以省略不写</li>
+</ul>
+<h1 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">gets();getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
 
 <p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
 <h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>整形int: short 2字节，long 4字节；</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>整形int: short 2字节，long 4字节；</p>
 <p>实形float（4），double（8）；</p>
 <p>bool (1)；char(1)；void;</p>
-<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x, *p = &amp;x ;<span class="comment">//*只是申明p为指针变量，&amp;表示取地址</span></span><br><span class="line"><span class="keyword">int</span> y,*q;q=&amp;y; <span class="comment">//与上一行等价</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);<span class="comment">//初始化指针变量</span></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//动态数组</span></span><br><span class="line"><span class="keyword">delete</span>(k);<span class="comment">//释放存储空间</span></span><br></pre></td></tr></table></figure>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x, *p = &amp;x ;<span class="comment">//*只是申明p为指针变量，&amp;表示取地址</span></span><br><span class="line"><span class="keyword">int</span> y,*q;q=&amp;y; <span class="comment">//与上一行等价</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);<span class="comment">//初始化指针变量</span></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//动态数组</span></span><br><span class="line"><span class="keyword">delete</span>(k);<span class="comment">//释放存储空间</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h3><p>字符数组,<code>char s[] = &quot;China&quot;</code>;</p>
+<h2 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h2><p>字符数组,<code>char s[] = &quot;China&quot;</code>;</p>
 <p>字符指针<code>char *p = &quot;china&quot;; *q = s</code>;</p>
 <p>字符指针数组<code>char * book[] = {&quot;C&quot;, &quot;python&quot;,&quot;Matlab&quot;}</code></p>
 <h4 id="输入流"><a href="#输入流" class="headerlink" title="输入流"></a>输入流</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从终端接收字符：</span></span><br><span class="line"><span class="keyword">char</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;arr;	<span class="comment">//空格，tab，enter都能结束</span></span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(arr,<span class="number">5</span>);		</span><br><span class="line"><span class="built_in">cin</span>.getline(arr,<span class="number">5</span>);		<span class="comment">//取5个字符，包含'\0',可收取空格</span></span><br><span class="line">getline(<span class="built_in">cin</span>,str);	<span class="comment">//</span></span><br><span class="line">gets(arr)；	<span class="comment">//新标准有用gets_s()</span></span><br><span class="line">getchar(arr)；	<span class="comment">//后三个需`#include &lt;string&gt;</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br></pre></td></tr></table></figure>
@@ -234,6 +258,18 @@
       </tags>
   </entry>
   <entry>
+    <title>枚举</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态规划</title>
     <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</url>
     <content><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
@@ -264,18 +300,6 @@
       <tags>
         <tag>Leecode</tag>
         <tag>DP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
       </tags>
   </entry>
   <entry>
@@ -844,14 +868,198 @@
   <entry>
     <title>泊车感知框架阅读笔记（一）</title>
     <url>/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="my-point-type-h"><a href="#my-point-type-h" class="headerlink" title="my_point_type.h"></a>my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="my-point-type-h"><a href="#my-point-type-h" class="headerlink" title="my_point_type.h"></a>my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring;</span><br><span class="line"></span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line"></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> RichPoint = PointXYZIR;</span><br><span class="line"><span class="keyword">using</span> CloudType = pcl::PointCloud&lt;RichPoint&gt;;</span><br><span class="line"><span class="keyword">using</span> VectorType = <span class="keyword">typename</span> pcl::PointCloud&lt;RichPoint&gt;::VectorType;</span><br><span class="line"><span class="keyword">using</span> CloudTypePtr = <span class="keyword">typename</span> CloudType::Ptr;</span><br><span class="line"><span class="keyword">using</span> CloudTypeConstPtr = <span class="keyword">typename</span> CloudType::ConstPtr;</span><br><span class="line"><span class="keyword">using</span> CloudTypePtrList = <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;CloudTypePtr&gt;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="定义CTimer的目的是干嘛"><a href="#定义CTimer的目的是干嘛" class="headerlink" title="定义CTimer的目的是干嘛?"></a>定义CTimer的目的是干嘛?</h2><p>在聚类中</p>
+<h2 id="定义CTimer"><a href="#定义CTimer" class="headerlink" title="定义CTimer"></a>定义CTimer</h2><p>在聚类中,的<strong>目的</strong>是干嘛?</p>
 <h2 id="this-指针"><a href="#this-指针" class="headerlink" title="this 指针"></a>this 指针</h2><figure class="highlight d"><table><tr><td class="code"><pre><span class="line">inline ImageType &amp;depth_image() &#123; <span class="keyword">return</span> <span class="keyword">this</span>-&gt;_depth_image; &#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
-<li>共享指针</li>
+<li>共享指针make_shared</li>
 </ul>
+<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -998,27 +1206,6 @@
   </entry>
   <entry>
     <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 知识点</title>
     <url>/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
 <h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
@@ -1047,8 +1234,34 @@
 <h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
 <p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
 <p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><p>​    </p>
+<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><h1 id="补漏函数"><a href="#补漏函数" class="headerlink" title="补漏函数"></a>补漏函数</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 ]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 知识点</title>
+    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -1597,12 +1810,15 @@
   </entry>
   <entry>
     <title>L-Shape fitting</title>
-    <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/</url>
+    <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/</url>
     <content><![CDATA[<p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
 <h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
+<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
+
+<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
 <ol>
 <li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
@@ -1636,7 +1852,7 @@
 <li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
 <li>预测了点云均值的中心,提高bb位置精度.</li>
 </ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
 <h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
 <h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
 <h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>

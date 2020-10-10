@@ -1170,7 +1170,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -1184,7 +1184,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
+            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
         </h1>
 
         <div class="post-meta">
@@ -1201,7 +1201,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:37:14" itemprop="dateModified" datetime="2020-10-05T14:37:14+08:00">2020-10-05</time>
+                <time title="修改时间：2020-10-10 22:25:29" itemprop="dateModified" datetime="2020-10-10T22:25:29+08:00">2020-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1235,8 +1235,11 @@
           <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
 <h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/1.png" alt><br>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
+<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
+
+<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
 <ol>
 <li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
@@ -1270,7 +1273,7 @@
 <li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
 <li>预测了点云均值的中心,提高bb位置精度.</li>
 </ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape%20fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
 <h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
 <h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
 <h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
