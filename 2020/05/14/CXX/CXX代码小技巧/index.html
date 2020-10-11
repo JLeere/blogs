@@ -54,7 +54,7 @@
 <meta property="og:description" content="自动变量1auto res &#x3D; vector&lt;int&gt;()  哈希表12unodered_map&lt;char int&gt; mp;for(char c:J)  -p.x &lt; 18.0f&#96;表示18是浮点数而非intemplaceC++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-14T14:47:00.000Z">
-<meta property="article:modified_time" content="2020-10-10T08:08:51.492Z">
+<meta property="article:modified_time" content="2020-10-11T06:21:04.593Z">
 <meta property="article:author" content="Lee Jay">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-10 16:08:51" itemprop="dateModified" datetime="2020-10-10T16:08:51+08:00">2020-10-10</time>
+                <time title="修改时间：2020-10-11 14:21:04" itemprop="dateModified" datetime="2020-10-11T14:21:04+08:00">2020-10-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,10 +276,10 @@
 <h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
 
 <h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
 
 <p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
 <h1 id><a href="#" class="headerlink" title></a></h1>
     </div>
 
@@ -299,8 +299,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="C++ 知识点">
-      <i class="fa fa-chevron-left"></i> C++ 知识点
+    <a href="/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="C++知识点">
+      <i class="fa fa-chevron-left"></i> C++知识点
     </a></div>
       <div class="post-nav-item">
     <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="Github学习笔记">
