@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CXX学习整理</title>
+    <url>/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>C++学习主要内容</p>
+<ul>
+<li>数据结构</li>
+<li>指针与引用</li>
+<li>类和对象</li>
+<li>继承与重载与多态</li>
+<li>函数</li>
+<li>模板库</li>
+</ul>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LiDAR_Perception阅读笔记二</title>
+    <url>/2020/10/10/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="加油"><a href="#加油" class="headerlink" title="加油"></a>加油</h1><p>认真学习,激光雷达处理方法和C++的处理</p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+      <tags>
+        <tag>ROS框架</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PCL基础知识</title>
     <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
@@ -136,131 +169,12 @@
       </tags>
   </entry>
   <entry>
-    <title>LiDAR_Perception阅读笔记二</title>
-    <url>/2020/09/17/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="加油"><a href="#加油" class="headerlink" title="加油"></a>加油</h1><p>认真学习,激光雷达处理方法和C++的处理</p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-      </categories>
-      <tags>
-        <tag>ROS框架</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>递归</title>
     <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
 <p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p>
 <p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p>
 <h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++基础巩固(一)</title>
-    <url>/2020/09/11/CXX/C-%E5%9F%BA%E7%A1%80%E5%B7%A9%E5%9B%BA/</url>
-    <content><![CDATA[<h1 id="C对比回顾"><a href="#C对比回顾" class="headerlink" title="C对比回顾"></a>C对比回顾</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
-<li><p><code>int &amp; a = x;</code>只能对<strong>变量</strong>进行引用，并且后续一直对该变量x保持引用。相当于变量x的别名，改变a的值即改变了x的值。</p>
-</li>
-<li><p>作为<strong>函数参数</strong>时, 可帮助函数传递实参，改变形参即可改变实参的值</p>
-</li>
-<li><p><strong>常引用</strong>: <code>const int &amp; b = y;</code> 后续不能改变其值; 也不能将常引用用于初始化非常引用. </p>
-</li>
-</ul>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><ul>
-<li><strong>定义</strong>: <code>const string Str = &quot;China&quot;;</code> <code>const int * p = &amp; x</code></li>
-<li><strong>常量指针p</strong>: <ul>
-<li>不能通过p修改指向内容的值, 因此常量指针作为函数参数时可防止其指向的变量被函数内部修改; </li>
-<li>p所指向的变量的地址可以改变为其他变量, <code>p = &amp; y;</code></li>
-<li>常量指针不能被赋值为非常量指针,反之可以; </li>
-</ul>
-</li>
-</ul>
-<h2 id="动态内存分配-new"><a href="#动态内存分配-new" class="headerlink" title="动态内存分配 new"></a>动态内存分配 new</h2><p><strong>定义</strong>: <code>int * p = new int;</code> <code>int * pn = new int[10]</code>,初始化时就分配好地址空间.</p>
-<p><strong>使用new就必须使用<code>delete</code>释放空间</strong>: <code>delete p</code> <code>delete [] p</code></p>
-<h2 id="内联函数-重载-缺省"><a href="#内联函数-重载-缺省" class="headerlink" title="内联函数, 重载, 缺省"></a>内联函数, 重载, 缺省</h2><ul>
-<li>内联函数<code>inline int Max(int a, int b){}</code>: 函数体比较简单时,为了节约函数调用的<strong>时间</strong>,采用内联在编译时直接将函数体代码复制过去, 不再调用.</li>
-<li>函数重载: <code>int Max(double a,double b); int Max( int a, int b); int Max(int a, int b, int c)</code>:不同的参数列表用同样的函数名</li>
-<li>缺省参数:<code>int Max(int a, int b=2, int c = 3)</code>调用函数时后两个参数可以省略不写</li>
-</ul>
-<h1 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">gets();getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
-
-<p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
-<h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>整形int: short 2字节，long 4字节；</p>
-<p>实形float（4），double（8）；</p>
-<p>bool (1)；char(1)；void;</p>
-<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x, *p = &amp;x ;<span class="comment">//*只是申明p为指针变量，&amp;表示取地址</span></span><br><span class="line"><span class="keyword">int</span> y,*q;q=&amp;y; <span class="comment">//与上一行等价</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>);<span class="comment">//初始化指针变量</span></span><br><span class="line"><span class="keyword">int</span> * k = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];<span class="comment">//动态数组</span></span><br><span class="line"><span class="keyword">delete</span>(k);<span class="comment">//释放存储空间</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="字符串的输入输出"><a href="#字符串的输入输出" class="headerlink" title="字符串的输入输出"></a>字符串的输入输出</h2><p>字符数组,<code>char s[] = &quot;China&quot;</code>;</p>
-<p>字符指针<code>char *p = &quot;china&quot;; *q = s</code>;</p>
-<p>字符指针数组<code>char * book[] = {&quot;C&quot;, &quot;python&quot;,&quot;Matlab&quot;}</code></p>
-<h4 id="输入流"><a href="#输入流" class="headerlink" title="输入流"></a>输入流</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 从终端接收字符：</span></span><br><span class="line"><span class="keyword">char</span> arr[<span class="number">5</span>];</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;arr;	<span class="comment">//空格，tab，enter都能结束</span></span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(arr,<span class="number">5</span>);		</span><br><span class="line"><span class="built_in">cin</span>.getline(arr,<span class="number">5</span>);		<span class="comment">//取5个字符，包含'\0',可收取空格</span></span><br><span class="line">getline(<span class="built_in">cin</span>,str);	<span class="comment">//</span></span><br><span class="line">gets(arr)；	<span class="comment">//新标准有用gets_s()</span></span><br><span class="line">getchar(arr)；	<span class="comment">//后三个需`#include &lt;string&gt;</span></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</span><br></pre></td></tr></table></figure>
-
-<p>  <a href="https://www.cnblogs.com/rever/p/4360826.html" target="_blank" rel="noopener">详细参见1</a> <a href="https://blog.csdn.net/u011486738/article/details/82082405" target="_blank" rel="noopener">参见2</a></p>
-<p><strong>scanf和printf不能直接作用于string</strong>，即<code>scanf(&quot;%s&quot;, arr)</code></p>
-<h4 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">puts</span>(arr);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%.3f"</span>,<span class="number">3.14156</span>);		<span class="comment">//"stdio.h"</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="printf修饰符"><a href="#printf修饰符" class="headerlink" title="printf修饰符"></a>printf修饰符</h4><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>d或i</td>
-<td>十进制整数</td>
-</tr>
-<tr>
-<td>f</td>
-<td>浮点数</td>
-</tr>
-<tr>
-<td>s</td>
-<td>字符串</td>
-</tr>
-<tr>
-<td>c</td>
-<td>字符</td>
-</tr>
-<tr>
-<td>.3</td>
-<td>宽度</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++基础巩固(二)</title>
-    <url>/2020/09/11/CXX/%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -300,6 +214,18 @@
       <tags>
         <tag>Leecode</tag>
         <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>枚举</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
       </tags>
   </entry>
   <entry>
@@ -540,8 +466,9 @@
   </entry>
   <entry>
     <title>CXX学习笔记（二）</title>
-    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
     <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
+<p>[TOC]</p>
 <h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
 <p>初始化（动态创建）：</p>
 <p><code>m = new Intcell();</code></p>
@@ -727,7 +654,7 @@
   </entry>
   <entry>
     <title>链表</title>
-    <url>/2020/06/30/CXX/%E9%93%BE%E8%A1%A8/</url>
+    <url>/2020/06/30/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -744,7 +671,7 @@
   <entry>
     <title>CXX学习笔记(一)</title>
     <url>/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数"><a href="#友元函数" class="headerlink" title="友元函数"></a>友元函数</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
+    <content><![CDATA[<h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数friends"><a href="#友元函数friends" class="headerlink" title="友元函数friends"></a>友元函数friends</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
 <p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">rect</span>(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            <span class="built_in">width</span> = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*<span class="built_in">width</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(<span class="built_in">rect</span> B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> <span class="built_in">width</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -753,20 +680,26 @@
 <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p><code>class A : public B</code></p>
 <p>A为派生类(子类)derive, B为基类(父类)base</p>
 <p>A类公有继承B类(public), 即A类可以访问B类所有公有和保护的成员(public,protect),但不能访问B类的私有成员.</p>
-<h2 id="虚函数和纯虚函数"><a href="#虚函数和纯虚函数" class="headerlink" title="虚函数和纯虚函数"></a><a href="https://www.runoob.com/w3cnote/cpp-virtual-functions.html" target="_blank" rel="noopener">虚函数和纯虚函数</a></h2><p><strong>虚函数</strong>: 基类函数最前面添加<code>virtual</code>指令, 父类中定义了虚函数的一种实现方式,子类中可以存在与之同名同参数同返回值的成员函数,并给出不同的实现.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"A::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"B::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A *a = <span class="keyword">new</span> B();</span><br><span class="line">    a-&gt;foo();   <span class="comment">// 在这里，a虽然是指向A的指针，但是被调用的函数(foo)却是B的!因此输出显示"B::foo() is called"</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="虚函数和纯虚函数"><a href="#虚函数和纯虚函数" class="headerlink" title="虚函数和纯虚函数"></a><a href="https://www.runoob.com/w3cnote/cpp-virtual-functions.html" target="_blank" rel="noopener">虚函数和纯虚函数</a></h2><p><strong>虚函数</strong>: 基类函数最前面添加<code>virtual</code>指令, 父类中定义了虚函数的一种实现方式,子类中可以存在与之同名同参数同返回值的成员函数,并给出<em>不同的实现</em>.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 虚函数允许派生类不同的实现</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"A::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"B::foo() is called"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A *a = <span class="keyword">new</span> B();</span><br><span class="line">    a-&gt;foo();   <span class="comment">// 在这里，a虽然是指向A的指针，但是被调用的函数(foo)却是B的!因此输出显示"B::foo() is called"</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>纯虚函数</strong>: 当父类是一种抽象类,比如动物,是无法定义一个具体的对象实例的,因此不能得到其animalType. 所以定义一个纯虚函数,让子类(比如大象)自己去定义编写.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">animalType</span><span class="params">()</span> </span>= <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
 <p>作用就是规范类的接口.</p>
-<p>注意的是有纯虚函数定义的类是不能初始化实例对象的.而虚函数是必须要有定义的,否则会报错.</p>
-<h1 id="预处理功能"><a href="#预处理功能" class="headerlink" title="预处理功能"></a>预处理功能</h1><h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a><a href="https://www.cnblogs.com/challenger-vip/p/3386819.html" target="_blank" rel="noopener">条件编译</a></h2><p><code>#ifndef，#define，#endif</code></p>
+<p><em>注意的是有纯虚函数定义的类是不能初始化实例对象的.而虚函数是必须要有定义的,否则会报错.</em></p>
+<h1 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"x=%d"</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">	gets();</span><br><span class="line">	getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br></pre></td></tr></table></figure>
+
+<p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
+<h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a><a href="https://www.cnblogs.com/challenger-vip/p/3386819.html" target="_blank" rel="noopener">条件编译</a></h2><p><code>#ifndef，#define，#endif</code></p>
 <p>ifndef: if not define. 实例：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> x                 <span class="comment">//先测试x是否被宏定义过</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x</span></span><br><span class="line">   程序段<span class="number">1b</span>labla~    <span class="comment">//如果x没有被宏定义过，定义x，并编译程序段 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>   </span></span><br><span class="line">　　程序段<span class="number">2b</span>labla~　　 <span class="comment">//如果x已经定义过了则编译程序段2的语句，“忽视”程序段 1</span></span><br></pre></td></tr></table></figure>
 
 <p>主要目的是防止头文件的重复编译和包含。避免多个cpp文件都包含同一个h文件时，全局变量被重定义的错误。</p>
-<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="default，-delete"><a href="#default，-delete" class="headerlink" title="=default，=delete"></a><a href="https://www.cnblogs.com/lsgxeva/p/7787438.html" target="_blank" rel="noopener"><code>=default，=delete</code></a></h2><p>四类特殊的成员函数：构造函数、析构函数、拷贝构造函数、拷贝赋值函数。负责类的对象的创建、初始化、销毁、和拷贝。C++11 标准引入了一个新特性：”=default”函数。程序员只需在函数声明后加上“=default;”，就可将该函数声明为 “=default”函数，编译器将为显式声明的 “=default”函数自动生成函数体。</p>
+<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="default，-delete"><a href="#default，-delete" class="headerlink" title="=default，=delete"></a><code>=default，=delete</code></h2><p><a href="https://www.cnblogs.com/lsgxeva/p/7787438.html" target="_blank" rel="noopener">参考链接</a></p>
+<p>四类特殊的成员函数：构造函数、析构函数、拷贝构造函数、拷贝赋值函数。负责类的对象的创建、初始化、销毁、和拷贝。C++11 标准引入了一个新特性：”=default”函数。程序员只需在函数声明后加上“=default;”，就可将该函数声明为 “=default”函数，编译器将为显式声明的 “=default”函数自动生成函数体。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// "=default"函数既可以在类体里（inline）定义，也可以在类体外（out-of-line）定义。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X2() = <span class="keyword">default</span>; <span class="comment">//Inline defaulted 默认构造函数</span></span><br><span class="line">    X2(<span class="keyword">const</span> X&amp;);</span><br><span class="line">    X2&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;);</span><br><span class="line">    ~X2() = <span class="keyword">default</span>;  <span class="comment">//Inline defaulted 析构函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">X2::X2(<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;  <span class="comment">//Out-of-line defaulted 拷贝构造函数</span></span><br><span class="line">X2&amp; X2::<span class="keyword">operator</span>= (<span class="keyword">const</span> X2&amp;) = <span class="keyword">default</span>;   <span class="comment">//Out-of-line defaulted  拷贝赋值操作符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为了能够让程序员显式的禁用某个函数，C++11 标准引入了一个新特性："=delete"函数。程序员只需在函数声明后上“=delete;”，就可将该函数禁用。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X3();</span><br><span class="line">    X3(<span class="keyword">const</span> X3&amp;) = <span class="keyword">delete</span>;  <span class="comment">// 声明拷贝构造函数为 deleted 函数</span></span><br><span class="line">    X3&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X3 &amp;) = <span class="keyword">delete</span>; <span class="comment">// 声明拷贝赋值操作符为 deleted 函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="include-lt-functional-gt"><a href="#include-lt-functional-gt" class="headerlink" title="include &lt;functional&gt;"></a><code>include &lt;functional&gt;</code></h2><p><a href="https://www.jianshu.com/p/f191e88dcc80" target="_blank" rel="noopener">链接一</a></p>
@@ -802,7 +735,7 @@
 <p>第一个参数是函数，被隐式转换为了函数指针，</p>
 <p>第二个参数_1表示占位符，std::placeholders::__1</p>
 <p>第三个参数便是输入值double y为2</p>
-<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a><code>std::transform</code></h1><p><a href="http://c.biancheng.net/view/623.html" target="_blank" rel="noopener">http://c.biancheng.net/view/623.html</a></p>
+<h3 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h3><p><a href="http://c.biancheng.net/view/623.html" target="_blank" rel="noopener">http://c.biancheng.net/view/623.html</a></p>
 <p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
 <p>一元函数情况下包含3个参数：</p>
 <ul>
@@ -875,8 +808,9 @@
 
 <h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
 <li>共享指针make_shared</li>
+<li>Eigen库</li>
 </ul>
-<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> <span class="keyword">double</span> _calc_criterion(<span class="keyword">const</span> Eigen::MatrixX2f &amp;points_mat, <span class="keyword">const</span> <span class="keyword">double</span> angle_rad, BBox &amp;box) <span class="keyword">const</span> override;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">auto</span> l_fitting = LOrientationFitting();</span><br><span class="line"><span class="comment">//后者是一个类,这么初始化怎么回事?</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -1206,6 +1140,27 @@
   </entry>
   <entry>
     <title>C++ 知识点</title>
+    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ 知识点</title>
     <url>/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
 <h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
@@ -1231,37 +1186,20 @@
 <p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><p>=========</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
 <p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
 <p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><h1 id="补漏函数"><a href="#补漏函数" class="headerlink" title="补漏函数"></a>补漏函数</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><h1 id="补漏"><a href="#补漏" class="headerlink" title="补漏"></a>补漏</h1><ul>
+<li><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
 
 
 
 
 
+</li>
+</ul>
 ]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp;<span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -1300,6 +1238,73 @@
       </categories>
       <tags>
         <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>睡觉指南</title>
+    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449" target="_blank" rel="noopener"><strong>R90高效睡眠法</strong></a></p>
+<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
+<ul>
+<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
+<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
+<li>然后睡前一小时开始准备入睡。 </li>
+</ul>
+</blockquote>
+<p>按照上述公式，</p>
+<table>
+<thead>
+<tr>
+<th>9点进入工作</th>
+<th>7点30~8点起床</th>
+<th>0点～0点30睡着</th>
+<th>23点～23点30准备入睡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9点半进入工作</td>
+<td>8点～8点30起床</td>
+<td>0点30～1点睡着</td>
+<td>23点30~12点准备入睡</td>
+</tr>
+</tbody></table>
+<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
+<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
+<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
+<li>睡前洗澡</li>
+<li><strong>睡前泡脚</strong></li>
+<li>舒缓运动</li>
+</ul>
+<p>睡前一小时进行。<strong>23点30</strong></p>
+<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
+<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
+<li><p>看无聊的书</p>
+</li>
+<li><p>冥想</p>
+</li>
+<li><p><strong>美国海军2分钟入眠</strong></p>
+<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
+</li>
+</ul>
+<ul>
+<li>睡前在日记本上把所有想法捋捋清楚</li>
+</ul>
+<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
+<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
+<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
+<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
+</li>
+<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
+</li>
+<li><p>床垫和枕头</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>睡觉</tag>
       </tags>
   </entry>
   <entry>

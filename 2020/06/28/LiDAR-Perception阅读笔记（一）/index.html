@@ -54,7 +54,7 @@
 <meta property="og:description" content="my_point_type.h12345678910111213141516171819struct PointXYZIR&amp;#123;    PCL_ADD_POINT4D &#x2F;&#x2F;???    float intensity;    uint16_t ring;    EIGEN_MAKE_ALIGNED_OPERATOR_NEW &#x2F;&#x2F; make sure our new allocators ar">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-28T06:22:12.000Z">
-<meta property="article:modified_time" content="2020-10-10T14:10:07.076Z">
+<meta property="article:modified_time" content="2020-10-11T02:38:38.509Z">
 <meta property="article:author" content="Lee Jay">
 <meta property="article:tag" content="ROS框架">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-10 22:10:07" itemprop="dateModified" datetime="2020-10-10T22:10:07+08:00">2020-10-10</time>
+                <time title="修改时间：2020-10-11 10:38:38" itemprop="dateModified" datetime="2020-10-11T10:38:38+08:00">2020-10-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,8 +272,9 @@
 
 <h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
 <li>共享指针make_shared</li>
+<li>Eigen库</li>
 </ul>
-<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> <span class="keyword">double</span> _calc_criterion(<span class="keyword">const</span> Eigen::MatrixX2f &amp;points_mat, <span class="keyword">const</span> <span class="keyword">double</span> angle_rad, BBox &amp;box) <span class="keyword">const</span> override;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">auto</span> l_fitting = LOrientationFitting();</span><br><span class="line"><span class="comment">//后者是一个类,这么初始化怎么回事?</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -571,7 +572,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -207,137 +207,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">ROS/vscode调试运行</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-17 19:55:25" itemprop="dateCreated datePublished" datetime="2020-06-17T19:55:25+08:00">2020-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:20:25" itemprop="dateModified" datetime="2020-10-05T14:20:25+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/" itemprop="url" rel="index">
-                    <span itemprop="name">vscode</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;***</span><br><span class="line">git checkout dev</span><br><span class="line">git checkout -b dev_Lee</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件架构"><a href="#文件架构" class="headerlink" title="文件架构"></a>文件架构</h2><p><strong>根目录</strong>:拉取下来的lidar_perception是ros工作空间的一个packege<br><strong>一级目录</strong>:</p>
-<ul>
-<li>include(头文件.h,每个阶段步骤所包括的类及其方法的声明),</li>
-<li>src(源文件.cpp,对头文件类的方法的具体实现进行描述,类外申明),</li>
-<li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
-<li>rviz(显示的配置设置)</li>
-</ul>
-<h2 id="catkin-make"><a href="#catkin-make" class="headerlink" title="catkin_make"></a>catkin_make</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
-<blockquote>
-<p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
-</blockquote>
-<p>打开roscore,运行主节点node,将采集的点云包rosbag文件play,自动发布到topic中,打开rviz进行显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun &lt;rospackage&gt; node</span><br><span class="line">rosbag play ~&#x2F;rosbagfiles&#x2F;**.bag -l -r 0.1</span><br><span class="line">rviz</span><br></pre></td></tr></table></figure>
-
-<p>当然，更方便的方法就是将多节点运行顺序写到roslaunch文件中，一键启动。<br><code>roslaunch &lt;rospackage&gt; **.launch</code></p>
-<h2 id="算法细节笔记"><a href="#算法细节笔记" class="headerlink" title="算法细节笔记"></a>算法细节笔记</h2><h1 id="vscode编辑器下调试ROS程序配置"><a href="#vscode编辑器下调试ROS程序配置" class="headerlink" title="vscode编辑器下调试ROS程序配置"></a>vscode编辑器下调试ROS程序配置</h1><p><a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html" target="_blank" rel="noopener">阅读vscode官方插件cmake tools说明文档</a></p>
-<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><blockquote>
-<p>选择kit。Kit是一组工具包，包括编译器、链接器等其他工具，如gcc,clang等</p>
-</blockquote>
-<blockquote>
-<p>variant。有4种，debug,release是其中两种。</p>
-</blockquote>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,<br>终端中打开vscode当前目录<code>code .</code>，会自动生成‘.vscode’文件夹,里面包含两个.json配置文件:</p>
-<blockquote>
-<p>c_cpp_properties.json 主要是ROS插件生成,用于识别配置ros相关头文件等<br>settings.json vscode编辑器设置文档</p>
-</blockquote>
-<p>通过另一个配置文件task.json, 这里可以直接在vscode进行catkin_make。ctrl+shift+P调出vscode的命令行，输入Task:Config default task生成*.json文件。修改其内容见链接内容，主要是配置catkin_make或者g++编译的参数。<br>编译后出现compile_commands.json，<br><code>catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes</code><br>这个文件可以帮助我们关联编译所需要的文件路径，需要添加在c_cpp_properties.json里面”compileCommond”配置中<br><code>&quot;compileCommands&quot;:&quot;${workspaceFolder}/build/compile_commands.json&quot;</code></p>
-<h3 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a><strong>c_cpp_properties.json</strong></h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//c_cpp_properties.json</span></span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"browse"</span>:&#123;</span><br><span class="line">                <span class="attr">"databaseFilename"</span>:<span class="string">""</span>,</span><br><span class="line">                <span class="attr">"limitSymbolsToIncludedHeaders"</span>:<span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"includePath"</span>: [</span><br><span class="line">                <span class="string">"/opt/ros/kinetic/include/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/**"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"ROS"</span>,</span><br><span class="line">            <span class="attr">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span>,</span><br><span class="line">            <span class="attr">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="attr">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="attr">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="attr">"configurationProvider"</span>: <span class="string">"ms-vscode.cmake-tools"</span>, </span><br><span class="line">            <span class="attr">"compileCommands"</span>: <span class="string">"$&#123;workspaceFolder&#125;/build/compile_commands.json"</span></span><br><span class="line">            <span class="comment">//上述两行可解决找不到ros.h的类似问题</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="task-json"><a href="#task-json" class="headerlink" title="task.json"></a><strong>task.json</strong></h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task.json chen</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [</span><br><span class="line">				<span class="string">"-j4"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_CXX_STANDARD=14"</span></span><br><span class="line">			],</span><br><span class="line">			</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task from Bilibili</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Debug"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [],</span><br><span class="line">			<span class="attr">"options"</span>: &#123;</span><br><span class="line">				<span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>:<span class="string">"release"</span>,</span><br><span class="line">			<span class="attr">"command"</span>:<span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: <span class="string">"build"</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>以上就可以和在终端中一样运行程序了。但是想要设置断点对程序进行调试debug则需要更多配置，生成debug版本的可执行程序。<br>后话：实际上还是会提示找不到ros.h.是不是ws目录必须在～下？</p>
-<h2 id="GDB-debug"><a href="#GDB-debug" class="headerlink" title="GDB debug"></a>GDB debug</h2><blockquote>
-<p>GDB调试器是调试C++代码的神器，ROS项目本质上也是一个ROS项目，因此也可以用GDB进行调试<br>在vscode里面已经继承了GDB调试器，我们需要做的就是配置launch.json文件</p>
-</blockquote>
-<p>点击左侧工具栏调试按钮，自动生成launch.json.</p>
-<p><a href="https://www.bilibili.com/video/BV1Ft411M7Uk" target="_blank" rel="noopener">B站视频链接</a></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb)Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/devel/lib/tutorials/talker"</span>, </span><br><span class="line">            <span class="comment">//修改，将需要调试的节点在编译后生成的可执行文件的路径添加</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,<span class="comment">//若没有修改就不需要每次都编译.也可以每次调试前先catkin_make</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -447,120 +316,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++ 知识点</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-10 16:37:26" itemprop="dateModified" datetime="2020-10-10T16:37:26+08:00">2020-10-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="申明和定义"><a href="#申明和定义" class="headerlink" title="申明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">申明和定义</a></h1><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h1><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h1><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
-<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
-<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><h1 id="补漏函数"><a href="#补漏函数" class="headerlink" title="补漏函数"></a>补漏函数</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -633,6 +388,124 @@
 <p>第一个const修饰的是引用的内容为常量不能修改</p>
 <p>第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
 <h1 id><a href="#" class="headerlink" title></a></h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/14/CXX/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++ 知识点</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-11 11:24:31" itemprop="dateModified" datetime="2020-10-11T11:24:31+08:00">2020-10-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h1><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
+<h1 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h1><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
+<p>相关函数查一查。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="申明和定义"><a href="#申明和定义" class="headerlink" title="申明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">申明和定义</a></h1><blockquote>
+<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
+</blockquote>
+<blockquote>
+<p>所以有回复说：</p>
+<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h1><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h1><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
+<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
+<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h1><p>=========</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
+<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h1 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h1><h1 id="补漏"><a href="#补漏" class="headerlink" title="补漏"></a>补漏</h1><ul>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+
       
     </div>
 
@@ -733,6 +606,137 @@
 <h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
 <li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
 </ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="Lee Jay">
+      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee's House">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">睡觉指南</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-11 13:25:48" itemprop="dateModified" datetime="2020-10-11T13:25:48+08:00">2020-10-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
+                    <span itemprop="name">生活随笔</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449" target="_blank" rel="noopener"><strong>R90高效睡眠法</strong></a></p>
+<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
+<ul>
+<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
+<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
+<li>然后睡前一小时开始准备入睡。 </li>
+</ul>
+</blockquote>
+<p>按照上述公式，</p>
+<table>
+<thead>
+<tr>
+<th>9点进入工作</th>
+<th>7点30~8点起床</th>
+<th>0点～0点30睡着</th>
+<th>23点～23点30准备入睡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9点半进入工作</td>
+<td>8点～8点30起床</td>
+<td>0点30～1点睡着</td>
+<td>23点30~12点准备入睡</td>
+</tr>
+</tbody></table>
+<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
+<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
+<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
+<li>睡前洗澡</li>
+<li><strong>睡前泡脚</strong></li>
+<li>舒缓运动</li>
+</ul>
+<p>睡前一小时进行。<strong>23点30</strong></p>
+<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
+<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
+<li><p>看无聊的书</p>
+</li>
+<li><p>冥想</p>
+</li>
+<li><p><strong>美国海军2分钟入眠</strong></p>
+<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
+</li>
+</ul>
+<ul>
+<li>睡前在日记本上把所有想法捋捋清楚</li>
+</ul>
+<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
+<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
+<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
+<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
+</li>
+<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
+</li>
+<li><p>床垫和枕头</p>
+</li>
+</ul>
 
       
     </div>
@@ -1307,7 +1311,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
