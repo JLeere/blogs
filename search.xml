@@ -406,7 +406,29 @@
 <p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
 ]]></content>
       <categories>
-        <category>研究生</category>
+        <category>编程学习</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python深度学习笔记(一)</title>
+    <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <content><![CDATA[<p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
         <category>深度学习</category>
       </categories>
       <tags>
@@ -586,8 +608,8 @@
       </tags>
   </entry>
   <entry>
-    <title>OpenCV</title>
-    <url>/2020/07/07/%E7%A0%94%E7%A9%B6%E7%94%9F/OpenCV/</url>
+    <title>OpenCV学习笔记</title>
+    <url>/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/</url>
     <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p>
 <p>在步骤：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH</span><br></pre></td></tr></table></figure>
@@ -601,7 +623,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>研究生</category>
+        <category>编程学习</category>
         <category>Opencv</category>
       </categories>
       <tags>
@@ -630,8 +652,8 @@
   </entry>
   <entry>
     <title>深度学习视觉算法杂碎</title>
-    <url>/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</url>
-    <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/image-20200711205519057.png" alt="price" style="zoom:200%;">
+    <url>/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</url>
+    <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/image-20200711205519057.png" alt="price" style="zoom:200%;">
 
 <p>1为正类，0为负类。</p>
 <p>TP为true positive；FN为false negative.</p>
@@ -643,12 +665,12 @@
 <h1 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h1><p>回归：对数值型连续随机变量的进行预测并建模的监督学习方法，例如股价走势，成绩变化。</p>
 <p>分类：对离散型随机变量进行分析建模预测的监督学习方法，如图像识别，邮件过滤。</p>
 <h1 id="什么是卷积层，池化层"><a href="#什么是卷积层，池化层" class="headerlink" title="什么是卷积层，池化层"></a>什么是卷积层，池化层</h1><h2 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h2><p>数学上卷积的定义：</p>
-<img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;">
+<img src="/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-d3df01f12b869d431c65f97ad307508f_r.jpg" alt="preview" style="zoom:67%;">
 
 <p>具体的案例可以思考，两颗骰子的点数和为4的概率？而在图像识别领域，称图像内核filter与图像的滑动运算为“卷积”，在于二者运算时下标和为1，与卷积公式一致：</p>
 <pre><code>![img](深度学习杂碎/img.png)</code></pre><p>传统的图像处理是对单个像素处理，失去了事物的连续性特征。而采用卷积的操作，对一片多个像素同时处理。这样更能理解卷积。</p>
 <p><strong>卷积层</strong>：这一层指代上述的用filter与图像滑动运算的操作，以获取不同filter运算得到的不同特征图输入网络学习。</p>
-<img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;">
+<img src="/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/v2-c07b0cd8ff717304cf5aff547e7b8c8c_b.webp" style="zoom:67%;">
 
 
 
@@ -659,12 +681,12 @@
 <li>tanh,sigmoid函数f(x) = 1/(1+exp(x))</li>
 <li>ReLU函数使用更广泛：f(x)=max{0,x}</li>
 </ul>
-<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;">
+<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><img src="/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/20170416212122301" alt="这里写图片描述" style="zoom:60%;">
 
 <p>简单理解一下就是对特征图进行压缩降低维度的操作。其滑动的步长和窗口的尺寸一样，因此不会重叠，与卷积有差别。主要目的是将特征突出，将非特征变得更暗淡。</p>
 ]]></content>
       <categories>
-        <category>研究生</category>
+        <category>编程学习</category>
         <category>深度学习</category>
       </categories>
       <tags>
@@ -1153,7 +1175,7 @@
       </tags>
   </entry>
   <entry>
-    <title>C++知识点</title>
+    <title>C++知识点学习笔记(一)</title>
     <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
 <h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
@@ -1590,7 +1612,7 @@
   </entry>
   <entry>
     <title>PCL入门(一)</title>
-    <url>/2019/12/17/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL%E5%85%A5%E9%97%A8/</url>
+    <url>/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
 <p><a href="https://blog.csdn.net/qq_42367689/article/details/104358046" target="_blank" rel="noopener">工作空间配置实例</a></p>
 <h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
@@ -1635,7 +1657,7 @@
 
 ]]></content>
       <categories>
-        <category>研究生</category>
+        <category>编程学习</category>
         <category>PCL</category>
       </categories>
       <tags>
