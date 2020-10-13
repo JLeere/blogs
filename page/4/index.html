@@ -1,1480 +1,1280 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/mid.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/small.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://www.jaylee.top').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: true,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="Life is Fantastic，but you&#39;re just shit!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lee&#39;s House">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.jaylee.top&#x2F;page&#x2F;4&#x2F;index.html">
-<meta property="og:site_name" content="Lee&#39;s House">
-<meta property="og:description" content="Life is Fantastic，but you&#39;re just shit!">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Lee Jay">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://www.jaylee.top/page/4/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false
-  };
-</script>
-
-  <title>Lee's House</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
+  <title itemprop="name">Lee&#39;s House</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "J.Lee LandJ.Lee";
+  mashiro_option.author_name = "J.Lee";
+  mashiro_option.site_url = "https://jaylee.top";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
 
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
 
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(1).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(2).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(7).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
   }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
   </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="Lee's House" type="application/atom+xml">
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 4.1.0"><link rel="alternate" href="/atom.xml" title="Lee's House" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://jaylee.top" target="_blank" rel="noopener">
+          <img src="/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>Live your life with passion! With discover and accumulate!</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/xiaozhenc" target="_blank" class="social-github" title="github">
+                    <img src="/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="lj-pc@live.cn" target="_blank" class="social-github" title="email">
+                    <img src="/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="xiaozhenc">
+                    <img src="/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">J.Lee Land</span>
+            <span class="shironeko">J.Lee</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%B5%84%E6%BA%90/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/%E6%82%A6%E8%AF%BB/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/%E5%9B%BE%E9%9B%86/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/client/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+                    客户端
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Lee's House</span>
-        <span class="logo-line-after"><i></i></span>
+      <div class="blank" style="padding-top: 0px;"></div>
+<div id="content" class="site-content">
+  
+  <div class="notice" style="margin-top:60px">
+    <i class="iconfont icon-notification">
+    </i>
+    <div class="notice-content">Blog for myself-growing.</div>
+  </div>
+  
+  <div class="top-feature-row">
+  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
+  <i class="fa fa-anchor" aria-hidden="true">
+  </i>
+  START:DASH!!</h1>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="/theme-sakura/" target="_blank">
+        <div class="img">
+          <img src="/img/startdash/sakura.md.png">
+        </div>
+        <div class="info">
+          <h3>Sakura</h3>
+          <p>本站 hexo 主题</p>
+        </div>
       </a>
     </div>
-        <p class="site-subtitle">Life is Fantastic</p>
   </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="http://space.bilibili.com/271849279" target="_blank">
+        <div class="img">
+          <img src="/img/startdash/bilibili.jpg">
+        </div>
+        <div class="info">
+          <h3>Bilibili</h3>
+          <p>博主的b站视频</p>
+        </div>
+      </a>
     </div>
   </div>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="/" target="_blank">
+        <div class="img">
+          <img src="/img/startdash/wangshiwu.jpg">
+        </div>
+        <div class="info">
+          <h3>hojun的万事屋</h3>
+          <p>技术服务</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+</div>
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
+      <i class="fa fa-envira" aria-hidden="true"></i>
+      Discovery</h1>
+      
+  <!-- 首页默认取最最新文章集 -->
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/06/17/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-6-17 19:06</div>
+      <a href="/2020/06/17/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" class="post-title">
+        <h3>vscode下调试运行ROS程序</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/ROS/">ROS<em>·</em></a>
+          
+            <a href="/tags/vscode/">vscode<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/">工具技能</a>
+          
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/">vscode</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/06/17/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-6-15 16:06</div>
+      <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title">
+        <h3>Github学习笔记</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/Github/">Github<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/">工具技能</a>
+          
+            <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github/">Github</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-5-14 22:05</div>
+      <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title">
+        <h3>C++知识点学习笔记(一)</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/C/">C++<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/">C++</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-5-14 22:05</div>
+      <a href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title">
+        <h3>C++ 知识点</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/C/">C++<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/">C++</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-3-23 13:03</div>
+      <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="post-title">
+        <h3>Matlab小知识记录</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">小知识<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/">Matlab</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-3-22 15:03</div>
+      <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title">
+        <h3>时间管理</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">时间管理<em>·</em></a>
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/">工具技能<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-3-22 15:03</div>
+      <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title">
+        <h3>睡觉指南</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E7%9D%A1%E8%A7%89/">睡觉<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/">生活随笔</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-3-20 22:03</div>
+      <a href="/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/" class="post-title">
+        <h3>matlab-Compiler</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器<em>·</em></a>
+          
+            <a href="/tags/MINGW/">MINGW<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/">编程学习</a>
+          
+            <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/">Matlab</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2019-12-25 16:12</div>
+      <a href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title">
+        <h3>科普常识收集</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/trips/">trips<em>·</em></a>
+          
+            <a href="/tags/%E5%B0%8F%E7%9F%A5%E8%AF%86/">小知识<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/">常识库</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2019-12-25 15:12</div>
+      <a href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/" class="post-title">
+        <h3>L-ShapeFitting4</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/L%E5%BD%A2%E7%8A%B6%E6%8B%9F%E5%90%88/">L形状拟合<em>·</em></a>
+          
+            <a href="/tags/%E7%82%B9%E4%BA%91/">点云<em>·</em></a>
+          
+            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a>
+          
+            <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/">LiDAR</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p></p>
+        <div class="post-bottom">
+          <a href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+
+
+    </main>
+      <!-- 首页默认取最最新文章集 -->
+    <!-- 
+      <nav class="navigator">
+        
+        <a class="extend prev" rel="prev" href="/page/3/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next</a>
+      </nav>
+     -->
+  </div>
+  
+    <div id="pagination"><a href="/page/5/" class="">Previous</a></div>
+  
 </div>
 
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
 </div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
-  <a href="https://github.com/xiaozhenc" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/17/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/17/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">vscode下调试运行ROS程序</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-17 19:55:25" itemprop="dateCreated datePublished" datetime="2020-06-17T19:55:25+08:00">2020-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-12 20:50:33" itemprop="dateModified" datetime="2020-10-12T20:50:33+08:00">2020-10-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/" itemprop="url" rel="index">
-                    <span itemprop="name">vscode</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>vscode编辑器下调试ROS程序配置,主要利用Cmake工具编译,配置好.vscode/下的设置文件*.json</p>
-<p><a href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html" target="_blank" rel="noopener">阅读vscode官方插件cmake tools说明文档</a></p>
-<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><blockquote>
-<p>选择kit。Kit是一组工具包，包括编译器、链接器等其他工具，如gcc,clang等</p>
-</blockquote>
-<blockquote>
-<p>variant。有4种，debug,release是其中两种。</p>
-</blockquote>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,<br>终端中打开vscode当前目录<code>code .</code>，会自动生成‘.vscode’文件夹,里面包含两个.json配置文件:</p>
-<blockquote>
-<p>c_cpp_properties.json 主要是ROS插件生成,用于识别配置ros相关头文件等<br>settings.json vscode编辑器设置文档</p>
-</blockquote>
-<p>通过另一个配置文件task.json, 这里可以直接在vscode进行catkin_make。ctrl+shift+P调出vscode的命令行，输入Task:Config default task生成*.json文件。修改其内容见链接内容，主要是配置catkin_make或者g++编译的参数。<br>编译后出现compile_commands.json，<br><code>catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes</code><br>这个文件可以帮助我们关联编译所需要的文件路径，需要添加在c_cpp_properties.json里面”compileCommond”配置中<br><code>&quot;compileCommands&quot;:&quot;${workspaceFolder}/build/compile_commands.json&quot;</code></p>
-<h3 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//c_cpp_properties.json</span></span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"browse"</span>:&#123;</span><br><span class="line">                <span class="attr">"databaseFilename"</span>:<span class="string">""</span>,</span><br><span class="line">                <span class="attr">"limitSymbolsToIncludedHeaders"</span>:<span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"includePath"</span>: [</span><br><span class="line">                <span class="string">"/opt/ros/kinetic/include/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/**"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"ROS"</span>,</span><br><span class="line">            <span class="attr">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span>,</span><br><span class="line">            <span class="attr">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="attr">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="attr">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="attr">"configurationProvider"</span>: <span class="string">"ms-vscode.cmake-tools"</span>, </span><br><span class="line">            <span class="attr">"compileCommands"</span>: <span class="string">"$&#123;workspaceFolder&#125;/build/compile_commands.json"</span></span><br><span class="line">            <span class="comment">//上述两行可解决找不到ros.h的类似问题</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="task-json"><a href="#task-json" class="headerlink" title="task.json"></a>task.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task.json chen</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"catkin_make"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [</span><br><span class="line">				<span class="string">"-j4"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes"</span>,</span><br><span class="line">				<span class="string">"-DCMAKE_CXX_STANDARD=14"</span></span><br><span class="line">			],</span><br><span class="line">			</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task from Bilibili</span></span><br><span class="line">	<span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">	<span class="attr">"tasks"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">			<span class="attr">"command"</span>: <span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Debug"</span>,</span><br><span class="line">			<span class="attr">"args"</span>: [],</span><br><span class="line">			<span class="attr">"options"</span>: &#123;</span><br><span class="line">				<span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: &#123;</span><br><span class="line">				<span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">				<span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">        <span class="comment">//定义多个编译器命令release</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">			<span class="attr">"label"</span>:<span class="string">"release"</span>,</span><br><span class="line">			<span class="attr">"command"</span>:<span class="string">"source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Release"</span>,</span><br><span class="line">			<span class="attr">"problemMatcher"</span>: [</span><br><span class="line">				<span class="string">"$catkin-gcc"</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">"group"</span>: <span class="string">"build"</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>以上就可以和在终端中一样运行程序了。但是想要设置断点对程序进行调试debug则需要更多配置，生成debug版本的可执行程序。<br>后话：实际上还是会提示找不到ros.h.是不是ws目录必须在～下？</p>
-<h2 id="调试-launch-json"><a href="#调试-launch-json" class="headerlink" title="调试 launch.json"></a>调试 launch.json</h2><blockquote>
-<p>GDB调试器是调试C++代码的神器，ROS项目本质上也是一个ROS项目，因此也可以用GDB进行调试<br>在vscode里面已经继承了GDB调试器，我们需要做的就是配置launch.json文件</p>
-</blockquote>
-<p>点击左侧工具栏调试按钮，自动生成launch.json.</p>
-<p><a href="https://www.bilibili.com/video/BV1Ft411M7Uk" target="_blank" rel="noopener">B站视频链接</a></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(gdb)Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceFolder&#125;/devel/lib/tutorials/talker"</span>, </span><br><span class="line">            <span class="comment">//修改，将需要调试的节点在编译后生成的可执行文件的路径添加</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,<span class="comment">//若没有修改就不需要每次都编译.也可以每次调试前先catkin_make</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Github学习笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-15 16:15:29" itemprop="dateCreated datePublished" datetime="2020-06-15T16:15:29+08:00">2020-06-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 20:01:09" itemprop="dateModified" datetime="2020-10-05T20:01:09+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github/" itemprop="url" rel="index">
-                    <span itemprop="name">Github</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/" target="_blank" rel="noopener">简明教程</a></p>
-<p><a href="https://git-scm.com/docs" target="_blank" rel="noopener">完整教程</a></p>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
-<li>克隆 Git 资源作为工作目录。</li>
-<li>在克隆的资源上添加或修改文件。</li>
-<li>如果其他人修改了，你可以更新资源。</li>
-<li>在提交前查看修改。</li>
-<li>提交修改。</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ul>
-<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
-<li>工作区: 当前电脑下的工作目录空间</li>
-<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
-<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
-<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
-</ol>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m "add files" #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am "修改..." #跳过git add步骤</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了" target="_blank" rel="noopener">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:git@github.com">git@github.com</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3" target="_blank" rel="noopener">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:email@example.com">email@example.com</a>“</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++知识点学习笔记(一)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 21:00:23" itemprop="dateModified" datetime="2020-10-13T21:00:23+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">声明和定义</a></h2><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
-
-<p>一般是以上形式: </p>
-<ul>
-<li>方括号[]开始, 用于捕捉外部参数变量;</li>
-<li>圆括号()类似函数体的输入参数</li>
-<li>花括号{} 是函数主体</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
-
-<p>完全格式:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
-<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
-<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h2 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
-
-<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
-<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>早起使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
-<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
-<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可通过类的对象,引用,指针访问静态成员</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>成员函数可直接调用静态成员</p>
-</li>
-<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
-</li>
-</ul>
-<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
-<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
-<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
-<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> override</span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> override</span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">C++ 知识点</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-11 14:21:04" itemprop="dateModified" datetime="2020-10-11T14:21:04+08:00">2020-10-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Matlab小知识记录</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-23 13:24:30" itemprop="dateCreated datePublished" datetime="2020-03-23T13:24:30+08:00">2020-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:15:17" itemprop="dateModified" datetime="2020-10-05T14:15:17+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
-<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
-<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
-<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
-</ol>
-<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
-<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
-<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
-<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
-<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列</code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
-<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
-</blockquote>
-</li>
-<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png" alt></li>
-<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
-<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
-</ol>
-<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
-<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">时间管理</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:29:00" itemprop="dateModified" datetime="2020-10-05T14:29:00+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
-<blockquote>
-<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
-</blockquote>
-<p><a href="https://www.zhihu.com/question/21914698/answer/459907860" target="_blank" rel="noopener">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
-<ul>
-<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
-<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
-<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
-</ul>
-<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
-<li>工具：三星S9+</li>
-<li>软件: 日历，TODO，提醒</li>
-<li>目标：管理好daily schedule，培养好习惯</li>
-<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">睡觉指南</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-11 13:26:21" itemprop="dateModified" datetime="2020-10-11T13:26:21+08:00">2020-10-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449" target="_blank" rel="noopener"><strong>R90高效睡眠法</strong></a></p>
-<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
-<ul>
-<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
-<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
-<li>然后睡前一小时开始准备入睡。 </li>
-</ul>
-</blockquote>
-<p>按照上述公式，</p>
-<table>
-<thead>
-<tr>
-<th>9点进入工作</th>
-<th>7点30~8点起床</th>
-<th>0点～0点30睡着</th>
-<th>23点～23点30准备入睡</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>9点半进入工作</td>
-<td>8点～8点30起床</td>
-<td>0点30～1点睡着</td>
-<td>23点30~12点准备入睡</td>
-</tr>
-</tbody></table>
-<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
-<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
-<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
-<li>睡前洗澡</li>
-<li><strong>睡前泡脚</strong></li>
-<li>舒缓运动</li>
-</ul>
-<p>睡前一小时进行。<strong>23点30</strong></p>
-<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
-<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
-<li><p>看无聊的书</p>
-</li>
-<li><p>冥想</p>
-</li>
-<li><p><strong>美国海军2分钟入眠</strong></p>
-<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
-</li>
-</ul>
-<ul>
-<li>睡前在日记本上把所有想法捋捋清楚</li>
-</ul>
-<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
-<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
-<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
-<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
-</li>
-<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
-</li>
-<li><p>床垫和枕头</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/" class="post-title-link" itemprop="url">matlab-Compiler</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-20 22:08:40" itemprop="dateCreated datePublished" datetime="2020-03-20T22:08:40+08:00">2020-03-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:15:02" itemprop="dateModified" datetime="2020-10-05T14:15:02+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index">
-                    <span itemprop="name">Matlab</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用simulink或者coder常常需要C++的编译器，经常因为版本等问题报错。</p>
-<h1 id="matlab不同模块需要的编译器版本"><a href="#matlab不同模块需要的编译器版本" class="headerlink" title="matlab不同模块需要的编译器版本"></a>matlab不同模块需要的编译器版本</h1><p> <a href="https://ww2.mathworks.cn/support/requirements/previous-releases.html" target="_blank" rel="noopener">https://ww2.mathworks.cn/support/requirements/previous-releases.html</a><br> vc2012版本真的很低了，建议MINGW</p>
-<h1 id="MINGW安装配置"><a href="#MINGW安装配置" class="headerlink" title="MINGW安装配置"></a>MINGW安装配置</h1><ol>
-<li><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/6.3.0/" target="_blank" rel="noopener">MINGW官网下载6.3版本</a></li>
-<li>下载安装教程 <a href="https://tieba.baidu.com/p/5487544851?pv=1" target="_blank" rel="noopener">https://tieba.baidu.com/p/5487544851?pv=1</a><br>下载好了直接解压即可</li>
-<li>注意不要把路径安装在带有中文字符和空格的文件夹下，尤其是<strong>program files</strong></li>
-<li>环境变量：系统变量path中添加mingw路径（这是在电脑中添加C环境）；<br> 新建系统变量：MW_MINGW64_LOC，C:\MinGW<br> <code>setenv(&#39;MW_MINGW64_LOC&#39;,&#39;C:\mingw64\bin&#39;)</code> 这个好像就是matlab命令行中添加环境变量</li>
-<li>在matlab命令行中： <code>mex -setup</code> 查看编译器</li>
-</ol>
-<p>​    </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">科普常识收集</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 16:15:29" itemprop="dateCreated datePublished" datetime="2019-12-25T16:15:29+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:25:56" itemprop="dateModified" datetime="2020-10-05T14:25:56+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/" itemprop="url" rel="index">
-                    <span itemprop="name">常识库</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml" target="_blank" rel="noopener">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">数字规律</a></p>
-<p>牛客网你值得拥有</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.jaylee.top/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="Lee Jay">
-      <meta itemprop="description" content="Life is Fantastic，but you're just shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lee's House">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/" class="post-title-link" itemprop="url">L-ShapeFitting4</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-25 15:56:04" itemprop="dateCreated datePublished" datetime="2019-12-25T15:56:04+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:37:29" itemprop="dateModified" datetime="2020-10-05T14:37:29+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index">
-                    <span itemprop="name">LiDAR</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP"><a href="#A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP" class="headerlink" title="A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP"></a><a href="https://ieeexplore.ieee.org/abstract/document/8516642" target="_blank" rel="noopener">A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP</a></h1><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>“最近，作为普通的1、2、4层和昂贵的64层激光雷达之间的中间解决方案，引入了16层或32层激光雷达传感器。”</p>
-</blockquote>
-<blockquote>
-<p>D. Kim et al., “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, pp. 598-612, 2018.<br>依赖线束结构顺序L形状拟合，但是跟踪部分值得看“Tracking is further employed to smooth the results and to estimate dynamic features. ”<br>The rectangle fit is preferred if available. Tracking is then used for temporal filtering and smoothing.</p>
-</blockquote>
-<blockquote>
-<p>X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.<br>群集中的每个点都被视为枢轴（两条线的公共点），并且找到了最佳的一对线。<br>将要提出的方法不需要点的原始扫描顺序，也不需要分别为计算方向而对每个激光雷达层进行处理。因此，这是一种更通用的方法，适用于多层激光雷达</p>
-</blockquote>
-<h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ol>
-<li>低复杂度</li>
-<li>RANSAC拟合到直角模型</li>
-<li>占据面积准则选择最佳方向<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/1.png" alt></li>
-<li>输入，占据栅格图10cm检测障碍物ABB的框（绿色）</li>
-<li>“可见边界”概念提出。<br> 就是将边缘点提取出来，利用射线追踪检查得到可见边界<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/2.png" alt>    </li>
-<li>拟合垂直线模型RANSAC<br> 将提取出来的边界点拟合直线L1，再利用RANSAC选择其余点拟合L2<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/3.png" alt></li>
-<li>根据RANSAC的评分和未占据栅格的面积准则评估和验证最优方向<br> 在第一条线L的内部数上设置一个小的绝对阈值（= 8个像元），所以不适用于鸟瞰图小的物体。<br> 考虑只能观测到障碍物的一条边时的两种情况：<br>a. 该边具有很好的方向性，如建筑物/大车一边<pre><code>解决办法：设定ransac拟合评分（即inlier的数目）阈值，大于这个阈值认为可靠度高。阈值的设定应当能够区别开车头的曲线和车辆侧方。</code></pre>b. 该边不能很好的拟合，如小车车头<pre><code>解决：当主方向线拟合的评分小于阈值，考虑次方向线的评分。若次方向依然不满足要求，则可以采取两个办法：①时间域跟踪滤波②根据拟合的框/ABB/视线方向框三者中未占据栅格的面积最小来选择最佳的主方向。</code></pre><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/4.png" alt></li>
-</ol>
-<h2 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h2><p><strong>时间：</strong><br>本方法：C++2.5GHz，0.2ms.<br>Lshape: C++ 1.6ms<br><strong>方向精度：</strong><br>选择了几个场景进行评估，第一个场景手动依据点云路沿估计真值。第二个场景在直的路上采的，默认真值为0°。<br>    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/5.png" alt>    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/6.png" alt>    </p>
-<p>不足：<br>在近观测到车头和车尾情况下精度在4~6°，此外由于长方形拟合的局限性，对弯曲的栅栏等障碍物就不再适用。此时可以利用文献分享的西安交通大学的方法。<br><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/7.png" alt></p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><pre><code>1. 占据栅格？or点云？--&gt;精度？or实时性？
-2. 仅栅格聚类？or栅格拟合？
-3. 这篇文章同我目前的预研究最为贴切，值得深思
-4. 所有场景配备视频资料，很信服。
-5. 利用跟踪进行部分误差修正。</code></pre><h1 id="An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints"><a href="#An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints" class="headerlink" title="An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints"></a><a href="https://ieeexplore.ieee.org/abstract/document/8500692/authors#authors" target="_blank" rel="noopener">An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints</a></h1><h2 id="摘抄-1"><a href="#摘抄-1" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>基于点云的MODT问题经典处理思路是：<br>    1. 地面和障碍物分离<br>    2. 不同障碍物分割成类<br>    3. 簇拟合形状获取尺寸和位置信息<br>    4. 状态估计滤波器<br>Lshape的相关工作总结的挺好</p>
-</blockquote>
-<blockquote>
-<p>P. Kmiotek and Y. Ruichek, “Representing and Tracking of Dynamics<br>Objects using Oriented Bounding Box and Extended Kalman Filter,”<br>in Proc. IEEE Intelligent Transportation Syst. Conf. (ITSC), 2008</p>
-</blockquote>
-<h2 id="主要贡献："><a href="#主要贡献：" class="headerlink" title="主要贡献："></a>主要贡献：</h2><ol>
-<li>foucus on runtime</li>
-<li>从凸包方法得到的点云加上旋转框（rotating calipers）得到初步的最小面积矩形。然后用了几种方法去做修正。<br>数学公式有点多解释又不清晰，感觉原理应该不难，就是故意整一堆数学模型复杂化又不说清楚。不想看了。</li>
-</ol>
-<h1 id="Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder"><a href="#Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder" class="headerlink" title="Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder"></a><a href="https://ieeexplore.ieee.org/document/1706758?arnumber=1706758&tag=1" target="_blank" rel="noopener">Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder</a></h1><h2 id="摘抄-2"><a href="#摘抄-2" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>跟踪的主要步骤是：分割，特征提取，数据关联，卡尔曼滤波和跟踪验证<br>“在 [16] 中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在 [16] 中同时进行了线拟合和直角角拟合，只有当角拟合明显好于线拟合时，才选择角拟合。”</p>
-</blockquote>
-<blockquote>
-<p>试拟合后，最差的20％的点将被丢弃。我们还对密集采样的区域（由于距离扫描仪较近）减轻了点的权重。<br>The scanner can see at most two sides of the rectangle,<br>尝试将对象中心用作参考点被证明是徒劳的，因为很少能直接测量中心。</p>
-</blockquote>
-<h2 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h2><p>提到一些用于跟踪的卡尔曼滤波的方法值得参考：<br>    1. 用跟踪解决雷达稀疏效应造成的过分割和无效点，以及近处遮挡造成的分块<br>    2. 将噪声分成两部分：静态噪声和自适应噪声，分别由于硬件限制和分割拟合算法造成。<strong>其中自适应噪声用了前15次测量的预测值和观测值之间的残差的协方差矩阵作为噪音矩阵，再加上静态噪声的倍数确保下限。</strong>每次误差中心偏离零值过多再利用观测值重置。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
 <script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 J.Lee<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
     }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
       }
     }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
   }
+});
 </script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
       </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Lee Jay"
-      src="/images/name.png">
-  <p class="site-author-name" itemprop="name">Lee Jay</p>
-  <div class="site-description" itemprop="description">Life is Fantastic，but you're just shit!</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">55</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
       </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">42</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/xiaozhenc" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaozhenc" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/lj-pc@live.cn" title="E-Mail → lj-pc@live.cn"><i class="fa fa-fw fa-envelope"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://plus.google.com/leejay" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;leejay" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
-      </span>
-  </div>
-
-
-
-      </div>
-
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee Jay</span>
-</div>
-
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="/img/custom/avatar.jpg">
   </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">J.Lee LandJ.Lee</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/xiaozhenc" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/%E6%8A%80%E6%9C%AF/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E7%94%9F%E6%B4%BB/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%B5%84%E6%BA%90/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E9%9A%8F%E6%83%B3/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/%E6%82%A6%E8%AF%BB/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/%E5%9B%BE%E9%9B%86/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/client/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+            客户端
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
 
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+    id="2660651585"
 
-<script src="/js/utils.js"></script>
+    server="netease"
 
-<script src="/js/motion.js"></script>
+    type="playlist"
 
+    fixed="true"
 
-<script src="/js/schemes/pisces.js"></script>
+    autoplay="false"
 
+    loop="all"
 
-<script src="/js/next-boot.js"></script>
+    order="random"
 
+    preload="auto"
 
+    volume="0.7"
 
+    mutex="true"
 
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
 </body>
 </html>
