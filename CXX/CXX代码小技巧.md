@@ -32,12 +32,12 @@ C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而
 ## [const](https://www.runoob.com/w3cnote/cpp-const-keyword.html)
 
 ```C++
-inline const float &Area() const { return _area; }
+inline const float & Area() const { return _area; }
 ```
 
 第一个const修饰的是引用的内容为常量不能修改
 
-第二个const修饰的是类成员函数，确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。
+第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。
 
 # 
 
