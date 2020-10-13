@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>泊车感知框架阅读笔记（一） - Lee&#39;s House</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!,lidar_perception 调试Github从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee
+123git clone http:&amp;#x2F;&amp;#x2F;***git,"> 
+    <meta name="author" content="J.Lee"> 
+    <link rel="alternative" href="atom.xml" title="Lee&#39;s House" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Lee&#39;s House</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://www.jaylee.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">泊车感知框架阅读笔记（一）</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">泊车感知框架阅读笔记（一）</h1>
+        <div class="stuff">
+            <span>六月 28, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/ROS%E6%A1%86%E6%9E%B6/" rel="tag">ROS框架</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;***</span><br><span class="line">git checkout dev</span><br><span class="line">git checkout -b dev_Lee</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件架构"><a href="#文件架构" class="headerlink" title="文件架构"></a>文件架构</h2><p><strong>根目录</strong>:拉取下来的lidar_perception是ros工作空间的一个packege<br><strong>一级目录</strong>:</p>
+<ul>
+<li>include(头文件.h,每个阶段步骤所包括的类及其方法的声明),</li>
+<li>src(源文件.cpp,对头文件类的方法的具体实现进行描述,类外申明),</li>
+<li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
+<li>rviz(显示的配置设置)</li>
+</ul>
+<h2 id="catkin-make"><a href="#catkin-make" class="headerlink" title="catkin_make"></a>catkin_make</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
+<blockquote>
+<p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
+</blockquote>
+<p>打开roscore,运行主节点node,将采集的点云包rosbag文件play,自动发布到topic中,打开rviz进行显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun &lt;rospackage&gt; node</span><br><span class="line">rosbag play ~&#x2F;rosbagfiles&#x2F;**.bag -l -r 0.1</span><br><span class="line">rviz</span><br></pre></td></tr></table></figure>
+
+<p>当然，更方便的方法就是将多节点运行顺序写到roslaunch文件中，一键启动。<br><code>roslaunch &lt;rospackage&gt; **.launch</code></p>
+<h2 id="算法细节笔记"><a href="#算法细节笔记" class="headerlink" title="算法细节笔记"></a>算法细节笔记</h2><ul>
+<li><p>基于环视图方法组织点云, 进行地面切除和点云聚类.</p>
+</li>
+<li><p>再在鸟瞰图中拟合, 限定拟合框的长宽比, 筛选出车辆类型的拟合框.</p>
+</li>
+</ul>
+<h1 id="自定义接口"><a href="#自定义接口" class="headerlink" title="自定义接口"></a>自定义接口</h1><h2 id="my-point-type-h"><a href="#my-point-type-h" class="headerlink" title="my_point_type.h"></a>my_point_type.h</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PointXYZIR</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    PCL_ADD_POINT4D <span class="comment">//???</span></span><br><span class="line">    <span class="keyword">float</span> intensity;</span><br><span class="line">    <span class="keyword">uint16_t</span> ring</span><br><span class="line">    EIGEN_MAKE_ALIGNED_OPERATOR_NEW <span class="comment">// make sure our new allocators are aligned</span></span><br><span class="line">    PointXYZIR()&#123;&#125;</span><br><span class="line">    PointXYZIR(<span class="keyword">float</span> x, <span class="keyword">float</span> y, <span class="keyword">float</span> z, <span class="keyword">float</span> intensity, <span class="keyword">uint16_t</span> ring):x(x),y(y),z(z),intensity(intensity),ring(ring)&#123;&#125;</span><br><span class="line">&#125; EIGEN_ALIGN16;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> RichPoint = PointXYZIR;</span><br><span class="line"><span class="keyword">using</span> CloudType = pcl::PointCloud&lt;RichPoint&gt;;</span><br><span class="line"><span class="keyword">using</span> VectorType = <span class="keyword">typename</span> pcl::PointCloud&lt;RichPoint&gt;::VectorType;</span><br><span class="line"><span class="keyword">using</span> CloudTypePtr = <span class="keyword">typename</span> CloudType::Ptr;</span><br><span class="line"><span class="keyword">using</span> CloudTypeConstPtr = <span class="keyword">typename</span> CloudType::ConstPtr;</span><br><span class="line"><span class="keyword">using</span> CloudTypePtrList = <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;CloudTypePtr&gt;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义CTimer"><a href="#定义CTimer" class="headerlink" title="定义CTimer"></a>定义CTimer</h2><p>在聚类中,的<strong>目的</strong>是干嘛?</p>
+<h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul>
+<li>共享指针make_shared</li>
+<li>Eigen库</li>
+</ul>
+<h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::<span class="built_in">move</span>(*pcl_cloud));</span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::<span class="built_in">move</span>(cloud._projection)&#125;,</span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> <span class="keyword">double</span> _calc_criterion(<span class="keyword">const</span> Eigen::MatrixX2f &amp;points_mat, <span class="keyword">const</span> <span class="keyword">double</span> angle_rad, BBox &amp;box) <span class="keyword">const</span> override;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">auto</span> l_fitting = LOrientationFitting();</span><br><span class="line"><span class="comment">//后者是一个类,这么初始化怎么回事?</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
