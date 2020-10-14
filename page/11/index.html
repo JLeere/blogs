@@ -1,907 +1,271 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="loading">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/mid.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/small.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('https://www.jaylee.top').hostname,
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.6.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":"flat"},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":true,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: true,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '010C3EANT8',
-      apiKey: 'c7abab9f11b79102b9aff7fe6d41447d',
-      indexName: 'Notes',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
-
-  <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="J.Lee&#39;s Town">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.jaylee.top&#x2F;page&#x2F;11&#x2F;index.html">
-<meta property="og:site_name" content="J.Lee&#39;s Town">
-<meta property="og:description" content="Life is Fantastic，and you&#39;re fucking shit!">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="J.Lee">
-<meta property="article:tag" content="C++">
-<meta property="article:tag" content=" ROS">
-<meta property="article:tag" content=" LiDAR">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="https://www.jaylee.top/page/11/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: true,
-    isPost: false
-  };
-</script>
-
-  <title>J.Lee's Town</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<link rel="alternate" href="/atom.xml" title="J.Lee's Town" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">J.Lee's Town</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">Life is Fantastic</p>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>J.Lee&#39;s Town - Life is Fantastic</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Life, Code,"> 
+    <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!,"> 
+    <meta name="author" content="J.Lee"> 
+    <link rel="alternative" href="atom.xml" title="J.Lee&#39;s Town" type="application/atom+xml"> 
+    <link rel="icon" href="/img/JLee.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+<link rel="stylesheet" href="/css/diaspora.css">
 
-  <a href="https://github.com/xiaozhenc" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content">
-            
-
-  <div class="posts-expand">
+<body class="loading">
+    <span id="config-title" style="display:none">J.Lee&#39;s Town</span>
+    <div id="loader"></div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-12 10:00:00" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-10 22:25:29" itemprop="dateModified" datetime="2020-10-10T22:25:29+08:00">2020-10-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index">
-                    <span itemprop="name">LiDAR</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
-<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
-<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
-
-<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
-<ol>
-<li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
-<li>多个优化标准相互弥补</li>
-<li>衡量拟合结果好坏的标准。</li>
-<li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
-</ol>
-<h1 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h1><blockquote>
-<p>Comparing poses among successive cycles also helps to find the target’s heading direction.</p>
-</blockquote>
-<h1 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h1><blockquote>
-<p>[17]X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
-</blockquote>
-<p>在文中，利用距离点的排序，即<strong>扫描序列的信息</strong>，有效地将这些点分割成两个互不相交的集合，然后将这两个集合的点分别拟合成两条正交直线，分别对应于小车的两条边;按照扫描序列迭代所有这些二维范围点，该算法搜索一个轴心点，并使用该轴心点生成这两个不相交集，即，在主元之前扫描的点集和在主元之后扫描的点集。</p>
-<blockquote>
-<p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
-</blockquote>
-<p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
-<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="《BoxNet深度学习2DBB》"><a href="#《BoxNet深度学习2DBB》" class="headerlink" title="《BoxNet深度学习2DBB》"></a>《BoxNet深度学习2DBB》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud，2019</a></p>
-<h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
-<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast <strong>segmentation</strong> of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
-</blockquote>
-<blockquote>
-<p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
-</blockquote>
-<blockquote>
-<p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
-</blockquote>
-<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input|Points(x,y)<br>        output|[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
-<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
-<li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
-<li>预测了点云均值的中心,提高bb位置精度.</li>
-</ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
-<h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
-<h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
-<h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
-<p>·decomposes the L-Shape fitting problem into two steps: L-Shape vertexes searching and L-Shape corner point locating.<br>·highly computationally efficient<br>·robust enough and able to accommodate various situations.<br>·does not depend on the laser scanning sequential information</p>
-</blockquote>
-<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>the mean-shift &amp; DBSCAN</p>
-<h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Hexo&github blog搭建指南</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-11 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-11T00:00:00+08:00">2019-12-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 23:47:35" itemprop="dateModified" datetime="2020-10-13T23:47:35+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a></li>
-<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/98782798</a></li>
-<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
-</ul>
-<h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
-<li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
-<li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
-<li>md语法参考文章<a href="./markDown书写指南.md">markdown书写指南</a></li>
-<li>插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。</li>
-</ol>
-<h1 id="Hexo发布到网页"><a href="#Hexo发布到网页" class="headerlink" title="Hexo发布到网页"></a>Hexo发布到网页</h1><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h1 id="Github站点配置"><a href="#Github站点配置" class="headerlink" title="Github站点配置"></a>Github站点配置</h1><p>hexo提供了很多主题: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ol>
-<li>Next主题,黑白那种</li>
-<li>Sakura二次元主题:<a href="https://docs.hojun.cn/sakura/docs/#/home" target="_blank" rel="noopener">https://docs.hojun.cn/sakura/docs/#/home</a></li>
-<li>diaspora二次元主题:<a href="https://github.com/Fechin/hexo-theme-diaspora" target="_blank" rel="noopener">https://github.com/Fechin/hexo-theme-diaspora</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Markdown语法</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-10T00:00:00+08:00">2019-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-13 21:31:33" itemprop="dateModified" datetime="2020-10-13T21:31:33+08:00">2020-10-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index">
-                    <span itemprop="name">工具技能</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html" target="_blank" rel="noopener">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
-<ol>
-<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
-<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;" target="_blank" rel="noopener">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
-<li>句子前添加符号”&gt;”</li>
-</ol>
-<blockquote>
-<p>这是引用的内容 </p>
-</blockquote>
-<ol start="6">
-<li><strong>加粗两对*星号</strong></li>
-<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
-<li>多行代码, “<strong>```C++</strong>“</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li><p>表格</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/" class="post-title-link" itemprop="url">句2</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-10T00:00:00+08:00">2019-12-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-11 16:06:58" itemprop="dateModified" datetime="2020-10-11T16:06:58+08:00">2020-10-11</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index">
-                    <span itemprop="name">生活随笔</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">点云处理优秀链接</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：1970-01-01 08:00:00" itemprop="dateCreated datePublished" datetime="1970-01-01T08:00:00+08:00">1970-01-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-05 14:35:43" itemprop="dateModified" datetime="2020-10-05T14:35:43+08:00">2020-10-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">研究生</span>
-                  </a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index">
-                    <span itemprop="name">LiDAR</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p>
-<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
-<blockquote>
-<p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
-  </nav>
-
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="//" title="首页" target="_blank" rel="noopener">首页</a>
         </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="J.Lee"
-      src="/images/name.png">
-  <p class="site-author-name" itemprop="name">J.Lee</p>
-  <div class="site-description" itemprop="description">Life is Fantastic，and you're fucking shit!</div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
         
-          <span class="site-state-item-count">55</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">21</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">41</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="分类" target="_blank" rel="noopener">分类</a>
+        </li>
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="标签" target="_blank" rel="noopener">标签</a>
+        </li>
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archive/" title="归档" target="_blank" rel="noopener">归档</a>
+        </li>
+        
+        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/about/" title="关于" target="_blank" rel="noopener">关于</a>
+        </li>
+        
+    </ul>
+	<span class="target"></span>
+	<center>
+	<div class="hitokoto">
+		<span class="typed" id="hitokoto" data-st="true"></span>
+	</div>
+	</center>
+	
+	<p class="footerlinks">
+		<a href="#" class="iconfont icon-null"></a>
+		
+            <a href="/" title="facebook" class="iconfont icon-facebook" target="_blank" rel="noopener"> </a>
+        
+            <a href="/" title="twitter" class="iconfont icon-twitter" target="_blank" rel="noopener"> </a>
+        
+            <a href="/" title="github" class="iconfont icon-github" target="_blank" rel="noopener"> </a>
+        
+            <a href="/img/logo.png" title="wechat" class="iconfont icon-wechat" target="_blank" rel="noopener"> </a>
+        
+            <a href="mailto:0923J.Lee@gmail.com" title="email" class="iconfont icon-email" target="_blank" rel="noopener"> </a>
+        
+		<a href="#" class="iconfont icon-null"></a>
+	</p>
+	
+    <p id="copyright">
+        &copy; 2020 J.Lee.
+        <span> | </span>Powered by <a href="https://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        <span> | </span>Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a> by Fechin
+		
+    </p>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/xiaozhenc" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaozhenc" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/lj-pc@live.cn" title="E-Mail → lj-pc@live.cn"><i class="fa fa-fw fa-envelope"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://plus.google.com/leejay" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;leejay" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i></a>
-      </span>
-  </div>
+
+<div id="container">
+    
+<div id="screen">
+    <div id="mark">
+        <div class="layer" data-depth="0.4">
+            <img src="/img/cat.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
+        </div>
+    </div>
+    <div id="vibrant">
+        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
+            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
+        </svg>
+        <div></div>
+    </div>
+    <div id="header">
+        <div>
+            <a class="image-logo" href="/"></a>
+			
+			<div class="iconfont icon-search switchsearch" href="/search/" title="搜索"></div>
+			
+            <div class="iconfont icon-menu switchmenu"></div>
+        </div>
+    </div>
+    
+    <div id="post0">
+        <p>十二月 12, 2019</p>
+        <h2><a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" title="L-Shape fitting" class="posttitle">L-Shape fitting</a></h2>
+        <p class="summary">Come from《Efficient L-Shape Fitting for Vehicle Detection...</p>
+    </div>
+    
+</div>
+
+    <div id="primary">
+        
+<div class="post">
+    <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" title="L-Shape fitting">
+        <img src="/img/cat.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>十二月 12, 2019</p>
+        <h3><a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" title="L-Shape fitting" class="posttitle">L-Shape fitting</a></h3>
+        <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanner...</p>
+    </div>
+</div>
 
 
+<div class="post">
+    <a href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" title="Hexo&github blog搭建指南">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>十二月 11, 2019</p>
+        <h3><a href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" title="Hexo&amp;github blog搭建指南" class="posttitle">Hexo&amp;github blog搭建指南</a></h3>
+        <p>Hexo.Github搭建
+github*Hexo搭建网站参考网站
+安装nodejs: https://zhuanlan.zhihu.com/p/9878...</p>
+    </div>
+</div>
 
-      </div>
+
+<div class="post">
+    <a href="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/" title="Markdown语法">
+        <img src="/img/cat.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>十二月 10, 2019</p>
+        <h3><a href="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/" title="Markdown语法" class="posttitle">Markdown语法</a></h3>
+        <p>Markdown语法Markdown基本语法链接: http://xianbai.me/learn-md/article/syntax/links.htm...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/" title="句2">
+        <img src="/img/welcome-cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>十二月 10, 2019</p>
+        <h3><a href="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/" title="句2" class="posttitle">句2</a></h3>
+        <p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实...</p>
+    </div>
+</div>
+
+
+<div class="post">
+    <a href="/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/" title="点云处理优秀链接">
+        <img src="/img/cover.jpg" class="cover" width="680" height="440">
+    </a>
+    <div class="else">
+        <p>一月 01, 1970</p>
+        <h3><a href="/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/" title="点云处理优秀链接" class="posttitle">点云处理优秀链接</a></h3>
+        <p>链接PCL官网PCL点云配准点云笔记1点云笔记2scikit-learn-基于python的机器学习项目
+摘录这个最小二乘法的误差分析需要了解
+
+常见的平...</p>
+    </div>
+</div>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">J.Lee</span>
+    
 </div>
-
-        
-
+<div id="preview"></div>
 
 
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-<script src="/js/bookmark.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 </html>

@@ -13,84 +13,38 @@
       </tags>
   </entry>
   <entry>
-    <title>C++知识点学习笔记(一)</title>
-    <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">声明和定义</a></h2><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
-
-<p>一般是以上形式: </p>
-<ul>
-<li>方括号[]开始, 用于捕捉外部参数变量;</li>
-<li>圆括号()类似函数体的输入参数</li>
-<li>花括号{} 是函数主体</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
-
-<p>完全格式:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
-<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
-<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h2 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
-
-<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
-<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>早起使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
-<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
-<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+    <title>PCL基础知识</title>
+    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li><p>width(int),每一束激光扫描的点数</p>
 </li>
-<li><p>可通过类的对象,引用,指针访问静态成员</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
+<li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p>
 </li>
-<li><p>成员函数可直接调用静态成员</p>
-</li>
-<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
+<li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
-<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
-<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
-<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> override</span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> override</span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
+<ol>
+<li><p>PointXYZ</p>
+<p>结构: <code>float x,y,z</code> </p>
+<p>用cloud.points[i].x访问</p>
+</li>
+<li><p>PointXYZI</p>
+<p>结构:<code>float x,y,z,Indensity;</code></p>
+<p>用cloud.points[i].Data[4]访问强度</p>
+</li>
+<li><p>PointXYZRGB</p>
+<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>C++</category>
+        <category>研究生</category>
+        <category>PCL</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -310,41 +264,6 @@
       </tags>
   </entry>
   <entry>
-    <title>PCL基础知识</title>
-    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li><p>width(int),每一束激光扫描的点数</p>
-</li>
-<li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p>
-</li>
-<li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z</code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>PCL</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS-launch启动文件 &amp; tf</title>
     <url>/2020/10/05/ROS-launch-tf/</url>
     <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
@@ -381,6 +300,39 @@
       </categories>
       <tags>
         <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode调试运行cpp程序</title>
+    <url>/2020/10/12/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
+<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"/usr/bin/g++"</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">"args"</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/*.cpp"</span>,</span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/src/*.cpp",	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-std=c++11"</span>,</span><br><span class="line">                <span class="string">"-stdlib=libc++"</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-I"</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/include ""</span></span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span> <span class="comment">//the task runner's current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: [</span><br><span class="line">                <span class="string">"$gcc"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: <span class="string">"build"</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
+<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Linux"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;default&#125;"</span>,</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
+<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
+<p>要清楚调试是基于生成的可执行文件<em>.exe才能调试, 因此在先没有可执行文件情况下需要设置*</em>preLaunchTask**为自己的编译任务的名字. </p>
+<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"g++ - 生成和调试活动文件"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"/usr/bin/gdb"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>vscode</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -430,36 +382,84 @@
       </tags>
   </entry>
   <entry>
-    <title>vscode调试运行cpp程序</title>
-    <url>/2020/10/12/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
-<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>C++知识点学习笔记(一)</title>
+    <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
+<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
+<p>相关函数查一查。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
-
-<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"/usr/bin/g++"</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">"args"</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/*.cpp"</span>,</span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/src/*.cpp",	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-std=c++11"</span>,</span><br><span class="line">                <span class="string">"-stdlib=libc++"</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-I"</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/include ""</span></span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span> <span class="comment">//the task runner's current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: [</span><br><span class="line">                <span class="string">"$gcc"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: <span class="string">"build"</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
-<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Linux"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;default&#125;"</span>,</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
-<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
-<p>要清楚调试是基于生成的可执行文件<em>.exe才能调试, 因此在先没有可执行文件情况下需要设置*</em>preLaunchTask**为自己的编译任务的名字. </p>
-<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"g++ - 生成和调试活动文件"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"/usr/bin/gdb"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">声明和定义</a></h2><blockquote>
+<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
+</blockquote>
+<blockquote>
+<p>所以有回复说：</p>
+<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
 
 
 
+<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
+<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
+<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
+
+<p>一般是以上形式: </p>
+<ul>
+<li>方括号[]开始, 用于捕捉外部参数变量;</li>
+<li>圆括号()类似函数体的输入参数</li>
+<li>花括号{} 是函数主体</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
+
+<p>完全格式:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
+<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h2 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
+<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>早起使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
+<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
+<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可通过类的对象,引用,指针访问静态成员</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成员函数可直接调用静态成员</p>
+</li>
+<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
+</li>
+</ul>
+<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
+<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
+<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
+<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> override</span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> override</span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
 ]]></content>
       <categories>
-        <category>工具技能</category>
-        <category>vscode</category>
+        <category>编程学习</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>vscode</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -484,85 +484,18 @@
       </tags>
   </entry>
   <entry>
-    <title>CXX学习笔记（二）</title>
-    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
-    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
-<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
-<p>初始化（动态创建）：</p>
-<p><code>m = new Intcell();</code></p>
-<p><code>m = new Intcell{};//C++11</code></p>
-<p><code>m = new Intcell;</code></p>
-<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
-<p><code>delete m</code></p>
-<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
-<li><p>给复杂的名称取别名</p>
-<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
-<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
-</li>
-<li><p>范围for循环</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>避免不必要的拷贝</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
+    <title>C++ 知识点</title>
+    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
 
-<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
-<blockquote>
-<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
-<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
-<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
-</blockquote>
-<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
-<p>传常量引用</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h2 id="初始化表列："><a href="#初始化表列：" class="headerlink" title="初始化表列："></a>初始化表列：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="explicit构造函数"><a href="#explicit构造函数" class="headerlink" title="explicit构造函数"></a>explicit构造函数</h2><p>英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    	: membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
-
-<p>举例explicit的作用：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="构造函数类型"><a href="#构造函数类型" class="headerlink" title="构造函数类型"></a>构造函数类型</h2><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
-<ul>
-<li><p>析构函数</p>
-</li>
-<li><p>复制构造函数</p>
-</li>
-<li><p>移动构造函数</p>
-</li>
-<li><p>拷贝赋值</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>移动复制</li>
-</ul>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vector</title>
-    <url>/2019/12/19/CXX/Vector/</url>
-    <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">学习教材</a><br>学习要及时总结</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; obj(N);<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj2(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M));<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.<span class="built_in">clear</span>();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -668,24 +601,131 @@
       </tags>
   </entry>
   <entry>
-    <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;()</span><br></pre></td></tr></table></figure>
+    <title>CXX学习笔记（二）</title>
+    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
+    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
+<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
+<p>初始化（动态创建）：</p>
+<p><code>m = new Intcell();</code></p>
+<p><code>m = new Intcell{};//C++11</code></p>
+<p><code>m = new Intcell;</code></p>
+<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
+<p><code>delete m</code></p>
+<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
+<li><p>给复杂的名称取别名</p>
+<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
+<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
+</li>
+<li><p>范围for循环</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免不必要的拷贝</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">"hello"</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">"hello"</span>;<span class="comment">//错误,此乃左值引用,"hello"为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">"hello"</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html" target="_blank" rel="noopener">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
+<blockquote>
+<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
+<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
+<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
+</blockquote>
+<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
 
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
+<p>传常量引用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h2 id="初始化表列："><a href="#初始化表列：" class="headerlink" title="初始化表列："></a>初始化表列：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="explicit构造函数"><a href="#explicit构造函数" class="headerlink" title="explicit构造函数"></a>explicit构造函数</h2><p>英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line">    	: membervalue&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
+
+<p>举例explicit的作用：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="构造函数类型"><a href="#构造函数类型" class="headerlink" title="构造函数类型"></a>构造函数类型</h2><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
+<ul>
+<li><p>析构函数</p>
+</li>
+<li><p>复制构造函数</p>
+</li>
+<li><p>移动构造函数</p>
+</li>
+<li><p>拷贝赋值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>移动复制</li>
+</ul>
+]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vector</title>
+    <url>/2019/12/19/CXX/Vector/</url>
+    <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">学习教材</a><br>学习要及时总结</p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html" target="_blank" rel="noopener">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; obj(N);<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; obj2(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M));<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.<span class="built_in">clear</span>();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.<span class="built_in">end</span>());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.<span class="built_in">end</span>();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github学习笔记</title>
+    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/" target="_blank" rel="noopener">简明教程</a></p>
+<p><a href="https://git-scm.com/docs" target="_blank" rel="noopener">完整教程</a></p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
+<li>工作区: 当前电脑下的工作目录空间</li>
+<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
+<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
+<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m "add files" #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am "修改..." #跳过git add步骤</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了" target="_blank" rel="noopener">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:git@github.com">git@github.com</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3" target="_blank" rel="noopener">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:email@example.com">email@example.com</a>“</p>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -855,6 +895,21 @@
       </tags>
   </entry>
   <entry>
+    <title>日常计算机小问题记录</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369" target="_blank" rel="noopener">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
+<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
+<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>小问题解决</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>笔记管理工具为知笔记/typora</title>
     <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
@@ -885,46 +940,6 @@
       </categories>
       <tags>
         <tag>做笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github学习笔记</title>
-    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/" target="_blank" rel="noopener">简明教程</a></p>
-<p><a href="https://git-scm.com/docs" target="_blank" rel="noopener">完整教程</a></p>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
-<li>克隆 Git 资源作为工作目录。</li>
-<li>在克隆的资源上添加或修改文件。</li>
-<li>如果其他人修改了，你可以更新资源。</li>
-<li>在提交前查看修改。</li>
-<li>提交修改。</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ul>
-<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
-<li>工作区: 当前电脑下的工作目录空间</li>
-<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
-<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
-<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
-</ol>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m "add files" #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am "修改..." #跳过git add步骤</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了" target="_blank" rel="noopener">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:git@github.com">git@github.com</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3" target="_blank" rel="noopener">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:email@example.com">email@example.com</a>“</p>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -981,6 +996,30 @@
 </tbody></table>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科普常识收集</title>
+    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
+<blockquote>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
+</blockquote>
+<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">旋转坐标变换</a></strong></h1></li>
+</ol>
+<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml" target="_blank" rel="noopener">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">数字规律</a></p>
+<p>牛客网你值得拥有</p>
 ]]></content>
       <categories>
         <category>常识库</category>
@@ -1069,21 +1108,6 @@
       </tags>
   </entry>
   <entry>
-    <title>日常计算机小问题记录</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369" target="_blank" rel="noopener">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>小问题解决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>句2</title>
     <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
     <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png" alt></p>
@@ -1095,6 +1119,101 @@
       <tags>
         <tag>摘抄</tag>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间管理</title>
+    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
+<blockquote>
+<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
+</blockquote>
+<p><a href="https://www.zhihu.com/question/21914698/answer/459907860" target="_blank" rel="noopener">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
+<ul>
+<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
+<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
+<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
+</ul>
+<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
+<li>工具：三星S9+</li>
+<li>软件: 日历，TODO，提醒</li>
+<li>目标：管理好daily schedule，培养好习惯</li>
+<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>时间管理</tag>
+        <tag>工具技能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>睡觉指南</title>
+    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449" target="_blank" rel="noopener"><strong>R90高效睡眠法</strong></a></p>
+<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
+<ul>
+<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
+<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
+<li>然后睡前一小时开始准备入睡。 </li>
+</ul>
+</blockquote>
+<p>按照上述公式，</p>
+<table>
+<thead>
+<tr>
+<th>9点进入工作</th>
+<th>7点30~8点起床</th>
+<th>0点～0点30睡着</th>
+<th>23点～23点30准备入睡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9点半进入工作</td>
+<td>8点～8点30起床</td>
+<td>0点30～1点睡着</td>
+<td>23点30~12点准备入睡</td>
+</tr>
+</tbody></table>
+<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
+<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
+<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
+<li>睡前洗澡</li>
+<li><strong>睡前泡脚</strong></li>
+<li>舒缓运动</li>
+</ul>
+<p>睡前一小时进行。<strong>23点30</strong></p>
+<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
+<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
+<li><p>看无聊的书</p>
+</li>
+<li><p>冥想</p>
+</li>
+<li><p><strong>美国海军2分钟入眠</strong></p>
+<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
+</li>
+</ul>
+<ul>
+<li>睡前在日记本上把所有想法捋捋清楚</li>
+</ul>
+<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
+<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
+<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
+<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
+</li>
+<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
+</li>
+<li><p>床垫和枕头</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>睡觉</tag>
       </tags>
   </entry>
   <entry>
@@ -1179,30 +1298,6 @@
       </tags>
   </entry>
   <entry>
-    <title>科普常识收集</title>
-    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html" target="_blank" rel="noopener">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png" alt><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/" target="_blank" rel="noopener">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html" target="_blank" rel="noopener">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml" target="_blank" rel="noopener">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">数字规律</a></p>
-<p>牛客网你值得拥有</p>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DeepPS</title>
     <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
     <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
@@ -1220,28 +1315,6 @@
       </categories>
       <tags>
         <tag>DeepPs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>L-Shape-Fitting3</title>
-    <url>/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/</url>
-    <content><![CDATA[<p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header" target="_blank" rel="noopener">链接</a></p>
-<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
-<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
-<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif" alt></li>
-</ol>
-<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png" alt></p>
-<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png" alt></p>
-<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>LiDAR</category>
-      </categories>
-      <tags>
-        <tag>L形状拟合</tag>
-        <tag>点云</tag>
-        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -1264,6 +1337,28 @@
 <li>计算时间</li>
 </ol>
 <p><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result1.png" alt><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result2.png" alt><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result3.png" alt><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>L形状拟合</tag>
+        <tag>点云</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>L-Shape-Fitting3</title>
+    <url>/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/</url>
+    <content><![CDATA[<p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header" target="_blank" rel="noopener">链接</a></p>
+<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
+<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
+<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif" alt></li>
+</ol>
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png" alt></p>
+<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png" alt> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png" alt></p>
+<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -1420,6 +1515,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Python深度学习笔记(一)</title>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <content><![CDATA[<p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>点云处理优秀链接</title>
     <url>/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p>
@@ -1435,73 +1552,6 @@
       <tags>
         <tag>PCL</tag>
         <tag>点云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>睡觉指南</title>
-    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449" target="_blank" rel="noopener"><strong>R90高效睡眠法</strong></a></p>
-<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
-<ul>
-<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
-<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
-<li>然后睡前一小时开始准备入睡。 </li>
-</ul>
-</blockquote>
-<p>按照上述公式，</p>
-<table>
-<thead>
-<tr>
-<th>9点进入工作</th>
-<th>7点30~8点起床</th>
-<th>0点～0点30睡着</th>
-<th>23点～23点30准备入睡</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>9点半进入工作</td>
-<td>8点～8点30起床</td>
-<td>0点30～1点睡着</td>
-<td>23点30~12点准备入睡</td>
-</tr>
-</tbody></table>
-<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
-<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
-<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
-<li>睡前洗澡</li>
-<li><strong>睡前泡脚</strong></li>
-<li>舒缓运动</li>
-</ul>
-<p>睡前一小时进行。<strong>23点30</strong></p>
-<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
-<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
-<li><p>看无聊的书</p>
-</li>
-<li><p>冥想</p>
-</li>
-<li><p><strong>美国海军2分钟入眠</strong></p>
-<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
-</li>
-</ul>
-<ul>
-<li>睡前在日记本上把所有想法捋捋清楚</li>
-</ul>
-<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
-<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
-<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
-<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
-</li>
-<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
-</li>
-<li><p>床垫和枕头</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>睡觉</tag>
       </tags>
   </entry>
   <entry>
@@ -1522,34 +1572,6 @@
       <tags>
         <tag>小知识</tag>
         <tag>点云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>时间管理</title>
-    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
-<blockquote>
-<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
-</blockquote>
-<p><a href="https://www.zhihu.com/question/21914698/answer/459907860" target="_blank" rel="noopener">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
-<ul>
-<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
-<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
-<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
-</ul>
-<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
-<li>工具：三星S9+</li>
-<li>软件: 日历，TODO，提醒</li>
-<li>目标：管理好daily schedule，培养好习惯</li>
-<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>时间管理</tag>
-        <tag>工具技能</tag>
       </tags>
   </entry>
   <entry>
@@ -1585,28 +1607,6 @@
       </categories>
       <tags>
         <tag>顶会</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python深度学习笔记(一)</title>
-    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>待整理:</p>
-<ul>
-<li>卷积层池化层</li>
-<li>梯度下降</li>
-<li>pytorch</li>
-<li>numpy</li>
-</ul>
-<p>学习网站:B站莫烦python</p>
-<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1654,38 +1654,6 @@
       <tags>
         <tag>CMake</tag>
         <tag>C++编译</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Matlab小知识记录</title>
-    <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
-<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
-<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
-<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
-</ol>
-<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
-<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
-<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
-<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
-<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列</code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
-<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
-</blockquote>
-</li>
-<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png" alt></li>
-<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
-<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
-</ol>
-<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
-<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>Matlab</category>
-      </categories>
-      <tags>
-        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
@@ -1763,6 +1731,38 @@
       </categories>
       <tags>
         <tag>PCL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Matlab小知识记录</title>
+    <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
+<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
+<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
+<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
+</ol>
+<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
+<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
+<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
+<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
+<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列</code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
+<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
+</blockquote>
+</li>
+<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png" alt></li>
+<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
+<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
+</ol>
+<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
+<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>Matlab</category>
+      </categories>
+      <tags>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
@@ -1898,39 +1898,6 @@
       </tags>
   </entry>
   <entry>
-    <title>动态规划</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</url>
-    <content><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
-
-<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;">
-
-<p>斐波那契数列，可以递归/求通项/动态规划。</p>
-<p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p>
-<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote>
-<p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p>
-</blockquote>
-<p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p>
-<h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure>
-
-<p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p>
-<p><code>dp[i] = max(dp[i-1], nums[i]);</code></p>
-<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote>
-<p>示例 1：</p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p>
-</blockquote>
-<p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p>
-<p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-        <tag>DP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树</title>
     <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
@@ -1980,18 +1947,6 @@
       </tags>
   </entry>
   <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>经典排序算法</title>
     <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/" target="_blank" rel="noopener">优秀连接</a></p>
@@ -2021,6 +1976,18 @@
       </tags>
   </entry>
   <entry>
+    <title>枚举</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>递归</title>
     <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
     <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
@@ -2033,6 +2000,39 @@
       </categories>
       <tags>
         <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</url>
+    <content><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
+
+<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;">
+
+<p>斐波那契数列，可以递归/求通项/动态规划。</p>
+<p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p>
+<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote>
+<p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p>
+</blockquote>
+<p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p>
+<h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure>
+
+<p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p>
+<p><code>dp[i] = max(dp[i-1], nums[i]);</code></p>
+<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote>
+<p>示例 1：</p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p>
+</blockquote>
+<p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p>
+<p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+        <tag>DP</tag>
       </tags>
   </entry>
   <entry>
