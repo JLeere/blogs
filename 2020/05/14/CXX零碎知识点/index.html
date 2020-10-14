@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>C++知识点学习笔记(一) - J.Lee&#39;s Town</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Life, Code,"> 
+    <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!,2020年5月源文件和头文件.cpp文件通过#include .h直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的声明，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义,"> 
+    <meta name="author" content="J.Lee"> 
+    <link rel="alternative" href="atom.xml" title="J.Lee&#39;s Town" type="application/atom+xml"> 
+    <link rel="icon" href="/img/JLee.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.1.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">J.Lee&#39;s Town</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://www.jaylee.top"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">C++知识点学习笔记(一)</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">C++知识点学习笔记(一)</h1>
+        <div class="stuff">
+            <span>五月 14, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html" target="_blank" rel="noopener">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
+<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38" target="_blank" rel="noopener">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
+<p>相关函数查一查。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html" target="_blank" rel="noopener">声明和定义</a></h2><blockquote>
+<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
+</blockquote>
+<blockquote>
+<p>所以有回复说：</p>
+<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; sp(p);</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
+<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
+<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.<span class="built_in">begin</span>(); it != vect.<span class="built_in">end</span>(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
+
+<p>一般是以上形式: </p>
+<ul>
+<li>方括号[]开始, 用于捕捉外部参数变量;</li>
+<li>圆括号()类似函数体的输入参数</li>
+<li>花括号{} 是函数主体</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
+
+<p>完全格式:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
+<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h2 id="Boost-shared-ptr"><a href="#Boost-shared-ptr" class="headerlink" title="Boost::shared_ptr"></a>Boost::shared_ptr</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
+<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>早起使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
+<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
+<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可通过类的对象,引用,指针访问静态成员</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成员函数可直接调用静态成员</p>
+</li>
+<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
+</li>
+</ul>
+<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
+<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
+<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
+<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> override</span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> override</span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> override</span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='true'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2020年5月"><span class="toc-number">1.</span> <span class="toc-text">2020年5月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#源文件和头文件"><span class="toc-number">1.1.</span> <span class="toc-text">源文件和头文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#哈希表unordered-map"><span class="toc-number">1.2.</span> <span class="toc-text">哈希表unordered_map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#声明和定义"><span class="toc-number">1.3.</span> <span class="toc-text">声明和定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#boost-make-shared"><span class="toc-number">1.4.</span> <span class="toc-text">boost::make_shared</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#auto-关键字"><span class="toc-number">1.5.</span> <span class="toc-text">auto 关键字</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2020年9月"><span class="toc-number">2.</span> <span class="toc-text">2020年9月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lambda表达式"><span class="toc-number">2.1.</span> <span class="toc-text">lambda表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#std-transform"><span class="toc-number">2.2.</span> <span class="toc-text">std::transform</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sizeof"><span class="toc-number">2.3.</span> <span class="toc-text">sizeof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boost-shared-ptr"><span class="toc-number">2.4.</span> <span class="toc-text">Boost::shared_ptr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.5.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算符重载-operator"><span class="toc-number">2.6.</span> <span class="toc-text">运算符重载 operator&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2020年10月"><span class="toc-number">3.</span> <span class="toc-text">2020年10月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#static关键字"><span class="toc-number">3.1.</span> <span class="toc-text">static关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态声明"><span class="toc-number">3.1.1.</span> <span class="toc-text">静态声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类的静态成员"><span class="toc-number">3.1.2.</span> <span class="toc-text">类的静态成员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多态-vitual-override-final"><span class="toc-number">3.2.</span> <span class="toc-text">多态 vitual&#x2F;override&#x2F;final</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多态"><span class="toc-number">3.2.1.</span> <span class="toc-text">多态</span></a></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
