@@ -310,6 +310,29 @@
       </tags>
   </entry>
   <entry>
+    <title>ROS-launch启动文件 &amp; tf</title>
+    <url>/2020/10/05/ROS-launch-tf/</url>
+    <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
+<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">"lidar_perception"</span> <span class="attr">type</span> = <span class="string">"slot_detection"</span> <span class="attr">name</span> = <span class="string">"detecting slots"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">"slot_width"</span> <span class="attr">value</span>=<span class="string">"1.7"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"thershold_length"</span> <span class="attr">value</span>=<span class="string">"1.5"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"lidar_perception"</span> <span class="attr">type</span>=<span class="string">"slot_detection"</span> <span class="attr">arg</span>=<span class="string">"$&#123;arg threshold_length&#125;"</span> <span class="attr">name</span> "<span class="attr">detection</span> <span class="attr">slots</span>" /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
+<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
+<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"slot_detection/thresh_l"</span> <span class="attr">to</span>=<span class="string">"thresh_l"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$&#123;dirname&#125;/other.launch"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
+<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
+<h1 id="tf坐标系"><a href="#tf坐标系" class="headerlink" title="tf坐标系"></a>tf坐标系</h1>]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>launch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PCL基础知识</title>
     <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p>
@@ -342,29 +365,6 @@
       </categories>
       <tags>
         <tag>PCL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ROS-launch启动文件 &amp; tf</title>
-    <url>/2020/10/05/ROS-launch-tf/</url>
-    <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
-<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">"lidar_perception"</span> <span class="attr">type</span> = <span class="string">"slot_detection"</span> <span class="attr">name</span> = <span class="string">"detecting slots"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">"slot_width"</span> <span class="attr">value</span>=<span class="string">"1.7"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"thershold_length"</span> <span class="attr">value</span>=<span class="string">"1.5"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"lidar_perception"</span> <span class="attr">type</span>=<span class="string">"slot_detection"</span> <span class="attr">arg</span>=<span class="string">"$&#123;arg threshold_length&#125;"</span> <span class="attr">name</span> "<span class="attr">detection</span> <span class="attr">slots</span>" /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
-<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
-<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"slot_detection/thresh_l"</span> <span class="attr">to</span>=<span class="string">"thresh_l"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$&#123;dirname&#125;/other.launch"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
-<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
-<h1 id="tf坐标系"><a href="#tf坐标系" class="headerlink" title="tf坐标系"></a>tf坐标系</h1>]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>launch</tag>
       </tags>
   </entry>
   <entry>
@@ -729,68 +729,46 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux系统安装注意</title>
-    <url>/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p>
-<h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p>
-<h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol>
-<li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li>
+    <title>Hexo&amp;github blog搭建指南</title>
+    <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a></li>
+<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/98782798</a></li>
+<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
+</ul>
+<h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
+<li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
+<li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
+<li>md语法参考文章<a href="./markDown书写指南.md">markdown书写指南</a></li>
+<li>插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。</li>
 </ol>
-<p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p>
-<blockquote>
-<p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p>
-</blockquote>
-<ol start="2">
-<li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p>
-<blockquote>
-<p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p>
-</blockquote>
-</li>
-<li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p>
-</li>
-<li><p>尝试能否在UEFI系统中打开。都不能打开。</p>
-</li>
-<li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p>
-</li>
-<li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p>
-<blockquote>
-<p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p>
-</blockquote>
-</li>
+<h1 id="Hexo发布到网页"><a href="#Hexo发布到网页" class="headerlink" title="Hexo发布到网页"></a>Hexo发布到网页</h1><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h1 id="Github站点配置"><a href="#Github站点配置" class="headerlink" title="Github站点配置"></a>Github站点配置</h1><p>hexo提供了很多主题: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ol>
+<li>Next主题,黑白那种</li>
+<li>Sakura二次元主题:<a href="https://docs.hojun.cn/sakura/docs/#/home" target="_blank" rel="noopener">https://docs.hojun.cn/sakura/docs/#/home</a></li>
+<li>diaspora二次元主题:<a href="https://github.com/Fechin/hexo-theme-diaspora" target="_blank" rel="noopener">https://github.com/Fechin/hexo-theme-diaspora</a></li>
 </ol>
-<p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p>
-<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol>
-<li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li>
-<li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li>
-</ol>
-<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。</p>
-<p><strong>华硕2014年笔记本：</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">状态</th>
-<th align="center">参数</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">launch CSM</td>
-<td align="center">enable</td>
-<td align="center">CSM 兼容性支持模块,使系统兼容UEFI</td>
-</tr>
-<tr>
-<td align="center">Lauch PXE opROM</td>
-<td align="center">disenable</td>
-<td align="center">PXE网络服务器,通过网络启动电脑,一直关闭</td>
-</tr>
-</tbody></table>
-<p>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.<br><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>
 ]]></content>
       <categories>
         <category>工具技能</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Linux安装</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1371,70 +1349,6 @@
       </tags>
   </entry>
   <entry>
-    <title>L-Shape fitting</title>
-    <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/</url>
-    <content><![CDATA[<p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
-<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
-<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
-
-<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
-<ol>
-<li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
-<li>多个优化标准相互弥补</li>
-<li>衡量拟合结果好坏的标准。</li>
-<li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
-</ol>
-<h1 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h1><blockquote>
-<p>Comparing poses among successive cycles also helps to find the target’s heading direction.</p>
-</blockquote>
-<h1 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h1><blockquote>
-<p>[17]X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
-</blockquote>
-<p>在文中，利用距离点的排序，即<strong>扫描序列的信息</strong>，有效地将这些点分割成两个互不相交的集合，然后将这两个集合的点分别拟合成两条正交直线，分别对应于小车的两条边;按照扫描序列迭代所有这些二维范围点，该算法搜索一个轴心点，并使用该轴心点生成这两个不相交集，即，在主元之前扫描的点集和在主元之后扫描的点集。</p>
-<blockquote>
-<p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
-</blockquote>
-<p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
-<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="《BoxNet深度学习2DBB》"><a href="#《BoxNet深度学习2DBB》" class="headerlink" title="《BoxNet深度学习2DBB》"></a>《BoxNet深度学习2DBB》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud，2019</a></p>
-<h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
-<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast <strong>segmentation</strong> of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
-</blockquote>
-<blockquote>
-<p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
-</blockquote>
-<blockquote>
-<p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
-</blockquote>
-<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input|Points(x,y)<br>        output|[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
-<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
-<li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
-<li>预测了点云均值的中心,提高bb位置精度.</li>
-</ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
-<h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
-<h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
-<h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
-<p>·decomposes the L-Shape fitting problem into two steps: L-Shape vertexes searching and L-Shape corner point locating.<br>·highly computationally efficient<br>·robust enough and able to accommodate various situations.<br>·does not depend on the laser scanning sequential information</p>
-</blockquote>
-<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>the mean-shift &amp; DBSCAN</p>
-<h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>LiDAR</category>
-      </categories>
-      <tags>
-        <tag>L形状拟合</tag>
-        <tag>点云</tag>
-        <tag>读书笔记</tag>
-        <tag>标注工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>L-ShapeFitting4</title>
     <url>/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/</url>
     <content><![CDATA[<h1 id="A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP"><a href="#A-Fast-Ransac-Based-Approach-for-Computing-the-Orientation-of-Obstacles-in-Traffic-Scenes-2018-ICCP" class="headerlink" title="A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP"></a><a href="https://ieeexplore.ieee.org/abstract/document/8516642" target="_blank" rel="noopener">A Fast Ransac Based Approach for Computing the Orientation of Obstacles in Traffic Scenes 2018 ICCP</a></h1><h2 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
@@ -1512,31 +1426,6 @@
       </tags>
   </entry>
   <entry>
-    <title>How to read a paper</title>
-    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
-    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
-<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
-<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
-<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
-</blockquote>
-<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
-<p>自己要思考精读一篇文献，</p>
-<ul>
-<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
-<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
-<li>研究的具体方法是什么？用到了哪些工具手段？</li>
-<li>结果如何？哪些得到了征明？</li>
-<li>总结，可以参考和不足之处在哪？</li>
-</ul>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
-      <categories>
-        <category>研究生</category>
-      </categories>
-      <tags>
-        <tag>方法论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>点云处理优秀链接</title>
     <url>/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p>
@@ -1551,26 +1440,6 @@
       </categories>
       <tags>
         <tag>PCL</tag>
-        <tag>点云</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>点云处理算法综述</title>
-    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</url>
-    <content><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
-<p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
-<h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
-<p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p>
-<p>类似的网络：pixorNet,pointNet++02</p>
-<h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p>
-<p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>LiDAR</category>
-      </categories>
-      <tags>
-        <tag>小知识</tag>
         <tag>点云</tag>
       </tags>
   </entry>
@@ -1657,6 +1526,26 @@
       </tags>
   </entry>
   <entry>
+    <title>点云处理算法综述</title>
+    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</url>
+    <content><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
+<p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
+<h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
+<p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p>
+<p>类似的网络：pixorNet,pointNet++02</p>
+<h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p>
+<p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>小知识</tag>
+        <tag>点云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab小知识记录</title>
     <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
@@ -1689,6 +1578,95 @@
       </tags>
   </entry>
   <entry>
+    <title>L-Shape fitting</title>
+    <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/</url>
+    <content><![CDATA[<p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456" target="_blank" rel="noopener">范文</a></p>
+<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
+<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
+
+<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png" alt><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif" alt><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min{D1,D2})^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif" alt><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png" alt><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif" alt><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
+<ol>
+<li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
+<li>多个优化标准相互弥补</li>
+<li>衡量拟合结果好坏的标准。</li>
+<li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
+</ol>
+<h1 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h1><blockquote>
+<p>Comparing poses among successive cycles also helps to find the target’s heading direction.</p>
+</blockquote>
+<h1 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h1><blockquote>
+<p>[17]X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
+</blockquote>
+<p>在文中，利用距离点的排序，即<strong>扫描序列的信息</strong>，有效地将这些点分割成两个互不相交的集合，然后将这两个集合的点分别拟合成两条正交直线，分别对应于小车的两条边;按照扫描序列迭代所有这些二维范围点，该算法搜索一个轴心点，并使用该轴心点生成这两个不相交集，即，在主元之前扫描的点集和在主元之后扫描的点集。</p>
+<blockquote>
+<p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
+</blockquote>
+<p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
+<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="《BoxNet深度学习2DBB》"><a href="#《BoxNet深度学习2DBB》" class="headerlink" title="《BoxNet深度学习2DBB》"></a>《BoxNet深度学习2DBB》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors" target="_blank" rel="noopener">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud，2019</a></p>
+<h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
+<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast <strong>segmentation</strong> of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
+</blockquote>
+<blockquote>
+<p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
+</blockquote>
+<blockquote>
+<p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
+</blockquote>
+<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input|Points(x,y)<br>        output|[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
+<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
+<li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
+<li>预测了点云均值的中心,提高bb位置精度.</li>
+</ol>
+<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif" alt><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif" alt><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif" alt><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
+<h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a href="https://github.com/bernwang/latte" target="_blank" rel="noopener">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
+<h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a href="https://ieeexplore.ieee.org/abstract/document/8665265" target="_blank" rel="noopener">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
+<h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
+<p>·decomposes the L-Shape fitting problem into two steps: L-Shape vertexes searching and L-Shape corner point locating.<br>·highly computationally efficient<br>·robust enough and able to accommodate various situations.<br>·does not depend on the laser scanning sequential information</p>
+</blockquote>
+<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>the mean-shift &amp; DBSCAN</p>
+<h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>L形状拟合</tag>
+        <tag>点云</tag>
+        <tag>读书笔记</tag>
+        <tag>标注工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to read a paper</title>
+    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
+    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
+<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
+<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
+<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
+</blockquote>
+<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
+<p>自己要思考精读一篇文献，</p>
+<ul>
+<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
+<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
+<li>研究的具体方法是什么？用到了哪些工具手段？</li>
+<li>结果如何？哪些得到了征明？</li>
+<li>总结，可以参考和不足之处在哪？</li>
+</ul>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+      <tags>
+        <tag>方法论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenCV学习笔记</title>
     <url>/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/</url>
     <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/" target="_blank" rel="noopener">安装</a></strong></h2><p>异常记录未解决：</p>
@@ -1709,60 +1687,6 @@
       </categories>
       <tags>
         <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PCL入门(一)</title>
-    <url>/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
-<p><a href="https://blog.csdn.net/qq_42367689/article/details/104358046" target="_blank" rel="noopener">工作空间配置实例</a></p>
-<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.<span class="built_in">read</span>&lt;pcl::PointXYZ&gt; (<span class="string">"/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd"</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">"/home/lijie/catkin_ws/src/pcd_load/13.pcd"</span>, cloud);</span><br></pre></td></tr></table></figure>
-
-<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a href="https://blog.csdn.net/ethan_guo/article/details/80110023" target="_blank" rel="noopener"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a href="https://www.cnblogs.com/li-yao7758258/p/6651326.html" target="_blank" rel="noopener">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
-<ol>
-<li>在一个package/src中建立两个<em>.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>${PROJECT_NAME}_node</code>（即节点名）修改为你的节点名（建议与</em>.cpp一致或添加*_node）如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
-<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
-</li>
-<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a href="https://blog.csdn.net/HHH_go_/article/details/83148472" target="_blank" rel="noopener">SAC_RANSAC分割地面</a></p>
-<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
-<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
-<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers" target="_blank" rel="noopener">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>PCL</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -1855,46 +1779,122 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo&amp;github blog搭建指南</title>
-    <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ" target="_blank" rel="noopener">github*Hexo搭建网站参考网站</a></li>
-<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/98782798</a></li>
-<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
-</ul>
-<h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
-<li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
-<li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
-<li>md语法参考文章<a href="./markDown书写指南.md">markdown书写指南</a></li>
-<li>插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。</li>
+    <title>PCL入门(一)</title>
+    <url>/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a href="http://pointclouds.org/documentation/tutorials/" target="_blank" rel="noopener">http://pointclouds.org/documentation/tutorials/</a></p>
+<p><a href="https://blog.csdn.net/qq_42367689/article/details/104358046" target="_blank" rel="noopener">工作空间配置实例</a></p>
+<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox" target="_blank" rel="noopener">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.<span class="built_in">read</span>&lt;pcl::PointXYZ&gt; (<span class="string">"/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd"</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">"/home/lijie/catkin_ws/src/pcd_load/13.pcd"</span>, cloud);</span><br></pre></td></tr></table></figure>
+
+<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a href="https://blog.csdn.net/ethan_guo/article/details/80110023" target="_blank" rel="noopener"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a href="https://www.cnblogs.com/li-yao7758258/p/6651326.html" target="_blank" rel="noopener">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
+<ol>
+<li>在一个package/src中建立两个<em>.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>${PROJECT_NAME}_node</code>（即节点名）修改为你的节点名（建议与</em>.cpp一致或添加*_node）如下：</li>
 </ol>
-<h1 id="Hexo发布到网页"><a href="#Hexo发布到网页" class="headerlink" title="Hexo发布到网页"></a>Hexo发布到网页</h1><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h1 id="Github站点配置"><a href="#Github站点配置" class="headerlink" title="Github站点配置"></a>Github站点配置</h1><p>hexo提供了很多主题: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ol>
-<li>Next主题,黑白那种</li>
-<li>Sakura二次元主题:<a href="https://docs.hojun.cn/sakura/docs/#/home" target="_blank" rel="noopener">https://docs.hojun.cn/sakura/docs/#/home</a></li>
-<li>diaspora二次元主题:<a href="https://github.com/Fechin/hexo-theme-diaspora" target="_blank" rel="noopener">https://github.com/Fechin/hexo-theme-diaspora</a></li>
+<ol start="2">
+<li>在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
+<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
+</li>
+<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a href="https://blog.csdn.net/HHH_go_/article/details/83148472" target="_blank" rel="noopener">SAC_RANSAC分割地面</a></p>
+<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
+<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
+<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers" target="_blank" rel="noopener">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>PCL</category>
+      </categories>
+      <tags>
+        <tag>PCL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统安装注意</title>
+    <url>/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">较好的教程</a></p>
+<h1 id="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"><a href="#Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统" class="headerlink" title="Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统"></a>Wanted：安装Ubuntu到有一个不能删除的分区的移动硬盘上，并能在不同电脑上使用该系统</h1><p>看上面的教程时候注意区别legacy和UEFI启动的不同。也就是挂载分区时候，是否选择/boot分区，里面具体的差别请仔细看作者的案例，其两种启动方式都进行了介绍。</p>
+<h1 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h1><ol>
+<li>直接在硬盘前面上分配出150G的 <strong>“未分配”</strong> 空间，再去Ubuntu划分挂载等空间，出现此问题：</li>
+</ol>
+<p><strong>问题1：提示“分配到/的分区/dev/sdax开始于xxxx字节,使用磁盘的最小对齐,这可能造成非常差的性能…”</strong></p>
+<blockquote>
+<p>我们必须要对移动硬盘进行分区，因为直接用隐藏分区进行安装会出现分区未对齐的错误，导致安装失败。（我试了其他系统好像只有乌班图会出现此情况）.<br>这里推荐diskgenius，我是分了一个500M的引导区，200G的根分区，其他正常存储区。（显示就是D盘E盘F盘等），格式化并4K对齐。</p>
+</blockquote>
+<ol start="2">
+<li><p>接下来的操作：下载DiskGenius软件，对前150G的未分配空间建立需要的分区，但是无法旋转逻辑分区或者扩展分区。<strong>问题二</strong></p>
+<blockquote>
+<p>分区表：<br>EFI系统分区 | 1G<br>Swap交换空间 | 6G<br>EXT4格式（挂载根目录/） | 140G<br>引导文件选择EFI分区。</p>
+</blockquote>
+</li>
+<li><p>未解决逻辑分区问题直接安装Ubuntu,安装成功，但是<em>不能在legacy BIOS电脑中打开系统。</em> <strong>问题三</strong></p>
+</li>
+<li><p>尝试能否在UEFI系统中打开。都不能打开。</p>
+</li>
+<li><p>安装/boot的传统方式失败，报错boot内存不能小于1M？？我不是给了2G吗</p>
+</li>
+<li><p>将磁盘从GPT转换到MBR，发现原有分区可以转换为逻辑分区</p>
+<blockquote>
+<p>MBR一个磁盘只有1个扩展分区，逻辑分区在扩展分区以下</p>
+</blockquote>
+</li>
+</ol>
+<p>还是没成功，提示问题是 <em>no operation System</em> 该尝试的都试过了，总之问题遗留于此，日后有闲情再解决，太浪费时间了。</p>
+<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><ol>
+<li>本想在之前的硬盘中添加一个空闲区，以安装Legacy启动的UBuntu系统，这样在Legacy和UEFI启动的两个电脑上都能使用。但是分区这些都太麻烦了，还和硬盘的格式GPT/MBR啥的相关，总之一堆错误，我选择放弃，不如备份，<strong>完全格式化硬盘</strong> 省时间。</li>
+<li>尝试了 Legacy 启动的Ubuntu系统是可以在UEFI电脑打开的，需要 <strong>在BIOS界面设置启动Legacy</strong> 。其实他俩最大的差别就是能否支持快速开机。</li>
+</ol>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><p>我在机械硬盘里面安装了个win10，也是历经挫折，最后格式化了整块硬盘是最快的方法，强烈推荐非专家这么干。<br>然后用之前在固态中安装的基于传统legacy启动的Ubuntu可以在两台电脑都打开。</p>
+<p><strong>华硕2014年笔记本：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">状态</th>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">launch CSM</td>
+<td align="center">enable</td>
+<td align="center">CSM 兼容性支持模块,使系统兼容UEFI</td>
+</tr>
+<tr>
+<td align="center">Lauch PXE opROM</td>
+<td align="center">disenable</td>
+<td align="center">PXE网络服务器,通过网络启动电脑,一直关闭</td>
+</tr>
+</tbody></table>
+<p>实验下来两快硬盘里面系统的启动要去<code>Boot&gt;&gt;hard Drive BBS Priorities</code>里面选择优先级.<br><strong>联想2019年小新:</strong><br>这就简单很多了，设置好<code>Boot Mod &gt;&gt; legacy surpport</code> <code>legacy first</code>即可。开机之前插上Ubuntu即可。只是由于每次正常开机都会去先寻找legacy，因此会慢10s </p>
 ]]></content>
       <categories>
         <category>工具技能</category>
-        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Linux安装</tag>
       </tags>
   </entry>
   <entry>
@@ -1975,24 +1975,19 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉树</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+    <title>链表</title>
+    <url>/2020/06/30/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
 
-<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
-<p>递归初始化：空节点深度为空</p>
-<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
-<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
-<p>递归初始化：若当前节点为空，返回true。</p>
 ]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
       </categories>
       <tags>
-        <tag>Leecode</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -2024,9 +2019,18 @@
       </tags>
   </entry>
   <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
+    <title>二叉树</title>
+    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+
+<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
+<p>递归初始化：空节点深度为空</p>
+<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+
+<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
+<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
+<p>递归初始化：若当前节点为空，返回true。</p>
+]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -2036,19 +2040,15 @@
       </tags>
   </entry>
   <entry>
-    <title>链表</title>
-    <url>/2020/06/30/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
+    <title>枚举</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>Leecode</tag>
       </tags>
   </entry>
 </search>
