@@ -275,13 +275,20 @@
   </entry>
   
   <entry>
-    <title>枚举</title>
-    <link href="https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/"/>
-    <id>https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</id>
+    <title>动态规划</title>
+    <link href="https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/"/>
+    <id>https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</id>
     <published>2020-09-11T06:18:00.000Z</published>
-    <updated>2020-10-05T06:30:22.582Z</updated>
+    <updated>2020-10-05T06:30:49.767Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;"><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;"><p>斐波那契数列，可以递归/求通项/动态规划。</p><p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p><h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote><p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p></blockquote><p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p><h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure><p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p><p><code>dp[i] = max(dp[i-1], nums[i]);</code></p><h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote><p>示例 1：</p><p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p></blockquote><p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p><p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png&quot; alt=&quot;image-20200911214956202&quot; style=&quot;zoom:150
+      
     
     </summary>
     
@@ -292,6 +299,8 @@
     
     
       <category term="Leecode" scheme="https://www.jaylee.top/tags/Leecode/"/>
+    
+      <category term="DP" scheme="https://www.jaylee.top/tags/DP/"/>
     
   </entry>
   
