@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lee&#39;s House</title>
+  <title>J.Lee&#39;s Town</title>
   
   <subtitle>Life is Fantastic</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.jaylee.top/"/>
-  <updated>2020-10-05T06:35:43.866Z</updated>
-  <id>http://www.jaylee.top/</id>
+  <link href="https://www.jaylee.top/"/>
+  <updated>2020-10-12T13:41:57.347Z</updated>
+  <id>https://www.jaylee.top/</id>
   
   <author>
     <name>J.Lee</name>
@@ -17,32 +17,290 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>点云处理优秀链接</title>
-    <link href="http://www.jaylee.top/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/"/>
-    <id>http://www.jaylee.top/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</id>
-    <published>1970-01-01T00:00:00.000Z</published>
-    <updated>2020-10-05T06:35:43.866Z</updated>
+    <title>vscode调试运行cpp程序</title>
+    <link href="https://www.jaylee.top/2020/10/12/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/"/>
+    <id>https://www.jaylee.top/2020/10/12/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</id>
+    <published>2020-10-12T12:05:29.000Z</published>
+    <updated>2020-10-12T13:41:57.347Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/" target="_blank" rel="noopener">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300" target="_blank" rel="noopener">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html" target="_blank" rel="noopener">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7" target="_blank" rel="noopener">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank" rel="noopener">scikit-learn-基于python的机器学习项目</a></p><h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p><blockquote><p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p><h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure><h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"/usr/bin/g++"</span>,<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">"args"</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">"-g"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/*.cpp"</span>,</span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/src/*.cpp",//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-o"</span>,</span><br><span class="line">                <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-std=c++11"</span>,</span><br><span class="line">                <span class="string">"-stdlib=libc++"</span>,<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">"-I"</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//"$&#123;workspaceFolder&#125;/include ""</span></span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"options"</span>: &#123;</span><br><span class="line">                <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span> <span class="comment">//the task runner's current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: [</span><br><span class="line">                <span class="string">"$gcc"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"group"</span>: <span class="string">"build"</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p><h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Linux"</span>,</span><br><span class="line">            <span class="string">"includePath"</span>: [</span><br><span class="line">                <span class="string">"$&#123;default&#125;"</span>,</span><br><span class="line">                <span class="string">"$&#123;workspaceFolder&#125;/**"</span>,</span><br><span class="line">                <span class="string">"/usr/include/eigen3/"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">"defines"</span>: [],</span><br><span class="line">            <span class="string">"compilerPath"</span>: <span class="string">"/usr/bin/gcc"</span>,</span><br><span class="line">            <span class="string">"cStandard"</span>: <span class="string">"gnu11"</span>,</span><br><span class="line">            <span class="string">"cppStandard"</span>: <span class="string">"c++17"</span>,</span><br><span class="line">            <span class="string">"intelliSenseMode"</span>: <span class="string">"gcc-x64"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"version"</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p><h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p><p>要清楚调试是基于生成的可执行文件<em>.exe才能调试, 因此在先没有可执行文件情况下需要设置*</em>preLaunchTask**为自己的编译任务的名字. </p><p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"g++ - 生成和调试活动文件"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>,</span><br><span class="line">            <span class="attr">"setupCommands"</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">"description"</span>: <span class="string">"为 gdb 启用整齐打印"</span>,</span><br><span class="line">                    <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                    <span class="attr">"ignoreFailures"</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"preLaunchTask"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"miDebuggerPath"</span>: <span class="string">"/usr/bin/gdb"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;链接&quot;&gt;&lt;a href=&quot;#链接&quot; class=&quot;headerlink&quot; title=&quot;链接&quot;&gt;&lt;/a&gt;链接&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://pointclouds.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PCL官网
+        &lt;p&gt;与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.&lt;/p&gt;
+&lt;h1 id=&quot;编写代码&quot;&gt;&lt;a href=&quot;#编写代码&quot; class=&quot;headerlink&quot; title=&quot;编写代码&quot;&gt;&lt;
       
     
     </summary>
     
     
-      <category term="研究生" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+      <category term="工具技能" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
     
-      <category term="LiDAR" scheme="http://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/"/>
+      <category term="vscode" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/"/>
     
     
-      <category term="点云" scheme="http://www.jaylee.top/tags/%E7%82%B9%E4%BA%91/"/>
+      <category term="vscode" scheme="https://www.jaylee.top/tags/vscode/"/>
     
-      <category term="PCL" scheme="http://www.jaylee.top/tags/PCL/"/>
+  </entry>
+  
+  <entry>
+    <title>CXX学习整理</title>
+    <link href="https://www.jaylee.top/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/"/>
+    <id>https://www.jaylee.top/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/</id>
+    <published>2020-10-11T01:57:06.000Z</published>
+    <updated>2020-10-11T02:06:01.493Z</updated>
+    
+    <content type="html"><![CDATA[<p>C++学习主要内容</p><ul><li>数据结构</li><li>指针与引用</li><li>类和对象</li><li>继承与重载与多态</li><li>函数</li><li>模板库</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;C++学习主要内容&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据结构&lt;/li&gt;
+&lt;li&gt;指针与引用&lt;/li&gt;
+&lt;li&gt;类和对象&lt;/li&gt;
+&lt;li&gt;继承与重载与多态&lt;/li&gt;
+&lt;li&gt;函数&lt;/li&gt;
+&lt;li&gt;模板库&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
+    
+    
+      <category term="C++" scheme="https://www.jaylee.top/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PCL基础知识</title>
+    <link href="https://www.jaylee.top/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>https://www.jaylee.top/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-10-10T03:00:00.000Z</published>
+    <updated>2020-10-10T06:23:52.541Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">学习链接</a></p><h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul><li><p>width(int),每一束激光扫描的点数</p></li><li><p>height(int), 激光的线数, 当点云为无序点云时候height=1</p></li><li><p>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;<span class="built_in">point</span>[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li></ul><ol><li><p>PointXYZ</p><p>结构: <code>float x,y,z</code> </p><p>用cloud.points[i].x访问</p></li><li><p>PointXYZI</p><p>结构:<code>float x,y,z,Indensity;</code></p><p>用cloud.points[i].Data[4]访问强度</p></li><li><p>PointXYZRGB</p><p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;PCL点云数据结构&quot;&gt;&lt;a href=&quot;#PCL点云数据结构&quot; class=&quot;headerlink&quot; title=&quot;PCL点云数据结构&quot;&gt;&lt;/a&gt;PCL点云数据结构&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/qq_30815237
+      
+    
+    </summary>
+    
+    
+      <category term="研究生" scheme="https://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+      <category term="PCL" scheme="https://www.jaylee.top/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL/"/>
+    
+    
+      <category term="PCL" scheme="https://www.jaylee.top/tags/PCL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROS入门(二)</title>
+    <link href="https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/"/>
+    <id>https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/</id>
+    <published>2020-10-10T03:00:00.000Z</published>
+    <updated>2020-10-10T06:23:31.198Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ROS接口编写"><a href="#ROS接口编写" class="headerlink" title="ROS接口编写"></a>ROS接口编写</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">"listener"</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">"chatter"</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;("chatter",1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;ROS接口编写&quot;&gt;&lt;a href=&quot;#ROS接口编写&quot; class=&quot;headerlink&quot; title=&quot;ROS接口编写&quot;&gt;&lt;/a&gt;ROS接口编写&lt;/h1&gt;&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="ROS" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/"/>
+    
+    
+      <category term="ROS" scheme="https://www.jaylee.top/tags/ROS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu常用问题记录</title>
+    <link href="https://www.jaylee.top/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>https://www.jaylee.top/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-10-10T02:18:51.000Z</published>
+    <updated>2020-10-14T14:40:39.386Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p><p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p><p>脚本格式如下:</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure><p>2.将这个脚本添加到开机启动的服务中.<a href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param" target="_blank" rel="noopener">参考链接</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure><h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;开机启动VPN脚本&quot;&gt;&lt;a href=&quot;#开机启动VPN脚本&quot; class=&quot;headerlink&quot; title=&quot;开机启动VPN脚本&quot;&gt;&lt;/a&gt;开机启动VPN脚本&lt;/h1&gt;&lt;p&gt;每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
+    
+    
+      <category term="Ubuntu小操作" scheme="https://www.jaylee.top/tags/Ubuntu%E5%B0%8F%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmake(一)</title>
+    <link href="https://www.jaylee.top/2020/10/05/CMake%E5%9F%BA%E7%A1%80/"/>
+    <id>https://www.jaylee.top/2020/10/05/CMake%E5%9F%BA%E7%A1%80/</id>
+    <published>2020-10-05T12:20:25.000Z</published>
+    <updated>2020-10-10T05:05:11.033Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="Cmake" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Cmake/"/>
+    
+    
+      <category term="CMake" scheme="https://www.jaylee.top/tags/CMake/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ROS-launch启动文件 &amp; tf</title>
+    <link href="https://www.jaylee.top/2020/10/05/ROS-launch-tf/"/>
+    <id>https://www.jaylee.top/2020/10/05/ROS-launch-tf/</id>
+    <published>2020-10-05T12:20:25.000Z</published>
+    <updated>2020-10-05T13:16:38.098Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p><h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">"lidar_perception"</span> <span class="attr">type</span> = <span class="string">"slot_detection"</span> <span class="attr">name</span> = <span class="string">"detecting slots"</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">"slot_width"</span> <span class="attr">value</span>=<span class="string">"1.7"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"thershold_length"</span> <span class="attr">value</span>=<span class="string">"1.5"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"lidar_perception"</span> <span class="attr">type</span>=<span class="string">"slot_detection"</span> <span class="attr">arg</span>=<span class="string">"$&#123;arg threshold_length&#125;"</span> <span class="attr">name</span> "<span class="attr">detection</span> <span class="attr">slots</span>" /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p><p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p><p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"slot_detection/thresh_l"</span> <span class="attr">to</span>=<span class="string">"thresh_l"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$&#123;dirname&#125;/other.launch"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p><p><strong>标签include</strong>嵌套使用另外一个launch文件.</p><h1 id="tf坐标系"><a href="#tf坐标系" class="headerlink" title="tf坐标系"></a>tf坐标系</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;launch&quot;&gt;&lt;a href=&quot;#launch&quot; class=&quot;headerlink&quot; title=&quot;launch&quot;&gt;&lt;/a&gt;launch&lt;/h1&gt;&lt;p&gt;可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. &lt;/p&gt;
+&lt;h2 i
+      
+    
+    </summary>
+    
+    
+      <category term="工具技能" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/"/>
+    
+      <category term="ROS" scheme="https://www.jaylee.top/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/"/>
+    
+    
+      <category term="ROS" scheme="https://www.jaylee.top/tags/ROS/"/>
+    
+      <category term="launch" scheme="https://www.jaylee.top/tags/launch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字符串</title>
+    <link href="https://www.jaylee.top/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>https://www.jaylee.top/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/</id>
+    <published>2020-09-20T12:39:57.000Z</published>
+    <updated>2020-10-05T06:30:36.356Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="字符数组Char"><a href="#字符数组Char" class="headerlink" title="字符数组Char"></a>字符数组Char</h2><p>初始化：<code>char s[8] = &quot;China&quot;</code>最后一位以<code>‘/0’</code>保存结束标记符。</p><p>输入：<code>cin&gt;&gt;s</code>, 空格/Tab/回车都是输入字符串的结束符；<code>gets(s)</code>, 只有回车才结束. 自动补全’\0’. </p><p>输出: <code>cout&lt;&lt;s</code>, <code>puts(s)</code></p><p>赋值: <code>strcpy(s,&quot;China&quot;)</code></p><p>头文件: <code>#include &quot;stdio.h&quot;</code>包含了上述gets/puts函数;</p><p>​            <code>&quot;string.h&quot;</code>包含了字符串处理函数. <code>strlen(s);strcmp(s1,s2);strcpy(s,&quot;china&quot;)</code></p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s2[<span class="number">100</span>];</span><br><span class="line">    gets(s2);</span><br><span class="line">    <span class="built_in">puts</span>(s2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="标准库–字符串string"><a href="#标准库–字符串string" class="headerlink" title="标准库–字符串string"></a>标准库–字符串string</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"stdio.h"</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">string</span> s1 = <span class="string">"china"</span>;<span class="comment">// 初始化,赋值构造函数</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(<span class="string">"China"</span>)</span></span>;<span class="comment">// 直接构造函数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s)&#123;<span class="comment">// 输入,以空格/tab/回车为结束符</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>,s))<span class="comment">//输入, getline函数相当于符号"&gt;&gt;",参数为数据流cin,和保存的字符串变量</span></span><br><span class="line">        <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//非空才输出s</span></span><br><span class="line">    s1 = s1+<span class="string">"NO1"</span>;</span><br><span class="line">    s2 = s1 + s2 ;<span class="comment">//字符串连接</span></span><br><span class="line">    <span class="keyword">int</span> l = s.<span class="built_in">size</span>();<span class="comment">//返回长度</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isalnum</span>(ch))&#123;</span><br><span class="line">                s2 += <span class="built_in">tolower</span>(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left ++;</span><br><span class="line">            right --;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;字符数组Char&quot;&gt;&lt;a href=&quot;#字符数组Char&quot; class=&quot;headerlink&quot; title=&quot;字符数组Char&quot;&gt;&lt;/a&gt;字符数组Char&lt;/h2&gt;&lt;p&gt;初始化：&lt;code&gt;char s[8] = &amp;quot;China&amp;quot;&lt;/code&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
+    
+    
+      <category term="Leecode" scheme="https://www.jaylee.top/tags/Leecode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>递归</title>
+    <link href="https://www.jaylee.top/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/"/>
+    <id>https://www.jaylee.top/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</id>
+    <published>2020-09-15T06:51:46.000Z</published>
+    <updated>2020-10-05T06:30:15.348Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p><p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p><p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p><h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;一个函数调用他自己，就叫递归。&lt;/p&gt;
+&lt;p&gt;栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。&lt;/p&gt;
+&lt;p&gt;搞清楚递
+      
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
+    
+    
+      <category term="Leecode" scheme="https://www.jaylee.top/tags/Leecode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态规划</title>
+    <link href="https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/"/>
+    <id>https://www.jaylee.top/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/</id>
+    <published>2020-09-11T06:18:00.000Z</published>
+    <updated>2020-10-05T06:30:49.767Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;"><h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;"><p>斐波那契数列，可以递归/求通项/动态规划。</p><p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p><h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote><p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p></blockquote><p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p><h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure><p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p><p><code>dp[i] = max(dp[i-1], nums[i]);</code></p><h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote><p>示例 1：</p><p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>    偷窃到的最高金额 = 1 + 3 = 4 。</p></blockquote><p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p><p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/dp/image-20200911214956202.png&quot; alt=&quot;image-20200911214956202&quot; style=&quot;zoom:150
+      
+    
+    </summary>
+    
+    
+      <category term="编程学习" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="C++" scheme="https://www.jaylee.top/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/"/>
+    
+    
+      <category term="Leecode" scheme="https://www.jaylee.top/tags/Leecode/"/>
+    
+      <category term="DP" scheme="https://www.jaylee.top/tags/DP/"/>
     
   </entry>
   
