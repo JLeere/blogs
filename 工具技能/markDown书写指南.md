@@ -1,44 +1,36 @@
 ---
-title: Hello World-Hexo实例
-date: 2019-12-10
+title: Markdown语法
+date: 2019-12-10 00:00:00
 categories:
 - 工具技能
 - Hexo
 tags:
 - Hexo
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+# Markdown语法
 
-## Quick Start
+Markdown基本语法链接: http://xianbai.me/learn-md/article/syntax/links.html
 
-### Create a new post
+1. 引用图片`![pngName](blabla.png)`
+   <img src="Hexo写文章指南/test.JPG" alt="jpg" style="zoom:50%;" />
+2. 插入超链接
+   "[超链接] (https://www.jianshu.com/p/191d1e21f7ed)"
+3. 句子前添加符号">"
 
-``` bash
-$ hexo new "My New Post"
+>这是引用的内容 
+
+6. **加粗两对*星号**
+7. 嵌入式代码`单行代码,一对反单引号`
+8. 多行代码, "**```C++**"
+
+```C++
+三个反单引号成对
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+9. 表格
 
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+   ```txt
+   | 标题1|标题2|
+   |---|---|
+   |内容1|内容二|
+   ```

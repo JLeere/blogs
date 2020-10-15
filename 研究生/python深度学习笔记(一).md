@@ -2,7 +2,7 @@
 title: Python深度学习笔记(一)
 date: 2020-07-13 18:22:41
 categories:
-- 研究生
+- 编程学习
 - 深度学习
 tags:
 - Python

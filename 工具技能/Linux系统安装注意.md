@@ -3,7 +3,6 @@ title: Linux系统安装注意
 date: 2019-12-15 13:15:00
 categories:
 - 工具技能
-- Linux
 tags:
 - Linux安装
 ---

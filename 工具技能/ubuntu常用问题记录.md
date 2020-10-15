@@ -3,7 +3,6 @@ title: ubuntu常用问题记录
 date: 2020-10-10 10:18:51
 categories:
 - 工具技能
-- linux
 tags:
 - Ubuntu小操作
 ---
