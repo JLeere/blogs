@@ -48,3 +48,9 @@ sudo update-rc.d -f start_test.sh remove
 xset m N #N为速度,2即可
 ```
 
+# git clone
+
+```shell
+sudo chown lee:lee rslidar_sdk/ -R
+```
+
