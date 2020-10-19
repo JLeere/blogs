@@ -71,4 +71,21 @@ hexo提供了很多主题: https://hexo.io/themes/
 2. Sakura二次元主题:https://docs.hojun.cn/sakura/docs/#/home
 3.diaspora二次元主题:https://github.com/Fechin/hexo-theme-diaspora
 
+## 按更新时间排序文章
 
+> 我用的 VSCode 写博客，所以选择了这个工具 [Insert Date String](https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring)。安装好后，OS X 按 `⇧ + ⌘ + I`，Windows 和 Linux 按 `Ctrl + Shift + I`，即可插入当前时间了，体验很爽的！
+>
+> 有了修改时间，我们再修改默认配置文件就能实现按 updated 排序了，如下。
+>
+> 找到主配置文件 `_config.yml`，然后修改 `index_generator` 的 `order_by` 为 `-updated` 即可:
+
+```shell
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -updated
+```

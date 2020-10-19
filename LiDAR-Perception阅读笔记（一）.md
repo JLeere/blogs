@@ -4,7 +4,7 @@ date: 2020-06-28 14:22:12
 categories:
 - 研究生
 tags:
-- ROS框架
+- lidar
 ---
 
 # lidar_perception 调试
@@ -13,7 +13,7 @@ tags:
 
 从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee
 
-```
+```shell
 git clone http://***
 git checkout dev
 git checkout -b dev_Lee
@@ -100,9 +100,11 @@ _tensor_class{cloud._tensor_class}
 }
 
 virtual double _calc_criterion(const Eigen::MatrixX2f &points_mat, const double angle_rad, BBox &box) const override;
+//虚拟函数,可让派生类自己写定义
+//override,覆盖父类的同名函数定义
 
- auto l_fitting = LOrientationFitting();
-//后者是一个类,这么初始化怎么回事?
+auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎么回事?
+// A: 赋值构造函数.
 ```
 
 
