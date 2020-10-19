@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="参考网站: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;36772345 参考博客 官方教程: https:&#x2F;&#x2F;eigen.tuxfamily.org&#x2F;dox&#x2F;group__QuickRefPage.html CMake库中的声明Eigen库本身全是头文件，只需要将头文件包含到路径中即可。 方法1 修改vscode环境配置vscode配置C++程序.md 方法2 CMake工具利用C">
@@ -32,7 +32,7 @@
 <meta property="og:description" content="参考网站: https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;36772345 参考博客 官方教程: https:&#x2F;&#x2F;eigen.tuxfamily.org&#x2F;dox&#x2F;group__QuickRefPage.html CMake库中的声明Eigen库本身全是头文件，只需要将头文件包含到路径中即可。 方法1 修改vscode环境配置vscode配置C++程序.md 方法2 CMake工具利用C">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-13T12:05:29.000Z">
-<meta property="article:modified_time" content="2020-10-16T04:27:30.226Z">
+<meta property="article:modified_time" content="2020-10-19T15:05:03.303Z">
 <meta property="article:author" content="J.Lee">
 <meta property="article:tag" content="Eigen">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,7 +243,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -329,7 +329,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-16 12:27:30" itemprop="dateModified" datetime="2020-10-16T12:27:30+08:00">2020-10-16</time>
+        <time title="修改时间：2020-10-19 23:05:03" itemprop="dateModified" datetime="2020-10-19T23:05:03+08:00">2020-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -341,6 +341,20 @@
         </span>
     </span>
 
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 </div>
 
@@ -360,7 +374,7 @@
 <p><em>cmake也可以在vscode中利用cmake tool工具读入，自动包含路径，而无需再对vscode进行配置</em></p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#寻找库Eigen</span></span><br><span class="line"><span class="keyword">find_package</span>(Eigen3 REQUIRED)</span><br><span class="line"><span class="comment">#把库包含进去</span></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;EIGEN3_INCLUDE_DIRS&#125;</span>)</span><br><span class="line"><span class="comment">#因为只有头文件，因此不需要target_link_libraries</span></span><br></pre></td></tr></table></figure>
 
-
+<a id="more"></a>
 
 <h1 id="矩阵和向量"><a href="#矩阵和向量" class="headerlink" title="矩阵和向量"></a>矩阵和向量</h1><h2 id="初始定义"><a href="#初始定义" class="headerlink" title="初始定义"></a>初始定义</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Eigen;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//started</span></span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//动态大小的矩阵</span></span><br><span class="line">    MatrixXd M1 = MatrixXd::Random(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">    M1 = (M1 + MatrixXd::Constant(<span class="number">3</span>,<span class="number">3</span>,<span class="number">1.2</span>));</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;M1= &quot;</span>&lt;&lt;M1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">VectorXd <span class="title">v</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">    v &lt;&lt;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;v*M1 = &quot;</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;M1*v&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//固定的矩阵</span></span><br><span class="line">    <span class="function">Vector3d <span class="title">v2</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span>;</span><br><span class="line">    Matrix3d M2 = Matrix3d::Random();</span><br><span class="line">    M2 = M2 + Matrix3d::Constant(<span class="number">1.2</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;M2*v2= &quot;</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;M2*v2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    Matrix3d M3;</span><br><span class="line">    <span class="comment">//逗号初始化</span></span><br><span class="line">    M3 &lt;&lt; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,</span><br><span class="line">        	<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>,</span><br><span class="line">    		<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>;		</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//矩阵变换</span></span><br><span class="line">    MatrixXcf a = MatrixXcf::Random(<span class="number">2</span>,<span class="number">2</span>);<span class="comment">//定义2-by-2随机矩阵</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a\n&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//矩阵a</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^T\n&quot;</span> &lt;&lt; a.transpose() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的转置</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^H\n&quot;</span> &lt;&lt; a.conjugate() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的共轭</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^&#123;-1&#125;\n&quot;</span> &lt;&lt; a.inverse() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的逆</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//向量乘法</span></span><br><span class="line">    <span class="function">Vector3d <span class="title">v</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span>;</span><br><span class="line">    <span class="function">Vector3d <span class="title">w</span><span class="params">(<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Dot product: &quot;</span> &lt;&lt; v.dot(w) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//向量点乘</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cross product:\n&quot;</span> &lt;&lt; v.cross(w) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//向量叉乘</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -404,6 +418,7 @@
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -486,6 +501,18 @@
   
 
   
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/",
+      serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
+    }));
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>

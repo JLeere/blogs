@@ -21,7 +21,7 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
   </script>
 
   <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!">
@@ -227,7 +227,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -240,7 +240,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,6 +286,469 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" class="post-title-link" itemprop="url">Python深度学习笔记(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-13 18:22:41" itemprop="dateCreated datePublished" datetime="2020-07-13T18:22:41+08:00">2020-07-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-13 21:22:18" itemprop="dateModified" datetime="2020-10-13T21:22:18+08:00">2020-10-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" class="post-title-link" itemprop="url">Python深度学习笔记(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-13 18:22:41" itemprop="dateCreated datePublished" datetime="2020-07-13T18:22:41+08:00">2020-07-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-13 21:21:24" itemprop="dateModified" datetime="2020-10-13T21:21:24+08:00">2020-10-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">PCL入门(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-17 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-17T11:00:00+08:00">2019-12-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-13 21:21:11" itemprop="dateModified" datetime="2020-10-13T21:21:11+08:00">2020-10-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL/" itemprop="url" rel="index"><span itemprop="name">PCL</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/PCL%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>PCL在windows中配置环境十分麻烦，相反在ros中非常方便。<br><strong>学习资料</strong>:<br><a target="_blank" rel="noopener" href="http://pointclouds.org/documentation/tutorials/">http://pointclouds.org/documentation/tutorials/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42367689/article/details/104358046">工作空间配置实例</a></p>
+<h2 id="PCL：点云数据格式bin转pcd"><a href="#PCL：点云数据格式bin转pcd" class="headerlink" title="PCL：点云数据格式bin转pcd"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40297851/article/details/85274563#commentBox">PCL：点云数据格式bin转pcd</a></h2><p>注意cMakeList.txt中变量名和路径的统一. 在ROS中表示点云的数据结构有 pcl::PointCloud &lt; T &gt;, 而msg中常用pcl::PointCloud2. 他们之间的转换使用命令<code>pcl::fromROSMsg</code> 和 <code>pcl::toROSMsg</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pcl::PCDReader reader;</span><br><span class="line">reader.read&lt;pcl::PointXYZ&gt; (<span class="string">&quot;/home/lijie/bin2pcd_ws/src/sor_filter/src/table_scene_lms400.pcd&quot;</span>, *cloud);</span><br><span class="line">pcl::io::loadPCDFile (<span class="string">&quot;/home/lijie/catkin_ws/src/pcd_load/13.pcd&quot;</span>, cloud);</span><br></pre></td></tr></table></figure>
+
+<h2 id="PCL：PCD文件拼接"><a href="#PCL：PCD文件拼接" class="headerlink" title="PCL：PCD文件拼接"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/ethan_guo/article/details/80110023"><strong>PCL：PCD文件拼接</strong></a></h2><h2 id="PCL：下采样和地面过滤"><a href="#PCL：下采样和地面过滤" class="headerlink" title="PCL：下采样和地面过滤"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>PCL：下采样和地面过滤</strong></a></h2><h2 id="数据集的读取和滤波处理"><a href="#数据集的读取和滤波处理" class="headerlink" title="数据集的读取和滤波处理"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/li-yao7758258/p/6651326.html">数据集的读取和滤波处理</a></h2><p><strong>Q&amp;A:</strong>  </p>
+<ol>
+<li>在一个package/src中建立两个*.cpp节点,分别实现数据的读取和发布、数据的预处理两个功能。<br>需要修改CMakeLists.txt文件。projectName是package的名字而不是节点名，将原本生成可执行文件命令和链接目标命令中的<code>$&#123;PROJECT_NAME&#125;_node</code>（即节点名）修改为你的节点名（建议与*.cpp一致或添加*_node）如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> ## Declare a C++ executable</span><br><span class="line"> ## With catkin_make all packages are built within a single CMake context</span><br><span class="line"> ## The recommended prefix ensures that target names across packages don&#39;t collide</span><br><span class="line">add_executable(**pcd_load_node**  src&#x2F;pcd_load.cpp )</span><br><span class="line">target_link_libraries(pcd_load_node $&#123;catkin_LIBRARIES&#125; )</span><br><span class="line"></span><br><span class="line">add_executable(pcd_pub_node  src&#x2F;pcd_pub.cpp )</span><br><span class="line">target_link_libraries(pcd_pub_node $&#123;catkin_LIBRARIES&#125; )</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在建立数据读取和发布节点<strong>pcd_pub.cpp</strong>时：<br>注意点云数据格式转换：<code>pcl::toROSMsg(pcl::PointXYZI, sensor_msgs::PointCloud2)</code>, <code>pcl::formROSMsg( )</code>,他们包含于                <code>pcl_conversions/pcl_conversions.h</code>头文件中。发布到topic中时若需要在rviz中显示，这需要fix_frame命令：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">topic.header.frame_id&#x3D;&quot;velodyne&quot;;&#x2F;&#x2F;是后面rviz的 fixed_frame</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>在建立数据预处理节点<strong>pcd_load.cpp</strong>时：<br>需要注意的依然是数据格式问题：订阅器查询时会调用回调函数（filter），将topic中的msg传递过去，所以输入是PointCloud2类型引用。因为各个滤波器的输入是指针而非点云数据，所以应该转换为指针：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">pcl::fromROSMsg(*cloud, *scan_ptr);</span><br></pre></td></tr></table></figure>
+<p>其中<code>new pcl::PointCloud&lt;pcl::PointXYZI&gt;（scan）</code>用于初始化指针指向scan类所在地址，也可不申明指向对象。</p>
+</li>
+<li><p>使用直通滤波器时，要分别进行x，y，z方向的输入设置，依然为指针。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pcl::PassThrough&lt;pcl::PointXYZI&gt; pass;</span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;x&quot;);</span><br><span class="line">pass.setFilterLimits(-10.0,10.0);</span><br><span class="line">pass.filter(*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">pass.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">pass.setFilterFieldName(&quot;y&quot;);</span><br><span class="line">pass.setFilterLimits(-5.0,5.0); </span><br><span class="line">pass.filter(*pcd_filtered_ptr); </span><br><span class="line">std::cerr &lt;&lt; &quot;Cloud after RoIfiltering: &quot; &lt;&lt; std::endl;</span><br><span class="line">std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="地面分割："><a href="#地面分割：" class="headerlink" title="地面分割："></a>地面分割：</h2><p>Ray Ground Filter的路面过滤方法。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/HHH_go_/article/details/83148472">SAC_RANSAC分割地面</a></p>
+<h2 id="PCL-cluster"><a href="#PCL-cluster" class="headerlink" title="PCL/cluster"></a>PCL/cluster</h2><p> 找问题真的很费时间，一些没遇见过的小错误就很难发现。记录一下。</p>
+<h3 id="1-欧式聚类实操"><a href="#1-欧式聚类实操" class="headerlink" title="1. 欧式聚类实操"></a>1. 欧式聚类实操</h3><p> 体素网格下采样尺寸太小，数据量太大，Integer indices would overflow. 指针溢出。<br> 但若网格尺寸太大，聚类的<code>ec.setClusterTolerance (0.01)</code>公差比它小则聚类数量为0。</p>
+<h3 id="2-投影到平面"><a href="#2-投影到平面" class="headerlink" title="2.投影到平面"></a>2.投影到平面</h3><p> <a target="_blank" rel="noopener" href="http://pointclouds.org/documentation/tutorials/project_inliers.php#project-inliers">点击查看教程</a><br> 由于通常是投影到xy平面可以使用循环代码：cloud_cluster是点云的指针.<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int i &#x3D; 0; i &lt; cloud_cluster-&gt;points.size(); ++i)</span><br><span class="line">     cloud_cluster-&gt;points[i].z&#x3D;0; </span><br></pre></td></tr></table></figure></p>
+<h3 id="3-提取边界"><a href="#3-提取边界" class="headerlink" title="3.提取边界"></a>3.提取边界</h3><p>Q1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[pcl::BoundaryEstimation::initCompute] The number of points in the input dataset (23798) differs from the number of points in the dataset containing the normals (884)!</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 地面分割代码块</span><br><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;</span><br><span class="line"></span><br><span class="line">int  main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_pub_node&quot;); </span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; cloud;</span><br><span class="line">  sensor_msgs::PointCloud2 input;</span><br><span class="line"> </span><br><span class="line">  pcl::io::loadPCDFile (&quot;&#x2F;home&#x2F;lijie&#x2F;catkin_ws&#x2F;src&#x2F;pcd_load&#x2F;13.pcd&quot;, cloud); </span><br><span class="line">  pcl::toROSMsg(cloud,input);</span><br><span class="line"></span><br><span class="line">  input.header.frame_id&#x3D;&quot;velodyne&quot;;   &#x2F;&#x2F;是后面rviz的 fixed_frame</span><br><span class="line">  ros::Publisher pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcd_input&quot;, 10);</span><br><span class="line">  </span><br><span class="line">  ros::Rate r(1);</span><br><span class="line">  while(ros::ok())</span><br><span class="line">  &#123;</span><br><span class="line">	  pcl_pub.publish(input);</span><br><span class="line">	  ros::spinOnce();</span><br><span class="line">	  r.sleep();</span><br><span class="line">  &#125;</span><br><span class="line">  return 0;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;ros&#x2F;ros.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;point_cloud.h&gt;</span><br><span class="line">#include&lt;pcl_conversions&#x2F;pcl_conversions.h&gt;</span><br><span class="line">#include&lt;sensor_msgs&#x2F;PointCloud2.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;io&#x2F;pcd_io.h&gt;&#x2F;&#x2F;which contains the required definitions to load and store point clouds to PCD and other file formats.</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;statistical_outlier_removal.h&gt;</span><br><span class="line">#include &lt;pcl&#x2F;point_types.h&gt;</span><br><span class="line">#include&lt;pcl&#x2F;filters&#x2F;voxel_grid.h&gt;</span><br><span class="line"></span><br><span class="line">ros::Publisher pcl_pub;</span><br><span class="line"></span><br><span class="line">void filter (const sensor_msgs::PointCloud2ConstPtr&amp; cloud)</span><br><span class="line">&#123;</span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; scan;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr scan_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  pcl::fromROSMsg(*cloud, *scan_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud before filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *scan_ptr&lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::VoxelGrid&lt;pcl::PointXYZI&gt; vg;&#x2F;&#x2F;体素滤波</span><br><span class="line">  vg.setLeafSize (0.1,0.1,0.1);</span><br><span class="line">  vg.setInputCloud(scan_ptr);   &#x2F;&#x2F;输入为指针!!!!</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F; pcl::PointCloud&lt;pcl::PointXYZ&gt; pcd_filtered;</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt;::Ptr pcd_filtered_ptr(new pcl::PointCloud&lt;pcl::PointXYZI&gt;);</span><br><span class="line">  vg.filter (*pcd_filtered_ptr);</span><br><span class="line">  std::cerr &lt;&lt; &quot;Cloud after filtering: &quot; &lt;&lt; std::endl;</span><br><span class="line">  std::cerr &lt;&lt; *pcd_filtered_ptr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">  pcl::StatisticalOutlierRemoval&lt;pcl::PointXYZI&gt; sor; &#x2F;&#x2F;Kmeans滤波,参数临近点数目和距离阈值</span><br><span class="line">  sor.setInputCloud(pcd_filtered_ptr);</span><br><span class="line">  sor.setMeanK (20);</span><br><span class="line">  sor.setStddevMulThresh(1.0);</span><br><span class="line">  pcl::PointCloud&lt;pcl::PointXYZI&gt; pcd_filtereded;</span><br><span class="line">  sor.filter (*pcd_filtered_ptr);</span><br><span class="line"></span><br><span class="line">  sensor_msgs::PointCloud2 filter_output;</span><br><span class="line">  pcl::toROSMsg(*pcd_filtered_ptr, filter_output);</span><br><span class="line">  pcl_pub.publish (filter_output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char** argv)</span><br><span class="line">&#123;</span><br><span class="line">  ros::init (argc, argv, &quot;pcd_fileter_node&quot;); &#x2F;&#x2F;初始化</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ros::Subscriber sub &#x3D; nh.subscribe (&quot;pcd_input&quot;, 5, filter);</span><br><span class="line">  pcl_pub &#x3D; nh.advertise&lt;sensor_msgs::PointCloud2&gt; (&quot;pcl_fileter_output&quot;, 5);</span><br><span class="line">  </span><br><span class="line">  ros::spin();</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/" class="post-title-link" itemprop="url">OpenCV学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-07 21:01:19" itemprop="dateCreated datePublished" datetime="2020-07-07T21:01:19+08:00">2020-07-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-13 21:20:54" itemprop="dateModified" datetime="2020-10-13T21:20:54+08:00">2020-10-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Opencv/" itemprop="url" rel="index"><span itemprop="name">Opencv</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a target="_blank" rel="noopener" href="https://opencv.org/releases/">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a target="_blank" rel="noopener" href="https://opencv.org/releases/">安装</a></strong></h2><p>异常记录未解决：</p>
+<p>在步骤：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH  </span><br></pre></td></tr></table></figure>
+
+<p>保存bash.bashrc时候提示不支持。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>open source computer vision library</p>
+</blockquote>
+<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
+<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -342,6 +805,20 @@
         </span>
     </span>
 
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 </div>
 
@@ -507,6 +984,20 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 </div>
 
         </div>
@@ -592,6 +1083,20 @@
         </span>
     </span>
 
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 </div>
 
@@ -739,6 +1244,20 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 </div>
 
         </div>
@@ -827,6 +1346,20 @@
         </span>
     </span>
 
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 </div>
 
@@ -962,6 +1495,20 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 </div>
 
         </div>
@@ -980,458 +1527,6 @@
 <li>函数</li>
 <li>模板库</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-12 10:00:00" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-10 22:25:29" itemprop="dateModified" datetime="2020-10-10T22:25:29+08:00">2020-10-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456">范文</a></p>
-<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
-<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
-
-<p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png"><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif"><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min&#123;D1,D2&#125;)^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif"><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/6.png"><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/7.png"><br>上面两张图看出来贴进度的判据好像最好<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/8.gif"><br>不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>文章算法清晰,值得参考的点:</p>
-<ol>
-<li>用单位向量和点云在其的投影来表示矩形框及计算其目标函数，方便</li>
-<li>多个优化标准相互弥补</li>
-<li>衡量拟合结果好坏的标准。</li>
-<li><strong>其中按照距离大小把点云分为两拨重新拟合的方法是否值得一试？</strong></li>
-</ol>
-<h1 id="摘抄"><a href="#摘抄" class="headerlink" title="摘抄"></a>摘抄</h1><blockquote>
-<p>Comparing poses among successive cycles also helps to find the target’s heading direction.</p>
-</blockquote>
-<h1 id="引用文献"><a href="#引用文献" class="headerlink" title="引用文献"></a>引用文献</h1><blockquote>
-<p>[17]X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.</p>
-</blockquote>
-<p>在文中，利用距离点的排序，即<strong>扫描序列的信息</strong>，有效地将这些点分割成两个互不相交的集合，然后将这两个集合的点分别拟合成两条正交直线，分别对应于小车的两条边;按照扫描序列迭代所有这些二维范围点，该算法搜索一个轴心点，并使用该轴心点生成这两个不相交集，即，在主元之前扫描的点集和在主元之后扫描的点集。</p>
-<blockquote>
-<p>[16]R. MacLachlan, C. Mertz, “Tracking of moving objects from a moving vehicle using a scanning laser range finder”, IEEE Intelligent Transportation Systems Conference, pp. 301-306, 2006.</p>
-</blockquote>
-<p>在[16]中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在[16]中<strong>同时进行了线拟合和直角角拟合</strong>，只有当角拟合明显好于线拟合时，才选择角拟合。</p>
-<h1 id="被引用文献"><a href="#被引用文献" class="headerlink" title="被引用文献"></a>被引用文献</h1><h2 id="《BoxNet深度学习2DBB》"><a href="#《BoxNet深度学习2DBB》" class="headerlink" title="《BoxNet深度学习2DBB》"></a>《BoxNet深度学习2DBB》</h2><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8814058/authors#authors">BoxNet: A Deep Learning Method for 2D Bounding Box Estimation from Bird’s-Eye View Point Cloud，2019</a></p>
-<h3 id="引用文献-1"><a href="#引用文献-1" class="headerlink" title="引用文献"></a>引用文献</h3><blockquote>
-<p>D. Zermas, I. Izzat, N. Papanikolopoulos, “Fast <strong>segmentation</strong> of 3D point clouds: A paradigm on LiDAR data for autonomous vehicle applications”, IEEE International Conference on Robotics and Automation, 2017.</p>
-</blockquote>
-<blockquote>
-<p>[15]H. Zhao, Q. Zhang, M. Chiba, R. Shibasaki, J. Cui, H. Zha, “Moving Object Classification using Horizontal Laser Scan Data”, IEEE International Conference on Robotics and Automation, 2009.<br>利用K-L变换提取两个主轴</p>
-</blockquote>
-<blockquote>
-<p><strong>[17]D. Kim, K. Jo, M. Lee, M. Sunwoo, “L-shape model switching-based precise motion tracking of moving vehicles using laser scanners”, IEEE Transactions on Intelligent Transportation Systems, vol. 19, no. 2, 2018.</strong><br>使用点的有序信息将这些点迭代地聚类为两个正交的线段</p>
-</blockquote>
-<h3 id="问题陈述"><a href="#问题陈述" class="headerlink" title="问题陈述"></a>问题陈述</h3><p><strong>来源</strong>: 受到深度学习识别RGB车辆3DBB的启发,识别BEV中点云的2DBB.传统的方法要么需要有序点,要么计算开销大.<br><strong>IO</strong>: input|Points(x,y)<br>        output|[center_x,center_y,width,length,cos(2θ),sin(2θ)]’</p>
-<h3 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h3><ol>
-<li>主要区别在于二维包围盒拟合中不需要估计航向。为了避免-π和π的模糊性,作者使用<strong>the double-angle sinusoidal values</strong>cos(2θ)和sin(2θ)来表示角度,解决了网络学习的不连续性.</li>
-<li>预测了点云均值的中心,提高bb位置精度.</li>
-</ol>
-<h3 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h3><p>利用2w个Car类型样本训练<br><strong>评估指标</strong>: 中心位置误差,角度误差,Groudtruth 和BB 的重叠比例.<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-1.gif"><center>平均误差比较</center><br>不足:行人的边界框要小得多，并且长宽比更接近1。因此，BEV点不能表示明确的主轴，并沿着该主轴可以明确定义人的朝向。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-3.gif"><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2-2.gif"><center>IoU重叠部分更好,对扩展目标的原本尺寸估计更好</center><br>运行时间大约在7.36ms,下采样到512点</p>
-<h2 id="《LATTE一个开源点云注释标签的工具》"><a href="#《LATTE一个开源点云注释标签的工具》" class="headerlink" title="《LATTE一个开源点云注释标签的工具》"></a>《LATTE一个开源点云注释标签的工具》</h2><p><a target="_blank" rel="noopener" href="https://github.com/bernwang/latte">github</a><br><strong>思路</strong>：标注人员只需要点一下需要标注的物体附近，算法即刻运行画BB的算法，包括地面去除（平面拟合，奇异值分解求取最佳法向量）、DBSCAN聚类、搜索空间算法（前文）。<br><strong>总结</strong>：参考意义不大，但是如果考虑深度学习，这是一个好工具。</p>
-<h2 id="《L形端点搜索和角点定位，2018-同济》"><a href="#《L形端点搜索和角点定位，2018-同济》" class="headerlink" title="《L形端点搜索和角点定位，2018 同济》"></a>《L形端点搜索和角点定位，2018 同济》</h2><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8665265">An Efficient L-Shape Fitting Method for Vehicle Pose Detection with 2D LiDAR</a></p>
-<h3 id="主要贡献-1"><a href="#主要贡献-1" class="headerlink" title="主要贡献"></a>主要贡献</h3><blockquote>
-<p>·decomposes the L-Shape fitting problem into two steps: L-Shape vertexes searching and L-Shape corner point locating.<br>·highly computationally efficient<br>·robust enough and able to accommodate various situations.<br>·does not depend on the laser scanning sequential information</p>
-</blockquote>
-<h3 id="算法-1"><a href="#算法-1" class="headerlink" title="算法"></a>算法</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>the mean-shift &amp; DBSCAN</p>
-<h4 id="L形拟合"><a href="#L形拟合" class="headerlink" title="L形拟合"></a>L形拟合</h4><p>有一个问题，文中过渡时说基于搜索空间的方法无法访问簇的序列/顺序，但这个算法不需要有序的点啊？<br>什么玩意，没什么想不到的东西，就字面那么简单！<br>最后就评估了下时间，matlab-6.2ms，算法不可信。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/" class="post-title-link" itemprop="url">ROS入门(二)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-10 11:00:00 / 修改时间：14:23:31" itemprop="dateCreated datePublished" datetime="2020-10-10T11:00:00+08:00">2020-10-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="ROS接口编写"><a href="#ROS接口编写" class="headerlink" title="ROS接口编写"></a>ROS接口编写</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8(%E4%B8%80)/" class="post-title-link" itemprop="url">ROS入门(一)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-17 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-17T11:00:00+08:00">2019-12-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-10 13:52:02" itemprop="dateModified" datetime="2020-10-10T13:52:02+08:00">2020-10-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>官方学习文档：<a target="_blank" rel="noopener" href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
-<h2 id="移动硬盘-Ubuntu-16-04系统安装"><a href="#移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="移动硬盘 Ubuntu 16.04系统安装"></a>移动硬盘 Ubuntu 16.04系统安装</h2><p><a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">见这篇文章</a></p>
-<h2 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04"></a>Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
-<h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p>
-<blockquote>
-<p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p>
-</blockquote>
-<h2 id="ROS准备"><a href="#ROS准备" class="headerlink" title="ROS准备"></a>ROS准备</h2><p><a target="_blank" rel="noopener" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">安装ROS</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huangjianxin/p/6347416.html">建立ROS工作空间</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/setup.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;source my_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>可以查看系统包含的package路径</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROS概念"><a href="#ROS概念" class="headerlink" title="ROS概念"></a>ROS概念</h2><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/79653378">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
-<blockquote>
-<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av24585414/?p=5">MOOC ROS入门视频：</a></p>
-</blockquote>
-<h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p>
-<blockquote>
-<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
-</blockquote>
-<h2 id="ROS项目操作"><a href="#ROS项目操作" class="headerlink" title="ROS项目操作"></a>ROS项目操作</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
-<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
-<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
-<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
-<h2 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/79882668">Hello world</a></h3><p><strong>流程：</strong></p>
-<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
-<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
-<h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/" class="post-title-link" itemprop="url">cmake</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-08 20:57:06" itemprop="dateCreated datePublished" datetime="2020-07-08T20:57:06+08:00">2020-07-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-10 13:47:16" itemprop="dateModified" datetime="2020-10-10T13:47:16+08:00">2020-10-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="g-和cmake-make"><a href="#g-和cmake-make" class="headerlink" title="g++和cmake,make"></a>g++和cmake,make</h1><p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_74a459380102uxlz.html">学习链接</a></p>
-<p>任何一个文本程序生成可执行文件的步骤都是:</p>
-<ol>
-<li>编辑器编写源代码,.cpp</li>
-<li>编译器编译代码生成目标文件,.o文件</li>
-<li>链接器链接各个目标文件,生成可执行文件,.exe</li>
-</ol>
-<p>由于很多cpp相互关联,一个一个编译就很麻烦,于是出现了利用makefile规则文件自动编译这些cpp. 但是makefile的编写也很麻烦,于是又出现了cmake工具自动编写makefile.</p>
-<p>流程如下:</p>
-<blockquote>
-<p>源文件–&gt;CmakeLists–&gt;cmake–&gt;makefiles–&gt;make–&gt;.exe可执行文件.</p>
-</blockquote>
-<p>其中gcc和g++在make阶段编译和链接文件,g++在gcc的基础上默认关联了C++库。</p>
-<h1 id="cmake一个helloworld实例"><a href="#cmake一个helloworld实例" class="headerlink" title="cmake一个helloworld实例"></a>cmake一个helloworld实例</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haijian/p/12039160.html">https://www.cnblogs.com/haijian/p/12039160.html</a></p>
-<img src="/2020/07/08/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C/1365039-20191214155830875-1005241267.png" alt="1365039-20191214155830875-1005241267" style="zoom:50%;">
-
-<h2 id="PCL点云库从入门到精通"><a href="#PCL点云库从入门到精通" class="headerlink" title="PCL点云库从入门到精通"></a>PCL点云库从入门到精通</h2><p>由于《PCL点云库从入门到精通》配套代码只有C++语言，不能直接用于ROS平台，遂可先在Ubuntu中编译学习。</p>
-<ol>
-<li>在source文件夹（含有cpp，CMake，pcd）中新建文件夹build：<code>cd source/;mkdir build/</code></li>
-<li>编译source文件夹中的cpp代码：<code>cd build/; cmake ..</code></li>
-<li>生成可执行文件：<code>make</code></li>
-<li>运行可执行文件：`./execute_name</li>
-</ol>
-<h1 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h1><p><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.1/">官网教程</a></p>
-<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br>  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>SET(CMAKE_BUILD_TYPE Release)</code>: 指定编译类型</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set(EXECUTABLE_OUTPUT_PATH $&#123;PROJECT_SOURCE_DIR&#125;/bin) #指定可执行文件生成目录</span><br><span class="line">set(LIBRARY_OUTPUT_PATH $&#123;PROJECT_SOURCE_DIR&#125;/lib)#指定链接文件生成目录</span><br></pre></td></tr></table></figure>
-
-<p><code>include_directories($&#123;PROJECT_SOURCE_DIR&#125;/include)</code> : 添加头文件存放的目录</p>
-<p><code>add_executable(helloworld src/helloworld.cpp src/main.cpp)</code>:选择要编译的程序文件</p>
-<p><code>target_link_libraries(myProject a.cpp)</code>: 将二者链接起来</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
 
       
     </div>
@@ -1541,6 +1636,18 @@
   
 
   
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/page/3/",
+      serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
+    }));
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
