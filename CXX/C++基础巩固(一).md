@@ -6,7 +6,6 @@ categories:
 - C++
 tags:
 - C++
-
 ---
 
 对于在教材和课程学习过程中记录和巩固的基础知识.
@@ -38,6 +37,8 @@ tags:
 - 内联函数`inline int Max(int a, int b){}`: 函数体比较简单时,为了节约函数调用的**时间**,采用内联在编译时直接将函数体代码复制过去, 不再调用.
 - 函数重载: `int Max(double a,double b); int Max( int a, int b); int Max(int a, int b, int c)`:不同的参数列表用同样的函数名
 - 缺省参数:` int Max(int a, int b=2, int c = 3)`调用函数时后两个参数可以省略不写
+
+<!-- more-->
 
 # 数据结构
 

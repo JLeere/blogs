@@ -12,6 +12,8 @@ tags:
 - [github*Hexo搭建网站参考网站](https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ)
 - 安装nodejs: https://zhuanlan.zhihu.com/p/98782798
 - 然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.
+- [参考博文](https://io-oi.me/tech/hexo-next-optimization/)
+<!--more-->
 
 # Hexo Blog文章撰写
 
@@ -67,7 +69,7 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 hexo提供了很多主题: https://hexo.io/themes/
 
 ## 主题配置
-1. Next主题,黑白那种
+1. Next主题,黑白那种:https://theme-next.js.org/docs/advanced-settings/custom-files.html
 2. Sakura二次元主题:https://docs.hojun.cn/sakura/docs/#/home
 3.diaspora二次元主题:https://github.com/Fechin/hexo-theme-diaspora
 
@@ -88,4 +90,18 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -updated
+```
+最方便的方法:下载`hexo-generator-index-plus`,去官网搜索.
+
+## 修改主页摘要
+1. 方法一
+在文中添加分隔符:`<!--more-->`
+2. 方法二
+在文章头部添加description:这是描述
+3. 方法三
+自动生成摘要.在主题配置文件中加
+```shell
+auto_excerpt:
+  enable: true
+  length: 150
 ```
