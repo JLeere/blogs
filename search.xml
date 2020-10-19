@@ -110,7 +110,7 @@
 <p><strong>堆</strong>: 用来储存动态分配的对象, 即动态对象的生存期由程序自己控制. 传统使用<code>new/delete</code>分配和销毁内存. 因此很容易造成内存泄露和引用非法内存的指针.所以引入更容易和安全的只能指针: <code>shared_ptr</code>, <code>unique_ptr</code>,``weak_ptr`</p>
 <h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h3><p>多个指针指向同一个对象地址,每次被引用都增加一个引用计数,当该引用计数清零时候调出析构函数释放该动态内存.  <code>p1.use_count()</code>,返回该智能指针的引用计数</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; sp1;<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//make_shared函数,尖括号是返回值类型,圆括号为类的构造函数的参数</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">auto</span> p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-<p>hhhhhhhhhh</p>
+
 ]]></content>
       <categories>
         <category>编程学习</category>
@@ -146,41 +146,6 @@
       </categories>
       <tags>
         <tag>Eigen</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PCL基础知识</title>
-    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li>width(int),每一束激光扫描的点数</li>
-<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
-<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
-</ul>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z </code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>PCL</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -225,6 +190,41 @@
       </categories>
       <tags>
         <tag>lidar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PCL基础知识</title>
+    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li>width(int),每一束激光扫描的点数</li>
+<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
+<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
+</ul>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>PointXYZ</p>
+<p>结构: <code>float x,y,z </code> </p>
+<p>用cloud.points[i].x访问</p>
+</li>
+<li><p>PointXYZI</p>
+<p>结构:<code>float x,y,z,Indensity;</code></p>
+<p>用cloud.points[i].Data[4]访问强度</p>
+</li>
+<li><p>PointXYZRGB</p>
+<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>PCL</category>
+      </categories>
+      <tags>
+        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -421,6 +421,53 @@
       </tags>
   </entry>
   <entry>
+    <title>Github学习笔记</title>
+    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
+<p><a href="https://git-scm.com/docs">完整教程</a></p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
+<li>工作区: 当前电脑下的工作目录空间</li>
+<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
+<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
+<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m &quot;add files&quot; #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am &quot;修改...&quot; #跳过git add步骤</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆分支实例"><a href="#克隆分支实例" class="headerlink" title="克隆分支实例"></a>克隆分支实例</h3><p>远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone url_of_github_rep</span><br><span class="line">git init</span><br><span class="line">git branch -a #显示所有本地和远程的分支</span><br><span class="line">git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建本地和远程分支实例"><a href="#新建本地和远程分支实例" class="headerlink" title="新建本地和远程分支实例"></a>新建本地和远程分支实例</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b my_branch #新建本地分支</span><br><span class="line">git push origin my_branch #将本地分支推送到远程</span><br><span class="line">git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#97;&#105;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x65;&#109;&#97;&#105;&#108;&#x40;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a>“</p>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CXX学习笔记（二）</title>
     <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
     <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
@@ -492,53 +539,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github学习笔记</title>
-    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
-<p><a href="https://git-scm.com/docs">完整教程</a></p>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
-<li>克隆 Git 资源作为工作目录。</li>
-<li>在克隆的资源上添加或修改文件。</li>
-<li>如果其他人修改了，你可以更新资源。</li>
-<li>在提交前查看修改。</li>
-<li>提交修改。</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ul>
-<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
-<li>工作区: 当前电脑下的工作目录空间</li>
-<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
-<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
-<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
-</ol>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m &quot;add files&quot; #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am &quot;修改...&quot; #跳过git add步骤</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
-
-<h3 id="克隆分支实例"><a href="#克隆分支实例" class="headerlink" title="克隆分支实例"></a>克隆分支实例</h3><p>远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone url_of_github_rep</span><br><span class="line">git init</span><br><span class="line">git branch -a #显示所有本地和远程的分支</span><br><span class="line">git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog</span><br></pre></td></tr></table></figure>
-
-<h3 id="新建本地和远程分支实例"><a href="#新建本地和远程分支实例" class="headerlink" title="新建本地和远程分支实例"></a>新建本地和远程分支实例</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b my_branch #新建本地分支</span><br><span class="line">git push origin my_branch #将本地分支推送到远程</span><br><span class="line">git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;">&#101;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#46;&#x63;&#x6f;&#109;</a>“</p>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
