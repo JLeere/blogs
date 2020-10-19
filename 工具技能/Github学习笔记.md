@@ -68,6 +68,28 @@ git branch -d (name) #删除分支
 git push origin <newbranchname> #push到远端服务器，否则远端看不见
 ```
 
+### 克隆分支实例
+
+远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.
+
+```shell
+git clone url_of_github_rep
+git init
+git branch -a #显示所有本地和远程的分支
+git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog
+```
+
+### 新建本地和远程分支实例
+
+```shell
+git checkout -b my_branch #新建本地分支
+git push origin my_branch #将本地分支推送到远程
+git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来
+git branch -a
+```
+
+
+
 ## 更新与合并
 
  ```shell
