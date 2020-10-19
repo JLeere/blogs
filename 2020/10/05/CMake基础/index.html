@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Life, Code,"> 
-    <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!,"> 
+    <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!,CmakeList ROS：依赖文件和环境 CMakeList详细解读 视频讲解的更加基础。 CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为,"> 
     <meta name="author" content="J.Lee"> 
     <link rel="alternative" href="atom.xml" title="J.Lee&#39;s Town" type="application/atom+xml"> 
     <link rel="icon" href="/img/JLee.png"> 
@@ -62,7 +62,11 @@
 
         </div>
         <div class="content markdown">
-            
+            <h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295" target="_blank" rel="noopener"><strong>ROS：依赖文件和环境</strong></a><br> <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html" target="_blank" rel="noopener"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
+<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
+<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ {PCL_LIBRARY_DIRS})</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>${PCL_LIBRARIES}</code>。</p>
+<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -97,7 +101,7 @@
     </div>
     
         <div class='side'>
-				
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CmakeList"><span class="toc-number">1.</span> <span class="toc-text">CmakeList</span></a></li></ol>	
         </div>
     
 </div>
