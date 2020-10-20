@@ -151,6 +151,41 @@
       </tags>
   </entry>
   <entry>
+    <title>PCL基础知识</title>
+    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li>width(int),每一束激光扫描的点数</li>
+<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
+<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
+</ul>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>PointXYZ</p>
+<p>结构: <code>float x,y,z </code> </p>
+<p>用cloud.points[i].x访问</p>
+</li>
+<li><p>PointXYZI</p>
+<p>结构:<code>float x,y,z,Indensity;</code></p>
+<p>用cloud.points[i].Data[4]访问强度</p>
+</li>
+<li><p>PointXYZRGB</p>
+<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>PCL</category>
+      </categories>
+      <tags>
+        <tag>PCL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>泊车感知框架阅读笔记（一）</title>
     <url>/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
@@ -233,41 +268,6 @@
       </categories>
       <tags>
         <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PCL基础知识</title>
-    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li>width(int),每一束激光扫描的点数</li>
-<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
-<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
-</ul>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z </code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>PCL</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -497,53 +497,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Github学习笔记</title>
-    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
-<p><a href="https://git-scm.com/docs">完整教程</a></p>
-<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
-<li>克隆 Git 资源作为工作目录。</li>
-<li>在克隆的资源上添加或修改文件。</li>
-<li>如果其他人修改了，你可以更新资源。</li>
-<li>在提交前查看修改。</li>
-<li>提交修改。</li>
-<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
-</ul>
-<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
-<li>工作区: 当前电脑下的工作目录空间</li>
-<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
-<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
-<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
-</ol>
-<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m &quot;add files&quot; #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am &quot;修改...&quot; #跳过git add步骤</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
-
-<h3 id="克隆分支实例"><a href="#克隆分支实例" class="headerlink" title="克隆分支实例"></a>克隆分支实例</h3><p>远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone url_of_github_rep</span><br><span class="line">git init</span><br><span class="line">git branch -a #显示所有本地和远程的分支</span><br><span class="line">git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog</span><br></pre></td></tr></table></figure>
-
-<h3 id="新建本地和远程分支实例"><a href="#新建本地和远程分支实例" class="headerlink" title="新建本地和远程分支实例"></a>新建本地和远程分支实例</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b my_branch #新建本地分支</span><br><span class="line">git push origin my_branch #将本地分支推送到远程</span><br><span class="line">git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
-
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#101;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#109;</a>“</p>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Github</category>
-      </categories>
-      <tags>
-        <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo&amp;github blog搭建指南</title>
     <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
@@ -600,6 +553,53 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Github学习笔记</title>
+    <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
+<p><a href="https://git-scm.com/docs">完整教程</a></p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
+<li>工作区: 当前电脑下的工作目录空间</li>
+<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
+<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
+<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m &quot;add files&quot; #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am &quot;修改...&quot; #跳过git add步骤</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆分支实例"><a href="#克隆分支实例" class="headerlink" title="克隆分支实例"></a>克隆分支实例</h3><p>远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone url_of_github_rep</span><br><span class="line">git init</span><br><span class="line">git branch -a #显示所有本地和远程的分支</span><br><span class="line">git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建本地和远程分支实例"><a href="#新建本地和远程分支实例" class="headerlink" title="新建本地和远程分支实例"></a>新建本地和远程分支实例</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git checkout -b my_branch #新建本地分支</span><br><span class="line">git push origin my_branch #将本地分支推送到远程</span><br><span class="line">git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;">&#101;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#109;</a>“</p>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Github</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -668,36 +668,26 @@
       </tags>
   </entry>
   <entry>
-    <title>Markdown语法</title>
-    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
-<ol>
-<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
-<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
-<li>句子前添加符号”&gt;”</li>
-</ol>
-<blockquote>
-<p>这是引用的内容 </p>
-</blockquote>
-<ol start="6">
-<li>*<em>加粗两对</em>星号**</li>
-<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
-<li>多行代码, “<strong>```C++</strong>“</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
+    <title>ubuntu常用问题记录</title>
+    <url>/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
+<p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p>
+<p>脚本格式如下:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure>
 
-<ol start="9">
-<li><p>表格</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>2.将这个脚本添加到开机启动的服务中.<a href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">参考链接</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>
+
+<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chown lee:lee rslidar_sdk/ -R</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>工具技能</category>
-        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>Ubuntu小操作</tag>
       </tags>
   </entry>
   <entry>
@@ -748,26 +738,69 @@
       </tags>
   </entry>
   <entry>
-    <title>ubuntu常用问题记录</title>
-    <url>/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
-<p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p>
-<p>脚本格式如下:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure>
+    <title>Markdown语法</title>
+    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
+<ol>
+<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
+<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
+<li>句子前添加符号”&gt;”</li>
+</ol>
+<blockquote>
+<p>这是引用的内容 </p>
+</blockquote>
+<ol start="6">
+<li>*<em>加粗两对</em>星号**</li>
+<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
+<li>多行代码, “<strong>```C++</strong>“</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
 
-<p>2.将这个脚本添加到开机启动的服务中.<a href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">参考链接</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li><p>表格</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode调试运行cpp程序</title>
+    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
+<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
 
-<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chown lee:lee rslidar_sdk/ -R</span><br></pre></td></tr></table></figure>
+<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/include &quot;&quot;</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
+<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
+<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
+<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
+<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 ]]></content>
       <categories>
         <category>工具技能</category>
+        <category>vscode</category>
       </categories>
       <tags>
-        <tag>Ubuntu小操作</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -817,39 +850,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vscode调试运行cpp程序</title>
-    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
-<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
-
-<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/include &quot;&quot;</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
-<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
-<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
-<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
-<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>vscode</category>
-      </categories>
-      <tags>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>磁盘读写结束后弹出提示</title>
     <url>/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/</url>
     <content><![CDATA[<h2 id="1-配置性能监控器监控项"><a href="#1-配置性能监控器监控项" class="headerlink" title="1. 配置性能监控器监控项"></a>1. 配置性能监控器监控项</h2><p><a href="https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/">https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/</a></p>
@@ -892,21 +892,6 @@
       </tags>
   </entry>
   <entry>
-    <title>日常计算机小问题记录</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>小问题解决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>笔记管理工具为知笔记/typora</title>
     <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
@@ -937,6 +922,21 @@
       </categories>
       <tags>
         <tag>做笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日常计算机小问题记录</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
+<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
+<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>小问题解决</tag>
       </tags>
   </entry>
   <entry>
@@ -1105,20 +1105,6 @@
       </tags>
   </entry>
   <entry>
-    <title>句2</title>
-    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>时间管理</title>
     <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
@@ -1145,6 +1131,20 @@
       <tags>
         <tag>时间管理</tag>
         <tag>工具技能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句2</title>
+    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1245,6 +1245,26 @@
       </tags>
   </entry>
   <entry>
+    <title>DeepPS</title>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
+    <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
+<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul>
+<li>引出: 视觉检测库位重要, 但是干扰因素多鲁棒性不好, 本文要解决这问题.</li>
+</ul>
+<h2 id="创新贡献"><a href="#创新贡献" class="headerlink" title="创新贡献"></a>创新贡献</h2><ol>
+<li>DeepPS, 一个DCNN网络, 可以解决标记点的识别/ 分类.</li>
+<li>建立了便于学习的数据集.</li>
+</ol>
+<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>DeepPs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>科普常识收集</title>
     <url>/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<ul>
@@ -1294,26 +1314,6 @@
         <tag>小知识</tag>
         <tag>CV</tag>
         <tag>计算机视觉</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DeepPS</title>
-    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
-    <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
-<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul>
-<li>引出: 视觉检测库位重要, 但是干扰因素多鲁棒性不好, 本文要解决这问题.</li>
-</ul>
-<h2 id="创新贡献"><a href="#创新贡献" class="headerlink" title="创新贡献"></a>创新贡献</h2><ol>
-<li>DeepPS, 一个DCNN网络, 可以解决标记点的识别/ 分类.</li>
-<li>建立了便于学习的数据集.</li>
-</ol>
-<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>DeepPs</tag>
       </tags>
   </entry>
   <entry>
@@ -1540,7 +1540,7 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
   </entry>
   <entry>
     <title>点云处理优秀链接</title>
-    <url>/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
     <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn-基于python的机器学习项目</a></p>
 <h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
 <blockquote>
@@ -1768,29 +1768,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>matlab-Compiler</title>
-    <url>/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/</url>
-    <content><![CDATA[<p>使用simulink或者coder常常需要C++的编译器，经常因为版本等问题报错。</p>
-<h1 id="matlab不同模块需要的编译器版本"><a href="#matlab不同模块需要的编译器版本" class="headerlink" title="matlab不同模块需要的编译器版本"></a>matlab不同模块需要的编译器版本</h1><p> <a href="https://ww2.mathworks.cn/support/requirements/previous-releases.html">https://ww2.mathworks.cn/support/requirements/previous-releases.html</a><br> vc2012版本真的很低了，建议MINGW</p>
-<h1 id="MINGW安装配置"><a href="#MINGW安装配置" class="headerlink" title="MINGW安装配置"></a>MINGW安装配置</h1><ol>
-<li><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/6.3.0/">MINGW官网下载6.3版本</a></li>
-<li>下载安装教程 <a href="https://tieba.baidu.com/p/5487544851?pv=1">https://tieba.baidu.com/p/5487544851?pv=1</a><br>下载好了直接解压即可</li>
-<li>注意不要把路径安装在带有中文字符和空格的文件夹下，尤其是<strong>program files</strong></li>
-<li>环境变量：系统变量path中添加mingw路径（这是在电脑中添加C环境）；<br> 新建系统变量：MW_MINGW64_LOC，C:\MinGW<br> <code> setenv(&#39;MW_MINGW64_LOC&#39;,&#39;C:\mingw64\bin&#39;)</code> 这个好像就是matlab命令行中添加环境变量</li>
-<li>在matlab命令行中： <code>mex -setup</code> 查看编译器</li>
-</ol>
-<p>​    </p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>Matlab</category>
-      </categories>
-      <tags>
-        <tag>编译器</tag>
-        <tag>MINGW</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python深度学习笔记(一)</title>
     <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
     <content><![CDATA[<p>待整理:</p>
@@ -1858,24 +1835,26 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>二叉树</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
-
-<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
-<p>递归初始化：空节点深度为空</p>
-<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
-
-<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
-<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
-<p>递归初始化：若当前节点为空，返回true。</p>
+    <title>matlab-Compiler</title>
+    <url>/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/</url>
+    <content><![CDATA[<p>使用simulink或者coder常常需要C++的编译器，经常因为版本等问题报错。</p>
+<h1 id="matlab不同模块需要的编译器版本"><a href="#matlab不同模块需要的编译器版本" class="headerlink" title="matlab不同模块需要的编译器版本"></a>matlab不同模块需要的编译器版本</h1><p> <a href="https://ww2.mathworks.cn/support/requirements/previous-releases.html">https://ww2.mathworks.cn/support/requirements/previous-releases.html</a><br> vc2012版本真的很低了，建议MINGW</p>
+<h1 id="MINGW安装配置"><a href="#MINGW安装配置" class="headerlink" title="MINGW安装配置"></a>MINGW安装配置</h1><ol>
+<li><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/6.3.0/">MINGW官网下载6.3版本</a></li>
+<li>下载安装教程 <a href="https://tieba.baidu.com/p/5487544851?pv=1">https://tieba.baidu.com/p/5487544851?pv=1</a><br>下载好了直接解压即可</li>
+<li>注意不要把路径安装在带有中文字符和空格的文件夹下，尤其是<strong>program files</strong></li>
+<li>环境变量：系统变量path中添加mingw路径（这是在电脑中添加C环境）；<br> 新建系统变量：MW_MINGW64_LOC，C:\MinGW<br> <code> setenv(&#39;MW_MINGW64_LOC&#39;,&#39;C:\mingw64\bin&#39;)</code> 这个好像就是matlab命令行中添加环境变量</li>
+<li>在matlab命令行中： <code>mex -setup</code> 查看编译器</li>
+</ol>
+<p>​    </p>
 ]]></content>
       <categories>
         <category>编程学习</category>
-        <category>C++</category>
+        <category>Matlab</category>
       </categories>
       <tags>
-        <tag>Leecode</tag>
+        <tag>编译器</tag>
+        <tag>MINGW</tag>
       </tags>
   </entry>
   <entry>
@@ -1908,6 +1887,27 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二叉树</title>
+    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+
+<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
+<p>递归初始化：空节点深度为空</p>
+<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+
+<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
+<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
+<p>递归初始化：若当前节点为空，返回true。</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
       </tags>
   </entry>
   <entry>

@@ -24,19 +24,22 @@
     var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="J.Lee&#39;s Town">
-<meta property="og:url" content="https://www.jaylee.top/archive/1970/index.html">
+  <meta name="description" content="链接PCL官网PCL点云配准点云笔记1点云笔记2scikit-learn-基于python的机器学习项目 摘录这个最小二乘法的误差分析需要了解  常见的平面拟合方法一般是最小二乘法。当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增">
+<meta property="og:type" content="article">
+<meta property="og:title" content="点云处理优秀链接">
+<meta property="og:url" content="https://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/index.html">
 <meta property="og:site_name" content="J.Lee&#39;s Town">
-<meta property="og:description" content="Life is Fantastic，and you&#39;re fucking shit!">
+<meta property="og:description" content="链接PCL官网PCL点云配准点云笔记1点云笔记2scikit-learn-基于python的机器学习项目 摘录这个最小二乘法的误差分析需要了解  常见的平面拟合方法一般是最小二乘法。当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-13T08:20:12.696Z">
+<meta property="article:modified_time" content="2020-10-05T06:35:43.866Z">
 <meta property="article:author" content="J.Lee">
-<meta property="article:tag" content="C++, ROS, LiDAR">
+<meta property="article:tag" content="PCL">
+<meta property="article:tag" content="点云">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.jaylee.top/archive/1970/">
+<link rel="canonical" href="https://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/">
 
 
 <script class="page-configurations">
@@ -44,12 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | J.Lee's Town</title>
+  <title>点云处理优秀链接 | J.Lee's Town</title>
   
 
 
@@ -200,7 +203,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -212,6 +215,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">摘录</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -282,55 +286,133 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        
-        <span class="collection-header">不错! 目前共计 58 篇日志。 继续努力。</span>
-      </div>
 
-      
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/">
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="1970-01-01T08:00:00+08:00"
-              content="1970-01-01">
-          01-01
-        </time>
-      </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/" itemprop="url">
-            <span itemprop="name">点云处理优秀链接</span>
-          </a>
-      </div>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          点云处理优秀链接
+        </h1>
 
-      
-    </header>
-  </article>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
+      <time title="创建时间：2020-07-13 16:20:12" itemprop="dateCreated datePublished" datetime="2020-07-13T16:20:12+08:00">2020-07-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-05 14:35:43" itemprop="dateModified" datetime="2020-10-05T14:35:43+08:00">2020-10-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a target="_blank" rel="noopener" href="http://pointclouds.org/">PCL官网</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/xuezhisdc/article/details/51012300">PCL点云配准</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yhlx125/category/454932.html">点云笔记1</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7">点云笔记2</a><br><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn-基于python的机器学习项目</a></p>
+<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
+<blockquote>
+<p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p>
+</blockquote>
 
     </div>
-  </div>
-  
-  
-  
 
-  
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PCL/" rel="tag"># PCL</a>
+              <a href="/tags/%E7%82%B9%E4%BA%91/" rel="tag"># 点云</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/" rel="prev" title="磁盘读写结束后弹出提示">
+                  <i class="fa fa-chevron-left"></i> 磁盘读写结束后弹出提示
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" rel="next" title="Python深度学习笔记(一)">
+                  Python深度学习笔记(一) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
 
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -419,7 +501,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/archive/1970/",
+      path: "/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/",
       serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
     }));
   }, window.Valine);
