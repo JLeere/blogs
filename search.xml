@@ -163,7 +163,7 @@
 <li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
 <li>rviz(显示的配置设置)</li>
 </ul>
-<h2 id="catkin-make"><a href="#catkin-make" class="headerlink" title="catkin_make"></a>catkin_make</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
 <blockquote>
 <p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
 </blockquote>
@@ -186,7 +186,7 @@
 </ul>
 <h1 id="to-ask"><a href="#to-ask" class="headerlink" title="to ask"></a>to ask</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">RangeMapCloudPtr cloud = boost::make_shared&lt;RangeMapCloud&gt;(<span class="built_in">std</span>::move(*pcl_cloud));</span><br><span class="line"><span class="comment">//智能指针</span></span><br><span class="line"></span><br><span class="line">assert(<span class="literal">nullptr</span> == _projection);</span><br><span class="line"></span><br><span class="line">RangeMapCloud(RangeMapCloud &amp;&amp;cloud) : _projection&#123;<span class="built_in">std</span>::move(cloud._projection)&#125;,<span class="comment">//初始化列表</span></span><br><span class="line">_tensor_class&#123;cloud._tensor_class&#125;</span><br><span class="line"><span class="comment">// _sensor_pose&#123;cloud._sensor_pose&#125;</span></span><br><span class="line">&#123;</span><br><span class="line">    ((Base *)<span class="keyword">this</span>)-&gt;swap(cloud);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">virtual</span> <span class="keyword">double</span> _calc_criterion(<span class="keyword">const</span> Eigen::MatrixX2f &amp;points_mat, <span class="keyword">const</span> <span class="keyword">double</span> angle_rad, BBox &amp;box) <span class="keyword">const</span> <span class="keyword">override</span>;</span><br><span class="line"><span class="comment">//虚拟函数,可让派生类自己写定义</span></span><br><span class="line"><span class="comment">//override,覆盖父类的同名函数定义</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> l_fitting = LOrientationFitting();<span class="comment">//后者是一个类,这么初始化怎么回事?</span></span><br><span class="line"><span class="comment">// A: 赋值构造函数.</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="库函数调用记录"><a href="#库函数调用记录" class="headerlink" title="库函数调用记录"></a>库函数调用记录</h1><h2 id="openCV"><a href="#openCV" class="headerlink" title="openCV"></a>openCV</h2><h2 id="PCL"><a href="#PCL" class="headerlink" title="PCL"></a>PCL</h2>]]></content>
+<h1 id="库函数调用记录"><a href="#库函数调用记录" class="headerlink" title="库函数调用记录"></a>库函数调用记录</h1><h2 id="openCV"><a href="#openCV" class="headerlink" title="openCV"></a>openCV</h2><h2 id="PCL"><a href="#PCL" class="headerlink" title="PCL"></a>PCL</h2><h2 id="std"><a href="#std" class="headerlink" title="std"></a>std</h2>]]></content>
       <categories>
         <category>研究生</category>
       </categories>
@@ -230,22 +230,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ROS入门(二)</title>
-    <url>/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/</url>
-    <content><![CDATA[<h1 id="ROS接口编写"><a href="#ROS接口编写" class="headerlink" title="ROS接口编写"></a>ROS接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS-launch启动文件 &amp; tf</title>
     <url>/2020/10/05/ROS-launch-tf/</url>
     <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
@@ -271,6 +255,22 @@
       </tags>
   </entry>
   <entry>
+    <title>ROS入门(二)</title>
+    <url>/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/</url>
+    <content><![CDATA[<h1 id="ROS接口编写"><a href="#ROS接口编写" class="headerlink" title="ROS接口编写"></a>ROS接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CXX学习整理</title>
     <url>/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<p>C++学习主要内容</p>
@@ -281,101 +281,6 @@
 <li>继承与重载与多态</li>
 <li>函数</li>
 <li>模板库</li>
-</ul>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;() </span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CXX学习笔记（二）</title>
-    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
-    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
-<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
-<p>初始化（动态创建）：</p>
-<p><code>m = new Intcell();</code></p>
-<p><code>m = new Intcell&#123;&#125;;//C++11</code></p>
-<p><code>m = new Intcell;</code></p>
-<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
-<p><code>delete m</code></p>
-<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
-<li><p>给复杂的名称取别名</p>
-<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
-<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
-</li>
-<li><p>范围for循环</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>避免不必要的拷贝</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;hello&quot;</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">&quot;hello&quot;</span>;<span class="comment">//错误,此乃左值引用,&quot;hello&quot;为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">&quot;hello&quot;</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
-<blockquote>
-<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
-<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
-<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
-</blockquote>
-<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
-<p>传常量引用</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h2 id="初始化表列："><a href="#初始化表列：" class="headerlink" title="初始化表列："></a>初始化表列：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="explicit构造函数"><a href="#explicit构造函数" class="headerlink" title="explicit构造函数"></a>explicit构造函数</h2><p>英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    	: membervalue</span>&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
-
-<p>举例explicit的作用：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="构造函数类型"><a href="#构造函数类型" class="headerlink" title="构造函数类型"></a>构造函数类型</h2><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
-<ul>
-<li><p>析构函数</p>
-</li>
-<li><p>复制构造函数</p>
-</li>
-<li><p>移动构造函数</p>
-</li>
-<li><p>拷贝赋值</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>移动复制</li>
 </ul>
 ]]></content>
       <categories>
@@ -483,6 +388,27 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ 知识点</title>
+    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;() </span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vector</title>
     <url>/2019/12/19/CXX/Vector/</url>
     <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">学习教材</a><br>学习要及时总结</p>
@@ -494,281 +420,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科学常识收集(一)</title>
-    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
-    <content><![CDATA[<ul>
-<li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
-<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/1.png"></li>
-<li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
-<li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
-<li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
-<thead>
-<tr>
-<th align="center">颜色</th>
-<th align="center">代号</th>
-<th align="center">RGB</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">red</td>
-<td align="center">‘r’</td>
-<td align="center">[1 0 0]</td>
-</tr>
-<tr>
-<td align="center">green</td>
-<td align="center">‘g’</td>
-<td align="center">[0 1 0]</td>
-</tr>
-<tr>
-<td align="center">blue</td>
-<td align="center">‘b’</td>
-<td align="center">[0 0 1]</td>
-</tr>
-<tr>
-<td align="center">cyan</td>
-<td align="center">‘c’</td>
-<td align="center">[0 1 1]</td>
-</tr>
-<tr>
-<td align="center">magenta</td>
-<td align="center">‘m’</td>
-<td align="center">[1 0 1]</td>
-</tr>
-<tr>
-<td align="center">yellow</td>
-<td align="center">‘y’</td>
-<td align="center">[1 1 0]</td>
-</tr>
-<tr>
-<td align="center">‘black’</td>
-<td align="center">‘k’</td>
-<td align="center">[1 1 1]</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法小知识（一）</title>
-    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科普常识收集</title>
-    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
-<p>牛客网你值得拥有</p>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0712旅游计划</title>
-    <url>/2020/06/28/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h1 id="目的地"><a href="#目的地" class="headerlink" title="目的地"></a>目的地</h1><ol>
-<li>上海:(1天)<ul>
-<li>学校(可能进不来)</li>
-<li>外滩豫园东方明珠</li>
-</ul>
-</li>
-<li>苏州:(1天)<ul>
-<li>拙政园林</li>
-<li>古街</li>
-</ul>
-</li>
-<li>南京(1天)<ul>
-<li>中山陵</li>
-</ul>
-</li>
-<li>杭州(2天)<ul>
-<li>西湖</li>
-<li>千岛湖</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>旅游</tag>
-        <tag>江浙沪</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>What I Want todo</title>
-    <url>/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/</url>
-    <content><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
-<li>C++<ul>
-<li>ROS</li>
-<li>PCL</li>
-<li>Opencv</li>
-</ul>
-</li>
-<li>Python<ul>
-<li>pytorch</li>
-</ul>
-</li>
-<li>点云匹配</li>
-<li>CAN</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>todolist</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>句2</title>
-    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>时间管理</title>
-    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
-<blockquote>
-<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
-</blockquote>
-<p><a href="https://www.zhihu.com/question/21914698/answer/459907860">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
-<a id="more"></a>
-<ul>
-<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
-<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
-<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
-</ul>
-<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
-<li>工具：三星S9+</li>
-<li>软件: 日历，TODO，提醒</li>
-<li>目标：管理好daily schedule，培养好习惯</li>
-<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>时间管理</tag>
-        <tag>工具技能</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>睡觉指南</title>
-    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449"><strong>R90高效睡眠法</strong></a></p>
-<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
-<ul>
-<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
-<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
-<li>然后睡前一小时开始准备入睡。 </li>
-</ul>
-</blockquote>
-<p>按照上述公式，</p>
-<table>
-<thead>
-<tr>
-<th>9点进入工作</th>
-<th>7点30~8点起床</th>
-<th>0点～0点30睡着</th>
-<th>23点～23点30准备入睡</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>9点半进入工作</td>
-<td>8点～8点30起床</td>
-<td>0点30～1点睡着</td>
-<td>23点30~12点准备入睡</td>
-</tr>
-</tbody></table>
-<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
-<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
-<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
-<li>睡前洗澡</li>
-<li><strong>睡前泡脚</strong></li>
-<li>舒缓运动</li>
-</ul>
-<p>睡前一小时进行。<strong>23点30</strong></p>
-<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
-<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
-<li><p>看无聊的书</p>
-</li>
-<li><p>冥想</p>
-</li>
-<li><p><strong>美国海军2分钟入眠</strong></p>
-<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
-</li>
-</ul>
-<ul>
-<li>睡前在日记本上把所有想法捋捋清楚</li>
-</ul>
-<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
-<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
-<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
-<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
-</li>
-<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
-</li>
-<li><p>床垫和枕头</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>睡觉</tag>
       </tags>
   </entry>
   <entry>
@@ -808,7 +459,7 @@
 
 <h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
 
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#109;">&#x65;&#109;&#x61;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#109;</a>“</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x65;&#109;&#x61;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;</a>“</p>
 ]]></content>
       <categories>
         <category>工具技能</category>
@@ -819,33 +470,77 @@
       </tags>
   </entry>
   <entry>
-    <title>遇见百分百女孩</title>
-    <url>/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/</url>
-    <content><![CDATA[<img src="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/遇见百分百女孩.jpg" alt="遇见百分百女孩" style="zoom:50%;">
+    <title>CXX学习笔记（二）</title>
+    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
+    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
+<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
+<p>初始化（动态创建）：</p>
+<p><code>m = new Intcell();</code></p>
+<p><code>m = new Intcell&#123;&#125;;//C++11</code></p>
+<p><code>m = new Intcell;</code></p>
+<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
+<p><code>delete m</code></p>
+<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
+<li><p>给复杂的名称取别名</p>
+<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
+<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
+</li>
+<li><p>范围for循环</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>避免不必要的拷贝</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
 
-<p>四月一个晴朗的早晨，在原宿后街，我同一个百分百女孩擦肩而过。</p>
-<p>老实说，这女孩不见得有多漂亮，并不是很吸引人，穿着也不出众，脑后的头发还带有睡觉挤压的痕迹，年龄也不小了，应该快有30吧–严格地说来，恐怕很难称之为女孩。然而,在50米外我便一眼看出：她就是我的百分百女孩。看见她身影的那一瞬间，我的胸口受到地震一般的震颤，嘴里干得象沙沙作响的沙漠。</p>
-<p>或许你也有你的百分百女孩。比如喜欢手脚纤细的女孩，喜欢眼睛大，手指绝对好看的女孩，或者不明所以地迷上慢慢吃东西的女孩。我当然也有自己的偏爱，在饭店时就曾看着邻桌一个女孩的鼻形发呆。但要明确勾勒出百分百女孩的形象，任何人都无法做到。我就绝对想不起她长有怎样的鼻子，甚至连是否有鼻子都已记不清楚。现在我所能记住的，只有她不是很漂亮这一点，事情真是不可思议。</p>
-<p>“昨天，我在路上同一个百分百女孩擦肩而过。”我对一个人说。<br>“喔，”他应道，“她人可漂亮？”<br>“不，不是说这个。”<br>“那，是合你口味那种类型喽？”<br>“记不清了。眼睛长什么样啦，胸部是大是小啦，统统忘得一干二净。”<br>“莫名其妙啊！”<br>“是莫名其妙。”<br>“那么，”他显得兴味索然，“你干了什么？搭话了？还是跟踪了？”<br>“什么都没有做。”我说，“仅仅是擦肩而过。”</p>
-<p>真的，仅仅是擦肩而过。<br>她由东往西，我从西向东，在四月里一个神清气爽的早晨。<br>我想和她说话，哪怕30分钟也好。我想知道她的一切，也想全盘托出自己。最重要的，是弄清到底是什么原因使我们有这样的命运，让我们在1981年4月一个晴朗的早晨，在原宿后街擦肩而过，这里面肯定充满着像和平时代的古老机器般温馨的秘密。说完了这些，我们可以找地方吃午饭，看伍迪.爱伦的影片，再顺路到宾馆里的酒吧喝点鸡尾酒什么的。弄得好，说不定还能同她睡上一觉。种种可能性在扣击着我的心扉。</p>
-<p>我和她之间的距离只有十五六米了。问题是，我到底该如何向她搭话呢？</p>
-<p>“你好！和我说说话可以吗？哪怕３０分钟也好。”<br>太傻气，简直象劝人买保险。<br>“请问，这一带有２４小时营业的洗衣店吗？”<br>一样的傻气，何况我连洗衣袋都没带！有谁能相信我的道白呢？<br>也许开门见山好些。“你好！你可是我的百分百女孩哟！”<br>不，不成，她不会相信我的表白。纵然相信，也未必愿意同我说话。她可能这样说：“即便我是你的百分百女孩，可是很抱歉，你不是我的百分百男孩呀。”这是很有可能的。假如真是这样，我肯定会被一下子打懵。这一打击说不定使我一蹶不振。我已３２岁，再也禁不起打击了，所谓上年纪归根结底便是这么一回事。我是在花店门前和她擦肩而过的，那暖暖的小小的气块儿触到了我的肌肤。柏油路面洒了水，周围荡漾着玫瑰花香。可我连向她打声招呼都做不到。她穿白毛衣，右手拿一个未贴邮票的四方信封。她给写了封信，你看她那样睡眼惺忪，说不定写了整整一个晚上。那四方信封里可能装有她全部的秘密。</p>
-<p>走几步再回头时，她的身影早已消失在人群中。当然，今天我已完全清楚当时应怎样向她搭话。但不管怎么说，那道白实在太长，我肯定表达不好――就是这样，我想到的每次都不实用。<br>总之，这篇道白以“很久很久以前”开始，以“你不觉得这是个忧伤的故事吗”结束。<br>很久很久以前，有个地方有一个男孩和一个女孩。男孩十八岁，女孩十七岁。<br>男孩算不上英俊，女孩也不怎么漂亮，无非随处可见的孤独而平常的少男少女。但两人一直坚信世上某个地方一定存在百分之百适合自己的女孩和男孩。两人相信奇迹，而奇迹真的发生了。一天，两人在街头不期而遇。<br>“真巧！我一直在寻找你。也许你不相信，你就是我的百分百男孩。从头到脚都跟我想象的一模一样。简直像是在做梦。”两人坐在公园长椅上，手拉手，百谈不厌。两人已不再孤独，百分之百需求对方，也百分之百被对方需求。而百分之百需求对方和百分之百被对方需求是何等美妙的事情啊！这已是宇宙奇迹！</p>
-<p>但两人心中掠过一个小小的，的确是小而又小的疑虑：梦想如此轻易成真是否真的就是好事？</p>
-<p>交谈突然中断，男孩这样说道：“我说，再尝试一次吧！如果我们两人真是一对百分之百的恋人的话，肯定会有一天在哪里重逢。下次相遇时如果仍觉得对方百分之百，就马上在那里结婚，好么？</p>
-<p>“好的。” 女孩回答。<br>于是两人分开，各奔东西。<br>不过说实在话，根本没有必要再尝试，这纯属多此一举。为什么呢？因为两人的的确确是一对百分之百的恋人，因为那的的确确是奇迹般的邂逅。但两人过于年轻，没办法知道这么多。于是无情的命运开始捉弄两人。</p>
-<p>一年冬天，两人都染上了那年肆虐的恶性流感，在死亡线上徘徊几个星期后，过去的记忆丧失殆尽。事情也真是离奇，当两人睁眼醒来时，脑袋里犹如劳伦斯少年时代的贮币盒一样空空如也。但这对青年男女毕竟聪明豁达且极有毅力，经过不懈努力，终于再度获得了新的知识和新的情感，愉快地重返社会生活了。啊，我的上帝！这两人真是无可挑剔！他们又能够换乘地铁，能够在邮局寄快信了。并且分别体验了百分之七十五和百分之八十五的爱情。</p>
-<p>如此来来往往，男孩32，女孩31岁了。时光以惊人的速度流逝。</p>
-<p>四月一个晴朗的早晨，男孩为喝折价早咖啡沿原宿后街由西向东走，女孩为买快信邮票沿同一条街由东向西去，两人恰在路中间擦肩而过。失却记忆的微光刹那间照亮两颗心灵。</p>
-<p>两人胸口陡然颤动，并且明白：<br>她就是我的百分百女孩。<br>他就是我的百分百男孩。</p>
-<p>然而两人记忆的烛光实在过于微弱，两人的话语也不似十四年前那般清晰。结果连句话也没说便擦肩而过，径直消失在人群中，永远永远。<br>你不觉得这是个令人感伤的故事么？</p>
-<p>是的，我本该这样向她搭话。</p>
+</li>
+</ul>
+<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;hello&quot;</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">&quot;hello&quot;</span>;<span class="comment">//错误,此乃左值引用,&quot;hello&quot;为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">&quot;hello&quot;</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
+<blockquote>
+<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
+<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
+<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
+</blockquote>
+<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
+<p>传常量引用</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h2 id="初始化表列："><a href="#初始化表列：" class="headerlink" title="初始化表列："></a>初始化表列：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="explicit构造函数"><a href="#explicit构造函数" class="headerlink" title="explicit构造函数"></a>explicit构造函数</h2><p>英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    	: membervalue</span>&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
+
+<p>举例explicit的作用：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="构造函数类型"><a href="#构造函数类型" class="headerlink" title="构造函数类型"></a>构造函数类型</h2><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
+<ul>
+<li><p>析构函数</p>
+</li>
+<li><p>复制构造函数</p>
+</li>
+<li><p>移动构造函数</p>
+</li>
+<li><p>拷贝赋值</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li>移动复制</li>
+</ul>
 ]]></content>
       <categories>
-        <category>生活随笔</category>
+        <category>编程学习</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>文章摘录</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -1076,6 +771,39 @@
       </tags>
   </entry>
   <entry>
+    <title>vscode调试运行cpp程序</title>
+    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
+<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/include &quot;&quot;</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
+<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
+<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
+<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
+<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>vscode</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vscode下调试运行ROS程序</title>
     <url>/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/</url>
     <content><![CDATA[<p>vscode编辑器下调试ROS程序配置,主要利用Cmake工具编译,配置好.vscode/下的设置文件*.json</p>
@@ -1122,39 +850,6 @@
       </tags>
   </entry>
   <entry>
-    <title>vscode调试运行cpp程序</title>
-    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
-<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
-
-<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/include &quot;&quot;</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
-<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
-<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
-<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
-<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>vscode</category>
-      </categories>
-      <tags>
-        <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>磁盘读写结束后弹出提示</title>
     <url>/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/</url>
     <content><![CDATA[<h2 id="1-配置性能监控器监控项"><a href="#1-配置性能监控器监控项" class="headerlink" title="1. 配置性能监控器监控项"></a>1. 配置性能监控器监控项</h2><p><a href="https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/">https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/</a></p>
@@ -1197,6 +892,84 @@
       </tags>
   </entry>
   <entry>
+    <title>日常计算机小问题记录</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
+<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
+<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>小问题解决</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科学常识收集(一)</title>
+    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
+    <content><![CDATA[<ul>
+<li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
+<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/1.png"></li>
+<li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
+<li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
+<li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
+<thead>
+<tr>
+<th align="center">颜色</th>
+<th align="center">代号</th>
+<th align="center">RGB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">red</td>
+<td align="center">‘r’</td>
+<td align="center">[1 0 0]</td>
+</tr>
+<tr>
+<td align="center">green</td>
+<td align="center">‘g’</td>
+<td align="center">[0 1 0]</td>
+</tr>
+<tr>
+<td align="center">blue</td>
+<td align="center">‘b’</td>
+<td align="center">[0 0 1]</td>
+</tr>
+<tr>
+<td align="center">cyan</td>
+<td align="center">‘c’</td>
+<td align="center">[0 1 1]</td>
+</tr>
+<tr>
+<td align="center">magenta</td>
+<td align="center">‘m’</td>
+<td align="center">[1 0 1]</td>
+</tr>
+<tr>
+<td align="center">yellow</td>
+<td align="center">‘y’</td>
+<td align="center">[1 1 0]</td>
+</tr>
+<tr>
+<td align="center">‘black’</td>
+<td align="center">‘k’</td>
+<td align="center">[1 1 1]</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>笔记管理工具为知笔记/typora</title>
     <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
@@ -1230,38 +1003,245 @@
       </tags>
   </entry>
   <entry>
-    <title>DeepPS</title>
-    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
-    <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
-<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul>
-<li>引出: 视觉检测库位重要, 但是干扰因素多鲁棒性不好, 本文要解决这问题.</li>
-</ul>
-<h2 id="创新贡献"><a href="#创新贡献" class="headerlink" title="创新贡献"></a>创新贡献</h2><ol>
-<li>DeepPS, 一个DCNN网络, 可以解决标记点的识别/ 分类.</li>
-<li>建立了便于学习的数据集.</li>
+    <title>科普常识收集</title>
+    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
+<blockquote>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
+</blockquote>
+<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
 </ol>
-<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
+<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
+<p>牛客网你值得拥有</p>
+]]></content>
       <categories>
-        <category>研究生</category>
-        <category>深度学习</category>
+        <category>常识库</category>
       </categories>
       <tags>
-        <tag>DeepPs</tag>
+        <tag>trips</tag>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
-    <title>日常计算机小问题记录</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+    <title>算法小知识（一）</title>
+    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
+<ul>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
+</ul>
+]]></content>
       <categories>
-        <category>工具技能</category>
-        <category>问题记录</category>
+        <category>常识库</category>
       </categories>
       <tags>
-        <tag>小问题解决</tag>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>0712旅游计划</title>
+    <url>/2020/06/28/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/</url>
+    <content><![CDATA[<h1 id="目的地"><a href="#目的地" class="headerlink" title="目的地"></a>目的地</h1><ol>
+<li>上海:(1天)<ul>
+<li>学校(可能进不来)</li>
+<li>外滩豫园东方明珠</li>
+</ul>
+</li>
+<li>苏州:(1天)<ul>
+<li>拙政园林</li>
+<li>古街</li>
+</ul>
+</li>
+<li>南京(1天)<ul>
+<li>中山陵</li>
+</ul>
+</li>
+<li>杭州(2天)<ul>
+<li>西湖</li>
+<li>千岛湖</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+        <tag>江浙沪</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>What I Want todo</title>
+    <url>/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/</url>
+    <content><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
+<li>C++<ul>
+<li>ROS</li>
+<li>PCL</li>
+<li>Opencv</li>
+</ul>
+</li>
+<li>Python<ul>
+<li>pytorch</li>
+</ul>
+</li>
+<li>点云匹配</li>
+<li>CAN</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>todolist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句2</title>
+    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间管理</title>
+    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
+<blockquote>
+<p>“要么死，要么好好的活”   –《一个叫欧维的男人决定去死》</p>
+</blockquote>
+<p><a href="https://www.zhihu.com/question/21914698/answer/459907860">https://www.zhihu.com/question/21914698/answer/459907860</a></p>
+<a id="more"></a>
+<ul>
+<li><strong>日程表</strong><br>用来记录某个时间段一定会发生的事件，比如会议、球赛、约会等多人参加的约定。强调的事<strong>时间节点</strong></li>
+<li><strong>TODO待办事项</strong><br>也叫任务清单，记录的是你想要做还没做的事，没有固定在某个时间段必须做，而是在<strong>deadline</strong>之前必须做。强调的是<strong>事情内容</strong></li>
+<li>如果规律性事件，比如每天晚上11点肯定要看半小时书，就可以写到日程表中，安排其他事的时候就可以避开这段时间。</li>
+</ul>
+<h1 id="个人具体时间管理方法"><a href="#个人具体时间管理方法" class="headerlink" title="个人具体时间管理方法"></a>个人具体时间管理方法</h1><ul>
+<li>工具：三星S9+</li>
+<li>软件: 日历，TODO，提醒</li>
+<li>目标：管理好daily schedule，培养好习惯</li>
+<li>实施：1、每天要养成的习惯用日历提醒，不能太多，优先紧急事件：睡前刷牙洗脸、及时起床不zw。<br>2、有dedline或者没有deadline的都用TODO记录，比如购物清单，书单，愿望清单等等。<br>3、日历记录有约定的多人活动事件</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>时间管理</tag>
+        <tag>工具技能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>睡觉指南</title>
+    <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>总结自B站视频<a href="https://www.bilibili.com/video/BV1tV41127CQ?t=449"><strong>R90高效睡眠法</strong></a></p>
+<h1 id="固定作息时间"><a href="#固定作息时间" class="headerlink" title="固定作息时间"></a>固定作息时间</h1><blockquote>
+<ul>
+<li>通常起床时间比进入工作状态时刻提前90min,或者1h也行. </li>
+<li>然后倒推5个睡眠周期即7.5h推导出大致应睡着的时间.</li>
+<li>然后睡前一小时开始准备入睡。 </li>
+</ul>
+</blockquote>
+<p>按照上述公式，</p>
+<table>
+<thead>
+<tr>
+<th>9点进入工作</th>
+<th>7点30~8点起床</th>
+<th>0点～0点30睡着</th>
+<th>23点～23点30准备入睡</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>9点半进入工作</td>
+<td>8点～8点30起床</td>
+<td>0点30～1点睡着</td>
+<td>23点30~12点准备入睡</td>
+</tr>
+</tbody></table>
+<p>鉴于室友生活作息,12点半之前才能熄灯睡觉. 因此我反其道为之推导起床工作时间。</p>
+<p>晚上<strong>0点30之前</strong>关掉手机和音乐酝酿睡觉。 <strong>8点和8点15</strong>起床铃铛</p>
+<h1 id="做好前戏"><a href="#做好前戏" class="headerlink" title="做好前戏"></a>做好前戏</h1><h2 id="缩减体表体内温差"><a href="#缩减体表体内温差" class="headerlink" title="缩减体表体内温差"></a>缩减体表体内温差</h2><ul>
+<li>睡前洗澡</li>
+<li><strong>睡前泡脚</strong></li>
+<li>舒缓运动</li>
+</ul>
+<p>睡前一小时进行。<strong>23点30</strong></p>
+<h2 id="避免手机蓝光"><a href="#避免手机蓝光" class="headerlink" title="避免手机蓝光"></a>避免手机蓝光</h2><p>12点放下手机,或者看kindle</p>
+<h2 id="放松身心"><a href="#放松身心" class="headerlink" title="放松身心"></a>放松身心</h2><ul>
+<li><p>看无聊的书</p>
+</li>
+<li><p>冥想</p>
+</li>
+<li><p><strong>美国海军2分钟入眠</strong></p>
+<p><img src="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E7%9D%A1%E8%A7%89%E5%9B%B0%E9%9A%BE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20201011131654.jpg" alt="微信图片_20201011131654"></p>
+</li>
+</ul>
+<ul>
+<li>睡前在日记本上把所有想法捋捋清楚</li>
+</ul>
+<h2 id="调整睡姿"><a href="#调整睡姿" class="headerlink" title="调整睡姿"></a>调整睡姿</h2><p><strong>侧卧</strong>: 保证脊椎,颈椎和屁股在一条线上.</p>
+<p><strong>平躺</strong>: 感受每个部位的受力,假装自己死掉啦</p>
+<h1 id="布置睡觉环境"><a href="#布置睡觉环境" class="headerlink" title="布置睡觉环境"></a>布置睡觉环境</h1><ul>
+<li><p>温度16~18℃. 凉爽通风. <em>無理だよ無理だよ</em></p>
+</li>
+<li><p>简单, 避光, 隔音. <em>無理だよ</em></p>
+</li>
+<li><p>床垫和枕头</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>睡觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>遇见百分百女孩</title>
+    <url>/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/</url>
+    <content><![CDATA[<img src="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/遇见百分百女孩.jpg" alt="遇见百分百女孩" style="zoom:50%;">
+
+<p>四月一个晴朗的早晨，在原宿后街，我同一个百分百女孩擦肩而过。</p>
+<p>老实说，这女孩不见得有多漂亮，并不是很吸引人，穿着也不出众，脑后的头发还带有睡觉挤压的痕迹，年龄也不小了，应该快有30吧–严格地说来，恐怕很难称之为女孩。然而,在50米外我便一眼看出：她就是我的百分百女孩。看见她身影的那一瞬间，我的胸口受到地震一般的震颤，嘴里干得象沙沙作响的沙漠。</p>
+<p>或许你也有你的百分百女孩。比如喜欢手脚纤细的女孩，喜欢眼睛大，手指绝对好看的女孩，或者不明所以地迷上慢慢吃东西的女孩。我当然也有自己的偏爱，在饭店时就曾看着邻桌一个女孩的鼻形发呆。但要明确勾勒出百分百女孩的形象，任何人都无法做到。我就绝对想不起她长有怎样的鼻子，甚至连是否有鼻子都已记不清楚。现在我所能记住的，只有她不是很漂亮这一点，事情真是不可思议。</p>
+<p>“昨天，我在路上同一个百分百女孩擦肩而过。”我对一个人说。<br>“喔，”他应道，“她人可漂亮？”<br>“不，不是说这个。”<br>“那，是合你口味那种类型喽？”<br>“记不清了。眼睛长什么样啦，胸部是大是小啦，统统忘得一干二净。”<br>“莫名其妙啊！”<br>“是莫名其妙。”<br>“那么，”他显得兴味索然，“你干了什么？搭话了？还是跟踪了？”<br>“什么都没有做。”我说，“仅仅是擦肩而过。”</p>
+<p>真的，仅仅是擦肩而过。<br>她由东往西，我从西向东，在四月里一个神清气爽的早晨。<br>我想和她说话，哪怕30分钟也好。我想知道她的一切，也想全盘托出自己。最重要的，是弄清到底是什么原因使我们有这样的命运，让我们在1981年4月一个晴朗的早晨，在原宿后街擦肩而过，这里面肯定充满着像和平时代的古老机器般温馨的秘密。说完了这些，我们可以找地方吃午饭，看伍迪.爱伦的影片，再顺路到宾馆里的酒吧喝点鸡尾酒什么的。弄得好，说不定还能同她睡上一觉。种种可能性在扣击着我的心扉。</p>
+<p>我和她之间的距离只有十五六米了。问题是，我到底该如何向她搭话呢？</p>
+<p>“你好！和我说说话可以吗？哪怕３０分钟也好。”<br>太傻气，简直象劝人买保险。<br>“请问，这一带有２４小时营业的洗衣店吗？”<br>一样的傻气，何况我连洗衣袋都没带！有谁能相信我的道白呢？<br>也许开门见山好些。“你好！你可是我的百分百女孩哟！”<br>不，不成，她不会相信我的表白。纵然相信，也未必愿意同我说话。她可能这样说：“即便我是你的百分百女孩，可是很抱歉，你不是我的百分百男孩呀。”这是很有可能的。假如真是这样，我肯定会被一下子打懵。这一打击说不定使我一蹶不振。我已３２岁，再也禁不起打击了，所谓上年纪归根结底便是这么一回事。我是在花店门前和她擦肩而过的，那暖暖的小小的气块儿触到了我的肌肤。柏油路面洒了水，周围荡漾着玫瑰花香。可我连向她打声招呼都做不到。她穿白毛衣，右手拿一个未贴邮票的四方信封。她给写了封信，你看她那样睡眼惺忪，说不定写了整整一个晚上。那四方信封里可能装有她全部的秘密。</p>
+<p>走几步再回头时，她的身影早已消失在人群中。当然，今天我已完全清楚当时应怎样向她搭话。但不管怎么说，那道白实在太长，我肯定表达不好――就是这样，我想到的每次都不实用。<br>总之，这篇道白以“很久很久以前”开始，以“你不觉得这是个忧伤的故事吗”结束。<br>很久很久以前，有个地方有一个男孩和一个女孩。男孩十八岁，女孩十七岁。<br>男孩算不上英俊，女孩也不怎么漂亮，无非随处可见的孤独而平常的少男少女。但两人一直坚信世上某个地方一定存在百分之百适合自己的女孩和男孩。两人相信奇迹，而奇迹真的发生了。一天，两人在街头不期而遇。<br>“真巧！我一直在寻找你。也许你不相信，你就是我的百分百男孩。从头到脚都跟我想象的一模一样。简直像是在做梦。”两人坐在公园长椅上，手拉手，百谈不厌。两人已不再孤独，百分之百需求对方，也百分之百被对方需求。而百分之百需求对方和百分之百被对方需求是何等美妙的事情啊！这已是宇宙奇迹！</p>
+<p>但两人心中掠过一个小小的，的确是小而又小的疑虑：梦想如此轻易成真是否真的就是好事？</p>
+<p>交谈突然中断，男孩这样说道：“我说，再尝试一次吧！如果我们两人真是一对百分之百的恋人的话，肯定会有一天在哪里重逢。下次相遇时如果仍觉得对方百分之百，就马上在那里结婚，好么？</p>
+<p>“好的。” 女孩回答。<br>于是两人分开，各奔东西。<br>不过说实在话，根本没有必要再尝试，这纯属多此一举。为什么呢？因为两人的的确确是一对百分之百的恋人，因为那的的确确是奇迹般的邂逅。但两人过于年轻，没办法知道这么多。于是无情的命运开始捉弄两人。</p>
+<p>一年冬天，两人都染上了那年肆虐的恶性流感，在死亡线上徘徊几个星期后，过去的记忆丧失殆尽。事情也真是离奇，当两人睁眼醒来时，脑袋里犹如劳伦斯少年时代的贮币盒一样空空如也。但这对青年男女毕竟聪明豁达且极有毅力，经过不懈努力，终于再度获得了新的知识和新的情感，愉快地重返社会生活了。啊，我的上帝！这两人真是无可挑剔！他们又能够换乘地铁，能够在邮局寄快信了。并且分别体验了百分之七十五和百分之八十五的爱情。</p>
+<p>如此来来往往，男孩32，女孩31岁了。时光以惊人的速度流逝。</p>
+<p>四月一个晴朗的早晨，男孩为喝折价早咖啡沿原宿后街由西向东走，女孩为买快信邮票沿同一条街由东向西去，两人恰在路中间擦肩而过。失却记忆的微光刹那间照亮两颗心灵。</p>
+<p>两人胸口陡然颤动，并且明白：<br>她就是我的百分百女孩。<br>他就是我的百分百男孩。</p>
+<p>然而两人记忆的烛光实在过于微弱，两人的话语也不似十四年前那般清晰。结果连句话也没说便擦肩而过，径直消失在人群中，永远永远。<br>你不觉得这是个令人感伤的故事么？</p>
+<p>是的，我本该这样向她搭话。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>文章摘录</tag>
       </tags>
   </entry>
   <entry>
@@ -1317,25 +1297,23 @@
       </tags>
   </entry>
   <entry>
-    <title>L-Shape-Fitting3</title>
-    <url>/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/</url>
-    <content><![CDATA[<p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header">链接</a></p>
-<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
-<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
-<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"></li>
+    <title>DeepPS</title>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/DeepPS/</url>
+    <content><![CDATA[<p>研究的问题–&gt;创新贡献–&gt;主要内容–&gt;结果–&gt;总结</p>
+<h2 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h2><ul>
+<li>引出: 视觉检测库位重要, 但是干扰因素多鲁棒性不好, 本文要解决这问题.</li>
+</ul>
+<h2 id="创新贡献"><a href="#创新贡献" class="headerlink" title="创新贡献"></a>创新贡献</h2><ol>
+<li>DeepPS, 一个DCNN网络, 可以解决标记点的识别/ 分类.</li>
+<li>建立了便于学习的数据集.</li>
 </ol>
-<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png"></p>
-<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png"></p>
-<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
-]]></content>
+<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2>]]></content>
       <categories>
         <category>研究生</category>
-        <category>LiDAR</category>
+        <category>深度学习</category>
       </categories>
       <tags>
-        <tag>L形状拟合</tag>
-        <tag>点云</tag>
-        <tag>读书笔记</tag>
+        <tag>DeepPs</tag>
       </tags>
   </entry>
   <entry>
@@ -1358,6 +1336,58 @@
 <li>计算时间</li>
 </ol>
 <p><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result1.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result2.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result3.png"><br><strong>总的来看误差分析优势不大，完全可能是有意为之挤牙膏得到的。最大的贡献应该就是解决了多一种工况。此外对于精度的讨论也局限在角度，而没有位置误差的分析。但是经验曲线和针对特定工况问题发论文的角度值得借鉴</strong></p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>L形状拟合</tag>
+        <tag>点云</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随笔10月20日</title>
+    <url>/2020/10/21/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<h1 id="2020年10月21日"><a href="#2020年10月21日" class="headerlink" title="2020年10月21日"></a>2020年10月21日</h1><p>秋招就这样告一段落吧, 我必须好好准备一下自己的身体, 思想, 和专业知识去迎接社会的摧残. </p>
+<h2 id="1-现状"><a href="#1-现状" class="headerlink" title="1 现状"></a>1 现状</h2><p>我现在每每努力一小会就觉得已经拼命了, 并且那一小会也总是不能集中注意力到重要的事情, 要么搞一些无关紧要的事情，要么就是刷手机去了。我真的努力不起来了，这也是我害怕去考公务员的原因吧？</p>
+<p>另一个类似的现象就是每次开始工作的时候都要花一定时间去回顾上次干了什么，很多都忘记了，感觉到记性大不如前了。一个是可归结于工作不连续，时间过于零散造成的遗忘；另一方面就是记忆力真的下降了。大脑不用则退。</p>
+<p>最近对这个道理突然很有感慨：平时这个技巧偷个懒，那个问题摸个油，看起来与别人差别不大，但是<strong>认真待事的态度</strong>简直太差地别，积累到最后就可以通过offer的质量和数量残酷的摆在自己眼前，让自己震惊。有人说，大学中加入各种社团和学生会就是为了没有太大代价的提前进入“小社会”捶打自己认真安排各种事务和处理各种人际的能力。我一直有察觉自己有一股无所谓、与世无争、随遇而安、淡然身外物、不斤斤计较的气，以前还挺引以为傲的，直到近年来才发觉ta已经越来越拖累自己了。这种刻意的反复的想法，潜移默化的在潜意识中为自己打上了这个标签，频率高了就可谓弄假成真。发展到现在这股气现在已经发展成为逃避麻烦、畏难、敷衍了事、对什么事都失去强烈的兴趣此般“黑紫色的邪恶的气”。</p>
+<p>为什么这么说呢？举个例子，我真的很不明白为什么有人看个比赛能激动成那个样子，甚至是声泪俱下，我也有喜欢的队伍和比赛，但我顶多夸个666然后打住。或者说有人为了喜欢的姑娘那般投入时间和精力，那般愤怒那般快乐，而我和一个女生线上聊天都觉得折磨。<strong>我好像失去了什么</strong>。没有了强烈的情绪和兴趣，就连自己玩游戏也一副麻木的操作着，美其名曰娱乐至上。这种特质和我的另一个特点不谋而契合，那就是我做很多事情都是浮于表面，不能深入，不管是爱好还是专业知识。</p>
+<p>此般种种现象都指向同一个问题，我仿佛失去了什么。<em>是爱的能力？</em> 爱自己，直面自己内心和情绪；爱一件事情，体会事物内部的细节；爱别人；爱生活。没有爱，是因为自己没有认真对待上述每一样。有人说，多大决心办多大事。下决心，就是下决心去认真对待并认真执行。而我这股气就是在阻止我认真的态度！一味的怕麻烦逃避敷衍也许可以生存下去，但决不能好好的生活。</p>
+<h2 id="2分析"><a href="#2分析" class="headerlink" title="2分析"></a>2分析</h2><p>那么，是什么造成了我现在的困境呢？</p>
+<p>知乎问，<a href="https://www.zhihu.com/question/422796779/answer/1507988868">人这一辈子，最不能透支是什么？ - 温水公爵的回答 - 知乎</a> 或许这个回答能帮助我看清楚一些上述问题根源。</p>
+<blockquote>
+<p>Imagine life as a game in which you are juggling some five balls in the air. You name them <strong>work, family, health, friends and spirit</strong> and you re keeping all of these in the air.You will soon understand that work is a rubber ball.If you drop it, it will bounce back. But the other four balls family, health, friends, and spirit are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged, or even shattered. They will never be the same. You must understand that and strive for balance in your life.</p>
+</blockquote>
+<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>想要优质的物质和精神条件，就需要好好的利用时间。而在这之前是要有一个好好的身体。</p>
+<p>现在我年轻气盛，想要做到健康，关键就在于：<strong>节欲</strong>。人与人之间的智力差别并不大，而造成我与别人差距这么大的原因就是身体。</p>
+<p>纵欲的人，<strong>付出微小的代价就能收获很大的刺激</strong>(奶头乐），因而造成总是体力不支，精力不够，<em>做事总想赶紧完成，投入不够深</em>，<em>注意力不集中</em>，<em>长期记忆力变差</em>，别人在飞速学习的时候他就总需要休息。这种差距日积月累，在offer这个触发点上就清晰可见。</p>
+<p>想要改善自己的身体状况，那就是节欲，熬夜的欲望，赖床的欲望，性欲，食欲……。</p>
+<p>按时睡觉，早起吃早饭，男女之事不要过度，拒绝垃圾食品，拒绝抽烟喝酒，规律锻炼运动。</p>
+<p>看起来简单，多年前我也总结出来了，但实行起来，尤为困难。最大的难点就是早起吃早饭以及性欲的规律了。调整回来这两点之后，坑定会为我提高精力，去认真对待其他事件。</p>
+<h3 id="娱乐至死"><a href="#娱乐至死" class="headerlink" title="娱乐至死"></a>娱乐至死</h3><p>与上一个有异曲同工之处。奶头乐真正的危害是对于精神层面的。低代价的短期的高刺激满足感，正在一点点侵蚀掉我对于真正重要的低刺激的长期回报的事物的执行的动力。造成我努力一小会就觉得很拼命的错觉，行动力的上限条被很大程度削减了。特点，</p>
+<p>另一方面，如今零碎化的信息正充斥着我的生活的方方面面，知乎、哔哩哔哩、微信公众号……，他们碎片化的高刺激的特点，并善于伪装成有用的特点，极大程度的吸走了属于我自己的注意力和时间。每个人每天的注意力集中的程度是有上限的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>L-Shape-Fitting3</title>
+    <url>/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/</url>
+    <content><![CDATA[<p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header">链接</a></p>
+<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
+<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
+<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"></li>
+</ol>
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png"></p>
+<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png"></p>
+<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -1492,28 +1522,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>Python深度学习笔记(一)</title>
-    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>待整理:</p>
-<ul>
-<li>卷积层池化层</li>
-<li>梯度下降</li>
-<li>pytorch</li>
-<li>numpy</li>
-</ul>
-<p>学习网站:B站莫烦python</p>
-<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to read a paper</title>
     <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
     <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
@@ -1536,6 +1544,28 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </categories>
       <tags>
         <tag>方法论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python深度学习笔记(一)</title>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <content><![CDATA[<p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1659,29 +1689,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>OpenCV学习笔记</title>
-    <url>/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/</url>
-    <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/">安装</a></strong></h2><p>异常记录未解决：</p>
-<p>在步骤：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH  </span><br></pre></td></tr></table></figure>
-
-<p>保存bash.bashrc时候提示不支持。</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>open source computer vision library</p>
-</blockquote>
-<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
-<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>Opencv</category>
-      </categories>
-      <tags>
-        <tag>OpenCV</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Matlab小知识记录</title>
     <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
@@ -1711,6 +1718,29 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </categories>
       <tags>
         <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV学习笔记</title>
+    <url>/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/</url>
+    <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a href="https://opencv.org/releases/">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a href="https://opencv.org/releases/">安装</a></strong></h2><p>异常记录未解决：</p>
+<p>在步骤：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH  </span><br></pre></td></tr></table></figure>
+
+<p>保存bash.bashrc时候提示不支持。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>open source computer vision library</p>
+</blockquote>
+<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
+<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>Opencv</category>
+      </categories>
+      <tags>
+        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>
@@ -1858,27 +1888,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>二叉树</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
-
-<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
-<p>递归初始化：空节点深度为空</p>
-<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
-
-<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
-<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
-<p>递归初始化：若当前节点为空，返回true。</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态规划</title>
     <url>/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
@@ -1911,6 +1920,27 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
+    <title>二叉树</title>
+    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+
+<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
+<p>递归初始化：空节点深度为空</p>
+<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+
+<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
+<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
+<p>递归初始化：若当前节点为空，返回true。</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>字符串</title>
     <url>/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h2 id="字符数组Char"><a href="#字符数组Char" class="headerlink" title="字符数组Char"></a>字符数组Char</h2><p>初始化：<code>char s[8] = &quot;China&quot;</code>最后一位以<code>‘/0’</code>保存结束标记符。</p>
@@ -1930,18 +1960,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
 <h2 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isalnum</span>(ch))&#123;</span><br><span class="line">                s2 += <span class="built_in">tolower</span>(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = s.size();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left ++;</span><br><span class="line">            right --;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -1971,6 +1989,18 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
 <p>判断中间值：isBadVersion(left+(right-left)/2)</p>
 <p>退出循环的条件： left &lt; right</p>
 ]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>枚举</title>
+    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
