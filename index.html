@@ -294,7 +294,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -308,7 +308,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
+            <a href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">科普常识收集</a>
         </h2>
 
         <div class="post-meta-container">
@@ -319,14 +319,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2019-12-12 10:00:00" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
+      <time title="创建时间：2020-07-25 16:15:29" itemprop="dateCreated datePublished" datetime="2020-07-25T16:15:29+08:00">2020-07-25</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:54:07" itemprop="dateModified" datetime="2020-10-21T20:54:07+08:00">2020-10-21</time>
+        <time title="修改时间：2020-10-21 21:07:05" itemprop="dateModified" datetime="2020-10-21T21:07:05+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -338,7 +338,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
         </span>
     </span>
 
@@ -351,8 +351,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -366,236 +366,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456">范文</a></p>
-<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
-<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+          <h2 id="1-距离变换"><a href="#1-距离变换" class="headerlink" title="1 距离变换"></a>1 距离变换</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/trent1985/article/details/18081761">优秀链接</a>： </p>
+<p>主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊</p>
+<p>假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:</p>
+<p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20201021204631120.png" alt="image-20201021204631120"></p>
+<p>欧氏距离</p>
+<p>曼哈顿距离（街区距离）</p>
+<p>契比雪夫距离（棋盘距离）可以理解为国际象棋的王后的走法：</p>
+<p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/clip_image001.png"></p>
+<p>倒角距离（chamfer）：优化二值图像的距离运算速度。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/" class="post-title-link" itemprop="url">L-Shape_Fitting2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-13 10:04:20" itemprop="dateCreated datePublished" datetime="2019-12-13T10:04:20+08:00">2019-12-13</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:54:05" itemprop="dateModified" datetime="2020-10-21T20:54:05+08:00">2020-10-21</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><em>Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。</em></p>
-<h1 id="应用文献"><a href="#应用文献" class="headerlink" title="应用文献"></a>应用文献</h1><blockquote>
-<p>F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building detection in complex sites using the lidar height variation and point density,” in International Conferenceon mage and Vision Computing New Zealand, 2013.</p>
-</blockquote>
-<p>generates a height map by using height threshold and extracts only <strong><em>parallel edges</em></strong> to fit a rectangle model.</p>
-<h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p>
-<h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol>
-<li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/concave.png"><center>concavity determination</center></li>
-<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。</li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/" class="post-title-link" itemprop="url">L-Shape-Fitting3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-16 10:37:20" itemprop="dateCreated datePublished" datetime="2019-12-16T10:37:20+08:00">2019-12-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:54:02" itemprop="dateModified" datetime="2020-10-21T20:54:02+08:00">2020-10-21</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header">链接</a></p>
-<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
-<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
-<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/#more" rel="contents">
+              <a class="btn" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -658,7 +440,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:54:00" itemprop="dateModified" datetime="2020-10-21T20:54:00+08:00">2020-10-21</time>
+        <time title="修改时间：2020-10-21 21:06:58" itemprop="dateModified" datetime="2020-10-21T21:06:58+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -708,51 +490,18 @@
 <p>X. Shen, S. Pendleton, M. H. Ang, “Efficient L-shape fitting of laser scanner data for vehicle pose estimation”, IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.<br>群集中的每个点都被视为枢轴（两条线的公共点），并且找到了最佳的一对线。<br>将要提出的方法不需要点的原始扫描顺序，也不需要分别为计算方向而对每个激光雷达层进行处理。因此，这是一种更通用的方法，适用于多层激光雷达</p>
 </blockquote>
 <h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ol>
-<li><p>低复杂度</p>
-</li>
-<li><p>RANSAC拟合到直角模型</p>
-</li>
-<li><p>占据面积准则选择最佳方向</p>
-<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><p><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/1.png"></p>
-</li>
-<li><p>输入，占据栅格图10cm检测障碍物ABB的框（绿色）</p>
-</li>
-<li><p>“可见边界”概念提出。<br> 就是将边缘点提取出来，利用射线追踪检查得到可见边界<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/2.png">    </p>
-</li>
-<li><p>拟合垂直线模型RANSAC<br> 将提取出来的边界点拟合直线L1，再利用RANSAC选择其余点拟合L2<br> <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/3.png"></p>
-</li>
-<li><p>根据RANSAC的评分和未占据栅格的面积准则评估和验证最优方向<br> 在第一条线L的内部数上设置一个小的绝对阈值（= 8个像元），所以不适用于鸟瞰图小的物体。<br> 考虑只能观测到障碍物的一条边时的两种情况：<br>a. 该边具有很好的方向性，如建筑物/大车一边</p>
-<pre><code> 解决办法：设定ransac拟合评分（即inlier的数目）阈值，大于这个阈值认为可靠度高。阈值的设定应当能够区别开车头的曲线和车辆侧方。</code></pre>
-<p>b. 该边不能很好的拟合，如小车车头</p>
-<pre><code> 解决：当主方向线拟合的评分小于阈值，考虑次方向线的评分。若次方向依然不满足要求，则可以采取两个办法：①时间域跟踪滤波②根据拟合的框/ABB/视线方向框三者中未占据栅格的面积最小来选择最佳的主方向。</code></pre>
-<p><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/4.png"></p>
-</li>
+<li>低复杂度</li>
+<li>RANSAC拟合到直角模型</li>
+<li>占据面积准则选择最佳方向</li>
 </ol>
-<h2 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h2><p><strong>时间：</strong><br>本方法：C++2.5GHz，0.2ms.<br>Lshape: C++ 1.6ms<br><strong>方向精度：</strong><br>选择了几个场景进行评估，第一个场景手动依据点云路沿估计真值。第二个场景在直的路上采的，默认真值为0°。<br>    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/5.png">    <img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/6.png">    </p>
-<p>不足：<br>在近观测到车头和车尾情况下精度在4~6°，此外由于长方形拟合的局限性，对弯曲的栅栏等障碍物就不再适用。此时可以利用文献分享的西安交通大学的方法。<br><img src="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/7.png"></p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><pre><code>1. 占据栅格？or点云？--&gt;精度？or实时性？
-2. 仅栅格聚类？or栅格拟合？
-3. 这篇文章同我目前的预研究最为贴切，值得深思
-4. 所有场景配备视频资料，很信服。
-5. 利用跟踪进行部分误差修正。</code></pre>
-<h1 id="An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints"><a href="#An-Orientation-Corrected-Bounding-Box-Fit-Based-on-the-Convex-Hull-under-Real-Time-Constraints" class="headerlink" title="An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints"></a><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8500692/authors#authors">An Orientation Corrected Bounding Box Fit Based on the Convex Hull under Real Time Constraints</a></h1><h2 id="摘抄-1"><a href="#摘抄-1" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>基于点云的MODT问题经典处理思路是：<br>    1. 地面和障碍物分离<br>    2. 不同障碍物分割成类<br>    3. 簇拟合形状获取尺寸和位置信息<br>    4. 状态估计滤波器<br>Lshape的相关工作总结的挺好</p>
-</blockquote>
-<blockquote>
-<p>P. Kmiotek and Y. Ruichek, “Representing and Tracking of Dynamics<br>Objects using Oriented Bounding Box and Extended Kalman Filter,”<br>in Proc. IEEE Intelligent Transportation Syst. Conf. (ITSC), 2008</p>
-</blockquote>
-<h2 id="主要贡献："><a href="#主要贡献：" class="headerlink" title="主要贡献："></a>主要贡献：</h2><ol>
-<li>foucus on runtime</li>
-<li>从凸包方法得到的点云加上旋转框（rotating calipers）得到初步的最小面积矩形。然后用了几种方法去做修正。<br>数学公式有点多解释又不清晰，感觉原理应该不难，就是故意整一堆数学模型复杂化又不说清楚。不想看了。</li>
-</ol>
-<h1 id="Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder"><a href="#Tracking-of-Moving-Objects-from-a-Moving-Vehicle-Using-a-Scanning-Laser-Rangefinder" class="headerlink" title="Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder"></a><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/1706758?arnumber=1706758&tag=1">Tracking of Moving Objects from a Moving Vehicle Using a Scanning Laser Rangefinder</a></h1><h2 id="摘抄-2"><a href="#摘抄-2" class="headerlink" title="摘抄"></a>摘抄</h2><blockquote>
-<p>跟踪的主要步骤是：分割，特征提取，数据关联，卡尔曼滤波和跟踪验证<br>“在 [16] 中，采用加权最小二乘法去除离群点，将不完整的轮廓拟合到矩形模型中。考虑到遮挡问题，在 [16] 中同时进行了线拟合和直角角拟合，只有当角拟合明显好于线拟合时，才选择角拟合。”</p>
-</blockquote>
-<blockquote>
-<p>试拟合后，最差的20％的点将被丢弃。我们还对密集采样的区域（由于距离扫描仪较近）减轻了点的权重。<br>The scanner can see at most two sides of the rectangle,<br>尝试将对象中心用作参考点被证明是徒劳的，因为很少能直接测量中心。</p>
-</blockquote>
-<h2 id="思考-1"><a href="#思考-1" class="headerlink" title="思考"></a>思考</h2><p>提到一些用于跟踪的卡尔曼滤波的方法值得参考：<br>    1. 用跟踪解决雷达稀疏效应造成的过分割和无效点，以及近处遮挡造成的分块<br>    2. 将噪声分成两部分：静态噪声和自适应噪声，分别由于硬件限制和分割拟合算法造成。<strong>其中自适应噪声用了前15次测量的预测值和观测值之间的残差的协方差矩阵作为噪音矩阵，再加上静态噪声的倍数确保下限。</strong>每次误差中心偏离零值过多再利用观测值重置。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/25/%E7%A0%94%E7%A9%B6%E7%94%9F/L-ShapeFitting4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -778,7 +527,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -792,7 +541,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">科普常识收集</a>
+            <a href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/" class="post-title-link" itemprop="url">L-Shape-Fitting3</a>
         </h2>
 
         <div class="post-meta-container">
@@ -803,14 +552,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-07-25 16:15:29" itemprop="dateCreated datePublished" datetime="2020-07-25T16:15:29+08:00">2020-07-25</time>
+      <time title="创建时间：2019-12-16 10:37:20" itemprop="dateCreated datePublished" datetime="2019-12-16T10:37:20+08:00">2019-12-16</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:53:56" itemprop="dateModified" datetime="2020-10-21T20:53:56+08:00">2020-10-21</time>
+        <time title="修改时间：2020-10-21 21:06:50" itemprop="dateModified" datetime="2020-10-21T21:06:50+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -822,7 +571,7 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
         </span>
     </span>
 
@@ -835,8 +584,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -850,13 +599,235 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="1-距离变换"><a href="#1-距离变换" class="headerlink" title="1 距离变换"></a>1 距离变换</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/trent1985/article/details/18081761">优秀链接</a>： </p>
-<p>主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊</p>
-<p>假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:</p>
-<p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20201021204631120.png" alt="image-20201021204631120"></p>
+          <p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header">链接</a></p>
+<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
+<li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
+<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"></li>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#more" rel="contents">
+              <a class="btn" href="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/" class="post-title-link" itemprop="url">L-Shape_Fitting2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-13 10:04:20" itemprop="dateCreated datePublished" datetime="2019-12-13T10:04:20+08:00">2019-12-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 21:06:42" itemprop="dateModified" datetime="2020-10-21T21:06:42+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><em>Come from 《Efficient Rectangle Fitting of Sparse Laser Data for Robust On-Road Object Detection 2018，IV》,也是上篇论文的衍生文章。</em></p>
+<h1 id="应用文献"><a href="#应用文献" class="headerlink" title="应用文献"></a>应用文献</h1><blockquote>
+<p>F. U. Siddiqui, S. W. Teng, G. Lu, and M. Awrangjeb, “An improved building detection in complex sites using the lidar height variation and point density,” in International Conferenceon mage and Vision Computing New Zealand, 2013.</p>
+</blockquote>
+<p>generates a height map by using height threshold and extracts only <strong><em>parallel edges</em></strong> to fit a rectangle model.</p>
+<h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" class="post-title-link" itemprop="url">L-Shape fitting</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-12 10:00:00" itemprop="dateCreated datePublished" datetime="2019-12-12T10:00:00+08:00">2019-12-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 21:06:25" itemprop="dateModified" datetime="2020-10-21T21:06:25+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/LiDAR/" itemprop="url" rel="index"><span itemprop="name">LiDAR</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456">范文</a></p>
+<h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
+<h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+<img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
