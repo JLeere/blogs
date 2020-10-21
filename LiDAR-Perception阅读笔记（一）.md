@@ -29,7 +29,7 @@ git checkout -b dev_Lee
 - node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),
 - rviz(显示的配置设置)
 
-## catkin_make
+## 编译
 
 配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.
 
@@ -114,6 +114,8 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 ## openCV
 
 ## PCL
+
+## std
 
 
 
