@@ -1,13 +1,13 @@
 ---
 title: C++知识点学习笔记(一)
 date: 2020-05-14 22:47:00
-# updateDate: 2020-10-19 13:00:00
 categories:
 - 编程学习
 - C++
 tags:
 - C++
-# top: 100
+top: 1
+photos: https://i0.hdslb.com/bfs/article/36fc1b8a3de1bea5fb6628ed4965d3b53502f484.jpg@1320w_864h.webp #/images/cat1.webp
 ---
 
 # 2020年5月
@@ -38,6 +38,8 @@ int numJewelsInStones(string J, string S) {
         return sum;
     }
 ```
+
+<!--more-->
 
 ## [声明和定义](https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html)
 
@@ -249,4 +251,4 @@ shared_ptr<string> sp1;//初始化
 shared_ptr<int> p1 = make_shared<int>(20);
 auto p1 = make_shared<int>(20);
 ```
-hhhhhhhhhh
+
