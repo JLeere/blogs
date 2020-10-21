@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://www.jaylee.top/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result2.png">
 <meta property="og:image" content="https://www.jaylee.top/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/result3.png">
 <meta property="article:published_time" content="2019-12-13T02:04:20.000Z">
-<meta property="article:modified_time" content="2020-10-21T12:38:50.422Z">
+<meta property="article:modified_time" content="2020-10-21T12:54:05.860Z">
 <meta property="article:author" content="J.Lee">
 <meta property="article:tag" content="L形状拟合">
 <meta property="article:tag" content="点云">
@@ -340,7 +340,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-21 20:38:50" itemprop="dateModified" datetime="2020-10-21T20:38:50+08:00">2020-10-21</time>
+        <time title="修改时间：2020-10-21 20:54:05" itemprop="dateModified" datetime="2020-10-21T20:54:05+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -388,9 +388,9 @@
 <h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p>
 <h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol>
 <li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/concave.png"><center>concavity determination</center></li>
-<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。</li>
+<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。<a id="more"></a>
+<img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/curve.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/f.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/CTAGC.png"><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></li>
 </ol>
-<p><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/curve.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/f.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/CTAGC.png"><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></p>
 <h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><ol>
 <li>NUA（normalized unoverlapped area）：未重叠的面积与真值的比</li>
 <li>角度误差</li>

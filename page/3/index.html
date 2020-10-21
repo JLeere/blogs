@@ -294,6 +294,115 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" class="post-title-link" itemprop="url">Eigen学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-13 20:05:29" itemprop="dateCreated datePublished" datetime="2020-10-13T20:05:29+08:00">2020-10-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-19 23:05:03" itemprop="dateModified" datetime="2020-10-19T23:05:03+08:00">2020-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>参考网站: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36772345">https://zhuanlan.zhihu.com/p/36772345</a></p>
+<p><a target="_blank" rel="noopener" href="http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html">参考博客</a></p>
+<p>官方教程: <a target="_blank" rel="noopener" href="https://eigen.tuxfamily.org/dox/group__QuickRefPage.html">https://eigen.tuxfamily.org/dox/group__QuickRefPage.html</a></p>
+<h1 id="CMake库中的声明"><a href="#CMake库中的声明" class="headerlink" title="CMake库中的声明"></a>CMake库中的声明</h1><p>Eigen库本身全是头文件，只需要将头文件包含到路径中即可。</p>
+<h2 id="方法1-修改vscode环境配置"><a href="#方法1-修改vscode环境配置" class="headerlink" title="方法1 修改vscode环境配置"></a>方法1 修改vscode环境配置</h2><p><a href="./vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F.md">vscode配置C++程序.md</a></p>
+<h2 id="方法2-CMake工具"><a href="#方法2-CMake工具" class="headerlink" title="方法2 CMake工具"></a>方法2 CMake工具</h2><p>利用Cmake文件将包含路径写进去。</p>
+<p><em>cmake也可以在vscode中利用cmake tool工具读入，自动包含路径，而无需再对vscode进行配置</em></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#寻找库Eigen</span></span><br><span class="line"><span class="keyword">find_package</span>(Eigen3 REQUIRED)</span><br><span class="line"><span class="comment">#把库包含进去</span></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;EIGEN3_INCLUDE_DIRS&#125;</span>)</span><br><span class="line"><span class="comment">#因为只有头文件，因此不需要target_link_libraries</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -973,7 +1082,7 @@
 
 <h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
 
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a target="_blank" rel="noopener" href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>:xiaozhenc/rep<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a target="_blank" rel="noopener" href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;</a>:xiaozhenc/rep<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;">&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>“</p>
 
       
     </div>
@@ -1331,188 +1440,6 @@
 </ul>
 <p>学习网站:B站莫烦python</p>
 <p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" class="post-title-link" itemprop="url">CXX学习笔记(一)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-06-28 21:00:14" itemprop="dateCreated datePublished" datetime="2020-06-28T21:00:14+08:00">2020-06-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-11 20:27:52" itemprop="dateModified" datetime="2020-10-11T20:27:52+08:00">2020-10-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数friends"><a href="#友元函数friends" class="headerlink" title="友元函数friends"></a>友元函数friends</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
-<p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        rect(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            width = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*width;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(rect B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p><code>class A : public B</code></p>
-<p>A为派生类(子类)derive, B为基类(父类)base</p>
-<p>A类公有继承B类(public), 即A类可以访问B类所有公有和保护的成员(public,protect),但不能访问B类的私有成员.</p>
-<h2 id="虚函数和纯虚函数"><a href="#虚函数和纯虚函数" class="headerlink" title="虚函数和纯虚函数"></a><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-virtual-functions.html">虚函数和纯虚函数</a></h2><p><strong>虚函数</strong>: 基类函数最前面添加<code>virtual</code>指令, 父类中定义了虚函数的一种实现方式,子类中可以存在与之同名同参数同返回值的成员函数,并给出<em>不同的实现</em>.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 虚函数允许派生类不同的实现</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A::foo() is called&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B::foo() is called&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A *a = <span class="keyword">new</span> B();</span><br><span class="line">    a-&gt;foo();   <span class="comment">// 在这里，a虽然是指向A的指针，但是被调用的函数(foo)却是B的!因此输出显示&quot;B::foo() is called&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>纯虚函数</strong>: 当父类是一种抽象类,比如动物,是无法定义一个具体的对象实例的,因此不能得到其animalType. 所以定义一个纯虚函数,让子类(比如大象)自己去定义编写.</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">animalType</span><span class="params">()</span> </span>= <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>作用就是规范类的接口.</p>
-<p><em>注意的是有纯虚函数定义的类是不能初始化实例对象的.而虚函数是必须要有定义的,否则会报错.</em></p>
-<h1 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;x=%d&quot;</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">	gets();</span><br><span class="line">	getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
-<h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/challenger-vip/p/3386819.html">条件编译</a></h2><p><code>#ifndef，#define，#endif</code></p>
-<p>ifndef: if not define. 实例：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> x                 <span class="comment">//先测试x是否被宏定义过</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x</span></span><br><span class="line">   程序段<span class="number">1b</span>labla~    <span class="comment">//如果x没有被宏定义过，定义x，并编译程序段 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>   </span></span><br><span class="line">　　程序段<span class="number">2b</span>labla~　　 <span class="comment">//如果x已经定义过了则编译程序段2的语句，“忽视”程序段 1</span></span><br></pre></td></tr></table></figure>
-
-<p>主要目的是防止头文件的重复编译和包含。避免多个cpp文件都包含同一个h文件时，全局变量被重定义的错误。</p>
-<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="default，-delete"><a href="#default，-delete" class="headerlink" title="=default，=delete"></a><code>=default，=delete</code></h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lsgxeva/p/7787438.html">参考链接</a></p>
-<p>四类特殊的成员函数：构造函数、析构函数、拷贝构造函数、拷贝赋值函数。负责类的对象的创建、初始化、销毁、和拷贝。</p>
-<p>C++11 标准引入了一个新特性：”=default”函数。程序员只需在函数声明后加上“=default;”，就可将该函数声明为 “=default”函数，编译器将为显式声明的 “=default”函数自动生成函数体。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &quot;=default&quot;函数既可以在类体里（inline）定义，也可以在类体外（out-of-line）定义。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X2() = <span class="keyword">default</span>; <span class="comment">//Inline defaulted 默认构造函数</span></span><br><span class="line">    X2(<span class="keyword">const</span> X&amp;);</span><br><span class="line">    X2&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;);</span><br><span class="line">    ~X2() = <span class="keyword">default</span>;  <span class="comment">//Inline defaulted 析构函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">X2::X2(<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;  <span class="comment">//Out-of-line defaulted 拷贝构造函数</span></span><br><span class="line">X2&amp; X2::<span class="keyword">operator</span>= (<span class="keyword">const</span> X2&amp;) = <span class="keyword">default</span>;   <span class="comment">//Out-of-line defaulted  拷贝赋值操作符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为了能够让程序员显式的禁用某个函数，C++11 标准引入了一个新特性：&quot;=delete&quot;函数。程序员只需在函数声明后上“=delete;”，就可将该函数禁用。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X3();</span><br><span class="line">    X3(<span class="keyword">const</span> X3&amp;) = <span class="keyword">delete</span>;  <span class="comment">// 声明拷贝构造函数为 deleted 函数</span></span><br><span class="line">    X3&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X3 &amp;) = <span class="keyword">delete</span>; <span class="comment">// 声明拷贝赋值操作符为 deleted 函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="include"><a href="#include" class="headerlink" title="#include"></a>#include<functional></functional></h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f191e88dcc80">链接一</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/shuilan0066/article/details/82788954">链接二</a></p>
-<h3 id="std-function"><a href="#std-function" class="headerlink" title="std::function"></a>std::function</h3><blockquote>
-<ul>
-<li><p>定义格式：std::function&lt;函数返回值类型（函数输入参数类型）&gt;。</p>
-</li>
-<li><p>std::function可以取代函数指针的作用，因为它可以延迟函数的执行，特别适合作为回调函数使用。它比普通函数指针更加的灵活和便利。</p>
-</li>
-</ul>
-</blockquote>
-<p>它是一类函数的模板，给具有相同输入输出类型的函数或方法重命名，需要传入这个函数，同时需要说明&lt;返回值(输入参数)&gt;，如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>,<span class="keyword">int</span>)&gt; f = functionname_add();</span><br></pre></td></tr></table></figure>
-
-<p>对于类成员函数的替代如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> T <span class="title">AddT</span><span class="params">(T i, T j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">AddN</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这几个函数都是int(int,int)类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//1、 类静态函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; f = &amp;Computer::Add;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; f(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//2、 类静态模板函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; ft = &amp;Computer::AddT&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ft(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//成员函数绑定  需要构造类对象</span></span><br><span class="line">	Computer c;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//3、 成员函数 需使用bind,将类对象地址 &amp;c 绑定上</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN = <span class="built_in">std</span>::bind(&amp;Computer::AddN, &amp;c, placeholders::_1, placeholders::_2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="comment">//4、普通函数， 也可以这样调用  个人觉得这个比 bind 麻烦，不建议</span></span><br><span class="line">	<span class="built_in">std</span>::function &lt;<span class="keyword">int</span>(<span class="keyword">const</span> Computer ＆, <span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN2 = &amp;Computer::AddN;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN2(c,<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><p>参见链接二。</p>
-<blockquote>
-<p>std::bind将可调用对象与其参数一起进行绑定，绑定后的结果可以使用std::function保存。std::bind主要有以下两个作用：</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>将可调用对象和其参数绑定成一个防函数；</li>
-<li>只绑定部分参数，减少可调用对象传入的参数。</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">my_divide</span> <span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;<span class="keyword">return</span> x/y;&#125;</span><br><span class="line"><span class="keyword">auto</span> fn_half = <span class="built_in">std</span>::bind (my_divide,_1,<span class="number">2</span>);  </span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; fn_half(<span class="number">10</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;               </span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是函数，被隐式转换为了函数指针，</p>
-<p>第二个参数_1表示占位符，std::placeholders::__1</p>
-<p>第三个参数便是输入值double y为2</p>
-<h3 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h3><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/623.html">http://c.biancheng.net/view/623.html</a></p>
-<p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
-<p>一元函数情况下包含3个参数：</p>
-<ul>
-<li>数组</li>
-<li>输出的存储数组</li>
-<li>函数/匿名函数</li>
-</ul>
-<p>二元函数情况下包括5个参数：</p>
-<ul>
-<li><p>第一个变量的数组的开始</p>
-</li>
-<li><p>第一个变量的数组的结束</p>
-</li>
-<li><p>第二个变量的数组</p>
-</li>
-<li><p>输出的保存数组</p>
-</li>
-<li><p>处理函数/匿名函数</p>
-</li>
-</ul>
 
       
     </div>

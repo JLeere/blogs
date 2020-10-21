@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++知识点学习笔记(一)</title>
+    <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
+<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
+<p>相关函数查一查。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html">声明和定义</a></h2><blockquote>
+<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
+</blockquote>
+<blockquote>
+<p>所以有回复说：</p>
+<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line"><span class="function">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sp</span><span class="params">(p)</span></span>;</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
+<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
+<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.begin(); it != vect.end(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
+
+<p>一般是以上形式: </p>
+<ul>
+<li>方括号[]开始, 用于捕捉外部参数变量;</li>
+<li>圆括号()类似函数体的输入参数</li>
+<li>花括号{} 是函数主体</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
+
+<p>完全格式:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
+<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
+<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
+<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><p>参考链接: <a href="https://www.runoob.com/w3cnote/cpp-static-usage.html">https://www.runoob.com/w3cnote/cpp-static-usage.html</a></p>
+<h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>将变量存放在<strong>静态内存</strong>中,必须在程序一开始就存在(被初始化),并在程序结束后自动销毁. 不能在函数内被分配空间和初始化.</p>
+<blockquote>
+<p>这样，它的空间分配有三个可能的地方，一是作为类的外部接口的头文件，那里有类声明；二是类定义的内部实现，那里有类的成员函数定义；三是应用程序的 main() 函数前的全局数据声明和定义处</p>
+</blockquote>
+<p>早期使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
+<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
+<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可通过类的对象,引用,指针访问静态成员</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>成员函数可直接调用静态成员</p>
+</li>
+<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
+</li>
+</ul>
+<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义33333虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
+<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
+<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
+<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
+<h2 id="动态内存和智能指针"><a href="#动态内存和智能指针" class="headerlink" title="动态内存和智能指针"></a>动态内存和智能指针</h2><p><strong>静态内存</strong>:存放static对象和类的static成员,以及定义在函数体外部的变量. 在使用之前自动分配,在程序结束时候自动销毁.</p>
+<p><strong>栈</strong>: 保存定义在函数内的非static对象, 仅存在于该程序块运行的生命周期中</p>
+<p><strong>堆</strong>: 用来储存动态分配的对象, 即动态对象的生存期由程序自己控制. 传统使用<code>new/delete</code>分配和销毁内存. 因此很容易造成内存泄露和引用非法内存的指针.所以引入更容易和安全的只能指针: <code>shared_ptr</code>, <code>unique_ptr</code>,``weak_ptr`</p>
+<h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h3><p>多个指针指向同一个对象地址,每次被引用都增加一个引用计数,当该引用计数清零时候调出析构函数释放该动态内存.  <code>p1.use_count()</code>,返回该智能指针的引用计数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; sp1;<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//make_shared函数,尖括号是返回值类型,圆括号为类的构造函数的参数</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">auto</span> p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cmake(一)</title>
     <url>/2020/10/05/CMake%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
@@ -101,100 +195,6 @@
       </tags>
   </entry>
   <entry>
-    <title>C++知识点学习笔记(一)</title>
-    <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html">声明和定义</a></h2><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line"><span class="function">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sp</span><span class="params">(p)</span></span>;</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.begin(); it != vect.end(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
-
-<p>一般是以上形式: </p>
-<ul>
-<li>方括号[]开始, 用于捕捉外部参数变量;</li>
-<li>圆括号()类似函数体的输入参数</li>
-<li>花括号{} 是函数主体</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
-
-<p>完全格式:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
-<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
-<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
-
-<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
-<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><p>参考链接: <a href="https://www.runoob.com/w3cnote/cpp-static-usage.html">https://www.runoob.com/w3cnote/cpp-static-usage.html</a></p>
-<h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>将变量存放在<strong>静态内存</strong>中,必须在程序一开始就存在(被初始化),并在程序结束后自动销毁. 不能在函数内被分配空间和初始化.</p>
-<blockquote>
-<p>这样，它的空间分配有三个可能的地方，一是作为类的外部接口的头文件，那里有类声明；二是类定义的内部实现，那里有类的成员函数定义；三是应用程序的 main() 函数前的全局数据声明和定义处</p>
-</blockquote>
-<p>早期使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
-<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
-<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可通过类的对象,引用,指针访问静态成员</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>成员函数可直接调用静态成员</p>
-</li>
-<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
-</li>
-</ul>
-<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义33333虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
-<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
-<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
-<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
-<h2 id="动态内存和智能指针"><a href="#动态内存和智能指针" class="headerlink" title="动态内存和智能指针"></a>动态内存和智能指针</h2><p><strong>静态内存</strong>:存放static对象和类的static成员,以及定义在函数体外部的变量. 在使用之前自动分配,在程序结束时候自动销毁.</p>
-<p><strong>栈</strong>: 保存定义在函数内的非static对象, 仅存在于该程序块运行的生命周期中</p>
-<p><strong>堆</strong>: 用来储存动态分配的对象, 即动态对象的生存期由程序自己控制. 传统使用<code>new/delete</code>分配和销毁内存. 因此很容易造成内存泄露和引用非法内存的指针.所以引入更容易和安全的只能指针: <code>shared_ptr</code>, <code>unique_ptr</code>,``weak_ptr`</p>
-<h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h3><p>多个指针指向同一个对象地址,每次被引用都增加一个引用计数,当该引用计数清零时候调出析构函数释放该动态内存.  <code>p1.use_count()</code>,返回该智能指针的引用计数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; sp1;<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//make_shared函数,尖括号是返回值类型,圆括号为类的构造函数的参数</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">auto</span> p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PCL基础知识</title>
     <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
@@ -283,27 +283,6 @@
 <li>模板库</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;() </span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -409,11 +388,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Vector</title>
-    <url>/2019/12/19/CXX/Vector/</url>
-    <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">学习教材</a><br>学习要及时总结</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">obj</span><span class="params">(N)</span></span>;<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="title">obj2</span><span class="params">(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M))</span></span>;<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.clear();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.end());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.end());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.end();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
+    <title>C++ 知识点</title>
+    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;() </span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
+
+<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>第一个const修饰的是引用的内容为常量不能修改</p>
+<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
+<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -497,6 +483,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Vector</title>
+    <url>/2019/12/19/CXX/Vector/</url>
+    <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">学习教材</a><br>学习要及时总结</p>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">obj</span><span class="params">(N)</span></span>;<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="title">obj2</span><span class="params">(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M))</span></span>;<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.clear();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.end());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.end());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.end();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Github学习笔记</title>
     <url>/2020/06/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
@@ -533,7 +533,7 @@
 
 <h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
 
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x65;&#x6d;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#x6f;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;">&#x65;&#109;&#97;&#105;&#x6c;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;</a>“</p>
 ]]></content>
       <categories>
         <category>工具技能</category>
@@ -541,145 +541,6 @@
       </categories>
       <tags>
         <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo&amp;github blog搭建指南</title>
-    <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw==&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc=&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa+w52NrKcem6YVv7i/fQ7Er4Sfm7KAQ">github*Hexo搭建网站参考网站</a></li>
-<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798">https://zhuanlan.zhihu.com/p/98782798</a></li>
-<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
-<li><a href="https://io-oi.me/tech/hexo-next-optimization/">参考博文</a><a id="more"></a>
-
-</li>
-</ul>
-<h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
-<li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
-<li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
-<li>md语法参考文章<a href="./markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97.md">markdown书写指南</a></li>
-<li>插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。</li>
-</ol>
-<h1 id="Hexo发布到网页"><a href="#Hexo发布到网页" class="headerlink" title="Hexo发布到网页"></a>Hexo发布到网页</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h1 id="Github站点配置"><a href="#Github站点配置" class="headerlink" title="Github站点配置"></a>Github站点配置</h1><p>hexo提供了很多主题: <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
-<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ol>
-<li>Next主题,黑白那种:<a href="https://theme-next.js.org/docs/advanced-settings/custom-files.html">https://theme-next.js.org/docs/advanced-settings/custom-files.html</a></li>
-<li>Sakura二次元主题:<a href="https://docs.hojun.cn/sakura/docs/#/home">https://docs.hojun.cn/sakura/docs/#/home</a></li>
-<li>diaspora二次元主题:<a href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a></li>
-</ol>
-<h2 id="按更新时间排序文章"><a href="#按更新时间排序文章" class="headerlink" title="按更新时间排序文章"></a>按更新时间排序文章</h2><blockquote>
-<p>我用的 VSCode 写博客，所以选择了这个工具 <a href="https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring">Insert Date String</a>。安装好后，OS X 按 <code>⇧ + ⌘ + I</code>，Windows 和 Linux 按 <code>Ctrl + Shift + I</code>，即可插入当前时间了，体验很爽的！</p>
-<p>有了修改时间，我们再修改默认配置文件就能实现按 updated 排序了，如下。</p>
-<p>找到主配置文件 <code>_config.yml</code>，然后修改 <code>index_generator</code> 的 <code>order_by</code> 为 <code>-updated</code> 即可:</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Home page setting</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> path: Root path <span class="keyword">for</span> your blogs index page. (default = <span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> per_page: Posts displayed per page. (0 = <span class="built_in">disable</span> pagination)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;&#x27;</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -updated</span><br></pre></td></tr></table></figure>
-<p>最方便的方法:下载<code>hexo-generator-index-plus</code>,去官网搜索.</p>
-<h2 id="修改主页摘要"><a href="#修改主页摘要" class="headerlink" title="修改主页摘要"></a>修改主页摘要</h2><ol>
-<li>方法一<br>在文中添加分隔符:<code>&lt;!--more--&gt;</code></li>
-<li>方法二<br>在文章头部添加description:这是描述</li>
-<li>方法三<br>自动生成摘要.在主题配置文件中加<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ROS入门(一)</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8(%E4%B8%80)/</url>
-    <content><![CDATA[<p>官方学习文档：<a href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
-<h2 id="移动硬盘-Ubuntu-16-04系统安装"><a href="#移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="移动硬盘 Ubuntu 16.04系统安装"></a>移动硬盘 Ubuntu 16.04系统安装</h2><p><a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">见这篇文章</a></p>
-<h2 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04"></a>Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
-<h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p>
-<blockquote>
-<p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p>
-</blockquote>
-<h2 id="ROS准备"><a href="#ROS准备" class="headerlink" title="ROS准备"></a>ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html">建立ROS工作空间</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/setup.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo <span class="string">&quot;source my_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>可以查看系统包含的package路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROS概念"><a href="#ROS概念" class="headerlink" title="ROS概念"></a>ROS概念</h2><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
-<blockquote>
-<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5">MOOC ROS入门视频：</a></p>
-</blockquote>
-<h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p>
-<blockquote>
-<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
-</blockquote>
-<h2 id="ROS项目操作"><a href="#ROS项目操作" class="headerlink" title="ROS项目操作"></a>ROS项目操作</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
-<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
-<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
-<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
-<h2 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668">Hello world</a></h3><p><strong>流程：</strong></p>
-<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
-<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
-<h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown语法</title>
-    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
-<ol>
-<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
-<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
-<li>句子前添加符号”&gt;”</li>
-</ol>
-<blockquote>
-<p>这是引用的内容 </p>
-</blockquote>
-<ol start="6">
-<li>*<em>加粗两对</em>星号**</li>
-<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
-<li>多行代码, “<strong>```C++</strong>“</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li><p>表格</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -748,6 +609,168 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo&amp;github blog搭建指南</title>
+    <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw==&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc=&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa+w52NrKcem6YVv7i/fQ7Er4Sfm7KAQ">github*Hexo搭建网站参考网站</a></li>
+<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798">https://zhuanlan.zhihu.com/p/98782798</a></li>
+<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
+<li><a href="https://io-oi.me/tech/hexo-next-optimization/">参考博文</a><a id="more"></a>
+
+</li>
+</ul>
+<h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
+<li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
+<li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
+<li>md语法参考文章<a href="./markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97.md">markdown书写指南</a></li>
+<li>插入图片最好的方法，在<code>/_post</code>下面建立同名文件夹<code>hexo n mdName</code>,将图片放入该文件夹下。</li>
+</ol>
+<h1 id="Hexo发布到网页"><a href="#Hexo发布到网页" class="headerlink" title="Hexo发布到网页"></a>Hexo发布到网页</h1><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<p><code>hexo clean</code> 删除public缓存<br><code>hexo g</code>生成<br><code>hexo s</code>本地服务器<br><code>hexo d</code>部署到github，deploy<br><code>sh deploy.sh</code> 一键部署</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h1 id="Github站点配置"><a href="#Github站点配置" class="headerlink" title="Github站点配置"></a>Github站点配置</h1><p>hexo提供了很多主题: <a href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><ol>
+<li>Next主题,黑白那种:<a href="https://theme-next.js.org/docs/advanced-settings/custom-files.html">https://theme-next.js.org/docs/advanced-settings/custom-files.html</a></li>
+<li>Sakura二次元主题:<a href="https://docs.hojun.cn/sakura/docs/#/home">https://docs.hojun.cn/sakura/docs/#/home</a></li>
+<li>diaspora二次元主题:<a href="https://github.com/Fechin/hexo-theme-diaspora">https://github.com/Fechin/hexo-theme-diaspora</a></li>
+</ol>
+<h2 id="按更新时间排序文章"><a href="#按更新时间排序文章" class="headerlink" title="按更新时间排序文章"></a>按更新时间排序文章</h2><blockquote>
+<p>我用的 VSCode 写博客，所以选择了这个工具 <a href="https://marketplace.visualstudio.com/items?itemName=jsynowiec.vscode-insertdatestring">Insert Date String</a>。安装好后，OS X 按 <code>⇧ + ⌘ + I</code>，Windows 和 Linux 按 <code>Ctrl + Shift + I</code>，即可插入当前时间了，体验很爽的！</p>
+<p>有了修改时间，我们再修改默认配置文件就能实现按 updated 排序了，如下。</p>
+<p>找到主配置文件 <code>_config.yml</code>，然后修改 <code>index_generator</code> 的 <code>order_by</code> 为 <code>-updated</code> 即可:</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Home page setting</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> path: Root path <span class="keyword">for</span> your blogs index page. (default = <span class="string">&#x27;&#x27;</span>)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> per_page: Posts displayed per page. (0 = <span class="built_in">disable</span> pagination)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;&#x27;</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -updated</span><br></pre></td></tr></table></figure>
+<p>最方便的方法:下载<code>hexo-generator-index-plus</code>,去官网搜索.</p>
+<h2 id="修改主页摘要"><a href="#修改主页摘要" class="headerlink" title="修改主页摘要"></a>修改主页摘要</h2><ol>
+<li>方法一<br>在文中添加分隔符:<code>&lt;!--more--&gt;</code></li>
+<li>方法二<br>在文章头部添加description:这是描述</li>
+<li>方法三<br>自动生成摘要.在主题配置文件中加<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true</span><br><span class="line">  length: 150</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu常用问题记录</title>
+    <url>/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
+<p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p>
+<p>脚本格式如下:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure>
+
+<p>2.将这个脚本添加到开机启动的服务中.<a href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">参考链接</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>
+
+<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chown lee:lee rslidar_sdk/ -R</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu小操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown语法</title>
+    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
+<ol>
+<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
+<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
+<li>句子前添加符号”&gt;”</li>
+</ol>
+<blockquote>
+<p>这是引用的内容 </p>
+</blockquote>
+<ol start="6">
+<li>*<em>加粗两对</em>星号**</li>
+<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
+<li>多行代码, “<strong>```C++</strong>“</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><p>表格</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS入门(一)</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E5%85%A5%E9%97%A8(%E4%B8%80)/</url>
+    <content><![CDATA[<p>官方学习文档：<a href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
+<h2 id="移动硬盘-Ubuntu-16-04系统安装"><a href="#移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="移动硬盘 Ubuntu 16.04系统安装"></a>移动硬盘 Ubuntu 16.04系统安装</h2><p><a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">见这篇文章</a></p>
+<h2 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04"></a>Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
+<h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p>
+<blockquote>
+<p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p>
+</blockquote>
+<h2 id="ROS准备"><a href="#ROS准备" class="headerlink" title="ROS准备"></a>ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html">建立ROS工作空间</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/setup.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo <span class="string">&quot;source my_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>可以查看系统包含的package路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
+
+<h2 id="ROS概念"><a href="#ROS概念" class="headerlink" title="ROS概念"></a>ROS概念</h2><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
+<blockquote>
+<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5">MOOC ROS入门视频：</a></p>
+</blockquote>
+<h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p>
+<blockquote>
+<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
+</blockquote>
+<h2 id="ROS项目操作"><a href="#ROS项目操作" class="headerlink" title="ROS项目操作"></a>ROS项目操作</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
+<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
+<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
+<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
+<h2 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668">Hello world</a></h3><p><strong>流程：</strong></p>
+<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
+<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
+<h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
+<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
+<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
+<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vscode下调试运行ROS程序</title>
     <url>/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/</url>
     <content><![CDATA[<p>vscode编辑器下调试ROS程序配置,主要利用Cmake工具编译,配置好.vscode/下的设置文件*.json</p>
@@ -791,29 +814,6 @@
       <tags>
         <tag>ROS</tag>
         <tag>vscode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu常用问题记录</title>
-    <url>/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
-<p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p>
-<p>脚本格式如下:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure>
-
-<p>2.将这个脚本添加到开机启动的服务中.<a href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">参考链接</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure>
-
-<h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>
-
-<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chown lee:lee rslidar_sdk/ -R</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>工具技能</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu小操作</tag>
       </tags>
   </entry>
   <entry>
@@ -907,69 +907,6 @@
       </tags>
   </entry>
   <entry>
-    <title>科学常识收集(一)</title>
-    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
-    <content><![CDATA[<ul>
-<li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
-<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/1.png"></li>
-<li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
-<li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
-<li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
-<thead>
-<tr>
-<th align="center">颜色</th>
-<th align="center">代号</th>
-<th align="center">RGB</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">red</td>
-<td align="center">‘r’</td>
-<td align="center">[1 0 0]</td>
-</tr>
-<tr>
-<td align="center">green</td>
-<td align="center">‘g’</td>
-<td align="center">[0 1 0]</td>
-</tr>
-<tr>
-<td align="center">blue</td>
-<td align="center">‘b’</td>
-<td align="center">[0 0 1]</td>
-</tr>
-<tr>
-<td align="center">cyan</td>
-<td align="center">‘c’</td>
-<td align="center">[0 1 1]</td>
-</tr>
-<tr>
-<td align="center">magenta</td>
-<td align="center">‘m’</td>
-<td align="center">[1 0 1]</td>
-</tr>
-<tr>
-<td align="center">yellow</td>
-<td align="center">‘y’</td>
-<td align="center">[1 1 0]</td>
-</tr>
-<tr>
-<td align="center">‘black’</td>
-<td align="center">‘k’</td>
-<td align="center">[1 1 1]</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>笔记管理工具为知笔记/typora</title>
     <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
@@ -1003,50 +940,6 @@
       </tags>
   </entry>
   <entry>
-    <title>科普常识收集</title>
-    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
-<p>牛客网你值得拥有</p>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法小知识（一）</title>
-    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>What I Want todo</title>
     <url>/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/</url>
     <content><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
@@ -1069,6 +962,20 @@
       </categories>
       <tags>
         <tag>todolist</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句2</title>
+    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1102,20 +1009,6 @@
       <tags>
         <tag>旅游</tag>
         <tag>江浙沪</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>句2</title>
-    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1215,6 +1108,38 @@
       </tags>
   </entry>
   <entry>
+    <title>随笔10月20日</title>
+    <url>/2020/10/21/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<h1 id="2020年10月21日"><a href="#2020年10月21日" class="headerlink" title="2020年10月21日"></a>2020年10月21日</h1><p>秋招就这样告一段落吧, 我必须好好准备一下自己的身体, 思想, 和专业知识去迎接社会的摧残. </p>
+<a id="more"></a>
+
+<h2 id="1-现状"><a href="#1-现状" class="headerlink" title="1 现状"></a>1 现状</h2><p>我现在每每努力一小会就觉得已经拼命了, 并且那一小会也总是不能集中注意力到重要的事情, 要么搞一些无关紧要的事情，要么就是刷手机去了。我真的努力不起来了，这也是我害怕去考公务员的原因吧？</p>
+<p>另一个类似的现象就是每次开始工作的时候都要花一定时间去回顾上次干了什么，很多都忘记了，感觉到记性大不如前了。一个是可归结于工作不连续，时间过于零散造成的遗忘；另一方面就是记忆力真的下降了。大脑不用则退。</p>
+<p>最近对这个道理突然很有感慨：平时这个技巧偷个懒，那个问题摸个油，看起来与别人差别不大，但是<strong>认真待事的态度</strong>简直太差地别，积累到最后就可以通过offer的质量和数量残酷的摆在自己眼前，让自己震惊。有人说，大学中加入各种社团和学生会就是为了没有太大代价的提前进入“小社会”捶打自己认真安排各种事务和处理各种人际的能力。我一直有察觉自己有一股无所谓、与世无争、随遇而安、淡然身外物、不斤斤计较的气，以前还挺引以为傲的，直到近年来才发觉ta已经越来越拖累自己了。这种刻意的反复的想法，潜移默化的在潜意识中为自己打上了这个标签，频率高了就可谓弄假成真。发展到现在这股气现在已经发展成为逃避麻烦、畏难、敷衍了事、对什么事都失去强烈的兴趣此般“黑紫色的邪恶的气”。</p>
+<p>为什么这么说呢？举个例子，我真的很不明白为什么有人看个比赛能激动成那个样子，甚至是声泪俱下，我也有喜欢的队伍和比赛，但我顶多夸个666然后打住。或者说有人为了喜欢的姑娘那般投入时间和精力，那般愤怒那般快乐，而我和一个女生线上聊天都觉得折磨。<strong>我好像失去了什么</strong>。没有了强烈的情绪和兴趣，就连自己玩游戏也一副麻木的操作着，美其名曰娱乐至上。这种特质和我的另一个特点不谋而契合，那就是我做很多事情都是浮于表面，不能深入，不管是爱好还是专业知识。</p>
+<p>此般种种现象都指向同一个问题，我仿佛失去了什么。<em>是爱的能力？</em> 爱自己，直面自己内心和情绪；爱一件事情，体会事物内部的细节；爱别人；爱生活。没有爱，是因为自己没有认真对待上述每一样。有人说，多大决心办多大事。下决心，就是下决心去认真对待并认真执行。而我这股气就是在阻止我认真的态度！一味的怕麻烦逃避敷衍也许可以生存下去，但决不能好好的生活。</p>
+<h2 id="2分析"><a href="#2分析" class="headerlink" title="2分析"></a>2分析</h2><p>那么，是什么造成了我现在的困境呢？</p>
+<p>知乎问，<a href="https://www.zhihu.com/question/422796779/answer/1507988868">人这一辈子，最不能透支是什么？ - 温水公爵的回答 - 知乎</a> 或许这个回答能帮助我看清楚一些上述问题根源。</p>
+<blockquote>
+<p>Imagine life as a game in which you are juggling some five balls in the air. You name them <strong>work, family, health, friends and spirit</strong> and you re keeping all of these in the air.You will soon understand that work is a rubber ball.If you drop it, it will bounce back. But the other four balls family, health, friends, and spirit are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged, or even shattered. They will never be the same. You must understand that and strive for balance in your life.</p>
+</blockquote>
+<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>想要优质的物质和精神条件，就需要好好的利用时间。而在这之前是要有一个好好的身体。</p>
+<p>现在我年轻气盛，想要做到健康，关键就在于：<strong>节欲</strong>。人与人之间的智力差别并不大，而造成我与别人差距这么大的原因就是身体。</p>
+<p>纵欲的人，<strong>付出微小的代价就能收获很大的刺激</strong>(奶头乐），因而造成总是体力不支，精力不够，<em>做事总想赶紧完成，投入不够深</em>，<em>注意力不集中</em>，<em>长期记忆力变差</em>，别人在飞速学习的时候他就总需要休息。这种差距日积月累，在offer这个触发点上就清晰可见。</p>
+<p>想要改善自己的身体状况，那就是节欲，熬夜的欲望，赖床的欲望，性欲，食欲……。</p>
+<p>按时睡觉，早起吃早饭，男女之事不要过度，拒绝垃圾食品，拒绝抽烟喝酒，规律锻炼运动。</p>
+<p>看起来简单，多年前我也总结出来了，但实行起来，尤为困难。最大的难点就是早起吃早饭以及性欲的规律了。调整回来这两点之后，坑定会为我提高精力，去认真对待其他事件。</p>
+<h3 id="娱乐至死"><a href="#娱乐至死" class="headerlink" title="娱乐至死"></a>娱乐至死</h3><p>与上一个有异曲同工之处。奶头乐真正的危害是对于精神层面的。低代价的短期的高刺激满足感，正在一点点侵蚀掉我对于真正重要的低刺激的长期回报的事物的执行的动力。造成我努力一小会就觉得很拼命的错觉，行动力的上限条被很大程度削减了。特点，</p>
+<p>另一方面，如今零碎化的信息正充斥着我的生活的方方面面，知乎、哔哩哔哩、微信公众号……，他们碎片化的高刺激的特点，并善于伪装成有用的特点，极大程度的吸走了属于我自己的注意力和时间。每个人每天的注意力集中的程度是有上限的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>遇见百分百女孩</title>
     <url>/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/</url>
     <content><![CDATA[<img src="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/遇见百分百女孩.jpg" alt="遇见百分百女孩" style="zoom:50%;">
@@ -1245,12 +1170,120 @@
       </tags>
   </entry>
   <entry>
+    <title>科学常识收集(一)</title>
+    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
+    <content><![CDATA[<ul>
+<li><strong><em>arg</em></strong><br>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</li>
+<li><strong>the Hadamard product</strong>：<br><img src="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/1.png"></li>
+<li><strong>静态地图</strong>：可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</li>
+<li><strong>归一化</strong>: $$(x-min(x))/(max(x)-min(x))$$</li>
+<li><strong>matlab画图</strong><br>  line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线<br>  <strong>colorMap</strong>：<table>
+<thead>
+<tr>
+<th align="center">颜色</th>
+<th align="center">代号</th>
+<th align="center">RGB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">red</td>
+<td align="center">‘r’</td>
+<td align="center">[1 0 0]</td>
+</tr>
+<tr>
+<td align="center">green</td>
+<td align="center">‘g’</td>
+<td align="center">[0 1 0]</td>
+</tr>
+<tr>
+<td align="center">blue</td>
+<td align="center">‘b’</td>
+<td align="center">[0 0 1]</td>
+</tr>
+<tr>
+<td align="center">cyan</td>
+<td align="center">‘c’</td>
+<td align="center">[0 1 1]</td>
+</tr>
+<tr>
+<td align="center">magenta</td>
+<td align="center">‘m’</td>
+<td align="center">[1 0 1]</td>
+</tr>
+<tr>
+<td align="center">yellow</td>
+<td align="center">‘y’</td>
+<td align="center">[1 1 0]</td>
+</tr>
+<tr>
+<td align="center">‘black’</td>
+<td align="center">‘k’</td>
+<td align="center">[1 1 1]</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>科普常识收集</title>
+    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
+<blockquote>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
+</blockquote>
+<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
+</ol>
+<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
+<p>牛客网你值得拥有</p>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法小知识（一）</title>
+    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h1><h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
+<ul>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>常识库</category>
+      </categories>
+      <tags>
+        <tag>trips</tag>
+        <tag>小知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>科普常识收集</title>
     <url>/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h2 id="1-距离变换"><a href="#1-距离变换" class="headerlink" title="1 距离变换"></a>1 距离变换</h2><p><a href="https://blog.csdn.net/trent1985/article/details/18081761">优秀链接</a>： </p>
 <p>主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊</p>
 <p>假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:</p>
 <p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20201021204631120.png" alt="image-20201021204631120"></p>
+<a id="more"></a>
 <p>欧氏距离</p>
 <p>曼哈顿距离（街区距离）</p>
 <p>契比雪夫距离（棋盘距离）可以理解为国际象棋的王后的走法：</p>
@@ -1270,38 +1303,6 @@
       </categories>
       <tags>
         <tag>CV</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随笔10月20日</title>
-    <url>/2020/10/21/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/</url>
-    <content><![CDATA[<h1 id="2020年10月21日"><a href="#2020年10月21日" class="headerlink" title="2020年10月21日"></a>2020年10月21日</h1><p>秋招就这样告一段落吧, 我必须好好准备一下自己的身体, 思想, 和专业知识去迎接社会的摧残. </p>
-<a id="more"></a>
-
-<h2 id="1-现状"><a href="#1-现状" class="headerlink" title="1 现状"></a>1 现状</h2><p>我现在每每努力一小会就觉得已经拼命了, 并且那一小会也总是不能集中注意力到重要的事情, 要么搞一些无关紧要的事情，要么就是刷手机去了。我真的努力不起来了，这也是我害怕去考公务员的原因吧？</p>
-<p>另一个类似的现象就是每次开始工作的时候都要花一定时间去回顾上次干了什么，很多都忘记了，感觉到记性大不如前了。一个是可归结于工作不连续，时间过于零散造成的遗忘；另一方面就是记忆力真的下降了。大脑不用则退。</p>
-<p>最近对这个道理突然很有感慨：平时这个技巧偷个懒，那个问题摸个油，看起来与别人差别不大，但是<strong>认真待事的态度</strong>简直太差地别，积累到最后就可以通过offer的质量和数量残酷的摆在自己眼前，让自己震惊。有人说，大学中加入各种社团和学生会就是为了没有太大代价的提前进入“小社会”捶打自己认真安排各种事务和处理各种人际的能力。我一直有察觉自己有一股无所谓、与世无争、随遇而安、淡然身外物、不斤斤计较的气，以前还挺引以为傲的，直到近年来才发觉ta已经越来越拖累自己了。这种刻意的反复的想法，潜移默化的在潜意识中为自己打上了这个标签，频率高了就可谓弄假成真。发展到现在这股气现在已经发展成为逃避麻烦、畏难、敷衍了事、对什么事都失去强烈的兴趣此般“黑紫色的邪恶的气”。</p>
-<p>为什么这么说呢？举个例子，我真的很不明白为什么有人看个比赛能激动成那个样子，甚至是声泪俱下，我也有喜欢的队伍和比赛，但我顶多夸个666然后打住。或者说有人为了喜欢的姑娘那般投入时间和精力，那般愤怒那般快乐，而我和一个女生线上聊天都觉得折磨。<strong>我好像失去了什么</strong>。没有了强烈的情绪和兴趣，就连自己玩游戏也一副麻木的操作着，美其名曰娱乐至上。这种特质和我的另一个特点不谋而契合，那就是我做很多事情都是浮于表面，不能深入，不管是爱好还是专业知识。</p>
-<p>此般种种现象都指向同一个问题，我仿佛失去了什么。<em>是爱的能力？</em> 爱自己，直面自己内心和情绪；爱一件事情，体会事物内部的细节；爱别人；爱生活。没有爱，是因为自己没有认真对待上述每一样。有人说，多大决心办多大事。下决心，就是下决心去认真对待并认真执行。而我这股气就是在阻止我认真的态度！一味的怕麻烦逃避敷衍也许可以生存下去，但决不能好好的生活。</p>
-<h2 id="2分析"><a href="#2分析" class="headerlink" title="2分析"></a>2分析</h2><p>那么，是什么造成了我现在的困境呢？</p>
-<p>知乎问，<a href="https://www.zhihu.com/question/422796779/answer/1507988868">人这一辈子，最不能透支是什么？ - 温水公爵的回答 - 知乎</a> 或许这个回答能帮助我看清楚一些上述问题根源。</p>
-<blockquote>
-<p>Imagine life as a game in which you are juggling some five balls in the air. You name them <strong>work, family, health, friends and spirit</strong> and you re keeping all of these in the air.You will soon understand that work is a rubber ball.If you drop it, it will bounce back. But the other four balls family, health, friends, and spirit are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged, or even shattered. They will never be the same. You must understand that and strive for balance in your life.</p>
-</blockquote>
-<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>想要优质的物质和精神条件，就需要好好的利用时间。而在这之前是要有一个好好的身体。</p>
-<p>现在我年轻气盛，想要做到健康，关键就在于：<strong>节欲</strong>。人与人之间的智力差别并不大，而造成我与别人差距这么大的原因就是身体。</p>
-<p>纵欲的人，<strong>付出微小的代价就能收获很大的刺激</strong>(奶头乐），因而造成总是体力不支，精力不够，<em>做事总想赶紧完成，投入不够深</em>，<em>注意力不集中</em>，<em>长期记忆力变差</em>，别人在飞速学习的时候他就总需要休息。这种差距日积月累，在offer这个触发点上就清晰可见。</p>
-<p>想要改善自己的身体状况，那就是节欲，熬夜的欲望，赖床的欲望，性欲，食欲……。</p>
-<p>按时睡觉，早起吃早饭，男女之事不要过度，拒绝垃圾食品，拒绝抽烟喝酒，规律锻炼运动。</p>
-<p>看起来简单，多年前我也总结出来了，但实行起来，尤为困难。最大的难点就是早起吃早饭以及性欲的规律了。调整回来这两点之后，坑定会为我提高精力，去认真对待其他事件。</p>
-<h3 id="娱乐至死"><a href="#娱乐至死" class="headerlink" title="娱乐至死"></a>娱乐至死</h3><p>与上一个有异曲同工之处。奶头乐真正的危害是对于精神层面的。低代价的短期的高刺激满足感，正在一点点侵蚀掉我对于真正重要的低刺激的长期回报的事物的执行的动力。造成我努力一小会就觉得很拼命的错觉，行动力的上限条被很大程度削减了。特点，</p>
-<p>另一方面，如今零碎化的信息正充斥着我的生活的方方面面，知乎、哔哩哔哩、微信公众号……，他们碎片化的高刺激的特点，并善于伪装成有用的特点，极大程度的吸走了属于我自己的注意力和时间。每个人每天的注意力集中的程度是有上限的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1335,9 +1336,9 @@
 <h1 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h1><p>最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。</p>
 <h1 id="主要贡（chui）献（bi"><a href="#主要贡（chui）献（bi" class="headerlink" title="主要贡（chui）献（bi)"></a>主要贡（chui）献（bi)</h1><ol>
 <li>优化了对凹形点云的拟合：<br>首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。<br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/concave.png"><center>concavity determination</center></li>
-<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。</li>
+<li>提出一个新的拟合结果评估判据：<br>利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。<br>作者认为真实点云是分布于轮廓附近而非BB，这也造成了 <strong><em>最大贴进度</em></strong> 判据的偏差。因此作者拟合的是轮廓框。<a id="more"></a>
+<img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/curve.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/f.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/CTAGC.png"><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></li>
 </ol>
-<p><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/curve.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/f.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/%E4%BC%98%E5%8C%96.png"><br><img src="/2019/12/13/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting2/CTAGC.png"><center>该判据中输入为旋转过的点云<em>p’</em>,轮廓框角点<em>B</em>; 输出判据值<em>Criterion</em></center></p>
 <h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><ol>
 <li>NUA（normalized unoverlapped area）：未重叠的面积与真值的比</li>
 <li>角度误差</li>
@@ -1361,11 +1362,10 @@
     <content><![CDATA[<p>From 《LiDAR-Based Object Tracking and Shape Estimation Using Polylines and Free-Space Information》<br><a href="https://ieeexplore.ieee.org/abstract/document/8593385#full-text-header">链接</a></p>
 <h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
 <li>将<strong>位姿信息估计</strong> 、<strong>多段线拟合的形状估计</strong> 二者结合同时推导跟踪车辆</li>
-<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"></li>
+<li>对激光束点和传感器之间的 <strong>自由空间</strong> 利用起来，改进跟踪器。<br><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/1.gif"><a id="more"></a>
+<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png"><h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png"><h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1></li>
 </ol>
-<h1 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h1><h2 id="状态跟踪-X-和形状估计-c-相互优化"><a href="#状态跟踪-X-和形状估计-c-相互优化" class="headerlink" title="状态跟踪(X)和形状估计(c)相互优化"></a>状态跟踪(X)和形状估计(c)相互优化</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/2.gif"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/3.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/4.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/5.png"></p>
-<h2 id="laser-scan-free-space-未占据的区域检测"><a href="#laser-scan-free-space-未占据的区域检测" class="headerlink" title="laser scan  free-space 未占据的区域检测"></a>laser scan  free-space 未占据的区域检测</h2><p><img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/6.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/7.png"> <img src="/2019/12/16/%E7%A0%94%E7%A9%B6%E7%94%9F/L-Shape-Fitting3/8.png"></p>
-<h1 id="主要结果"><a href="#主要结果" class="headerlink" title="主要结果"></a>主要结果</h1><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
+<h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><p>方法看得不是很明白,他的重心不在怎么拟合,而是通过拟合形状与位姿信息最优化出跟踪信息.对自由空间的利用有空可以看看对泊车有什么启发</p>
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -1446,37 +1446,13 @@
       </tags>
   </entry>
   <entry>
-    <title>How to read a paper</title>
-    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
-    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
-<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
-<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
-<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
-</blockquote>
-<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
-<p>自己要思考精读一篇文献，</p>
-<ul>
-<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
-<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
-<li>研究的具体方法是什么？用到了哪些工具手段？</li>
-<li>结果如何？哪些得到了征明？</li>
-<li>总结，可以参考和不足之处在哪？</li>
-</ul>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
-      <categories>
-        <category>研究生</category>
-      </categories>
-      <tags>
-        <tag>方法论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>L-Shape fitting</title>
     <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/</url>
     <content><![CDATA[<p>Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners》</p>
 <h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><p><a href="https://zhuanlan.zhihu.com/p/89011097?utm_source=wechat_session&utm_medium=social&utm_oi=607673551159955456">范文</a></p>
 <h2 id="分割"><a href="#分割" class="headerlink" title="分割"></a>分割</h2><p>k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。</p>
 <h2 id="L-Shape拟合"><a href="#L-Shape拟合" class="headerlink" title="L-Shape拟合"></a>L-Shape拟合</h2><p>对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。</p>
+<a id="more"></a>
 <img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/1.png" alt="1" style="zoom:80%;">
 
 <p>θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/2.png"><br>值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：<strong>最小面积，最小距离（贴进度），最小平方误差</strong>3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/3.gif" alt="Area Criterion"><center>Area Criterion</center><br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/4.gif"><center>Closeness Criterion</center><br>求得样本点到4边最小的距离的倒数<code>d=(min&#123;D1,D2&#125;)^-1</code>作为目标值，设置d0阈值限制分母很小的权重<br><img src="/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/L-shape-fitting/5.gif"><center>Variance Criterion</center><br>按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和</p>
@@ -1554,6 +1530,31 @@
       <tags>
         <tag>Python</tag>
         <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to read a paper</title>
+    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
+    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
+<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
+<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
+<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
+</blockquote>
+<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
+<p>自己要思考精读一篇文献，</p>
+<ul>
+<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
+<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
+<li>研究的具体方法是什么？用到了哪些工具手段？</li>
+<li>结果如何？哪些得到了征明？</li>
+<li>总结，可以参考和不足之处在哪？</li>
+</ul>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+      <tags>
+        <tag>方法论</tag>
       </tags>
   </entry>
   <entry>
@@ -1809,6 +1810,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Python深度学习笔记(一)</title>
+    <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <content><![CDATA[<p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>深度学习视觉算法杂碎</title>
     <url>/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/</url>
     <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><img src="/2020/07/03/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%9D%82%E7%A2%8E/image-20200711205519057.png" alt="price" style="zoom:200%;">
@@ -1854,49 +1877,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python深度学习笔记(一)</title>
-    <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>待整理:</p>
-<ul>
-<li>卷积层池化层</li>
-<li>梯度下降</li>
-<li>pytorch</li>
-<li>numpy</li>
-</ul>
-<p>学习网站:B站莫烦python</p>
-<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二叉树</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
-
-<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
-<p>递归初始化：空节点深度为空</p>
-<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
-
-<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
-<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
-<p>递归初始化：若当前节点为空，返回true。</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态规划</title>
     <url>/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
@@ -1926,6 +1906,27 @@
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二叉树</title>
+    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
+
+<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
+<p>递归初始化：空节点深度为空</p>
+<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
+
+<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
+<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
+<p>递归初始化：若当前节点为空，返回true。</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
       </tags>
   </entry>
   <entry>
@@ -1998,6 +1999,21 @@
       </tags>
   </entry>
   <entry>
+    <title>递归</title>
+    <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
+    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
+<p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p>
+<p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p>
+<h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>Leecode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>链表</title>
     <url>/2020/06/30/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
@@ -2011,21 +2027,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>递归</title>
-    <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
-<p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p>
-<p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p>
-<h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
       </tags>
   </entry>
 </search>
