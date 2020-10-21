@@ -6,42 +6,36 @@ categories:
 - CV
 tags:
 - CV
-- 计算机视觉
-- 小知识
 ---
 
+## 1 距离变换
 
+[优秀链接](https://blog.csdn.net/trent1985/article/details/18081761)： 
 
-- ## 1 距离变换
+主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊
 
-- [优秀链接](https://blog.csdn.net/trent1985/article/details/18081761)： 
+假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:
 
-- 主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊
+![image-20201021204631120](CV图像处理/image-20201021204631120.png)
 
-- 假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:
+欧氏距离
 
-- ![img](file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg)
+曼哈顿距离（街区距离）
 
--  
+契比雪夫距离（棋盘距离）可以理解为国际象棋的王后的走法：
 
-- 欧氏距离
+![](CV图像处理/clip_image001.png)
 
-- 曼哈顿距离（街区距离） =![img](file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+倒角距离（chamfer）：优化二值图像的距离运算速度。
 
-- 契比雪夫距离（棋盘距离）=,可以理解为国际象棋的王后的走法：![img](file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png)
+ ## 2 边缘图像检测
 
-- ![计算机生成了可选文字: 8 7 6 5 45 3丰 3 2 1 5 5 5 5 5 5 4 4 4 4 4 4 4 5 b 3 3 3 3 3 3 4 5 c 2 2 2 2 3 4 5 d 222 111 21罾1 2 2 2 2 2 4 5 h 8 7 O'ebyshev-- 1 2 3 4 5 e 1 2 3 4 5 f 1 2 3 4 5 g 6 5 4 2 1 1 1 1 1 1 1 1](file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+## 3 直方图处理
 
-- 倒角距离（chamfer）：优化二值图像的距离运算速度。
+## 4 检测库位内是否占据
 
--  ## 2 边缘图像检测
+1. 两条线之间的灰度直方图
 
-- ## 3 直方图处理
+![image-20201021204749083](CV图像处理/image-20201021204749083.png)
 
-- ## 4 检测库位内是否占据
-
-- 1. 1. 两条线之间的灰度直方图
-
-- ![img](file:///C:/Users/LJ-pc/AppData/Local/Temp/msohtmlclip1/01/clip_image005.png)
-
-- 2. 距离变换后的边缘图寻找垂直轮廓的直方图
+2. 距离变换后的边缘图寻找垂直轮廓的直方图
