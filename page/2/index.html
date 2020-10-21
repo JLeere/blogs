@@ -240,7 +240,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -291,15 +291,10 @@
 
 <div class="post-block">
   
-  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-    
-    <div class="post-gallery-image">
-      <img src="/images/cat1.webp" itemprop="contentUrl">
-    </div>
-    </div>
+  
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -313,7 +308,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">时间管理</a>
+            <a href="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/" class="post-title-link" itemprop="url">OpenCV学习笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -324,14 +319,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
+      <time title="创建时间：2020-07-07 21:01:19" itemprop="dateCreated datePublished" datetime="2020-07-07T21:01:19+08:00">2020-07-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-20 08:44:02" itemprop="dateModified" datetime="2020-10-20T08:44:02+08:00">2020-10-20</time>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -339,7 +334,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">生活随笔</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Opencv/" itemprop="url" rel="index"><span itemprop="name">Opencv</span></a>
         </span>
     </span>
 
@@ -352,8 +351,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/07/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/OpenCV/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -367,10 +366,479 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>管理好自己的时间,管理好自己的生活!</p>
+          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a><strong><a target="_blank" rel="noopener" href="https://opencv.org/releases/">下载</a></strong></h2><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a><strong><a target="_blank" rel="noopener" href="https://opencv.org/releases/">安装</a></strong></h2><p>异常记录未解决：</p>
+<p>在步骤：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig  </span><br><span class="line"><span class="keyword">export</span> PKG_CONFIG_PATH  </span><br></pre></td></tr></table></figure>
+
+<p>保存bash.bashrc时候提示不支持。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>open source computer vision library</p>
+</blockquote>
+<p><code>cv::Point2f = cv::Point_&lt;float&gt;;</code></p>
+<h2 id="编译c-cpp"><a href="#编译c-cpp" class="headerlink" title="编译c/cpp"></a>编译c/cpp</h2><blockquote>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">vscode调试运行cpp程序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-12 20:05:29" itemprop="dateCreated datePublished" datetime="2020-10-12T20:05:29+08:00">2020-10-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/" itemprop="url" rel="index"><span itemprop="name">vscode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
+<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/include &quot;&quot;</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.</p>
+<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
+<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
+<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
+<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">vscode下调试运行ROS程序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-17 19:55:25" itemprop="dateCreated datePublished" datetime="2020-06-17T19:55:25+08:00">2020-06-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode/" itemprop="url" rel="index"><span itemprop="name">vscode</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>vscode编辑器下调试ROS程序配置,主要利用Cmake工具编译,配置好.vscode/下的设置文件*.json</p>
+<p><a target="_blank" rel="noopener" href="https://vector-of-bool.github.io/docs/vscode-cmake-tools/index.html">阅读vscode官方插件cmake tools说明文档</a></p>
+<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><blockquote>
+<p>选择kit。Kit是一组工具包，包括编译器、链接器等其他工具，如gcc,clang等</p>
+</blockquote>
+<blockquote>
+<p>variant。有4种，debug,release是其中两种。</p>
+</blockquote>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>vscode安装插件：ROS, C/C++, C++ Intellisense, CMake Rools,<br>终端中打开vscode当前目录<code>code .</code>，会自动生成‘.vscode’文件夹,里面包含两个.json配置文件:</p>
+<blockquote>
+<p>c_cpp_properties.json 主要是ROS插件生成,用于识别配置ros相关头文件等<br>settings.json vscode编辑器设置文档</p>
+</blockquote>
+<p>通过另一个配置文件task.json, 这里可以直接在vscode进行catkin_make。ctrl+shift+P调出vscode的命令行，输入Task:Config default task生成*.json文件。修改其内容见链接内容，主要是配置catkin_make或者g++编译的参数。<br>编译后出现compile_commands.json，<br><code>catkin_make -DCMAKE_EXPORT_COMPILE_COMMANDS=Yes</code><br>这个文件可以帮助我们关联编译所需要的文件路径，需要添加在c_cpp_properties.json里面”compileCommond”配置中<br><code>&quot;compileCommands&quot;:&quot;$&#123;workspaceFolder&#125;/build/compile_commands.json&quot;</code></p>
+<h3 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//c_cpp_properties.json</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;browse&quot;</span>:&#123;</span><br><span class="line">                <span class="attr">&quot;databaseFilename&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>:<span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;/opt/ros/kinetic/include/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/**&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;ROS&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;configurationProvider&quot;</span>: <span class="string">&quot;ms-vscode.cmake-tools&quot;</span>, </span><br><span class="line">            <span class="attr">&quot;compileCommands&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;/build/compile_commands.json&quot;</span></span><br><span class="line">            <span class="comment">//上述两行可解决找不到ros.h的类似问题</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="task-json"><a href="#task-json" class="headerlink" title="task.json"></a>task.json</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task.json chen</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;label&quot;</span>: <span class="string">&quot;catkin_make&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;catkin_make&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">				<span class="string">&quot;-j4&quot;</span>,</span><br><span class="line">				<span class="string">&quot;-DCMAKE_BUILD_TYPE=Release&quot;</span>,</span><br><span class="line">				<span class="string">&quot;-DCMAKE_EXPORT_COMPILE_COMMANDS=Yes&quot;</span>,</span><br><span class="line">				<span class="string">&quot;-DCMAKE_CXX_STANDARD=14&quot;</span></span><br><span class="line">			],</span><br><span class="line">			</span><br><span class="line">			<span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">				<span class="string">&quot;$catkin-gcc&quot;</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">				<span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">//task from Bilibili</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>: <span class="string">&quot;source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Debug&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">			<span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">				<span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">				<span class="string">&quot;$catkin-gcc&quot;</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">				<span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">        <span class="comment">//定义多个编译器命令release</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;label&quot;</span>:<span class="string">&quot;release&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;command&quot;</span>:<span class="string">&quot;source /opt/ros/kinetic/setup.bash &amp;&amp; catkin_make -DCMAKE_BUILD_TYPE=Release&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">				<span class="string">&quot;$catkin-gcc&quot;</span></span><br><span class="line">			],</span><br><span class="line">			<span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以上就可以和在终端中一样运行程序了。但是想要设置断点对程序进行调试debug则需要更多配置，生成debug版本的可执行程序。<br>后话：实际上还是会提示找不到ros.h.是不是ws目录必须在～下？</p>
+<h2 id="调试-launch-json"><a href="#调试-launch-json" class="headerlink" title="调试 launch.json"></a>调试 launch.json</h2><blockquote>
+<p>GDB调试器是调试C++代码的神器，ROS项目本质上也是一个ROS项目，因此也可以用GDB进行调试<br>在vscode里面已经继承了GDB调试器，我们需要做的就是配置launch.json文件</p>
+</blockquote>
+<p>点击左侧工具栏调试按钮，自动生成launch.json.</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ft411M7Uk">B站视频链接</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(gdb)Launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;/devel/lib/tutorials/talker&quot;</span>, </span><br><span class="line">            <span class="comment">//修改，将需要调试的节点在编译后生成的可执行文件的路径添加</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,<span class="comment">//若没有修改就不需要每次都编译.也可以每次调试前先catkin_make</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">ubuntu常用问题记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-10 10:18:51" itemprop="dateCreated datePublished" datetime="2020-10-10T10:18:51+08:00">2020-10-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
+<p>1.在<code>/etc/init.d/</code>文件夹下添加一个脚本文件vpn_open.sh, </p>
+<p>脚本格式如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          vpn_open.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: open vpn service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       open vpn service HK2.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">nohup ss-local -c /home/lee/socketpro/HK2.json &amp;</span><br><span class="line">xset m 2</span><br></pre></td></tr></table></figure>
+
+<p>2.将这个脚本添加到开机启动的服务中.<a target="_blank" rel="noopener" href="https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param">参考链接</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x start_test.sh #设置权限</span><br><span class="line"><span class="meta">#</span><span class="bash"> 将脚本添加到启动脚本,90为优先级,数值越高优先级越低</span></span><br><span class="line">cd /etc/init.d/</span><br><span class="line">sudo update-rc.d start_test.sh defaults 90</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除服务方法</span></span><br><span class="line">cd /etc/init.d</span><br><span class="line">sudo update-rc.d -f start_test.sh remove</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置鼠标速度"><a href="#设置鼠标速度" class="headerlink" title="设置鼠标速度"></a>设置鼠标速度</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xset m N #N为速度,2即可</span><br></pre></td></tr></table></figure>
+
+<h1 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown lee:lee rslidar_sdk/ -R</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Hexo&github blog搭建指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-11 12:00:00" itemprop="dateCreated datePublished" datetime="2019-12-11T12:00:00+08:00">2019-12-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw==&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc=&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa+w52NrKcem6YVv7i/fQ7Er4Sfm7KAQ">github*Hexo搭建网站参考网站</a></li>
+<li>安装nodejs: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98782798">https://zhuanlan.zhihu.com/p/98782798</a></li>
+<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
+<li><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">参考博文</a></li></ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
+              <a class="btn" href="/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -398,15 +866,10 @@
 
 <div class="post-block">
   
-  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-    
-    <div class="post-gallery-image">
-      <img src="https://i0.hdslb.com/bfs/article/36fc1b8a3de1bea5fb6628ed4965d3b53502f484.jpg@1320w_864h.webp" itemprop="contentUrl">
-    </div>
-    </div>
+  
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -420,7 +883,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">C++知识点学习笔记(一)</a>
+            <a href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">泊车感知框架阅读笔记（一）</a>
         </h2>
 
         <div class="post-meta-container">
@@ -431,14 +894,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-05-14 22:47:00" itemprop="dateCreated datePublished" datetime="2020-05-14T22:47:00+08:00">2020-05-14</time>
+      <time title="创建时间：2020-06-28 14:22:12" itemprop="dateCreated datePublished" datetime="2020-06-28T14:22:12+08:00">2020-06-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-20 08:43:57" itemprop="dateModified" datetime="2020-10-20T08:43:57+08:00">2020-10-20</time>
+        <time title="修改时间：2020-10-21 20:10:00" itemprop="dateModified" datetime="2020-10-21T20:10:00+08:00">2020-10-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -446,11 +909,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
         </span>
     </span>
 
@@ -463,8 +922,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -478,13 +937,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xxcn/p/10930105.html">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4e64fce04a38">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http://***</span><br><span class="line">git checkout dev</span><br><span class="line">git checkout -b dev_Lee</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件架构"><a href="#文件架构" class="headerlink" title="文件架构"></a>文件架构</h2><p><strong>根目录</strong>:拉取下来的lidar_perception是ros工作空间的一个packege<br><strong>一级目录</strong>:</p>
+<ul>
+<li>include(头文件.h,每个阶段步骤所包括的类及其方法的声明),</li>
+<li>src(源文件.cpp,对头文件类的方法的具体实现进行描述,类外申明),</li>
+<li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
+<li>rviz(显示的配置设置)</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
+<blockquote>
+<p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
+</blockquote>
+<p>打开roscore,运行主节点node,将采集的点云包rosbag文件play,自动发布到topic中,打开rviz进行显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun &lt;rospackage&gt; node</span><br><span class="line">rosbag play ~&#x2F;rosbagfiles&#x2F;**.bag -l -r 0.1</span><br><span class="line">rviz</span><br></pre></td></tr></table></figure>
+
+<p>当然，更方便的方法就是将多节点运行顺序写到roslaunch文件中，一键启动。<br><code>roslaunch &lt;rospackage&gt; **.launch</code></p>
+<h2 id="算法细节笔记"><a href="#算法细节笔记" class="headerlink" title="算法细节笔记"></a>算法细节笔记</h2><ul>
+<li>基于环视图方法组织点云, 进行地面切除和点云聚类.</li>
+<li>再在鸟瞰图中拟合, 限定拟合框的长宽比, 筛选出车辆类型的拟合框.</li>
+</ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
+              <a class="btn" href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -931,460 +1408,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/" class="post-title-link" itemprop="url">磁盘读写结束后弹出提示</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-10 15:17:49" itemprop="dateCreated datePublished" datetime="2020-07-10T15:17:49+08:00">2020-07-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 23:04:18" itemprop="dateModified" datetime="2020-10-19T23:04:18+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-配置性能监控器监控项"><a href="#1-配置性能监控器监控项" class="headerlink" title="1. 配置性能监控器监控项"></a>1. 配置性能监控器监控项</h2><p><a target="_blank" rel="noopener" href="https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/">https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/</a></p>
-<p>常用监控对象和计数器:</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/snlei/article/details/54091275">https://blog.csdn.net/snlei/article/details/54091275</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f4406c29542a">https://www.jianshu.com/p/f4406c29542a</a></p>
-<p>我们使用**物理磁盘对象(PhysicalDisk Object)**下的Avg.Disk Write Queue Length(平均磁盘写队列长度)。</p>
-<p>物理磁盘对象提供了有关物理磁盘I / O性能的信息。它的磁盘计数器与系统中的物理驱动器有关，并且只有当运行了diskper服务时，它才被激活。注意与<strong>逻辑磁盘对象</strong>进行区别。这个对象下的计数器如下所示：</p>
-<p><strong>1.</strong> 磁盘读时间百分比(％Disk Read Time) 选中的物理磁盘忙于服务读请求总共用的时间的百分比。</p>
-<p><strong>2.</strong> 磁盘写时间百分比(％Disk Write Time) 选中的物理磁盘忙于服务写请求总共用的时间的百分比。</p>
-<p><strong>3.</strong> 磁盘时间百分比(％Disk Time) 选中的物理磁盘忙于服务读请求或写请求总共用的时间的百分比，是磁盘写时间百分比与磁盘读时间百分比的和。</p>
-<p><strong>4.</strong> 空闲时间百分比(％Idle Time) 物理磁盘在采样时间间隔中处于空闲状态的时间百分比。</p>
-<p><strong>5.</strong> 平均磁盘队列长度( Avg. Disk Queue Length) 在采样的时间间隔中，选中的物理磁盘读请求和写请求排队的平均数量。</p>
-<p><strong>6.</strong> 平均磁盘读队列长度( Avg. Disk Read Queue Length) 在采样的时间间隔中，选中的物理磁盘读请求排队的平均数量。</p>
-<p><strong>7.</strong> 平均磁盘写队列长度( Avg. Disk Write Queue Length) 在采样的时间间隔中，选中的物理磁盘写请求排队的平均数量。</p>
-<p><strong>8.</strong> 平均磁盘秒数/读( Avg. Disk sec/Read) 从物理磁盘读数据的平均时间，以秒为单位。</p>
-<p><strong>9.</strong> 平均磁盘秒数/写( Avg. Disk sec/Write) 向物理磁盘写数据的平均时间，以秒为单位。</p>
-<p><strong>10.</strong> 平均磁盘秒数/传输( Avg. Disk sec/Transfer) 从物理磁盘进行传输的平均时间，以秒为单位。</p>
-<p><strong>11.</strong> 磁盘读/秒(Disk Reads Bytes/sec) 物理磁盘上每秒读字节。</p>
-<p><strong>12.</strong> 磁盘写/秒(Disk Writes Bytes/sec) 物理磁盘上每秒写字节。</p>
-<p><strong>13.</strong> 磁盘读/秒(Disk Reads/sec) 物理磁盘上的读操作比率。</p>
-<p><strong>14.</strong> 磁盘写/秒(Disk Writes/sec) 物理磁盘上的写操作比率。</p>
-<p><strong>15.</strong> 磁盘传输/秒(Disk Transfers/sec) 物理磁盘上的读和写操作的比率。</p>
-<h2 id="2-创建警报计划任务，关联监控数据收集器集"><a href="#2-创建警报计划任务，关联监控数据收集器集" class="headerlink" title="2. 创建警报计划任务，关联监控数据收集器集"></a>2. 创建警报计划任务，关联监控数据收集器集</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yourstars/p/6505991.html">利用Win10计划任务 + 弹窗提醒</a></p>
-<p><strong>弹窗提示</strong>：*.bat代码：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:msgbox(&quot;Go to work, stupid dog!!&quot;,<span class="number">0</span>,&quot;Sound from eval&quot;)(window.close)</span><br></pre></td></tr></table></figure>
-
-<p>注意不要有中文和中文路径。</p>
-<p><strong>发送邮件提示</strong>：SmtpMailSender通过命令行发送邮件，别用QQ邮箱，安全验证麻烦。</p>
-<p>创建一个文本文件，命名为 perfalert.cmd，同样保存在 d:smtp 目录中，其内容格式为：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smtpmailsender.exe -f &quot;发件人地址&quot; -t &quot;收件人地址&quot; -s &quot;邮件标题&quot; -b &quot;邮件正文&quot; -send</span><br></pre></td></tr></table></figure>
-
-<p>其余步骤：<a target="_blank" rel="noopener" href="https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/">https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">动态规划</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-10 12:00:00" itemprop="dateCreated datePublished" datetime="2020-09-10T12:00:00+08:00">2020-09-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 23:04:02" itemprop="dateModified" datetime="2020-10-19T23:04:02+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
-
-<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;">
-
-<p>斐波那契数列，可以递归/求通项/动态规划。</p>
-<p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p>
-<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote>
-<p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>  注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p>
-</blockquote>
-<p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p>
-<h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure>
-
-<p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p>
-<p><code>dp[i] = max(dp[i-1], nums[i]);</code></p>
-<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote>
-<p>示例 1：</p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>偷窃到的最高金额 = 1 + 3 = 4 。</p>
-</blockquote>
-<p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p>
-<p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/18/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/18/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/" class="post-title-link" itemprop="url">CXX零碎知识点(二)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-18 14:59:20" itemprop="dateCreated datePublished" datetime="2020-10-18T14:59:20+08:00">2020-10-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 19:06:36" itemprop="dateModified" datetime="2020-10-19T19:06:36+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/18/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/18/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/" class="post-title-link" itemprop="url">遇见百分百女孩</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-12-19 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-19T11:00:00+08:00">2019-12-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 18:29:33" itemprop="dateModified" datetime="2020-10-19T18:29:33+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">生活随笔</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <img src="/2019/12/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%81%87%E8%A7%81%E7%99%BE%E5%88%86%E7%99%BE%E5%A5%B3%E5%AD%A9/遇见百分百女孩.jpg" alt="遇见百分百女孩" style="zoom:50%;">
-
-<p>四月一个晴朗的早晨，在原宿后街，我同一个百分百女孩擦肩而过。</p>
-<p>老实说，这女孩不见得有多漂亮，并不是很吸引人，穿着也不出众，脑后的头发还带有睡觉挤压的痕迹，年龄也不小了，应该快有30吧–严格地说来，恐怕很难称之为女孩。然而,在50米外我便一眼看出：她就是我的百分百女孩。看见她身影的那一瞬间，我的胸口受到地震一般的震颤，嘴里干得象沙沙作响的沙漠。</p>
-<p>或许你也有你的百分百女孩。比如喜欢手脚纤细的女孩，喜欢眼睛大，手指绝对好看的女孩，或者不明所以地迷上慢慢吃东西的女孩。我当然也有自己的偏爱，在饭店时就曾看着邻桌一个女孩的鼻形发呆。但要明确勾勒出百分百女孩的形象，任何人都无法做到。我就绝对想不起她长有怎样的鼻子，甚至连是否有鼻子都已记不清楚。现在我所能记住的，只有她不是很漂亮这一点，事情真是不可思议。</p>
-<p>“昨天，我在路上同一个百分百女孩擦肩而过。”我对一个人说。<br>“喔，”他应道，“她人可漂亮？”<br>“不，不是说这个。”<br>“那，是合你口味那种类型喽？”<br>“记不清了。眼睛长什么样啦，胸部是大是小啦，统统忘得一干二净。”<br>“莫名其妙啊！”<br>“是莫名其妙。”<br>“那么，”他显得兴味索然，“你干了什么？搭话了？还是跟踪了？”<br>“什么都没有做。”我说，“仅仅是擦肩而过。”</p>
-<p>真的，仅仅是擦肩而过。<br>她由东往西，我从西向东，在四月里一个神清气爽的早晨。<br>我想和她说话，哪怕30分钟也好。我想知道她的一切，也想全盘托出自己。最重要的，是弄清到底是什么原因使我们有这样的命运，让我们在1981年4月一个晴朗的早晨，在原宿后街擦肩而过，这里面肯定充满着像和平时代的古老机器般温馨的秘密。说完了这些，我们可以找地方吃午饭，看伍迪.爱伦的影片，再顺路到宾馆里的酒吧喝点鸡尾酒什么的。弄得好，说不定还能同她睡上一觉。种种可能性在扣击着我的心扉。</p>
-<p>我和她之间的距离只有十五六米了。问题是，我到底该如何向她搭话呢？</p>
-<p>“你好！和我说说话可以吗？哪怕３０分钟也好。”<br>太傻气，简直象劝人买保险。<br>“请问，这一带有２４小时营业的洗衣店吗？”<br>一样的傻气，何况我连洗衣袋都没带！有谁能相信我的道白呢？<br>也许开门见山好些。“你好！你可是我的百分百女孩哟！”<br>不，不成，她不会相信我的表白。纵然相信，也未必愿意同我说话。她可能这样说：“即便我是你的百分百女孩，可是很抱歉，你不是我的百分百男孩呀。”这是很有可能的。假如真是这样，我肯定会被一下子打懵。这一打击说不定使我一蹶不振。我已３２岁，再也禁不起打击了，所谓上年纪归根结底便是这么一回事。我是在花店门前和她擦肩而过的，那暖暖的小小的气块儿触到了我的肌肤。柏油路面洒了水，周围荡漾着玫瑰花香。可我连向她打声招呼都做不到。她穿白毛衣，右手拿一个未贴邮票的四方信封。她给写了封信，你看她那样睡眼惺忪，说不定写了整整一个晚上。那四方信封里可能装有她全部的秘密。</p>
-<p>走几步再回头时，她的身影早已消失在人群中。当然，今天我已完全清楚当时应怎样向她搭话。但不管怎么说，那道白实在太长，我肯定表达不好――就是这样，我想到的每次都不实用。<br>总之，这篇道白以“很久很久以前”开始，以“你不觉得这是个忧伤的故事吗”结束。<br>很久很久以前，有个地方有一个男孩和一个女孩。男孩十八岁，女孩十七岁。<br>男孩算不上英俊，女孩也不怎么漂亮，无非随处可见的孤独而平常的少男少女。但两人一直坚信世上某个地方一定存在百分之百适合自己的女孩和男孩。两人相信奇迹，而奇迹真的发生了。一天，两人在街头不期而遇。<br>“真巧！我一直在寻找你。也许你不相信，你就是我的百分百男孩。从头到脚都跟我想象的一模一样。简直像是在做梦。”两人坐在公园长椅上，手拉手，百谈不厌。两人已不再孤独，百分之百需求对方，也百分之百被对方需求。而百分之百需求对方和百分之百被对方需求是何等美妙的事情啊！这已是宇宙奇迹！</p>
-<p>但两人心中掠过一个小小的，的确是小而又小的疑虑：梦想如此轻易成真是否真的就是好事？</p>
-<p>交谈突然中断，男孩这样说道：“我说，再尝试一次吧！如果我们两人真是一对百分之百的恋人的话，肯定会有一天在哪里重逢。下次相遇时如果仍觉得对方百分之百，就马上在那里结婚，好么？</p>
-<p>“好的。” 女孩回答。<br>于是两人分开，各奔东西。<br>不过说实在话，根本没有必要再尝试，这纯属多此一举。为什么呢？因为两人的的确确是一对百分之百的恋人，因为那的的确确是奇迹般的邂逅。但两人过于年轻，没办法知道这么多。于是无情的命运开始捉弄两人。</p>
-<p>一年冬天，两人都染上了那年肆虐的恶性流感，在死亡线上徘徊几个星期后，过去的记忆丧失殆尽。事情也真是离奇，当两人睁眼醒来时，脑袋里犹如劳伦斯少年时代的贮币盒一样空空如也。但这对青年男女毕竟聪明豁达且极有毅力，经过不懈努力，终于再度获得了新的知识和新的情感，愉快地重返社会生活了。啊，我的上帝！这两人真是无可挑剔！他们又能够换乘地铁，能够在邮局寄快信了。并且分别体验了百分之七十五和百分之八十五的爱情。</p>
-<p>如此来来往往，男孩32，女孩31岁了。时光以惊人的速度流逝。</p>
-<p>四月一个晴朗的早晨，男孩为喝折价早咖啡沿原宿后街由西向东走，女孩为买快信邮票沿同一条街由东向西去，两人恰在路中间擦肩而过。失却记忆的微光刹那间照亮两颗心灵。</p>
-<p>两人胸口陡然颤动，并且明白：<br>她就是我的百分百女孩。<br>他就是我的百分百男孩。</p>
-<p>然而两人记忆的烛光实在过于微弱，两人的话语也不似十四年前那般清晰。结果连句话也没说便擦肩而过，径直消失在人群中，永远永远。<br>你不觉得这是个令人感伤的故事么？</p>
-<p>是的，我本该这样向她搭话。</p>
-
       
     </div>
 
