@@ -1,6 +1,6 @@
 ---
 title: Hexo&github blog搭建指南
-date: 2019-12-11
+date: 2019-12-11 12:00:00
 categories:
 - 工具技能
 - Hexo
