@@ -50,8 +50,9 @@ rviz
 ## 算法细节笔记
 
 - 基于环视图方法组织点云, 进行地面切除和点云聚类.
-
 - 再在鸟瞰图中拟合, 限定拟合框的长宽比, 筛选出车辆类型的拟合框.
+
+<!-- more-->
 
 # 自定义接口
 
@@ -82,17 +83,18 @@ using CloudTypePtrList = std::vector<CloudTypePtr>;
 
 # todo
 
-- 共享指针make_shared
-- Eigen库
+- ~~共享指针make_shared~~
+- ~~Eigen库~~
 
 # to ask
 
 ```C++
 RangeMapCloudPtr cloud = boost::make_shared<RangeMapCloud>(std::move(*pcl_cloud));
+//智能指针
 
 assert(nullptr == _projection);
 
-RangeMapCloud(RangeMapCloud &&cloud) : _projection{std::move(cloud._projection)},
+RangeMapCloud(RangeMapCloud &&cloud) : _projection{std::move(cloud._projection)},//初始化列表
 _tensor_class{cloud._tensor_class}
 // _sensor_pose{cloud._sensor_pose}
 {
@@ -107,9 +109,11 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 // A: 赋值构造函数.
 ```
 
+# 库函数调用记录
 
+## openCV
 
-
+## PCL
 
 
 

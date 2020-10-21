@@ -15,22 +15,22 @@ tags:
 ### **PointCLoud**:
 
 + width(int),每一束激光扫描的点数
-
 + height(int), 激光的线数, 当点云为无序点云时候height=1
-
 + points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,
 
-  ```C++
-  pcl::PointCloud<pcl::PointXYZ> cloud;
-  cloud.points[i].x = 1;
-  std::vector<pcl::PointXYZ> data = cloud.points;
-  if(!cloud.isOrganized()){}//判断是不是有序点云
-  is_dense(true)//指定所有点都是稠密的,inf/nan
-      
-  //指针类型
-  pcl::PointCloud<pcl::PointXYZ>::ptr cloud2(new pcl::PointCloud<pcl::PointXYZ>);
-  cloud2->point[i].x = 1;
-  ```
+<!-- more-->
+
+```C++
+pcl::PointCloud<pcl::PointXYZ> cloud;
+cloud.points[i].x = 1;
+std::vector<pcl::PointXYZ> data = cloud.points;
+if(!cloud.isOrganized()){}//判断是不是有序点云
+is_dense(true)//指定所有点都是稠密的,inf/nan
+    
+//指针类型
+pcl::PointCloud<pcl::PointXYZ>::ptr cloud2(new pcl::PointCloud<pcl::PointXYZ>);
+cloud2->point[i].x = 1;
+```
 
 1. PointXYZ
 
