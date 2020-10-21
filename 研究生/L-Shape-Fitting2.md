@@ -19,6 +19,8 @@ generates a height map by using height threshold and extracts only ***parallel e
 # 问题提出
 最新的研究方法（上一篇文献）在某种场景下deficient失效，作者针对这一场景进行优化，并拓展到凹形点云的拟合；此外并提出“更好”的一种判据。
 
+<!-- more -->
+
 # 主要贡（chui）献（bi)
 1. 优化了对凹形点云的拟合：
 首先判断点云簇是不是凹的Concavity determination；利用k-Means方法把簇分割为几个簇分别拟合。从而拟合框占据空闲区域面积边缩小了。

@@ -17,21 +17,25 @@ Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners
 k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。
 ## L-Shape拟合
 对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。
-<!-- more -->
+
 <img src="L-shape-fitting/1.png" alt="1" style="zoom:80%;" />
+
+
+
+<!-- more -->
 
 θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。
 ![](L-shape-fitting/2.png)
 值得借鉴的是,她利用(sinθ,cosθ)单位向量来表示矩形的边比较方便,相比于用斜率k表示。总体这方法比较熟悉，与王宇辰的一样，只是选择最优的目标函数变化；同时，作者提供了3种各有优劣的判据：**最小面积，最小距离（贴进度），最小平方误差**3种方法，王宇辰采用的是样本到矩形角点距离和最小的判据。分别如下：
 ![Area Criterion](L-shape-fitting/3.gif)<center>Area Criterion</center> 
-![](4.gif)<center>Closeness Criterion</center>
+![](L-shape-fitting/4.gif)<center>Closeness Criterion</center>
 求得样本点到4边最小的距离的倒数`d=(min{D1,D2})^-1`作为目标值，设置d0阈值限制分母很小的权重
-![](5.gif)<center>Variance Criterion</center>
+![](L-shape-fitting/5.gif)<center>Variance Criterion</center>
 按照样本点距离两边的距离大小分为两拨E1/E2记录下每个点的最小距离，然后求方差之和
 
 # 结果
-![](6.png)
-![](L-shape-fitting/7.png)
+![](L-shape-fitting/6.png)
+![](L-shape-fitting/7.gif)
 上面两张图看出来贴进度的判据好像最好
 ![](L-shape-fitting/8.gif)
 不适用的场景如上,依然会受到后视镜/内部点等干扰影响拟合角度的精度.但是作者认为两种算法互相弥补,并且会在下一时刻得到纠正.

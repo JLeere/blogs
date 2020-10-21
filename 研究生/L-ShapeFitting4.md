@@ -25,6 +25,9 @@ The rectangle fit is preferred if available. Tracking is then used for temporal 
 1. 低复杂度
 2. RANSAC拟合到直角模型
 3. 占据面积准则选择最佳方向
+
+<!-- more -->
+
 ## 算法流程
 ![](L-ShapeFitting4/1.png)
 
