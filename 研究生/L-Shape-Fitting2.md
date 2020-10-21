@@ -26,7 +26,7 @@ generates a height map by using height threshold and extracts only ***parallel e
 2. 提出一个新的拟合结果评估判据：
 利用人工势场函数拟合距离d的分布直方图经验曲线（1360 clusters， 手动标记真值），自变量d是点到最近边的距离，d越小目标函数越大。计所有点的距离的函数值的和作为最终目标值函数。
 作者认为真实点云是分布于轮廓附近而非BB，这也造成了 ***最大贴进度*** 判据的偏差。因此作者拟合的是轮廓框。
-
+<!-- more -->
 ![](L-Shape-Fitting2/curve.png)
 ![](f.png)
 ![](优化.png)

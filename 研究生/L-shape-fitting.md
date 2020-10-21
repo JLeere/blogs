@@ -17,7 +17,7 @@ Come from《Efficient L-Shape Fitting for Vehicle Detection Using Laser Scanners
 k-d树搜索组织点云，eucilid聚类，距离阈值是range的函数能够自适应。值得注意的是只使用了点云的xy坐标聚类。
 ## L-Shape拟合
 对于每个簇的拟合结果的性能用最小二乘法进行评估（与拟合优度有何不同？）。注意他这里计算所有点到矩形边的距离，据此将点分为p、q两拨，然后计算所有的平方差之和，作为目标函数。
-
+<!-- more -->
 <img src="L-shape-fitting/1.png" alt="1" style="zoom:80%;" />
 
 θ是矩形框一条边的方向，按照0~90°空间进行搜索，注意搜索步长step如何设置？寻找到目标函数最小的作为拟合结果。

@@ -21,7 +21,6 @@ The rectangle fit is preferred if available. Tracking is then used for temporal 
 > X. Shen, S. Pendleton, M. H. Ang, "Efficient L-shape fitting of laser scanner data for vehicle pose estimation", IEEE Conference on Robotics Automation and Mechatronics, pp. 173-178, 2015.
 群集中的每个点都被视为枢轴（两条线的公共点），并且找到了最佳的一对线。
 >将要提出的方法不需要点的原始扫描顺序，也不需要分别为计算方向而对每个激光雷达层进行处理。因此，这是一种更通用的方法，适用于多层激光雷达
-
 ## 主要贡献
 1. 低复杂度
 2. RANSAC拟合到直角模型
