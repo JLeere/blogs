@@ -113,17 +113,37 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 
 ## openCV
 
+cv::contourArea(convex_hull);
+
+cv:minEnclosingCircle(convex_hull,center,radius)
+
+cv::convexHull
+
+cv::pointPolygonTest
+
 ## PCL
+
+pcl::VoxelGrid
 
 ## std
 
+std::log
 
+std::list
 
+std::pair
 
+std::Array
 
+## other
 
+Eigen::Affine
 
+# Problem record
 
+> By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+> asked CMake to find a package configuration file provided by "catkin", but
+> CMake did not find one.
 
 
 
