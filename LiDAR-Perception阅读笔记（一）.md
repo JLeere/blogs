@@ -117,6 +117,10 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 
 ## std
 
+## Eigen
+
+Eigen::Rotation2Df
+
 
 
 

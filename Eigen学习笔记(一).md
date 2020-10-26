@@ -19,7 +19,7 @@ Eigen库本身全是头文件，只需要将头文件包含到路径中即可。
 
 ## 方法1 修改vscode环境配置
 
-[vscode配置C++程序.md](./vscode配置C++程序.md)
+[vscode配置C++程序.md](工具技能/vscode配置C++程序.md)
 
 ## 方法2 CMake工具
 
