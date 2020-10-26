@@ -127,7 +127,14 @@ pcl::VoxelGrid
 
 ## std
 
+<<<<<<< HEAD
 std::log
+=======
+## Eigen
+
+Eigen::Rotation2Df
+
+>>>>>>> edace8c9f0713ce1959a90ad1ed7892596870f73
 
 std::list
 
