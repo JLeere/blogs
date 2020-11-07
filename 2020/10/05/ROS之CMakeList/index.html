@@ -24,21 +24,21 @@
     var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="ROS接口编写12345678910111213#include &lt;ros&#x2F;ros.h&gt;int main(int argc,char** argv)&amp;#123;    ros::init(argc,argv,&quot;listener&quot;);    ros::NodeHandle nh;    ros::Subscriber subscriber &#x3D;         nh.s">
+  <meta name="description" content="参考学习链接： catkin软件包的组成 CMakeList的基本写法 CmakeList ROS：依赖文件和环境  CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法： cmake_minimum_required：需要的CMake的最低版本project():包的名称find_p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ROS入门(二)">
-<meta property="og:url" content="https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/index.html">
+<meta property="og:title" content="ROS之CMakeList">
+<meta property="og:url" content="https://www.jaylee.top/2020/10/05/ROS%E4%B9%8BCMakeList/index.html">
 <meta property="og:site_name" content="J.Lee&#39;s Town">
-<meta property="og:description" content="ROS接口编写12345678910111213#include &lt;ros&#x2F;ros.h&gt;int main(int argc,char** argv)&amp;#123;    ros::init(argc,argv,&quot;listener&quot;);    ros::NodeHandle nh;    ros::Subscriber subscriber &#x3D;         nh.s">
+<meta property="og:description" content="参考学习链接： catkin软件包的组成 CMakeList的基本写法 CmakeList ROS：依赖文件和环境  CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法： cmake_minimum_required：需要的CMake的最低版本project():包的名称find_p">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-10T03:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-19T15:05:54.455Z">
+<meta property="article:published_time" content="2020-10-05T12:20:25.000Z">
+<meta property="article:modified_time" content="2020-10-19T04:00:00.000Z">
 <meta property="article:author" content="J.Lee">
-<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="CMake">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/">
+<link rel="canonical" href="https://www.jaylee.top/2020/10/05/ROS%E4%B9%8BCMakeList/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>ROS入门(二) | J.Lee's Town</title>
+  <title>ROS之CMakeList | J.Lee's Town</title>
   
 
 
@@ -214,7 +214,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ROS%E6%8E%A5%E5%8F%A3%E7%BC%96%E5%86%99"><span class="nav-number">1.</span> <span class="nav-text">ROS接口编写</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CmakeList"><span class="nav-number">1.</span> <span class="nav-text">CmakeList</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">其他问题</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,7 +230,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,7 +243,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -298,7 +298,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/05/ROS%E4%B9%8BCMakeList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -311,7 +311,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ROS入门(二)
+          ROS之CMakeList
         </h1>
 
         <div class="post-meta-container">
@@ -322,14 +322,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-10-10 11:00:00" itemprop="dateCreated datePublished" datetime="2020-10-10T11:00:00+08:00">2020-10-10</time>
+      <time title="创建时间：2020-10-05 20:20:25" itemprop="dateCreated datePublished" datetime="2020-10-05T20:20:25+08:00">2020-10-05</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 23:05:54" itemprop="dateModified" datetime="2020-10-19T23:05:54+08:00">2020-10-19</time>
+        <time title="修改时间：2020-10-19 12:00:00" itemprop="dateModified" datetime="2020-10-19T12:00:00+08:00">2020-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -337,11 +337,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Cmake/" itemprop="url" rel="index"><span itemprop="name">Cmake</span></a>
         </span>
     </span>
 
@@ -354,8 +354,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/05/ROS%E4%B9%8BCMakeList/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/05/ROS%E4%B9%8BCMakeList/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -369,11 +369,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="ROS接口编写"><a href="#ROS接口编写" class="headerlink" title="ROS接口编写"></a>ROS接口编写</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-
+        <p>参考学习链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>catkin软件包的组成</strong></a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010122972/article/details/78216013">CMakeList的基本写法</a></p>
+<h1 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h1><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a></p>
+<p> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
+<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message /Service /Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
+<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
+<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
+<h1 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h1>
     </div>
 
     
@@ -382,20 +386,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ROS/" rel="tag"># ROS</a>
+              <a href="/tags/CMake/" rel="tag"># CMake</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="prev" title="ubuntu常用问题记录">
-                  <i class="fa fa-chevron-left"></i> ubuntu常用问题记录
+                <a href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="ROS学习笔记">
+                  <i class="fa fa-chevron-left"></i> ROS学习笔记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="next" title="PCL基础知识">
-                  PCL基础知识 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="next" title="ubuntu常用问题记录">
+                  ubuntu常用问题记录 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -498,7 +502,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/2020/10/10/ROS%E5%85%A5%E9%97%A8(%E4%BA%8C)/",
+      path: "/2020/10/05/ROS%E4%B9%8BCMakeList/",
       serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
     }));
   }, window.Valine);

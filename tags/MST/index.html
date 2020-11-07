@@ -24,21 +24,19 @@
     var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="CmakeList ROS：依赖文件和环境 CMakeList详细解读 视频讲解的更加基础。 CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法： cmake_minimum_required：需要的CMake的最低版本project():包的名称find_package() 查找建">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Cmake(一)">
-<meta property="og:url" content="https://www.jaylee.top/2020/10/05/CMake%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="J.Lee&#39;s Town">
+<meta property="og:url" content="https://www.jaylee.top/tags/MST/index.html">
 <meta property="og:site_name" content="J.Lee&#39;s Town">
-<meta property="og:description" content="CmakeList ROS：依赖文件和环境 CMakeList详细解读 视频讲解的更加基础。 CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法： cmake_minimum_required：需要的CMake的最低版本project():包的名称find_package() 查找建">
+<meta property="og:description" content="Life is Fantastic，and you&#39;re fucking shit!">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-05T12:20:25.000Z">
-<meta property="article:modified_time" content="2020-10-19T04:00:00.000Z">
 <meta property="article:author" content="J.Lee">
-<meta property="article:tag" content="CMake">
+<meta property="article:tag" content="C++, ROS, LiDAR">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.jaylee.top/2020/10/05/CMake%E5%9F%BA%E7%A1%80/">
+<link rel="canonical" href="https://www.jaylee.top/tags/MST/">
 
 
 <script class="page-configurations">
@@ -46,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Cmake(一) | J.Lee's Town</title>
+  <title>标签: MST | J.Lee's Town</title>
   
 
 
@@ -202,7 +200,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -214,7 +212,6 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CmakeList"><span class="nav-number">1.</span> <span class="nav-text">CmakeList</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,7 +227,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -243,7 +240,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -285,131 +282,58 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
       
 
       
 
   
-
-
-<div class="post-block">
   
   
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h2 class="collection-header">MST
+          <small>标签</small>
+        </h2>
+      </div>
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/05/CMake%E5%9F%BA%E7%A1%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Cmake(一)
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-05 20:20:25" itemprop="dateCreated datePublished" datetime="2020-10-05T20:20:25+08:00">2020-10-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 12:00:00" itemprop="dateModified" datetime="2020-10-19T12:00:00+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Cmake/" itemprop="url" rel="index"><span itemprop="name">Cmake</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/05/CMake%E5%9F%BA%E7%A1%80/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/05/CMake%E5%9F%BA%E7%A1%80/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-10-22T13:11:17+08:00"
+              content="2020-10-22">
+          10-22
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/CMake/" rel="tag"># CMake</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" itemprop="url">
+            <span itemprop="name">MST最小生成树</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2020/10/05/ROS-launch-tf/" rel="prev" title="ROS-launch启动文件 & tf">
-                  <i class="fa fa-chevron-left"></i> ROS-launch启动文件 & tf
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="next" title="ubuntu常用问题记录">
-                  ubuntu常用问题记录 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
+    </div>
+  </div>
+  
+  
+  
 
-
+  
 
 
 
       
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -498,7 +422,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
       el: '#valine-comments',
-      path: "/2020/10/05/CMake%E5%9F%BA%E7%A1%80/",
+      path: "/tags/MST/",
       serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
     }));
   }, window.Valine);
