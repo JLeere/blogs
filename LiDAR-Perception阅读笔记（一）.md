@@ -115,7 +115,16 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 
 ## PCL
 
+1. 在将车辆点云分成4部分,遍历矩阵,将每个点放到其所属类中:
+
+2. 删除pointCloud中不符合条件的点: `group.points.erase(index)`
+3. VectorType怎么使用?
+
 ## std
+
+1. std::move
+
+2. vetor.reserve()和vector.resize()有何不同?
 
 ## Eigen
 
