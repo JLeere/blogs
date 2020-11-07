@@ -113,8 +113,17 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 
 ## openCV
 
+cv::contourArea(convex_hull);
+
+cv:minEnclosingCircle(convex_hull,center,radius)
+
+cv::convexHull
+
+cv::pointPolygonTest
+
 ## PCL
 
+<<<<<<< HEAD
 1. 在将车辆点云分成4部分,遍历矩阵,将每个点放到其所属类中:
 
 2. 删除pointCloud中不符合条件的点: `group.points.erase(index)`
@@ -126,17 +135,36 @@ auto l_fitting = LOrientationFitting();//后者是一个类,这么初始化怎�
 
 2. vetor.reserve()和vector.resize()有何不同?
 
+=======
+pcl::VoxelGrid
+
+## std
+
+<<<<<<< HEAD
+std::log
+=======
+>>>>>>> 17ced8fd28dca7edf51b1ad1dd2980456f1d9eb5
 ## Eigen
 
 Eigen::Rotation2Df
 
+>>>>>>> edace8c9f0713ce1959a90ad1ed7892596870f73
 
+std::list
 
+std::pair
 
+std::Array
 
+## other
 
+Eigen::Affine
 
+# Problem record
 
+> By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+> asked CMake to find a package configuration file provided by "catkin", but
+> CMake did not find one.
 
 
 
