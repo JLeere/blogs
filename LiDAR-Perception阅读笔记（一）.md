@@ -123,11 +123,34 @@ cv::pointPolygonTest
 
 ## PCL
 
+<<<<<<< HEAD
+1. 在将车辆点云分成4部分,遍历矩阵,将每个点放到其所属类中:
+
+2. 删除pointCloud中不符合条件的点: `group.points.erase(index)`
+3. VectorType怎么使用?
+
+## std
+
+1. std::move
+
+2. vetor.reserve()和vector.resize()有何不同?
+
+=======
 pcl::VoxelGrid
 
 ## std
 
 std::log
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 17ced8fd28dca7edf51b1ad1dd2980456f1d9eb5
+## Eigen
+
+Eigen::Rotation2Df
+
+>>>>>>> edace8c9f0713ce1959a90ad1ed7892596870f73
+>>>>>>> f6b893cde36d762636d12f314890b76df042cf37
 
 std::list
 

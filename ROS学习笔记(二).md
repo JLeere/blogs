@@ -8,10 +8,11 @@ tags:
 - ROS
 ---
 
-# ROS接口编写
+# 句柄接口编写
 
 ```c++
 #include <ros/ros.h>
+#include<std_msg/Strings.h>
 
 int main(int argc,char** argv){
     ros::init(argc,argv,"listener");
@@ -28,3 +29,4 @@ int main(int argc,char** argv){
 
 <!-- more-->
 
+# 
