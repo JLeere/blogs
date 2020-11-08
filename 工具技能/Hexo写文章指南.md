@@ -15,6 +15,12 @@ tags:
 - [参考博文](https://io-oi.me/tech/hexo-next-optimization/)
 <!--more-->
 
+# Github添加SSH-key
+
+要将本地的库推送到github远程仓库中必须首先生成本地的密钥并添加到github账号中。
+
+https://www.cnblogs.com/syw20170419/p/10732826.html
+
 # Hexo Blog文章撰写
 
 1. 在`source/_posts`文件夹下面建立 .md新文档。
