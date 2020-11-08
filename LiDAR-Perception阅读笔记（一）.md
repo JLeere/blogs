@@ -140,8 +140,9 @@ pcl::VoxelGrid
 
 ## std
 
-<<<<<<< HEAD
 std::log
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> 17ced8fd28dca7edf51b1ad1dd2980456f1d9eb5
 ## Eigen
@@ -149,6 +150,7 @@ std::log
 Eigen::Rotation2Df
 
 >>>>>>> edace8c9f0713ce1959a90ad1ed7892596870f73
+>>>>>>> f6b893cde36d762636d12f314890b76df042cf37
 
 std::list
 
@@ -156,7 +158,9 @@ std::pair
 
 std::Array
 
-## other
+## Eigen
+
+Eigen::Rotation2Df
 
 Eigen::Affine
 

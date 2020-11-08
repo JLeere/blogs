@@ -41,7 +41,7 @@ gcc -I /usr/include/eigen3/ mypg.cpp -o mypg
 
 ## Task.json
 
-而在vscode中, 可按`ctrl+shift+b`或F7编译. `ctrl+shift+P`输入Task指令生成*task.json*, 修改task.json中的编译相关参数.
+而在vscode中, 可按`ctrl+shift+b`或F7编译. `ctrl+shift+P`输入Task指令生成*task.json*, 修改task.json中的编译相关参数. 该文件相当于吧命令行中输入的所有参数预先保存下来，以后每次编译的时候就会来这里读取需要的参数。json只是一个字典类型文件。
 
 ```json
 {
@@ -49,14 +49,14 @@ gcc -I /usr/include/eigen3/ mypg.cpp -o mypg
     "tasks": [
         {
             "type": "shell",
-            "label": "build",
+            "label": "build", //命名
             "command": "/usr/bin/g++",		//终端运行的指令
             "args": [ //此项是上述命令G++的参数列表
                 "-g",
                 "${fileDirname}/*.cpp",
                 //"${workspaceFolder}/src/*.cpp",	//填写需要编译的目标cpp文件
                 
-                "-o",
+                "-o",               
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 //生成的可执行文件存放的目录
                 //${fileDirname}当前工作目录; ${fileBasenameNoExtension}以活动文件名为基础的没有扩展名的可执行文件
@@ -65,8 +65,9 @@ gcc -I /usr/include/eigen3/ mypg.cpp -o mypg
                 "-stdlib=libc++",	//这两句是默认的编译器C++98更改为C++11
                 
                 "-I",   //头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.
-                //"${workspaceFolder}/include ""
-                "/usr/include/eigen3/"
+                "/usr/include/eigen3/"，
+                "-I",
+                "${workspaceFolder}/include"
             ],
             "options": {
                 "cwd": "${workspaceFolder}" //the task runner's current working directory on startup
@@ -80,9 +81,9 @@ gcc -I /usr/include/eigen3/ mypg.cpp -o mypg
 }
 ```
 
-但是我们发现并没有链接上eigen库,因此需要配置C/C++ Configrations.
-
 ## c_cpp_properties.json
+
+虽然上述可以编译了，但是我们发现vscode自身并没有链接上eigen库, 代码下不会有红色波浪线提示找不到文件，因此需要配置C/C++ Configrations链接起来，写代码时方便跳转查看。
 
 `ctrl+shift+P`调出*C/C++ Configrations.* 在includePath中添加包含路径
 
