@@ -9,9 +9,13 @@ tags:
 
 参考网站: https://zhuanlan.zhihu.com/p/36772345
 
-[参考博客](http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html)
+
 
 官方教程: https://eigen.tuxfamily.org/dox/group__QuickRefPage.html
+
+简单认识参考网站: https://zhuanlan.zhihu.com/p/36772345
+
+细节学习个人博客: http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html
 
 # CMake库中的声明
 

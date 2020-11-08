@@ -9,9 +9,11 @@ tags:
 ---
 官方学习文档：[http://wiki.ros.org/](http://wiki.ros.org/)
 
-## 移动硬盘 Ubuntu 16.04系统安装
+## 移动硬盘 Ubuntu 系统安装
 
-[见这篇文章](https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/)
+[16.04见这篇文章](https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/)
+
+[18.04安装参考](https://www.jianshu.com/p/54d9a3a695cc)
 
 ## Ubuntu 16.04
 
