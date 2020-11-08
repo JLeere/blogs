@@ -9,13 +9,45 @@ tags:
 ---
 # Hexo.Github搭建
 
-- [github*Hexo搭建网站参考网站](https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ)
-- 安装nodejs: https://zhuanlan.zhihu.com/p/98782798
-- 然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.
-- [参考博文](https://io-oi.me/tech/hexo-next-optimization/)
+## [安装nodejs]( https://zhuanlan.zhihu.com/p/98782798)
+
+然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.
+
+`echo "source my_ws/devel/setup.bash" >> ~/.bashrc`
+
+*20201108更新：*上述版本老了，最新简单的方法参见如下：
+
+https://www.runoob.com/nodejs/nodejs-install-setup.html
+
+```Shell 
+# wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz    // 下载
+# tar xf  node-v10.9.0-linux-x64.tar.xz       // 解压
+# cd node-v10.9.0-linux-x64/                  // 进入解压目录
+# ./bin/node -v                               // 执行node命令 查看版本
+v10.9.0
+
+#解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接：
+
+sudo ln -s /usr/software/nodejs/bin/npm   /usr/local/bin/ 
+sudo ln -s /usr/software/nodejs/bin/node   /usr/local/bin/
+```
+
+## [github*Hexo搭建网站参考网站](https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw%3D%3D&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc%3D&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa%2Bw52NrKcem6YVv7i%2FfQ7Er4Sfm7KAQ)
+
+`npm install -g hexo-cli`
+
+1. 可能提示找不到hexo命令,环境变量没有设置好.
+
+   参考连接学习哪些方法可以写入环境变量: https://blog.csdn.net/lixiaoguang20/article/details/53814020
+
+2. 还提示我"TypeError, "StartWith"****"这种问题, 查明是nodejs的版本不对,去官网下载最新的安装.
+
+## 优秀博文
+https://io-oi.me/tech/hexo-next-optimization/
+
 <!--more-->
 
-# Github添加SSH-key
+## Github添加SSH-key
 
 要将本地的库推送到github远程仓库中必须首先生成本地的密钥并添加到github账号中。
 
