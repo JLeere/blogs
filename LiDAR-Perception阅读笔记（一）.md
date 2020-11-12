@@ -141,16 +141,12 @@ pcl::VoxelGrid
 ## std
 
 std::log
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 17ced8fd28dca7edf51b1ad1dd2980456f1d9eb5
+
+`std::for_each(points.begin(), points.end(), [&pv](const PointType2f &p) { pv.push_back(p); });`
+
 ## Eigen
 
 Eigen::Rotation2Df
-
->>>>>>> edace8c9f0713ce1959a90ad1ed7892596870f73
->>>>>>> f6b893cde36d762636d12f314890b76df042cf37
 
 std::list
 

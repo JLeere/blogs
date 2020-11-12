@@ -134,3 +134,13 @@ mc_int& mc_int::operator=(const mc_int& other) {
 int value() const;//申明为仅访问函数
 ```
 
+## array vector区别
+
+## 子类构造函数调用父类的构造函数
+
+https://blog.csdn.net/fchyang/article/details/81508030
+
+```C++
+ParkingSlot::ParkingSlot(std::vector<PointType2f> rect_points):Object2D(rect_points){}
+```
+

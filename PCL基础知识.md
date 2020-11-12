@@ -50,3 +50,5 @@ cloud2->point[i].x = 1;
 
    结构:`float x,y,z,rgb` rgb用一个浮点数表示
 
+## 点云预处理
+
