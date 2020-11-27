@@ -54,6 +54,9 @@
 <p>修改：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">const</span></span>;<span class="comment">//申明为仅访问函数</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="array-vector区别"><a href="#array-vector区别" class="headerlink" title="array vector区别"></a>array vector区别</h2><h2 id="子类构造函数调用父类的构造函数"><a href="#子类构造函数调用父类的构造函数" class="headerlink" title="子类构造函数调用父类的构造函数"></a>子类构造函数调用父类的构造函数</h2><p><a href="https://blog.csdn.net/fchyang/article/details/81508030">https://blog.csdn.net/fchyang/article/details/81508030</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ParkingSlot::ParkingSlot(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;PointType2f&gt; rect_points):Object2D(rect_points)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>编程学习</category>
@@ -64,142 +67,39 @@
       </tags>
   </entry>
   <entry>
-    <title>C++知识点学习笔记(一)</title>
-    <url>/2020/05/14/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="2020年5月"><a href="#2020年5月" class="headerlink" title="2020年5月"></a>2020年5月</h1><h2 id="源文件和头文件"><a href="#源文件和头文件" class="headerlink" title="源文件和头文件"></a><a href="https://www.cnblogs.com/xxcn/p/10930105.html">源文件和头文件</a></h2><p>.cpp文件通过<code>#include .h</code>直接一字不差的引用头文件中的代码.头文件中,存在变量或者函数的<strong>声明</strong>，而不要放定义.这些全局变量或函数在其他的.cpp源文件中得到定义.因此头文件的作用就是声明即将用的函数或变量,将不同.cpp链接起来,同样的东西便不用在多个cpp中都进行编译.在多个文件中出现了对于一个符号（变量或函数）的定义，纵然这些定义都是相同的，但对于编译器来说，这样做不合法,即不能多重定义<br>头文件中可以定义的类别,例外:</p>
-<h2 id="哈希表unordered-map"><a href="#哈希表unordered-map" class="headerlink" title="哈希表unordered_map"></a><a href="https://www.jianshu.com/p/4e64fce04a38">哈希表unordered_map</a></h2><p>无序映射表，key-value，可以将查询时间复杂度降为o(1).</p>
-<p>相关函数查一查。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宝石与石头问题</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(<span class="built_in">string</span> J, <span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">bool</span>&gt; mp;<span class="comment">//&lt;Key T&gt;</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> j : J) <span class="comment">//j为字符串J中的一个字符</span></span><br><span class="line">            mp[j] = <span class="number">1</span>;	<span class="comment">//mp[Key] = value</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> s : S)</span><br><span class="line">            <span class="keyword">if</span> (mp[s]) sum++; <span class="comment">//mp[s]有这个Key为1</span></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+    <title>PCL基础知识</title>
+    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p><a href="https://pcl.readthedocs.io/projects/tutorials/en/latest/walkthrough.html#common">官方文档</a></p>
+<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li>width(int),每一束激光扫描的点数</li>
+<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
+<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
+</ul>
 <a id="more"></a>
 
-<h2 id="声明和定义"><a href="#声明和定义" class="headerlink" title="声明和定义"></a><a href="https://www.cnblogs.com/frankfang/archive/2011/05/02/2034393.html">声明和定义</a></h2><blockquote>
-<p>“定义”的严谨C++语意，即内存占有，编译器将在相对内存地址上为其对象定址！</p>
-</blockquote>
-<blockquote>
-<p>所以有回复说：</p>
-<p>变量和对象不加extern永远是定义,类中的除外。<br>函数只有函数头是声明，有函数体的是定义。<br>类永远只是声明。类成员函数的函数体是定义。</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> x; <span class="comment">//这里的x是声明</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a; <span class="comment">//这里的a是声明</span></span><br><span class="line">    <span class="comment">//非static变量在类实例化时才分配内存.</span></span><br><span class="line">    MyClass();<span class="comment">//这里的函数是声明</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> MyClass::x;<span class="comment">//这是定义</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MyClass::a=<span class="number">11</span>;<span class="comment">//这是定义</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="boost-make-shared"><a href="#boost-make-shared" class="headerlink" title="boost::make_shared"></a>boost::make_shared</h2><p>智能指针,可以允许多个指针指向同一个地址内存,并且在所有指针的计数器消除为0时候自动删除内存.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">233</span>);</span><br><span class="line"><span class="function">boost::<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; <span class="title">sp</span><span class="params">(p)</span></span>;</span><br><span class="line"><span class="comment">//然后就不能再delete p了, 否则重复释放</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="auto-关键字"><a href="#auto-关键字" class="headerlink" title="auto 关键字"></a>auto 关键字</h2><p>声明变量时根据初始化表达式自动推断该变量的类型</p>
-<p><code>auto z(&quot;hello&quot;);//const char*</code></p>
-<p>但是不建议对于简单的变量使用auto,而多用于类型冗长/变量使用范围专一时候使用,方便程序阅读.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vect; </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = vect.begin(); it != vect.end(); ++it)</span><br><span class="line">&#123;  <span class="comment">//it的类型是std::vector&lt;int&gt;::iterator</span></span><br><span class="line">   <span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; *it;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2020年9月"><a href="#2020年9月" class="headerlink" title="2020年9月"></a>2020年9月</h1><h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">auto</span> b = [](<span class="keyword">int</span> x)&#123;<span class="keyword">return</span> x *= <span class="number">2</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [](<span class="keyword">int</span> x)&#123;<span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;&#125;(<span class="number">123</span>);<span class="comment">//函数体后的123也可传递参数x</span></span><br></pre></td></tr></table></figure>
-
-<p>一般是以上形式: </p>
-<ul>
-<li>方括号[]开始, 用于捕捉外部参数变量;</li>
-<li>圆括号()类似函数体的输入参数</li>
-<li>花括号{} 是函数主体</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">Int x;</span><br><span class="line"><span class="keyword">auto</span> c = [x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//复制传值,不会改变外部变量x的值</span></span><br><span class="line"><span class="keyword">auto</span> c = [&amp;x]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//引用传递,可改变</span></span><br><span class="line"><span class="keyword">auto</span> c = [=]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;;</span><br><span class="line"><span class="keyword">auto</span> c = [&amp;]()&#123;<span class="keyword">return</span> x += <span class="number">3</span>;&#125;; <span class="comment">//隐形传递, =表示值传递,&amp;表示引用</span></span><br></pre></td></tr></table></figure>
-
-<p>完全格式:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> d = [](<span class="keyword">int</span> a,<span class="keyword">int</span> b)-&gt;<span class="keyword">int</span>&#123;<span class="keyword">return</span> a+b;&#125;();<span class="comment">// -&gt;后表示函数体的返回值</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h2><h2 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof"></a>sizeof</h2><p>sizeof(short) &lt; sizeof(int) &lt; sizeof(long),</p>
-<p>short 是2字节，16位；int是32位，4字节；long在32位计算器中也是4字节。</p>
-<p>C++中用INT_MAX和INT_MIN可以分别代表int型上下限，（-2^31,2^31-1)</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cloud-&gt; points.swap(filtered_points);</span><br></pre></td></tr></table></figure>
-
-<h2 id="运算符重载-operator"><a href="#运算符重载-operator" class="headerlink" title="运算符重载 operator="></a>运算符重载 operator=</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在拷贝复制自定义对象的时候, <code>myclass a = b;</code>, 等号<code>=</code>的运算逻辑需要重载, 因此引入<code>operator=</code>. 应当将二者一起看做一个函数, 就方便理解了. </p>
-<h1 id="2020年10月"><a href="#2020年10月" class="headerlink" title="2020年10月"></a>2020年10月</h1><h2 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h2><p>参考链接: <a href="https://www.runoob.com/w3cnote/cpp-static-usage.html">https://www.runoob.com/w3cnote/cpp-static-usage.html</a></p>
-<h3 id="静态声明"><a href="#静态声明" class="headerlink" title="静态声明"></a>静态声明</h3><p>将变量存放在<strong>静态内存</strong>中,必须在程序一开始就存在(被初始化),并在程序结束后自动销毁. 不能在函数内被分配空间和初始化.</p>
-<blockquote>
-<p>这样，它的空间分配有三个可能的地方，一是作为类的外部接口的头文件，那里有类声明；二是类定义的内部实现，那里有类的成员函数定义；三是应用程序的 main() 函数前的全局数据声明和定义处</p>
-</blockquote>
-<p>早期使用static声明变量, 使得其在整个文件中都有效, 如今已经被命名空间取代.</p>
-<h3 id="类的静态成员"><a href="#类的静态成员" class="headerlink" title="类的静态成员"></a>类的静态成员</h3><ul>
-<li><p>静态成员变量或静态成员函数是面向这一大类的, 而非具体实例. 比如人这一个class, 其平均年龄或者寿命属性是针对这一类人, 而不像名字年龄这种针对个体的, 可定义为static. 它能被所有对象共享.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">human</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">avgLife</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">    ……</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>PointXYZ</p>
+<p>结构: <code>float x,y,z </code> </p>
+<p>用cloud.points[i].x访问</p>
 </li>
-<li><p>可通过类的对象,引用,指针访问静态成员</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> old = human::avgLife();</span><br><span class="line">human a1;</span><br><span class="line">human * a2 = &amp;a1;</span><br><span class="line">old = a1.avgLife();</span><br><span class="line">old = a2-&gt;avgLife();</span><br></pre></td></tr></table></figure>
+<li><p>PointXYZI</p>
+<p>结构:<code>float x,y,z,Indensity;</code></p>
+<p>用cloud.points[i].Data[4]访问强度</p>
 </li>
-<li><p>成员函数可直接调用静态成员</p>
+<li><p>PointXYZRGB</p>
+<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
 </li>
-<li><p>静态成员函数不能调用非静态成员，内部实现不能用this指针，也不能和仅访问函数const一起使用</p>
-</li>
-</ul>
-<h2 id="多态-vitual-override-final"><a href="#多态-vitual-override-final" class="headerlink" title="多态 vitual/override/final"></a>多态 vitual/override/final</h2><p><strong>vitual</strong>: 定义33333虚函数, 允许不同的派生类使用相同名字的函数进行分别不同的实现.</p>
-<p><strong>vitual =0</strong>有时候基类并不能定义具体的对象实例(比如动物), 可在基类中规定好纯虚函数接口,给子类分别去实现.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vitual <span class="keyword">int</span> <span class="title">fun</span><span class="params">(member_a, menber_b)</span><span class="keyword">const</span> </span>= <span class="number">0</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><blockquote>
-<p>C++多态(<strong>polymorphism</strong>)是通过虚函数来实现的，虚函数允许子类重新定义成员函数，而子类重新定义父类的做法称为覆盖(<strong>override</strong>)，或者称为重写。</p>
-<p>最常见的用法就是声明基类的指针，利用该指针指向任意一个子类对象，调用相应的虚函数，<strong>动态绑定</strong>。由于编写代码的时候并不能确定被调用的是基类的函数还是哪个派生类的函数，所以被成为“虚”函数。<em>如果没有使用虚函数的话，即没有利用C++多态性，则利用基类指针调用相应的函数的时候，将总被限制在基类函数本身，而无法调用到子类中被重写过的函数。</em></p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">(<span class="keyword">int</span> = <span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DerivedClass</span>:</span> <span class="keyword">public</span> BaseClass</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// ok</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcB() does not </span></span><br><span class="line">                  <span class="comment">// override BaseClass::funcB() const</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">funcC</span><span class="params">( <span class="keyword">double</span> = <span class="number">0.0</span> )</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: </span></span><br><span class="line">                         <span class="comment">// DerivedClass::funcC(double) does not </span></span><br><span class="line">                         <span class="comment">// override BaseClass::funcC(int)</span></span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">funcD</span><span class="params">()</span> <span class="keyword">override</span></span>; <span class="comment">// compiler error: DerivedClass::funcD() does not </span></span><br><span class="line">              <span class="comment">// override the non-virtual BaseClass::funcD()</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>finanl</strong>表示后续派生类的虚函数不能再覆盖了.</p>
-<h2 id="动态内存和智能指针"><a href="#动态内存和智能指针" class="headerlink" title="动态内存和智能指针"></a>动态内存和智能指针</h2><p><strong>静态内存</strong>:存放static对象和类的static成员,以及定义在函数体外部的变量. 在使用之前自动分配,在程序结束时候自动销毁.</p>
-<p><strong>栈</strong>: 保存定义在函数内的非static对象, 仅存在于该程序块运行的生命周期中</p>
-<p><strong>堆</strong>: 用来储存动态分配的对象, 即动态对象的生存期由程序自己控制. 传统使用<code>new/delete</code>分配和销毁内存. 因此很容易造成内存泄露和引用非法内存的指针.所以引入更容易和安全的只能指针: <code>shared_ptr</code>, <code>unique_ptr</code>,``weak_ptr`</p>
-<h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a>shared_ptr</h3><p>多个指针指向同一个对象地址,每次被引用都增加一个引用计数,当该引用计数清零时候调出析构函数释放该动态内存.  <code>p1.use_count()</code>,返回该智能指针的引用计数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; sp1;<span class="comment">//初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//make_shared函数,尖括号是返回值类型,圆括号为类的构造函数的参数</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">auto</span> p1 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
-
-<p>。。。。。</p>
-]]></content>
+</ol>
+<h2 id="点云预处理"><a href="#点云预处理" class="headerlink" title="点云预处理"></a>点云预处理</h2>]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>C++</category>
+        <category>研究生</category>
+        <category>PCL</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Eigen学习笔记</title>
-    <url>/2020/10/13/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>参考网站: <a href="https://zhuanlan.zhihu.com/p/36772345">https://zhuanlan.zhihu.com/p/36772345</a></p>
-<p><a href="http://zhaoxuhui.top/blog/2019/08/21/eigen-note-1.html">参考博客</a></p>
-<p>官方教程: <a href="https://eigen.tuxfamily.org/dox/group__QuickRefPage.html">https://eigen.tuxfamily.org/dox/group__QuickRefPage.html</a></p>
-<h1 id="CMake库中的声明"><a href="#CMake库中的声明" class="headerlink" title="CMake库中的声明"></a>CMake库中的声明</h1><p>Eigen库本身全是头文件，只需要将头文件包含到路径中即可。</p>
-<h2 id="方法1-修改vscode环境配置"><a href="#方法1-修改vscode环境配置" class="headerlink" title="方法1 修改vscode环境配置"></a>方法1 修改vscode环境配置</h2><p><a href="%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F.md">vscode配置C++程序.md</a></p>
-<h2 id="方法2-CMake工具"><a href="#方法2-CMake工具" class="headerlink" title="方法2 CMake工具"></a>方法2 CMake工具</h2><p>利用Cmake文件将包含路径写进去。</p>
-<p><em>cmake也可以在vscode中利用cmake tool工具读入，自动包含路径，而无需再对vscode进行配置</em></p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment">#寻找库Eigen</span></span><br><span class="line"><span class="keyword">find_package</span>(Eigen3 REQUIRED)</span><br><span class="line"><span class="comment">#把库包含进去</span></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;EIGEN3_INCLUDE_DIRS&#125;</span>)</span><br><span class="line"><span class="comment">#因为只有头文件，因此不需要target_link_libraries</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h1 id="矩阵和向量"><a href="#矩阵和向量" class="headerlink" title="矩阵和向量"></a>矩阵和向量</h1><h2 id="初始定义"><a href="#初始定义" class="headerlink" title="初始定义"></a>初始定义</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Eigen;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//started</span></span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//动态大小的矩阵</span></span><br><span class="line">    MatrixXd M1 = MatrixXd::Random(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">    M1 = (M1 + MatrixXd::Constant(<span class="number">3</span>,<span class="number">3</span>,<span class="number">1.2</span>));</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;M1= &quot;</span>&lt;&lt;M1&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">VectorXd <span class="title">v</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">    v &lt;&lt;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;v*M1 = &quot;</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;M1*v&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//固定的矩阵</span></span><br><span class="line">    <span class="function">Vector3d <span class="title">v2</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span>;</span><br><span class="line">    Matrix3d M2 = Matrix3d::Random();</span><br><span class="line">    M2 = M2 + Matrix3d::Constant(<span class="number">1.2</span>);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;M2*v2= &quot;</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;M2*v2&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    Matrix3d M3;</span><br><span class="line">    <span class="comment">//逗号初始化</span></span><br><span class="line">    M3 &lt;&lt; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,</span><br><span class="line">        	<span class="number">1</span>,<span class="number">4</span>,<span class="number">6</span>,</span><br><span class="line">    		<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>;		</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//矩阵变换</span></span><br><span class="line">    MatrixXcf a = MatrixXcf::Random(<span class="number">2</span>,<span class="number">2</span>);<span class="comment">//定义2-by-2随机矩阵</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a\n&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//矩阵a</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^T\n&quot;</span> &lt;&lt; a.transpose() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的转置</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^H\n&quot;</span> &lt;&lt; a.conjugate() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的共轭</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Here is the matrix a^&#123;-1&#125;\n&quot;</span> &lt;&lt; a.inverse() &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//a的逆</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//向量乘法</span></span><br><span class="line">    <span class="function">Vector3d <span class="title">v</span><span class="params">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span></span>;</span><br><span class="line">    <span class="function">Vector3d <span class="title">w</span><span class="params">(<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Dot product: &quot;</span> &lt;&lt; v.dot(w) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//向量点乘</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cross product:\n&quot;</span> &lt;&lt; v.cross(w) &lt;&lt; <span class="built_in">endl</span>;<span class="comment">//向量叉乘</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><p><code>.colwise()</code>返回每一列的值.</p>
-<p><code>.rowwise()</code> 返回每一行的值</p>
-<h2 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h2><p><code>.col(),.row(),.size()</code>：获取列数行数和元素个数</p>
-<p><code>.data()</code>: 返回矩阵首地址的指针</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">MatrixXd::Zeros(n,m);</span><br><span class="line">MatrixXd::Ones(n,m);</span><br><span class="line">MatrixXd::Identity(n,m);</span><br><span class="line">MatrixXd::LineSpaced(size,low,high)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-      </categories>
-      <tags>
-        <tag>Eigen</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Eigen学习笔记(二)</title>
-    <url>/2020/10/27/Eigen%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%89)/</url>
-    <content><![CDATA[<p>转载自: <a href="https://blog.csdn.net/xuezhisdc/article/details/54645238">https://blog.csdn.net/xuezhisdc/article/details/54645238</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 参考 - http://eigen.tuxfamily.org/dox/AsciiQuickReference.txt</span></span><br><span class="line"><span class="comment">// 一个关于Eigen的快速参考</span></span><br><span class="line"><span class="comment">// Matlab和Eigen的对应用法</span></span><br><span class="line"><span class="comment">// Main author: Keir Mierle</span></span><br><span class="line"><span class="comment">// 注释：张学志</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, <span class="number">3</span>&gt; A;               <span class="comment">// 固定大小的双精度矩阵，和Matrix3d一样。</span></span><br><span class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, Dynamic&gt; B;         <span class="comment">// 固定行数，列数为动态大小</span></span><br><span class="line">Matrix&lt;<span class="keyword">double</span>, Dynamic, Dynamic&gt; C;   <span class="comment">// 行数和列数都是动态大小，和MatrixXd一样。</span></span><br><span class="line">Matrix&lt;<span class="keyword">double</span>, <span class="number">3</span>, <span class="number">3</span>, RowMajor&gt; E;     <span class="comment">// 行优先的矩阵（默认是列优先）</span></span><br><span class="line">Matrix3f P, Q, R;                     <span class="comment">// 3x3 的浮点型矩阵</span></span><br><span class="line">Vector3f x, y, z;                     <span class="comment">// 3x1 的浮点型矩阵（列向量）</span></span><br><span class="line">RowVector3f a, b, c;                  <span class="comment">// 1x3 的浮点型矩阵（行向量）</span></span><br><span class="line">VectorXd v;                           <span class="comment">// 动态大小的双精度列向量</span></span><br><span class="line"><span class="keyword">double</span> s;                            </span><br><span class="line"></span><br><span class="line"><span class="comment">// 基本用法</span></span><br><span class="line"><span class="comment">// Eigen          // Matlab           // 注释</span></span><br><span class="line">x.size()          <span class="comment">// length(x)        // 向量的长度</span></span><br><span class="line">C.rows()          <span class="comment">// size(C,1)        // 矩阵的行数</span></span><br><span class="line">C.cols()          <span class="comment">// size(C,2)        // 矩阵的列数</span></span><br><span class="line">x(i)              <span class="comment">// x(i+1)           // 访问向量元素（Matlab的下标从1开始计数）</span></span><br><span class="line">C(i,j)            <span class="comment">// C(i+1,j+1)       // 访问矩阵元素</span></span><br><span class="line"></span><br><span class="line">A.resize(<span class="number">4</span>, <span class="number">4</span>);   <span class="comment">// 如果开启了断言，将会出现运行时错误。</span></span><br><span class="line">B.resize(<span class="number">4</span>, <span class="number">9</span>);   <span class="comment">// 如果开启了断言，将会出现运行时错误。</span></span><br><span class="line">A.resize(<span class="number">3</span>, <span class="number">3</span>);   <span class="comment">// 运行正常，矩阵的大小没有变化及。（A的行数和列数都是固定大小的）</span></span><br><span class="line">B.resize(<span class="number">3</span>, <span class="number">9</span>);   <span class="comment">// 运行正常，仅动态列数发生了变化。（B的列数是动态变化的）</span></span><br><span class="line">                  </span><br><span class="line">A &lt;&lt; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,     <span class="comment">// 初始化A。元素也可以是矩阵，先按列堆叠，再按行堆叠。</span></span><br><span class="line">     <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>,     </span><br><span class="line">     <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>;     </span><br><span class="line">B &lt;&lt; A, A, A;     <span class="comment">// B 是3个A水平排列</span></span><br><span class="line">A.fill(<span class="number">10</span>);       <span class="comment">// 将A的所有元素填充为10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Eigen                                    // Matlab                       注释</span></span><br><span class="line">MatrixXd::Identity(rows,cols)               <span class="comment">// eye(rows,cols)               //单位矩阵</span></span><br><span class="line">C.setIdentity(rows,cols)                    <span class="comment">// C = eye(rows,cols)           //单位矩阵</span></span><br><span class="line">MatrixXd::Zero(rows,cols)                   <span class="comment">// zeros(rows,cols)             //全零矩阵</span></span><br><span class="line">C.setZero(rows,cols)                        <span class="comment">// C = zeros(rows,cols)         //全零矩阵</span></span><br><span class="line">MatrixXd::Ones(rows,cols)                   <span class="comment">// ones(rows,cols)              //全一矩阵</span></span><br><span class="line">C.setOnes(rows,cols)                        <span class="comment">// C = ones(rows,cols)          //全一矩阵</span></span><br><span class="line">MatrixXd::Random(rows,cols)                 <span class="comment">// rand(rows,cols)*2-1          //MatrixXd::Random 返回范围为(-1, 1)的均匀分布的随机数</span></span><br><span class="line">C.setRandom(rows,cols)                      <span class="comment">// C = rand(rows,cols)*2-1      //返回范围为(-1, 1)的均匀分布的随机数</span></span><br><span class="line">VectorXd::LinSpaced(size,low,high)          <span class="comment">// linspace(low,high,size)&#x27;     //返回size个等差数列，第一个数为low，最后一个数为high</span></span><br><span class="line">v.setLinSpaced(size,low,high)               <span class="comment">// v = linspace(low,high,size)&#x27; //返回size个等差数列，第一个数为low，最后一个数为high</span></span><br><span class="line">VectorXi::LinSpaced(((hi-low)/step)+<span class="number">1</span>,      <span class="comment">// low:step:hi                  //以step为步长的等差数列。((hi-low)/step)+1为个数</span></span><br><span class="line">                    low,low+step*(size<span class="number">-1</span>))  <span class="comment">//</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Matrix 切片和块。下面列出的所有表达式都是可读/写的。</span></span><br><span class="line"><span class="comment">// 使用模板参数更快（如第2个）。注意：Matlab是的下标是从1开始的。</span></span><br><span class="line"><span class="comment">// Eigen                           // Matlab                        // 注释</span></span><br><span class="line">x.head(n)                          <span class="comment">// x(1:n)                        //前n个元素</span></span><br><span class="line">x.head&lt;n&gt;()                        <span class="comment">// x(1:n)                        //前n个元素</span></span><br><span class="line">x.tail(n)                          <span class="comment">// x(end - n + 1: end)           //倒数n个元素</span></span><br><span class="line">x.tail&lt;n&gt;()                        <span class="comment">// x(end - n + 1: end)           //倒数n个元素</span></span><br><span class="line">x.segment(i, n)                    <span class="comment">// x(i+1 : i+n)                  //切片</span></span><br><span class="line">x.segment&lt;n&gt;(i)                    <span class="comment">// x(i+1 : i+n)                  //切片</span></span><br><span class="line">P.block(i, j, rows, cols)          <span class="comment">// P(i+1 : i+rows, j+1 : j+cols) //块</span></span><br><span class="line">P.block&lt;rows, cols&gt;(i, j)          <span class="comment">// P(i+1 : i+rows, j+1 : j+cols) //块</span></span><br><span class="line">P.row(i)                           <span class="comment">// P(i+1, :)                     //第i行</span></span><br><span class="line">P.col(j)                           <span class="comment">// P(:, j+1)                     //第j列</span></span><br><span class="line">P.leftCols&lt;cols&gt;()                 <span class="comment">// P(:, 1:cols)                  //前cols列</span></span><br><span class="line">P.leftCols(cols)                   <span class="comment">// P(:, 1:cols)                  //前cols列</span></span><br><span class="line">P.middleCols&lt;cols&gt;(j)              <span class="comment">// P(:, j+1:j+cols)              //中间cols列</span></span><br><span class="line">P.middleCols(j, cols)              <span class="comment">// P(:, j+1:j+cols)              //中间cols列</span></span><br><span class="line">P.rightCols&lt;cols&gt;()                <span class="comment">// P(:, end-cols+1:end)          //后cols列</span></span><br><span class="line">P.rightCols(cols)                  <span class="comment">// P(:, end-cols+1:end)          //后cols列</span></span><br><span class="line">P.topRows&lt;rows&gt;()                  <span class="comment">// P(1:rows, :)                  //前rows行</span></span><br><span class="line">P.topRows(rows)                    <span class="comment">// P(1:rows, :)                  //前rows行</span></span><br><span class="line">P.middleRows&lt;rows&gt;(i)              <span class="comment">// P(i+1:i+rows, :)              //中间rows行</span></span><br><span class="line">P.middleRows(i, rows)              <span class="comment">// P(i+1:i+rows, :)              //中间rows行</span></span><br><span class="line">P.bottomRows&lt;rows&gt;()               <span class="comment">// P(end-rows+1:end, :)          //最后rows行</span></span><br><span class="line">P.bottomRows(rows)                 <span class="comment">// P(end-rows+1:end, :)          //最后rows行</span></span><br><span class="line">P.topLeftCorner(rows, cols)        <span class="comment">// P(1:rows, 1:cols)             //左上角块</span></span><br><span class="line">P.topRightCorner(rows, cols)       <span class="comment">// P(1:rows, end-cols+1:end)     //右上角块</span></span><br><span class="line">P.bottomLeftCorner(rows, cols)     <span class="comment">// P(end-rows+1:end, 1:cols)     //左下角块</span></span><br><span class="line">P.bottomRightCorner(rows, cols)    <span class="comment">// P(end-rows+1:end, end-cols+1:end) //右下角块</span></span><br><span class="line">P.topLeftCorner&lt;rows,cols&gt;()       <span class="comment">// P(1:rows, 1:cols)                 //左上角块</span></span><br><span class="line">P.topRightCorner&lt;rows,cols&gt;()      <span class="comment">// P(1:rows, end-cols+1:end)         //右上角块</span></span><br><span class="line">P.bottomLeftCorner&lt;rows,cols&gt;()    <span class="comment">// P(end-rows+1:end, 1:cols)         //左下角块</span></span><br><span class="line">P.bottomRightCorner&lt;rows,cols&gt;()   <span class="comment">// P(end-rows+1:end, end-cols+1:end) //右下角块</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 特别说明：Eigen的交换函数进行了高度优化</span></span><br><span class="line"><span class="comment">// Eigen                           // Matlab</span></span><br><span class="line">R.row(i) = P.col(j);               <span class="comment">// R(i, :) = P(:, j)</span></span><br><span class="line">R.col(j1).swap(mat1.col(j2));      <span class="comment">// R(:, [j1 j2]) = R(:, [j2, j1]) //交换列</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Views, transpose, etc;</span></span><br><span class="line"><span class="comment">// Eigen                           // Matlab</span></span><br><span class="line">R.adjoint()                        <span class="comment">// R&#x27;                    // 共轭转置</span></span><br><span class="line">R.transpose()                      <span class="comment">// R.&#x27; or conj(R&#x27;)       // 可读/写 转置</span></span><br><span class="line">R.diagonal()                       <span class="comment">// diag(R)               // 可读/写 对角元素</span></span><br><span class="line">x.asDiagonal()                     <span class="comment">// diag(x)               // 对角矩阵化</span></span><br><span class="line">R.transpose().colwise().reverse()  <span class="comment">// rot90(R)              // 可读/写 逆时针旋转90度</span></span><br><span class="line">R.rowwise().reverse()              <span class="comment">// fliplr(R)             // 水平翻转</span></span><br><span class="line">R.colwise().reverse()              <span class="comment">// flipud(R)             // 垂直翻转</span></span><br><span class="line">R.replicate(i,j)                   <span class="comment">// repmat(P,i,j)         // 复制矩阵，垂直复制i个，水平复制j个</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 四则运算，和Matlab相同。但Matlab中不能使用*=这样的赋值运算符</span></span><br><span class="line"><span class="comment">// 矩阵 - 向量    矩阵 - 矩阵      矩阵 - 标量</span></span><br><span class="line">y  = M*x;          R  = P*Q;        R  = P*s;</span><br><span class="line">a  = b*M;          R  = P - Q;      R  = s*P;</span><br><span class="line">a *= M;            R  = P + Q;      R  = P/s;</span><br><span class="line">                   R *= Q;          R  = s*P;</span><br><span class="line">                   R += Q;          R *= s;</span><br><span class="line">                   R -= Q;          R /= s;</span><br><span class="line"></span><br><span class="line">                   </span><br><span class="line"><span class="comment">// 逐像素操作Vectorized operations on each element independently</span></span><br><span class="line"><span class="comment">// Eigen                       // Matlab        //注释</span></span><br><span class="line">R = P.cwiseProduct(Q);         <span class="comment">// R = P .* Q    //逐元素乘法</span></span><br><span class="line">R = P.<span class="built_in">array</span>() * s.<span class="built_in">array</span>();     <span class="comment">// R = P .* s    //逐元素乘法（s为标量）</span></span><br><span class="line">R = P.cwiseQuotient(Q);        <span class="comment">// R = P ./ Q    //逐元素除法</span></span><br><span class="line">R = P.<span class="built_in">array</span>() / Q.<span class="built_in">array</span>();     <span class="comment">// R = P ./ Q    //逐元素除法</span></span><br><span class="line">R = P.<span class="built_in">array</span>() + s.<span class="built_in">array</span>();     <span class="comment">// R = P + s     //逐元素加法（s为标量）</span></span><br><span class="line">R = P.<span class="built_in">array</span>() - s.<span class="built_in">array</span>();     <span class="comment">// R = P - s     //逐元素减法（s为标量）</span></span><br><span class="line">R.<span class="built_in">array</span>() += s;                <span class="comment">// R = R + s     //逐元素加法（s为标量）</span></span><br><span class="line">R.<span class="built_in">array</span>() -= s;                <span class="comment">// R = R - s     //逐元素减法（s为标量）</span></span><br><span class="line">R.<span class="built_in">array</span>() &lt; Q.<span class="built_in">array</span>();         <span class="comment">// R &lt; Q         //逐元素比较运算</span></span><br><span class="line">R.<span class="built_in">array</span>() &lt;= Q.<span class="built_in">array</span>();        <span class="comment">// R &lt;= Q        //逐元素比较运算</span></span><br><span class="line">R.cwiseInverse();              <span class="comment">// 1 ./ P        //逐元素取倒数</span></span><br><span class="line">R.<span class="built_in">array</span>().inverse();           <span class="comment">// 1 ./ P        //逐元素取倒数</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">sin</span>()                <span class="comment">// sin(P)        //逐元素计算正弦函数</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">cos</span>()                <span class="comment">// cos(P)        //逐元素计算余弦函数</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">pow</span>(s)               <span class="comment">// P .^ s        //逐元素计算幂函数</span></span><br><span class="line">R.<span class="built_in">array</span>().square()             <span class="comment">// P .^ 2        //逐元素计算平方</span></span><br><span class="line">R.<span class="built_in">array</span>().cube()               <span class="comment">// P .^ 3        //逐元素计算立方</span></span><br><span class="line">R.cwiseSqrt()                  <span class="comment">// sqrt(P)       //逐元素计算平方根</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">sqrt</span>()               <span class="comment">// sqrt(P)       //逐元素计算平方根</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">exp</span>()                <span class="comment">// exp(P)        //逐元素计算指数函数</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">log</span>()                <span class="comment">// log(P)        //逐元素计算对数函数</span></span><br><span class="line">R.cwiseMax(P)                  <span class="comment">// max(R, P)     //逐元素计算R和P的最大值</span></span><br><span class="line">R.<span class="built_in">array</span>().max(P.<span class="built_in">array</span>())       <span class="comment">// max(R, P)     //逐元素计算R和P的最大值</span></span><br><span class="line">R.cwiseMin(P)                  <span class="comment">// min(R, P)     //逐元素计算R和P的最小值</span></span><br><span class="line">R.<span class="built_in">array</span>().min(P.<span class="built_in">array</span>())       <span class="comment">// min(R, P)     //逐元素计算R和P的最小值</span></span><br><span class="line">R.cwiseAbs()                   <span class="comment">// abs(P)        //逐元素计算R和P的绝对值</span></span><br><span class="line">R.<span class="built_in">array</span>().<span class="built_in">abs</span>()                <span class="comment">// abs(P)        //逐元素计算绝对值</span></span><br><span class="line">R.cwiseAbs2()                  <span class="comment">// abs(P.^2)     //逐元素计算平方</span></span><br><span class="line">R.<span class="built_in">array</span>().abs2()               <span class="comment">// abs(P.^2)     //逐元素计算平方</span></span><br><span class="line">(R.<span class="built_in">array</span>() &lt; s).select(P,Q );  <span class="comment">// (R &lt; s ? P : Q)                             //根据R的元素值是否小于s，选择P和Q的对应元素</span></span><br><span class="line">R = (Q.<span class="built_in">array</span>()==<span class="number">0</span>).select(P,A) <span class="comment">// R(Q==0) = P(Q==0) R(Q!=0) = P(Q!=0)         //根据Q中元素等于零的位置选择P中元素</span></span><br><span class="line">R = P.unaryExpr(ptr_fun(func)) <span class="comment">// R = arrayfun(func, P)     // 对P中的每个元素应用func函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Reductions.</span></span><br><span class="line"><span class="keyword">int</span> r, c;</span><br><span class="line"><span class="comment">// Eigen                  // Matlab                 //注释</span></span><br><span class="line">R.minCoeff()              <span class="comment">// min(R(:))              //最小值</span></span><br><span class="line">R.maxCoeff()              <span class="comment">// max(R(:))              //最大值</span></span><br><span class="line">s = R.minCoeff(&amp;r, &amp;c)    <span class="comment">// [s, i] = min(R(:)); [r, c] = ind2sub(size(R), i); //计算最小值和它的位置</span></span><br><span class="line">s = R.maxCoeff(&amp;r, &amp;c)    <span class="comment">// [s, i] = max(R(:)); [r, c] = ind2sub(size(R), i); //计算最大值和它的位置</span></span><br><span class="line">R.sum()                   <span class="comment">// sum(R(:))              //求和（所有元素）</span></span><br><span class="line">R.colwise().sum()         <span class="comment">// sum(R)                 //按列求和</span></span><br><span class="line">R.rowwise().sum()         <span class="comment">// sum(R, 2) or sum(R&#x27;)&#x27;  //按行求和</span></span><br><span class="line">R.prod()                  <span class="comment">// prod(R(:))                 //累积</span></span><br><span class="line">R.colwise().prod()        <span class="comment">// prod(R)                    //按列累积</span></span><br><span class="line">R.rowwise().prod()        <span class="comment">// prod(R, 2) or prod(R&#x27;)&#x27;    //按行累积</span></span><br><span class="line">R.trace()                 <span class="comment">// trace(R)                   //迹</span></span><br><span class="line">R.all()                   <span class="comment">// all(R(:))                  //是否所有元素都非零</span></span><br><span class="line">R.colwise().all()         <span class="comment">// all(R)                     //按列判断，是否该列所有元素都非零</span></span><br><span class="line">R.rowwise().all()         <span class="comment">// all(R, 2)                  //按行判断，是否该行所有元素都非零</span></span><br><span class="line">R.any()                   <span class="comment">// any(R(:))                  //是否有元素非零</span></span><br><span class="line">R.colwise().any()         <span class="comment">// any(R)                     //按列判断，是否该列有元素都非零</span></span><br><span class="line">R.rowwise().any()         <span class="comment">// any(R, 2)                  //按行判断，是否该行有元素都非零</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 点积，范数等</span></span><br><span class="line"><span class="comment">// Eigen                  // Matlab           // 注释</span></span><br><span class="line">x.norm()                  <span class="comment">// norm(x).         //范数（注意：Eigen中没有norm(R)）</span></span><br><span class="line">x.squaredNorm()           <span class="comment">// dot(x, x)        //平方和（注意：对于复数而言，不等价）</span></span><br><span class="line">x.dot(y)                  <span class="comment">// dot(x, y)        //点积</span></span><br><span class="line">x.cross(y)                <span class="comment">// cross(x, y)      //交叉积，需要头文件 #include &lt;Eigen/Geometry&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 类型转换</span><br><span class="line"><span class="comment">// Eigen                  // Matlab             // 注释</span></span><br><span class="line">A.cast&lt;<span class="keyword">double</span>&gt;();         <span class="comment">// double(A)          //变成双精度类型</span></span><br><span class="line">A.cast&lt;<span class="keyword">float</span>&gt;();          <span class="comment">// single(A)          //变成单精度类型</span></span><br><span class="line">A.cast&lt;<span class="keyword">int</span>&gt;();            <span class="comment">// int32(A)           //编程整型</span></span><br><span class="line">A.real();                 <span class="comment">// real(A)            //实部</span></span><br><span class="line">A.imag();                 <span class="comment">// imag(A)            //虚部</span></span><br><span class="line"><span class="comment">// 如果变换前后的类型相同，不做任何事情。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意：Eigen中，绝大多数的涉及多个操作数的运算都要求操作数具有相同的类型</span></span><br><span class="line">MatrixXf F = MatrixXf::Zero(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">A += F;                <span class="comment">// 非法。Matlab中允许。（单精度+双精度）</span></span><br><span class="line">A += F.cast&lt;<span class="keyword">double</span>&gt;(); <span class="comment">// 将F转换成double，并累加。（一般都是在使用时临时转换）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Eigen 可以将已存储数据的缓存 映射成 Eigen矩阵</span></span><br><span class="line"><span class="keyword">float</span> <span class="built_in">array</span>[<span class="number">3</span>];</span><br><span class="line">Vector3f::Map(<span class="built_in">array</span>).fill(<span class="number">10</span>);            <span class="comment">// create a temporary Map over array and sets entries to 10</span></span><br><span class="line"><span class="keyword">int</span> data[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line"><span class="function">Matrix2i <span class="title">mat2x2</span><span class="params">(data)</span></span>;                    <span class="comment">// 将 data 复制到 mat2x2</span></span><br><span class="line">Matrix2i::Map(data) = <span class="number">2</span>*mat2x2;           <span class="comment">// 使用 2*mat2x2 覆写data的元素 </span></span><br><span class="line">MatrixXi::Map(data, <span class="number">2</span>, <span class="number">2</span>) += mat2x2;      <span class="comment">// 将 mat2x2 加到 data的元素上 (当编译时不知道大小时，可选语法)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 求解线性方程组 Ax = b。结果保存在x中。      Matlab: x = A \ b.</span></span><br><span class="line">x = A.ldlt().solve(b));  <span class="comment">// A sym. p.s.d.    #include &lt;Eigen/Cholesky&gt;</span></span><br><span class="line">x = A.llt() .solve(b));  <span class="comment">// A sym. p.d.      #include &lt;Eigen/Cholesky&gt;</span></span><br><span class="line">x = A.lu()  .solve(b));  <span class="comment">// 稳定，快速       #include &lt;Eigen/LU&gt;</span></span><br><span class="line">x = A.qr()  .solve(b));  <span class="comment">// No pivoting.     #include &lt;Eigen/QR&gt;        //Eigen 3.3.2中没有？</span></span><br><span class="line">x = A.svd() .solve(b));  <span class="comment">// 稳定，慢速       #include &lt;Eigen/SVD&gt;       //Eigen 3.3.2中没有？</span></span><br><span class="line"><span class="comment">// .ldlt() -&gt; .matrixL() and .matrixD()                         //?</span></span><br><span class="line"><span class="comment">// .llt()  -&gt; .matrixL()                                        //?</span></span><br><span class="line"><span class="comment">// .lu()   -&gt; .matrixL() and .matrixU()                         //?</span></span><br><span class="line"><span class="comment">// .qr()   -&gt; .matrixQ() and .matrixR()                         //?</span></span><br><span class="line"><span class="comment">// .svd()  -&gt; .matrixU(), .singularValues(), and .matrixV()     //?</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 特征值问题</span></span><br><span class="line"><span class="comment">// Eigen                          // Matlab</span></span><br><span class="line">A.eigenvalues();                  <span class="comment">// eig(A);</span></span><br><span class="line"><span class="function">EigenSolver&lt;Matrix3d&gt; <span class="title">eig</span><span class="params">(A)</span></span>;     <span class="comment">// [vec val] = eig(A)</span></span><br><span class="line">eig.eigenvalues();                <span class="comment">// diag(val)          //特征值，向量形式</span></span><br><span class="line">eig.eigenvectors();               <span class="comment">// vec                //特征向量，矩阵形式</span></span><br><span class="line"><span class="comment">// 对于自伴矩阵（Hermitian矩阵或对称矩阵），使用SelfAdjointEigenSolver&lt;&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-      </categories>
-      <tags>
-        <tag>Eigen</tag>
+        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -258,38 +158,9 @@
 </li>
 </ol>
 <p>=======<br>pcl::VoxelGrid</p>
-<h2 id="std-1"><a href="#std-1" class="headerlink" title="std"></a>std</h2><p>std::log<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>=======<br>=======</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>17ced8fd28dca7edf51b1ad1dd2980456f1d9eb5</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<h2 id="std-1"><a href="#std-1" class="headerlink" title="std"></a>std</h2><p>std::log</p>
+<p><code>std::for_each(points.begin(), points.end(), [&amp;pv](const PointType2f &amp;p) &#123; pv.push_back(p); &#125;);</code></p>
 <h2 id="Eigen"><a href="#Eigen" class="headerlink" title="Eigen"></a>Eigen</h2><p>Eigen::Rotation2Df</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>edace8c9f0713ce1959a90ad1ed7892596870f73<br>f6b893cde36d762636d12f314890b76df042cf37</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 <p>std::list</p>
 <p>std::pair</p>
 <p>std::Array</p>
@@ -304,83 +175,6 @@
       </categories>
       <tags>
         <tag>lidar</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MST最小生成树</title>
-    <url>/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</url>
-    <content><![CDATA[<h1 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h1><p>参考视频链接: <a href="https://www.bilibili.com/video/BV1Eb41177d1?from=search&amp;seid=6207310363940342792">https://www.bilibili.com/video/BV1Eb41177d1?from=search&amp;seid=6207310363940342792</a></p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20201022134619242.png" alt="image-20201022134619242" style="zoom: 67%;"><img src="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20201022134724408.png" alt="image-20201022134724408"></p>
-<p>树的三个特点, n个点至少需要n-1条边, 不能由环的出现</p>
-<img src="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20201022134724408.png" alt="image-20201022134724408" style="zoom:67%;">
-
-<p>最小的概念: 每条边都有相应的权重(可以是成本,距离等度量), 树中所有边的权重之和最小的方案为MST</p>
-<a id="more"></a>
-
-<h2 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h2><p>有两种方法: Prime(寻找顶点) 和Kruskal(直接寻找边)</p>
-<h3 id="Kruskal"><a href="#Kruskal" class="headerlink" title="Kruskal"></a>Kruskal</h3><img src="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20201022135500215.png" alt="image-20201022135500215" style="zoom:67%;">
-
-<ul>
-<li>先将所有边按权重排序成列表</li>
-<li>然后优先放入每条边判断是否成环</li>
-<li>没有成环则加入MST; 若成环则放弃该边.</li>
-</ul>
-<h3 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h3><img src="/2020/10/22/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/image-20201022140814900.png" alt="image-20201022140814900" style="zoom:67%;">
-
-<p>以顶点为出发点, 每次选择两个集合(已选点集和未选点集)之间边权重最短的顶点加入已选集合,然后再以该顶点出发选择到未选集合权重最小的边. </p>
-<p>需要三个列表,</p>
-<ul>
-<li>selected将顶点区分为两个集合:已选和未选</li>
-<li>minDist, 保存与已选集合中顶点联通的边权重最小的值</li>
-<li>parent, 保存minDist另一端的顶点编号</li>
-</ul>
-<p>三个步骤:</p>
-<ol>
-<li>更新列表, 更新所有与已选顶点集合相连通的顶点. 如果其边权重小于表中原来的值, 就更新minDist以及对应的parent顶点.</li>
-<li>扫描minDist列表,选择最小的边的编号.</li>
-<li>添加该边对应的顶点到已选点集. </li>
-</ol>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>MST</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PCL基础知识</title>
-    <url>/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
-<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
-<li>width(int),每一束激光扫描的点数</li>
-<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
-<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
-</ul>
-<a id="more"></a>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt; cloud;</span><br><span class="line">cloud.points[i].x = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;pcl::PointXYZ&gt; data = cloud.points;</span><br><span class="line"><span class="keyword">if</span>(!cloud.isOrganized())&#123;&#125;<span class="comment">//判断是不是有序点云</span></span><br><span class="line">is_dense(<span class="literal">true</span>)<span class="comment">//指定所有点都是稠密的,inf/nan</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">ptr <span class="title">cloud2</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">cloud2-&gt;point[i].x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>PointXYZ</p>
-<p>结构: <code>float x,y,z </code> </p>
-<p>用cloud.points[i].x访问</p>
-</li>
-<li><p>PointXYZI</p>
-<p>结构:<code>float x,y,z,Indensity;</code></p>
-<p>用cloud.points[i].Data[4]访问强度</p>
-</li>
-<li><p>PointXYZRGB</p>
-<p>结构:<code>float x,y,z,rgb</code> rgb用一个浮点数表示</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>PCL</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
       </tags>
   </entry>
   <entry>
@@ -405,12 +199,56 @@
   </entry>
   <entry>
     <title>ROS学习笔记(二)</title>
-    <url>/2020/10/10/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
-    <content><![CDATA[<h1 id="句柄接口编写"><a href="#句柄接口编写" class="headerlink" title="句柄接口编写"></a>句柄接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;std_msg/Strings.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <url>/2020/11/12/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
+    <content><![CDATA[<h1 id="rosbag"><a href="#rosbag" class="headerlink" title="rosbag"></a>rosbag</h1><p>可以采集一些topic数据并发布数据。相当于subscriber和publisher。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rosbag record /topic_name -o my_rosbag_name</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<p>record指令后面可以接多个topic名字，<code>-o</code>是输出文件名字.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rosbag info my_rosbag_name</span><br></pre></td></tr></table></figure>
 
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+<p>可查看记录的rosbag的信息，包括topic，消息类型，包的大小时长等</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rosbag play my_rosbag_name</span><br></pre></td></tr></table></figure>
+
+<p>重新发布记录的包到各自的主题。注意仿真的时间依据，<code>--clock</code>可限制为系统时间. <code>-l</code>可以循环播放, <code>-s</code>可以设置开始播放的时间起点, <code>-r</code>可以限制播放的速率</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rostopic echo /topic_name</span><br></pre></td></tr></table></figure>
+
+<p>可实时输出topic的内容信息。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rosbag filter input.bag output.bag &quot;t.to_sec() &lt;= 1284703931.86&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令需要你有inputbag，然后它会把Bag Time&lt;=1284703931.86的部分提取出来，重新放到一个新的ouput.bag里.</p>
+<h1 id="msg"><a href="#msg" class="headerlink" title="msg"></a>msg</h1><h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><p>有一些msg含有header信息，包含了消息的常用的信息。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">uint32 seq</span><br><span class="line">time stamp</span><br><span class="line">string frame_id</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义msg"><a href="#自定义msg" class="headerlink" title="自定义msg"></a>自定义msg</h2><img src="/2020/11/12/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/image-20201112160208278.png" alt="image-20201112160208278" style="zoom:67%;">
+
+<p>四个步骤如图所示.</p>
+<ol>
+<li><p><code>touch Person.msg</code>新建消息文件，catkin_make的时候会根据系统位数语言等自动生成包含person类的头文件，因此<code>#include &quot;pakage_name/person_msg.h&quot;</code></p>
+</li>
+<li><p>添加编译运行依赖包：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;build_depend&gt;message_generation&lt;/build_depend&gt;</span><br><span class="line">&lt;exec_depend&gt;message_runtime&lt;/exec_depend&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改CMakeLists：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">add_executable(person_publisher src/person_publisher.cpp)</span><br><span class="line">target_link_libraries(person_publisher $&#123;catkin_LIBRARIES&#125;)</span><br><span class="line">add_dependencies(person_publisher $&#123;PROJECT_NAME&#125;_generate_messages_cpp)</span><br><span class="line"><span class="meta">#</span><span class="bash">与2中相应</span></span><br><span class="line"></span><br><span class="line">add_executable(person_subscriber src/person_subscriber.cpp)</span><br><span class="line">target_link_libraries(person_subscriber $&#123;catkin_LIBRARIES&#125;)</span><br><span class="line">add_dependencies(person_subscriber $&#123;PROJECT_NAME&#125;_generate_messages_cpp)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="tf-transform"><a href="#tf-transform" class="headerlink" title="tf::transform"></a>tf::transform</h1><p><code>#include &lt;tf/tranform_listener.h&gt;</code></p>
+<p><code>#include &lt;tf/transform_broadcaster.h&gt;</code></p>
+<h2 id="广播器Broadcaster"><a href="#广播器Broadcaster" class="headerlink" title="广播器Broadcaster"></a>广播器Broadcaster</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> tf::TransformBroadcaster bc;</span><br><span class="line"></span><br><span class="line">tf::Transform transform;</span><br><span class="line"><span class="comment">//set 平移变换</span></span><br><span class="line">transform.setOrigin(tf::Vector(input_msg.x, input_msg.y, <span class="number">0.0</span>)); </span><br><span class="line"><span class="comment">//set 旋转变换</span></span><br><span class="line">tf:: Quaternion q;	<span class="comment">//四元素</span></span><br><span class="line">q.setRPY(<span class="number">0.0</span>，<span class="number">0.0</span>，input_msg.theta);</span><br><span class="line">transform.setRotation(q);</span><br><span class="line"></span><br><span class="line">bc.sendTransform(tf::StampedTransform(transform,ros::Time:now(), <span class="string">&quot;world&quot;</span>, turtle_name) );</span><br></pre></td></tr></table></figure>
+
+<h2 id="订阅器listener"><a href="#订阅器listener" class="headerlink" title="订阅器listener"></a>订阅器listener</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建tf的监听器</span></span><br><span class="line">tf::TransformListener listener;</span><br><span class="line"></span><br><span class="line"><span class="function">ros::Rate <span class="title">rate</span><span class="params">(<span class="number">10.0</span>)</span></span>;</span><br><span class="line"><span class="keyword">while</span> (node.ok())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取turtle1与turtle2坐标系之间的tf数据</span></span><br><span class="line">    tf::StampedTransform transform;</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        listener.waitForTransform(<span class="string">&quot;/turtle2&quot;</span>, <span class="string">&quot;/turtle1&quot;</span>, ros::Time(<span class="number">0</span>), ros::Duration(<span class="number">3.0</span>));	<span class="comment">//等待消息的到来， duration设置为3s超时</span></span><br><span class="line">        listener.lookupTransform(<span class="string">&quot;/turtle2&quot;</span>, <span class="string">&quot;/turtle1&quot;</span>, ros::Time(<span class="number">0</span>), transform);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (tf::TransformException &amp;ex) </span><br><span class="line">    &#123;</span><br><span class="line">        ROS_ERROR(<span class="string">&quot;%s&quot;</span>,ex.what());</span><br><span class="line">        ros::Duration(<span class="number">1.0</span>).sleep();</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    transform.getOrigin().x();</span><br><span class="line">    transform.getOrigin().y();</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="static-transform-publisher节点"><a href="#static-transform-publisher节点" class="headerlink" title="static_transform_publisher节点"></a>static_transform_publisher节点</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--Calibration--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;tf&quot;</span> <span class="attr">type</span>=<span class="string">&quot;static_transform_publisher&quot;</span> <span class="attr">name</span>=<span class="string">&quot;base_link_to_rslidar_left&quot;</span>  <span class="attr">args</span>=<span class="string">&quot;-1.249000902703301e-16 0.65 -0.2 0 0.017453293 -0.8203047710000001 /rslidar /rslidar_left 1&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;tf&quot;</span> <span class="attr">type</span>=<span class="string">&quot;static_transform_publisher&quot;</span> <span class="attr">name</span>=<span class="string">&quot;base_link_to_rslidar_right&quot;</span>  <span class="attr">args</span>=<span class="string">&quot;2.654126918244515e-16 -0.5250000000000004 -0.2 0 0 0.006981317200000003 /rslidar /rslidar_right 1&quot;</span> <span class="attr">required</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码是我们在launch文件中将两侧雷达的数据坐标变换到中间雷达中运行的两个节点。<code>tf::static_transform_publisher</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rosrun tf static_transform_publisher </span><br></pre></td></tr></table></figure>
+
+<p>可通过上述指令查看该节点需要的参数的顺序，如下：</p>
+<blockquote>
+<p>Usage: static_transform_publisher <em>x y z yaw pitch roll frame_id child_frame_id  period</em>(milliseconds)<br>OR<br>Usage: static_transform_publisher <em>x y z qx qy qz qw frame_id child_frame_id  period</em>(milliseconds) </p>
+</blockquote>
+]]></content>
       <categories>
         <category>工具技能</category>
         <category>ROS</category>
@@ -434,7 +272,9 @@
 <p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
 <a id="more"></a>
 
-<h1 id="tf坐标系"><a href="#tf坐标系" class="headerlink" title="tf坐标系"></a>tf坐标系</h1>]]></content>
+<h1 id="订阅-发布接口编写"><a href="#订阅-发布接口编写" class="headerlink" title="订阅/发布接口编写"></a>订阅/发布接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;std_msg/Strings.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>工具技能</category>
         <category>ROS</category>
@@ -445,250 +285,126 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu18.04</title>
-    <url>/2020/11/07/Ubuntu18.04%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>工具技能</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法移植ROS笔记</title>
-    <url>/2020/11/01/%E7%AE%97%E6%B3%95%E7%A7%BB%E6%A4%8DROS%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="拟合算法"><a href="#拟合算法" class="headerlink" title="拟合算法"></a>拟合算法</h1><h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> mincd_fitting = minCDFitting();</span><br><span class="line">m</span><br></pre></td></tr></table></figure>
-
+    <title>SAT</title>
+    <url>/2020/11/27/SAT/</url>
+    <content><![CDATA[<p><img src="/2020/11/27/SAT/clip_image001.png" alt="d JA ؤ 0.  ) . ه لا)٨١ . ٩١ (٨  (ي ور ه  A ،و طوم  ة با ز و وه .4&#39;  زا لا د  هـ "></p>
+<p><img src="/2020/11/27/SAT/clip_image002.png" alt="img"></p>
 ]]></content>
       <categories>
         <category>研究生</category>
       </categories>
       <tags>
-        <tag>lidar</tag>
+        <tag>SAT</tag>
       </tags>
   </entry>
   <entry>
-    <title>CXX学习整理</title>
-    <url>/2020/10/11/CXX/C++%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>C++学习主要内容</p>
+    <title></title>
+    <url>/2020/11/19/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E5%8F%91%E7%83%A7/</url>
+    <content><![CDATA[<h2 id="鼠标"><a href="#鼠标" class="headerlink" title="鼠标"></a>鼠标</h2><p>logi M330C</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>算法小知识（一）</title>
+    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
+<p>1为正类，0为负类。</p>
+<p>TP为true positive；FN为false negative.</p>
 <ul>
-<li>数据结构</li>
-<li>指针与引用</li>
-<li>类和对象</li>
-<li>继承与重载与多态</li>
-<li>函数</li>
-<li>模板库</li>
+<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
+<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
+<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
 </ul>
 ]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>C++</category>
+        <category>常识库</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>trips</tag>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
-    <title>C++ 知识点</title>
-    <url>/2020/05/14/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> res = <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;() </span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unodered_map&lt;<span class="keyword">char</span> <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">char</span> c:J)</span><br></pre></td></tr></table></figure>
-
-<h2 id="p-x-lt-18-0f-表示18是浮点数而非int"><a href="#p-x-lt-18-0f-表示18是浮点数而非int" class="headerlink" title="-p.x &lt; 18.0f`表示18是浮点数而非int"></a>-p.x &lt; 18.0f`表示18是浮点数而非int</h2><h2 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h2><p>C++11中vector添加emplace_front,emplace和emplace_back，这些操作构造而不是拷贝元素。这些操作分别对应push_front、insert和push_back，允许我们将元素放置在容器头部、一个指定位置之前或容器尾部。可以提高插入运算的效率</p>
-<h2 id="const"><a href="#const" class="headerlink" title="const"></a><a href="https://www.runoob.com/w3cnote/cpp-const-keyword.html">const</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">const</span> <span class="keyword">float</span> &amp; <span class="title">Area</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> _area; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个const修饰的是引用的内容为常量不能修改</p>
-<p>第二个const修饰的是类成员函数，申明该函数为访问函数, 确保成员函数不修改被调用对象的值_area。如果我们不想修改一个调用对象的值，所有的成员函数都应当声明为 const 成员函数。</p>
-<h1 id><a href="#" class="headerlink" title></a></h1>]]></content>
+    <title>科学常识收集(一)</title>
+    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
+    <content><![CDATA[<h2 id="arg"><a href="#arg" class="headerlink" title="arg"></a><strong>arg</strong></h2><p>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</p>
+<h2 id="静态地图："><a href="#静态地图：" class="headerlink" title="静态地图："></a><strong>静态地图</strong>：</h2><p>可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</p>
+<h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化:"></a><strong>归一化</strong>:</h2><p>$$(x-min(x))/(max(x)-min(x))$$</p>
+<h2 id="matlab画图"><a href="#matlab画图" class="headerlink" title="matlab画图"></a><strong>matlab画图</strong></h2><p>line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线</p>
+<h2 id="colorMap"><a href="#colorMap" class="headerlink" title="colorMap"></a>colorMap</h2><table>
+<thead>
+<tr>
+<th align="center">颜色</th>
+<th align="center">代号</th>
+<th align="center">RGB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">red</td>
+<td align="center">‘r’</td>
+<td align="center">[1 0 0]</td>
+</tr>
+<tr>
+<td align="center">green</td>
+<td align="center">‘g’</td>
+<td align="center">[0 1 0]</td>
+</tr>
+<tr>
+<td align="center">blue</td>
+<td align="center">‘b’</td>
+<td align="center">[0 0 1]</td>
+</tr>
+<tr>
+<td align="center">cyan</td>
+<td align="center">‘c’</td>
+<td align="center">[0 1 1]</td>
+</tr>
+<tr>
+<td align="center">magenta</td>
+<td align="center">‘m’</td>
+<td align="center">[1 0 1]</td>
+</tr>
+<tr>
+<td align="center">yellow</td>
+<td align="center">‘y’</td>
+<td align="center">[1 1 0]</td>
+</tr>
+<tr>
+<td align="center">‘black’</td>
+<td align="center">‘k’</td>
+<td align="center">[1 1 1]</td>
+</tr>
+</tbody></table>
+]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>C++</category>
+        <category>常识库</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>trips</tag>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
-    <title>CXX学习笔记(一)</title>
-    <url>/2020/06/28/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<h1 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h1><h2 id="友元函数friends"><a href="#友元函数friends" class="headerlink" title="友元函数friends"></a>友元函数friends</h2><h2 id="this指针"><a href="#this指针" class="headerlink" title="this指针"></a>this指针</h2><p>每个成员函数通过this指针指向自己这个对象/类. 把搭建的类/对象理解成一栋房子,我们在屋内时候不能看到整个房屋,但是this就相当于房子的门牌号, 代替自己房子的地址.</p>
-<p>往往自己在些类的时候,正在构建的类没有具体的对象,但需要用到其他成员函数的时候,可以用this-&gt;function调用.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        rect(<span class="keyword">int</span> h, <span class="keyword">int</span> w)</span><br><span class="line">        &#123;</span><br><span class="line">            hight = h;</span><br><span class="line">            width = w;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">int</span> <span class="title">aera</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> hight*width;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="function"><span class="keyword">bool</span> <span class="title">compare</span><span class="params">(rect B)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>-&gt;aera &gt; B.aera();</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    	<span class="keyword">int</span> hight;</span><br><span class="line">    	<span class="keyword">int</span> width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><p><code>class A : public B</code></p>
-<p>A为派生类(子类)derive, B为基类(父类)base</p>
-<p>A类公有继承B类(public), 即A类可以访问B类所有公有和保护的成员(public,protect),但不能访问B类的私有成员.</p>
-<h2 id="虚函数和纯虚函数"><a href="#虚函数和纯虚函数" class="headerlink" title="虚函数和纯虚函数"></a><a href="https://www.runoob.com/w3cnote/cpp-virtual-functions.html">虚函数和纯虚函数</a></h2><p><strong>虚函数</strong>: 基类函数最前面添加<code>virtual</code>指令, 父类中定义了虚函数的一种实现方式,子类中可以存在与之同名同参数同返回值的成员函数,并给出<em>不同的实现</em>.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 虚函数允许派生类不同的实现</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;A::foo() is called&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span><span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;B::foo() is called&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A *a = <span class="keyword">new</span> B();</span><br><span class="line">    a-&gt;foo();   <span class="comment">// 在这里，a虽然是指向A的指针，但是被调用的函数(foo)却是B的!因此输出显示&quot;B::foo() is called&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>纯虚函数</strong>: 当父类是一种抽象类,比如动物,是无法定义一个具体的对象实例的,因此不能得到其animalType. 所以定义一个纯虚函数,让子类(比如大象)自己去定义编写.</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">animalType</span><span class="params">()</span> </span>= <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>作用就是规范类的接口.</p>
-<p><em>注意的是有纯虚函数定义的类是不能初始化实例对象的.而虚函数是必须要有定义的,否则会报错.</em></p>
-<h1 id="编译预处理"><a href="#编译预处理" class="headerlink" title="编译预处理"></a>编译预处理</h1><h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;;<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio&gt;</span></span></span><br><span class="line">	<span class="built_in">printf</span>();</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;x=%d&quot;</span>,&amp;x); <span class="comment">//从键盘读取数据付给地址内的变量x的，&amp;取地址</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;	</span></span></span><br><span class="line">	gets();</span><br><span class="line">	getline();<span class="comment">//相比与CIN,此函数只以回车为结束.</span></span><br><span class="line">	<span class="built_in">puts</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math&gt;</span></span></span><br><span class="line">	<span class="built_in">cos</span>();<span class="built_in">exp</span>();<span class="built_in">fabs</span>();<span class="built_in">log</span>();<span class="built_in">pow</span>();<span class="built_in">sqrt</span>();</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>头文件用双引号 表示优先在当前文件夹目录下寻找；尖括号表示直接去系统指定文件夹寻找。</p>
-<h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#difine PI 3.141592653</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a><a href="https://www.cnblogs.com/challenger-vip/p/3386819.html">条件编译</a></h2><p><code>#ifndef，#define，#endif</code></p>
-<p>ifndef: if not define. 实例：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> x                 <span class="comment">//先测试x是否被宏定义过</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x</span></span><br><span class="line">   程序段<span class="number">1b</span>labla~    <span class="comment">//如果x没有被宏定义过，定义x，并编译程序段 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>   </span></span><br><span class="line">　　程序段<span class="number">2b</span>labla~　　 <span class="comment">//如果x已经定义过了则编译程序段2的语句，“忽视”程序段 1</span></span><br></pre></td></tr></table></figure>
-
-<p>主要目的是防止头文件的重复编译和包含。避免多个cpp文件都包含同一个h文件时，全局变量被重定义的错误。</p>
-<h1 id="C-11"><a href="#C-11" class="headerlink" title="C++11"></a>C++11</h1><h2 id="default，-delete"><a href="#default，-delete" class="headerlink" title="=default，=delete"></a><code>=default，=delete</code></h2><p><a href="https://www.cnblogs.com/lsgxeva/p/7787438.html">参考链接</a></p>
-<p>四类特殊的成员函数：构造函数、析构函数、拷贝构造函数、拷贝赋值函数。负责类的对象的创建、初始化、销毁、和拷贝。</p>
-<p>C++11 标准引入了一个新特性：”=default”函数。程序员只需在函数声明后加上“=default;”，就可将该函数声明为 “=default”函数，编译器将为显式声明的 “=default”函数自动生成函数体。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// &quot;=default&quot;函数既可以在类体里（inline）定义，也可以在类体外（out-of-line）定义。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X2() = <span class="keyword">default</span>; <span class="comment">//Inline defaulted 默认构造函数</span></span><br><span class="line">    X2(<span class="keyword">const</span> X&amp;);</span><br><span class="line">    X2&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X&amp;);</span><br><span class="line">    ~X2() = <span class="keyword">default</span>;  <span class="comment">//Inline defaulted 析构函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">X2::X2(<span class="keyword">const</span> X&amp;) = <span class="keyword">default</span>;  <span class="comment">//Out-of-line defaulted 拷贝构造函数</span></span><br><span class="line">X2&amp; X2::<span class="keyword">operator</span>= (<span class="keyword">const</span> X2&amp;) = <span class="keyword">default</span>;   <span class="comment">//Out-of-line defaulted  拷贝赋值操作符</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为了能够让程序员显式的禁用某个函数，C++11 标准引入了一个新特性：&quot;=delete&quot;函数。程序员只需在函数声明后上“=delete;”，就可将该函数禁用。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">X3</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    X3();</span><br><span class="line">    X3(<span class="keyword">const</span> X3&amp;) = <span class="keyword">delete</span>;  <span class="comment">// 声明拷贝构造函数为 deleted 函数</span></span><br><span class="line">    X3&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> X3 &amp;) = <span class="keyword">delete</span>; <span class="comment">// 声明拷贝赋值操作符为 deleted 函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="include"><a href="#include" class="headerlink" title="#include"></a>#include<functional></functional></h2><p><a href="https://www.jianshu.com/p/f191e88dcc80">链接一</a></p>
-<p><a href="https://blog.csdn.net/shuilan0066/article/details/82788954">链接二</a></p>
-<h3 id="std-function"><a href="#std-function" class="headerlink" title="std::function"></a>std::function</h3><blockquote>
-<ul>
-<li><p>定义格式：std::function&lt;函数返回值类型（函数输入参数类型）&gt;。</p>
-</li>
-<li><p>std::function可以取代函数指针的作用，因为它可以延迟函数的执行，特别适合作为回调函数使用。它比普通函数指针更加的灵活和便利。</p>
-</li>
-</ul>
-</blockquote>
-<p>它是一类函数的模板，给具有相同输入输出类型的函数或方法重命名，需要传入这个函数，同时需要说明&lt;返回值(输入参数)&gt;，如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>,<span class="keyword">int</span>)&gt; f = functionname_add();</span><br></pre></td></tr></table></figure>
-
-<p>对于类成员函数的替代如下：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">	<span class="function"><span class="keyword">static</span> T <span class="title">AddT</span><span class="params">(T i, T j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">AddN</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> i + j;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 这几个函数都是int(int,int)类型</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//1、 类静态函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; f = &amp;Computer::Add;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; f(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//2、 类静态模板函数</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; ft = &amp;Computer::AddT&lt;<span class="keyword">int</span>&gt;;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ft(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//成员函数绑定  需要构造类对象</span></span><br><span class="line">	Computer c;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">//3、 成员函数 需使用bind,将类对象地址 &amp;c 绑定上</span></span><br><span class="line">	<span class="built_in">std</span>::function&lt;<span class="keyword">int</span>(<span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN = <span class="built_in">std</span>::bind(&amp;Computer::AddN, &amp;c, placeholders::_1, placeholders::_2);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN(<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">	<span class="comment">//4、普通函数， 也可以这样调用  个人觉得这个比 bind 麻烦，不建议</span></span><br><span class="line">	<span class="built_in">std</span>::function &lt;<span class="keyword">int</span>(<span class="keyword">const</span> Computer ＆, <span class="keyword">int</span>, <span class="keyword">int</span>)&gt; fN2 = &amp;Computer::AddN;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; fN2(c,<span class="number">1</span>, <span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> </span><br><span class="line">	getchar();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><p>参见链接二。</p>
+    <title>科普常识收集</title>
+    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
 <blockquote>
-<p>std::bind将可调用对象与其参数一起进行绑定，绑定后的结果可以使用std::function保存。std::bind主要有以下两个作用：</p>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
 </blockquote>
-<blockquote>
-<ul>
-<li>将可调用对象和其参数绑定成一个防函数；</li>
-<li>只绑定部分参数，减少可调用对象传入的参数。</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">my_divide</span> <span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;<span class="keyword">return</span> x/y;&#125;</span><br><span class="line"><span class="keyword">auto</span> fn_half = <span class="built_in">std</span>::bind (my_divide,_1,<span class="number">2</span>);  </span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; fn_half(<span class="number">10</span>) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;               </span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是函数，被隐式转换为了函数指针，</p>
-<p>第二个参数_1表示占位符，std::placeholders::__1</p>
-<p>第三个参数便是输入值double y为2</p>
-<h3 id="std-transform"><a href="#std-transform" class="headerlink" title="std::transform"></a>std::transform</h3><p><a href="http://c.biancheng.net/view/623.html">http://c.biancheng.net/view/623.html</a></p>
-<p>它可以将一个或两个数组中对应的每个元素单独拎出来执行运算。</p>
-<p>一元函数情况下包含3个参数：</p>
-<ul>
-<li>数组</li>
-<li>输出的存储数组</li>
-<li>函数/匿名函数</li>
-</ul>
-<p>二元函数情况下包括5个参数：</p>
-<ul>
-<li><p>第一个变量的数组的开始</p>
-</li>
-<li><p>第一个变量的数组的结束</p>
-</li>
-<li><p>第二个变量的数组</p>
-</li>
-<li><p>输出的保存数组</p>
-</li>
-<li><p>处理函数/匿名函数</p>
-</li>
-</ul>
+<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
+</ol>
+<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
+<p>牛客网你值得拥有</p>
 ]]></content>
       <categories>
-        <category>编程学习</category>
-        <category>C++</category>
+        <category>常识库</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CXX学习笔记（二）</title>
-    <url>/2020/07/08/CXX/CXX%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
-    <content><![CDATA[<p>对于书籍《数据结构与算法分析——C++语言描述第四版》的学习笔记</p>
-<h1 id="指针pointor和引用-amp"><a href="#指针pointor和引用-amp" class="headerlink" title="指针pointor和引用&amp;"></a>指针pointor和引用&amp;</h1><h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p><code>IntCell *m</code>是关于m的申明，m是指针变量，指向一个IntCell对象，m的值是指向对象的地址，此时尚未初始化。</p>
-<p>初始化（动态创建）：</p>
-<p><code>m = new Intcell();</code></p>
-<p><code>m = new Intcell&#123;&#125;;//C++11</code></p>
-<p><code>m = new Intcell;</code></p>
-<p>当通过new操作符分配地址的对象不再被引用时候，必须进行delete进行垃圾回收，否则指针所占用的内存将会一直被丢失得不到利用知道程序终止。</p>
-<p><code>delete m</code></p>
-<h2 id="amp-取地址操作符，引用"><a href="#amp-取地址操作符，引用" class="headerlink" title="&amp; 取地址操作符，引用"></a>&amp; 取地址操作符，引用</h2><h3 id="左值引用"><a href="#左值引用" class="headerlink" title="左值引用"></a>左值引用</h3><ul>
-<li><p>给复杂的名称取别名</p>
-<p><code>auto &amp; List = theLists[myhash(x,theLists.size())]</code></p>
-<p>这样对List进行操作就是对原对象进行操作，若不加引用则是对拷贝对象进行操作，原内容并无变化。</p>
-</li>
-<li><p>范围for循环</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//让arr数组中每个变量加1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> X:arr)</span><br><span class="line">    ++X;		<span class="comment">//不可行,x拷贝了每一个元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp; x:arr)</span><br><span class="line">    ==x;		<span class="comment">//可行</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>避免不必要的拷贝</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = findMax(arr);</span><br><span class="line"><span class="keyword">auto</span> &amp;x = findMax(arr);<span class="comment">//没有对数组中的最大值进行拷贝</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="右值引用"><a href="#右值引用" class="headerlink" title="右值引用"></a>右值引用</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> y;</span><br><span class="line"><span class="built_in">string</span> str = <span class="string">&quot;hello&quot;</span>;<span class="comment">//x,y,str都是左值,2,hello是右值</span></span><br><span class="line"><span class="built_in">string</span> &amp; bad = <span class="string">&quot;hello&quot;</span>;<span class="comment">//错误,此乃左值引用,&quot;hello&quot;为不可修改的右值</span></span><br><span class="line"><span class="built_in">string</span> &amp;&amp; good = <span class="string">&quot;hello&quot;</span>;<span class="comment">//合法</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>对于输入到函数的参数对象：</p>
-<blockquote>
-<p>对于小的不该被函数改变的对象,可以采取<strong>传值调用.</strong></p>
-<p>对于大的不该被函数改变的复制代价昂贵的对象,应采取<strong>传常量引用调用</strong></p>
-<p>对于所有可以被函数改变的对象,应该采取<strong>传引用调用</strong>.</p>
-</blockquote>
-<p>常用的传值调用将实参复制到形参,对于大的对象效率低,且不能改变实参。而采用传引用调用就可以在函数内部改变传入的实参，且不会复制代价。若输入参数不希望改变且较大，这使用传常量引用调用。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">randomItem</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; arr)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h2><p>传值返回。</p>
-<p>传常量引用</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Largetype &amp; randomItem2（<span class="keyword">const</span> <span class="built_in">vector</span>&lt;Largetype&gt; &amp; arr)</span><br><span class="line">&#123;...&#125;</span><br><span class="line">Largetype a = randomItem(vec);<span class="comment">//返回值发生了复制</span></span><br><span class="line">Largetype b = randomItem2(vec);<span class="comment">//复制</span></span><br><span class="line">Largetype &amp; c =randomItem2(vec);<span class="comment">//没有复制</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h2 id="初始化表列："><a href="#初始化表列：" class="headerlink" title="初始化表列："></a>初始化表列：</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">：membervalue&#123;initalValue&#125;&#123;&#125;<span class="comment">//比如数据成员为const型，因此只能在初始化表列中初始化。</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="explicit构造函数"><a href="#explicit构造函数" class="headerlink" title="explicit构造函数"></a>explicit构造函数</h2><p>英文原意“明确的不含糊的”，为了申明隐式的类型转换是不可行的。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">IntCell</span><span class="params">(<span class="keyword">int</span> initialValue = <span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    	: membervalue</span>&#123;initalValue&#125;&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> <span class="keyword">const</span>	<span class="comment">//常成员函数，访问函数，表示不改变对象数据成员</span></span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> membervalue;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> x)</span>	<span class="comment">//修改函数，可修改数据成员，但是不能改变常对象。</span></span></span><br><span class="line"><span class="function">    </span>&#123;membervalue = x;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> membervalue;</span><br></pre></td></tr></table></figure>
-
-<p>举例explicit的作用：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell N;</span><br><span class="line">N = <span class="number">20</span>; 	<span class="comment">//类型不匹配，但是C++隐式类型转换会先创建临时IntCell对象，再赋值给N。</span></span><br><span class="line"><span class="comment">//而添加explicit后就会指出这个问题</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="构造函数类型"><a href="#构造函数类型" class="headerlink" title="构造函数类型"></a>构造函数类型</h2><p>当数据成员为指针类型时，默认的几类构造函数将不起作用，他们只是对指针地址进行了<strong>浅拷贝</strong>,而我们需要的是对指向的内容进行<strong>深拷贝</strong>,因此需要自己写:</p>
-<ul>
-<li><p>析构函数</p>
-</li>
-<li><p>复制构造函数</p>
-</li>
-<li><p>移动构造函数</p>
-</li>
-<li><p>拷贝赋值</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">IntCell &amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> IntCell &amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span> != &amp;rhs)</span><br><span class="line">        *membervalue  = *rhs.membervalue;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>移动复制</li>
-</ul>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vector</title>
-    <url>/2019/12/19/CXX/Vector/</url>
-    <content><![CDATA[<p><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">学习教材</a><br>学习要及时总结</p>
-<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a><a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">vector</a></h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt; //包含sort函数</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N=<span class="number">5</span>,M=<span class="number">6</span>;</span><br><span class="line">    <span class="comment">//一维向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">obj</span><span class="params">(N)</span></span>;<span class="comment">//int 类型，obj变量名，N数据尺寸</span></span><br><span class="line">    <span class="comment">//二位向量</span></span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="title">obj2</span><span class="params">(N,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(M))</span></span>;<span class="comment">//注意中间有个空格</span></span><br><span class="line">    obj2[i][j];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//数据增减</span></span><br><span class="line">    obj.size();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        obj.push_back(i);  <span class="comment">//在末尾添加数据i</span></span><br><span class="line">        obj.pop_back(); <span class="comment">//在末尾移除数据 </span></span><br><span class="line">    &#125; </span><br><span class="line">    obj.clear();<span class="comment">//清除所有数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    sort(obj.begain(),obj.end());<span class="comment">//从小到大排序</span></span><br><span class="line">    reverse(obj.begain(),obj.end());<span class="comment">//从大到小排序</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//访问</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;<span class="comment">//创建迭代器对象访问向量地址</span></span><br><span class="line">    <span class="keyword">for</span>(it=obj.begain();it!=obj.end();it++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
+        <tag>trips</tag>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
@@ -728,7 +444,7 @@
 
 <h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
 
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#111;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x65;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a>“</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#101;&#109;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#101;&#109;&#97;&#105;&#x6c;&#64;&#101;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“</p>
 ]]></content>
       <categories>
         <category>工具技能</category>
@@ -741,14 +457,25 @@
   <entry>
     <title>Hexo&amp;github blog搭建指南</title>
     <url>/2019/12/11/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Hexo%E5%86%99%E6%96%87%E7%AB%A0%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><ul>
-<li><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw==&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc=&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa+w52NrKcem6YVv7i/fQ7Er4Sfm7KAQ">github*Hexo搭建网站参考网站</a></li>
-<li>安装nodejs: <a href="https://zhuanlan.zhihu.com/p/98782798">https://zhuanlan.zhihu.com/p/98782798</a></li>
-<li>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</li>
-<li><a href="https://io-oi.me/tech/hexo-next-optimization/">参考博文</a><a id="more"></a>
+    <content><![CDATA[<h1 id="Hexo-Github搭建"><a href="#Hexo-Github搭建" class="headerlink" title="Hexo.Github搭建"></a>Hexo.Github搭建</h1><h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a><a href="https://zhuanlan.zhihu.com/p/98782798">安装nodejs</a></h2><p>然后还需要把.bash_profile添加到~/.bashrc文件中,不然每次启动终端都要重新source.</p>
+<p><code>echo &quot;source my_ws/devel/setup.bash&quot; &gt;&gt; ~/.bashrc</code></p>
+<p><em>20201108更新：</em>上述版本老了，最新简单的方法参见如下：</p>
+<p><a href="https://www.runoob.com/nodejs/nodejs-install-setup.html">https://www.runoob.com/nodejs/nodejs-install-setup.html</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz    // 下载</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> tar xf  node-v10.9.0-linux-x64.tar.xz       // 解压</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">cd</span> node-v10.9.0-linux-x64/                  // 进入解压目录</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ./bin/node -v                               // 执行node命令 查看版本</span></span><br><span class="line">v10.9.0</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接：</span></span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/software/nodejs/bin/npm   /usr/local/bin/ </span><br><span class="line">sudo ln -s /usr/software/nodejs/bin/node   /usr/local/bin/</span><br></pre></td></tr></table></figure>
 
+<h2 id="github-Hexo搭建网站参考网站"><a href="#github-Hexo搭建网站参考网站" class="headerlink" title="github*Hexo搭建网站参考网站"></a><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NzIyMzkzNw==&mid=2247483933&idx=1&sn=83025d4b28a2e942b6f6b03afc307e00&chksm=c0745e73f703d765db3a6fc24f438dbf080be564519ed0e9e059f2d05aa11b4ebc41fcdb54e8&mpshare=1&scene=1&srcid=1210QbJ1A3cFhvwTDCBTIVWS&sharer_sharetime=1575974630035&sharer_shareid=a4c679dca6b53ec07fadfa65af7fab43&key=0a80781bf411d282ec9c5a01050c4c3eba63b706a005d47211f2b926a021225b4545d93fc647ceb9d5fee91b844fc26ebdce801bde5251ddea6b944447e21208eb782c7952010ca3124eca4eb7c97abe&ascene=1&uin=MjcyNzI2MjU4Mw==&devicetype=Windows+10&version=62070158&lang=zh_CN&exportkey=ASlhsjxzEp1NOdoiRSaztPc=&pass_ticket=ohJ2OLzSmGjm11lix78IW3eQC8Pyc5Jkqa+w52NrKcem6YVv7i/fQ7Er4Sfm7KAQ">github*Hexo搭建网站参考网站</a></h2><p><code>npm install -g hexo-cli</code></p>
+<ol>
+<li><p>可能提示找不到hexo命令,环境变量没有设置好.</p>
+<p>参考连接学习哪些方法可以写入环境变量: <a href="https://blog.csdn.net/lixiaoguang20/article/details/53814020">https://blog.csdn.net/lixiaoguang20/article/details/53814020</a></p>
 </li>
-</ul>
+<li><p>还提示我”TypeError, “StartWith”****”这种问题, 查明是nodejs的版本不对,去官网下载最新的安装.</p>
+</li>
+</ol>
+<h2 id="优秀博文"><a href="#优秀博文" class="headerlink" title="优秀博文"></a>优秀博文</h2><p><a href="https://io-oi.me/tech/hexo-next-optimization/">https://io-oi.me/tech/hexo-next-optimization/</a></p>
+<a id="more"></a>
+
+<h2 id="Github添加SSH-key"><a href="#Github添加SSH-key" class="headerlink" title="Github添加SSH-key"></a>Github添加SSH-key</h2><p>要将本地的库推送到github远程仓库中必须首先生成本地的密钥并添加到github账号中。</p>
+<p><a href="https://www.cnblogs.com/syw20170419/p/10732826.html">https://www.cnblogs.com/syw20170419/p/10732826.html</a></p>
 <h1 id="Hexo-Blog文章撰写"><a href="#Hexo-Blog文章撰写" class="headerlink" title="Hexo Blog文章撰写"></a>Hexo Blog文章撰写</h1><ol>
 <li>在<code>source/_posts</code>文件夹下面建立 .md新文档。</li>
 <li>使用的markdown是一种程序化的写文章语言，方便放代码块</li>
@@ -795,53 +522,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LinuxROS入门</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/LinuxROS%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>官方学习文档：<a href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
-<h2 id="移动硬盘-Ubuntu-16-04系统安装"><a href="#移动硬盘-Ubuntu-16-04系统安装" class="headerlink" title="移动硬盘 Ubuntu 16.04系统安装"></a>移动硬盘 Ubuntu 16.04系统安装</h2><p><a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">见这篇文章</a></p>
-<h2 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04"></a>Ubuntu 16.04</h2><h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
-<h3 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h3><p>命令格式:</p>
-<blockquote>
-<p>command  [-options]  [parameter]<br>    sudo加在命令前面表示以管理员身份执行,如:<br>    sudo apt install/remove/upgrade *<br>    sudo apt-get update /upgrade<br>    cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>    ls (list)/ll<br>    rm (remove)  删除之后无法恢复<br>    clear<br>    mkdir</p>
-</blockquote>
-<h2 id="ROS准备"><a href="#ROS准备" class="headerlink" title="ROS准备"></a>ROS准备</h2><p><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">安装ROS</a><br><a href="https://www.cnblogs.com/huangjianxin/p/6347416.html">建立ROS工作空间</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/setup.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo <span class="string">&quot;source my_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>可以查看系统包含的package路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
-
-<h2 id="ROS概念"><a href="#ROS概念" class="headerlink" title="ROS概念"></a>ROS概念</h2><h4 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料:"></a><strong>学习资料</strong>:</h4><p> <a href="https://blog.csdn.net/AdamShan/article/details/79653378">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
-<blockquote>
-<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a href="https://www.bilibili.com/video/av24585414/?p=5">MOOC ROS入门视频：</a></p>
-</blockquote>
-<h4 id="ROS重点概念"><a href="#ROS重点概念" class="headerlink" title="ROS重点概念"></a><strong>ROS重点概念</strong></h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构"></p>
-<blockquote>
-<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
-</blockquote>
-<h2 id="ROS项目操作"><a href="#ROS项目操作" class="headerlink" title="ROS项目操作"></a>ROS项目操作</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
-<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
-<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
-<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
-<h2 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a href="https://blog.csdn.net/AdamShan/article/details/79882668">Hello world</a></h3><p><strong>流程：</strong></p>
-<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
-<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
-<h3 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h3><p> <a href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
       </tags>
   </entry>
   <entry>
@@ -1045,6 +725,21 @@
       </tags>
   </entry>
   <entry>
+    <title>日常计算机小问题记录</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
+<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
+<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>问题记录</category>
+      </categories>
+      <tags>
+        <tag>小问题解决</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>磁盘读写结束后弹出提示</title>
     <url>/2020/07/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E5%BD%93%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99%E7%BB%93%E6%9D%9F%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA/</url>
     <content><![CDATA[<h2 id="1-配置性能监控器监控项"><a href="#1-配置性能监控器监控项" class="headerlink" title="1. 配置性能监控器监控项"></a>1. 配置性能监控器监控项</h2><p><a href="https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/">https://www.skyarch.cn/blog/windows/monitor-perfmon-tool/</a></p>
@@ -1087,21 +782,6 @@
       </tags>
   </entry>
   <entry>
-    <title>日常计算机小问题记录</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>小问题解决</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>笔记管理工具为知笔记/typora</title>
     <url>/2020/06/19/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%B0%E7%AC%94%E8%AE%B0%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="Hexo网页文献分类"><a href="#Hexo网页文献分类" class="headerlink" title="Hexo网页文献分类"></a>Hexo网页文献分类</h2><p>-lovelife<br>-研究生学习笔记<br>-编程学习笔记<br>-工具技能收集<br>-科普常识收集</p>
@@ -1135,182 +815,6 @@
       </tags>
   </entry>
   <entry>
-    <title>科学常识收集(一)</title>
-    <url>/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/</url>
-    <content><![CDATA[<h2 id="arg"><a href="#arg" class="headerlink" title="arg"></a><strong>arg</strong></h2><p>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</p>
-<h2 id="静态地图："><a href="#静态地图：" class="headerlink" title="静态地图："></a><strong>静态地图</strong>：</h2><p>可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</p>
-<h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化:"></a><strong>归一化</strong>:</h2><p>$$(x-min(x))/(max(x)-min(x))$$</p>
-<h2 id="matlab画图"><a href="#matlab画图" class="headerlink" title="matlab画图"></a><strong>matlab画图</strong></h2><p>line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线</p>
-<h2 id="colorMap"><a href="#colorMap" class="headerlink" title="colorMap"></a>colorMap</h2><table>
-<thead>
-<tr>
-<th align="center">颜色</th>
-<th align="center">代号</th>
-<th align="center">RGB</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">red</td>
-<td align="center">‘r’</td>
-<td align="center">[1 0 0]</td>
-</tr>
-<tr>
-<td align="center">green</td>
-<td align="center">‘g’</td>
-<td align="center">[0 1 0]</td>
-</tr>
-<tr>
-<td align="center">blue</td>
-<td align="center">‘b’</td>
-<td align="center">[0 0 1]</td>
-</tr>
-<tr>
-<td align="center">cyan</td>
-<td align="center">‘c’</td>
-<td align="center">[0 1 1]</td>
-</tr>
-<tr>
-<td align="center">magenta</td>
-<td align="center">‘m’</td>
-<td align="center">[1 0 1]</td>
-</tr>
-<tr>
-<td align="center">yellow</td>
-<td align="center">‘y’</td>
-<td align="center">[1 1 0]</td>
-</tr>
-<tr>
-<td align="center">‘black’</td>
-<td align="center">‘k’</td>
-<td align="center">[1 1 1]</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>科普常识收集</title>
-    <url>/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
-<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
-<blockquote>
-<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
-</blockquote>
-<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
-<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
-<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
-<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
-</ol>
-<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
-<p>牛客网你值得拥有</p>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法小知识（一）</title>
-    <url>/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h1 id="准确率，召回率"><a href="#准确率，召回率" class="headerlink" title="准确率，召回率"></a>准确率，召回率</h1><p><img src="/2020/07/03/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%AE%97%E6%B3%95%E5%B0%8F%E7%9F%A5%E8%AF%86/image-20200711205519057.png" alt="image-20200711205519057"></p>
-<p>1为正类，0为负类。</p>
-<p>TP为true positive；FN为false negative.</p>
-<ul>
-<li>准确率(Accuracy)：预测正确的样本/总样本，（TP+TN）/all</li>
-<li>精确率(precision)：实际为正类样本中，预测正确的比例，TP /（TP+FN）</li>
-<li>召回率(Recall)：预测为正类样本中，实际正确的比例，TP /（TP+FP）</li>
-</ul>
-]]></content>
-      <categories>
-        <category>常识库</category>
-      </categories>
-      <tags>
-        <tag>trips</tag>
-        <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>0712旅游计划</title>
-    <url>/2020/06/28/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/0712%E6%97%85%E6%B8%B8%E8%AE%A1%E5%88%92/</url>
-    <content><![CDATA[<h1 id="目的地"><a href="#目的地" class="headerlink" title="目的地"></a>目的地</h1><ol>
-<li>上海:(1天)<ul>
-<li>学校(可能进不来)</li>
-<li>外滩豫园东方明珠</li>
-</ul>
-</li>
-<li>苏州:(1天)<ul>
-<li>拙政园林</li>
-<li>古街</li>
-</ul>
-</li>
-<li>南京(1天)<ul>
-<li>中山陵</li>
-</ul>
-</li>
-<li>杭州(2天)<ul>
-<li>西湖</li>
-<li>千岛湖</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>旅游</tag>
-        <tag>江浙沪</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>What I Want todo</title>
-    <url>/2020/07/07/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/What-I-Want-todo/</url>
-    <content><![CDATA[<h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><ul>
-<li>C++<ul>
-<li>ROS</li>
-<li>PCL</li>
-<li>Opencv</li>
-</ul>
-</li>
-<li>Python<ul>
-<li>pytorch</li>
-</ul>
-</li>
-<li>点云匹配</li>
-<li>CAN</li>
-</ul>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>todolist</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>句2</title>
-    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
-    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
-<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>摘抄</tag>
-        <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>时间管理</title>
     <url>/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1 id="日程表和待办事项区别"><a href="#日程表和待办事项区别" class="headerlink" title="日程表和待办事项区别"></a>日程表和待办事项区别</h1><p>经常使用日历和TODO这两个软件想要规划好自己的时间，但效果都很差，一是因为行动力差，但跟重要的原因是没有清楚他们的区别，对于有强迫症和重度纠结的我来讲，内心极度不稳。<br>想要成为一个热爱生活的人，必须利用好时间去好好的生，必须要对自己的每天24小时安排好卓什么事，只有做了想做的事情，才能成为想成为的人。</p>
@@ -1336,7 +840,20 @@
       </categories>
       <tags>
         <tag>时间管理</tag>
-        <tag>工具技能</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>句2</title>
+    <url>/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/</url>
+    <content><![CDATA[<p>总觉得日本的音乐、文学包括商品，都透露这一种柔腻和细致入微的日常感，切口很小，很平静，风轻云淡，让人舒服感动，像吹着海风一样仰望着天空畅想着美好又能脚踏实地<br>我们生活在不同的世界，你生活在一艘豪华的大船上，船上什么都有，有一辈子喝不完的美酒，还有许多跟你一样幸运登船的人。而我抓着一块浮木努力漂啊漂，海浪一波一波拍过来，怎么躲也躲不掉，随时都有被淹死的危险，还要担惊受怕有没有鲨鱼经。你还问我：为什么不抽空看看海上美丽的风景?<br>在小城市工作，就像收到一张五十年后的死亡通知； 而在大城市，则像是攥着一张虚构的藏宝图。<br>劳累过的人，才真正懂得自己想要的生活<br>比起考研与否，工作与否，其实选择并不重要，重要的是你做什么选择之后，能够全心全意不负自己的每一天，每一小时。知道自己未来要干嘛，知道自己要做什么一辈子，才会自律，会知道时间有限。<br> <img src="/2019/12/10/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E5%A5%BD%E5%8F%A5/asd.png"></p>
+<p><strong>研究生</strong>:<br>“恭喜你对人类的知识有所创新，因此授予你这个学位。”<br><strong>问题取向</strong>。所有的精力、所有修课以及读的书里面都应该要有一个关注的焦点，而不能像大学那般漫无目标。<br>提出一个重要的问题，跨越一个重要的领域，将决定你未来的成败。<br>来自个人和老师、个人和同侪间密切的互动和学习是非常重要的。<br>每个人都要research，不断的一遍一遍再寻找，并进而使你的生活和学习成为一体。而我的生活和学习毫无疑问是彻底分开的。</p>
+]]></content>
+      <categories>
+        <category>生活随笔</category>
+      </categories>
+      <tags>
+        <tag>摘抄</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -1434,38 +951,6 @@
       </categories>
       <tags>
         <tag>文章摘录</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随笔10月20日</title>
-    <url>/2020/10/21/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%9A%8F%E7%AC%94/</url>
-    <content><![CDATA[<h1 id="2020年10月21日"><a href="#2020年10月21日" class="headerlink" title="2020年10月21日"></a>2020年10月21日</h1><p>秋招就这样告一段落吧, 我必须好好准备一下自己的身体, 思想, 和专业知识去迎接社会的摧残。</p>
-<a id="more"></a>
-
-<h2 id="1-现状"><a href="#1-现状" class="headerlink" title="1 现状"></a>1 现状</h2><p>我现在每每努力一小会就觉得已经拼命了, 并且那一小会也总是不能集中注意力到重要的事情, 要么搞一些无关紧要的事情，要么就是刷手机去了。我真的努力不起来了，这也是我害怕去考公务员的原因吧？</p>
-<p>另一个类似的现象就是每次开始工作的时候都要花一定时间去回顾上次干了什么，很多都忘记了，感觉到记性大不如前了。一个是可归结于工作不连续，时间过于零散造成的遗忘；另一方面就是记忆力真的下降了。大脑不用则退。</p>
-<p>最近对这个道理突然很有感慨：平时这个技巧偷个懒，那个问题摸个油，看起来与别人差别不大，但是<strong>认真待事的态度</strong>简直太差地别，积累到最后就可以通过offer的质量和数量残酷的摆在自己眼前，让自己震惊。有人说，大学中加入各种社团和学生会就是为了没有太大代价的提前进入“小社会”捶打自己认真安排各种事务和处理各种人际的能力。我一直有察觉自己有一股无所谓、与世无争、随遇而安、淡然身外物、不斤斤计较的气，以前还挺引以为傲的，直到近年来才发觉ta已经越来越拖累自己了。这种刻意的反复的想法，潜移默化的在潜意识中为自己打上了这个标签，频率高了就可谓弄假成真。发展到现在这股气现在已经发展成为逃避麻烦、畏难、敷衍了事、对什么事都失去强烈的兴趣此般“黑紫色的邪恶的气”。</p>
-<p>为什么这么说呢？举个例子，我真的很不明白为什么有人看个比赛能激动成那个样子，甚至是声泪俱下，我也有喜欢的队伍和比赛，但我顶多夸个666然后打住。或者说有人为了喜欢的姑娘那般投入时间和精力，那般愤怒那般快乐，而我和一个女生线上聊天都觉得折磨。<strong>我好像失去了什么</strong>。没有了强烈的情绪和兴趣，就连自己玩游戏也一副麻木的操作着，美其名曰娱乐至上。这种特质和我的另一个特点不谋而契合，那就是我做很多事情都是浮于表面，不能深入，不管是爱好还是专业知识。</p>
-<p>此般种种现象都指向同一个问题，我仿佛失去了什么。<em>是爱的能力？</em> 爱自己，直面自己内心和情绪；爱一件事情，体会事物内部的细节；爱别人；爱生活。没有爱，是因为自己没有认真对待上述每一样。有人说，多大决心办多大事。下决心，就是下决心去认真对待并认真执行。而我这股气就是在阻止我认真的态度！一味的怕麻烦逃避敷衍也许可以生存下去，但决不能好好的生活。</p>
-<h2 id="2分析"><a href="#2分析" class="headerlink" title="2分析"></a>2分析</h2><p>那么，是什么造成了我现在的困境呢？</p>
-<p>知乎问，<a href="https://www.zhihu.com/question/422796779/answer/1507988868">人这一辈子，最不能透支是什么？ - 温水公爵的回答 - 知乎</a> 或许这个回答能帮助我看清楚一些上述问题根源。</p>
-<blockquote>
-<p>Imagine life as a game in which you are juggling some five balls in the air. You name them <strong>work, family, health, friends and spirit</strong> and you re keeping all of these in the air.You will soon understand that work is a rubber ball.If you drop it, it will bounce back. But the other four balls family, health, friends, and spirit are made of glass. If you drop one of these, they will be irrevocably scuffed, marked, nicked, damaged, or even shattered. They will never be the same. You must understand that and strive for balance in your life.</p>
-</blockquote>
-<h3 id="健康"><a href="#健康" class="headerlink" title="健康"></a>健康</h3><p>想要优质的物质和精神条件，就需要好好的利用时间。而在这之前是要有一个好好的身体。</p>
-<p>现在我年轻气盛，想要做到健康，关键就在于：<strong>节欲</strong>。人与人之间的智力差别并不大，而造成我与别人差距这么大的原因就是身体。</p>
-<p>纵欲的人，<strong>付出微小的代价就能收获很大的刺激</strong>(奶头乐），因而造成总是体力不支，精力不够，<em>做事总想赶紧完成，投入不够深</em>，<em>注意力不集中</em>，<em>长期记忆力变差</em>，别人在飞速学习的时候他就总需要休息。这种差距日积月累，在offer这个触发点上就清晰可见。</p>
-<p>想要改善自己的身体状况，那就是节欲，熬夜的欲望，赖床的欲望，性欲，食欲……。</p>
-<p>按时睡觉，早起吃早饭，男女之事不要过度，拒绝垃圾食品，拒绝抽烟喝酒，规律锻炼运动。</p>
-<p>看起来简单，多年前我也总结出来了，但实行起来，尤为困难。最大的难点就是早起吃早饭以及性欲的规律了。调整回来这两点之后，坑定会为我提高精力，去认真对待其他事件。</p>
-<h3 id="娱乐至死"><a href="#娱乐至死" class="headerlink" title="娱乐至死"></a>娱乐至死</h3><p>与上一个有异曲同工之处。奶头乐真正的危害是对于精神层面的。低代价的短期的高刺激满足感，正在一点点侵蚀掉我对于真正重要的低刺激的长期回报的事物的执行的动力。造成我努力一小会就觉得很拼命的错觉，行动力的上限条被很大程度削减了。特点，</p>
-<p>另一方面，如今零碎化的信息正充斥着我的生活的方方面面，知乎、哔哩哔哩、微信公众号……，他们碎片化的高刺激的特点，并善于伪装成有用的特点，极大程度的吸走了属于我自己的注意力和时间。每个人每天的注意力集中的程度是有上限的。</p>
-]]></content>
-      <categories>
-        <category>生活随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1732,6 +1217,24 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
+    <title>点云处理优秀链接</title>
+    <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
+    <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn-基于python的机器学习项目</a></p>
+<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
+<blockquote>
+<p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>PCL</tag>
+        <tag>点云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python深度学习笔记(一)</title>
     <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
     <content><![CDATA[<p>待整理:</p>
@@ -1751,24 +1254,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       <tags>
         <tag>Python</tag>
         <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>点云处理优秀链接</title>
-    <url>/1970/01/01/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</url>
-    <content><![CDATA[<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a href="http://pointclouds.org/">PCL官网</a><br><a href="https://blog.csdn.net/xuezhisdc/article/details/51012300">PCL点云配准</a><br><a href="https://www.cnblogs.com/yhlx125/category/454932.html">点云笔记1</a><br><a href="https://blog.csdn.net/RNG_uzi_/article/details/90146844#7">点云笔记2</a><br><a href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn-基于python的机器学习项目</a></p>
-<h2 id="摘录"><a href="#摘录" class="headerlink" title="摘录"></a>摘录</h2><p>这个最小二乘法的误差分析需要了解</p>
-<blockquote>
-<p>常见的平面拟合方法一般是最小二乘法。<strong>当误差服从正态分布时，最小二乘方法的拟合效果还是很好的，可以转化成PCA问题</strong><br>　当观测值的误差大于2倍中误差时，认为误差较大。采用最小二乘拟合时精度降低，不够稳健。<br>　提出了一些稳健的方法：有移动最小二乘法（根据距离残差增加权重）；采用2倍距离残差的协方差剔除离群点；迭代重权重方法(选权迭代法)。<br>　MainWindow中的平面拟合方法，调用了ccPlane的Fit方法。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>LiDAR</category>
-      </categories>
-      <tags>
-        <tag>PCL</tag>
-        <tag>点云</tag>
       </tags>
   </entry>
   <entry>
@@ -2070,159 +1555,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       <tags>
         <tag>trips</tag>
         <tag>小知识</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二叉树</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="二叉树的最大深度"><a href="#二叉树的最大深度" class="headerlink" title="二叉树的最大深度"></a>二叉树的最大深度</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904091254966.png" alt="image-20200904091254966" style="zoom:80%;">
-
-<p>二叉树每个节点都有左右子树，利用递归关系：当前树深度=max(两子树深度最大值）+ 1.</p>
-<p>递归初始化：空节点深度为空</p>
-<h2 id="验证二叉搜索树"><a href="#验证二叉搜索树" class="headerlink" title="验证二叉搜索树"></a>验证二叉搜索树</h2><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E4%BA%8C%E5%8F%89%E6%A0%91/image-20200904092120931.png" alt="image-20200904092120931" style="zoom:80%;">
-
-<p>左子树的所有节点值都比当前节点小，右节点都比当前节点大。利用limit.h找到树的最大最小值，LONG_MIN, LONG_MAX，设置上下界。左子树为MIN~当前val，右子树为当前val–MAX。</p>
-<p>递归关系：若当前节点不在上下界内，返回false；否则，递归验证左右子树，返回他俩的与值。</p>
-<p>递归初始化：若当前节点为空，返回true。</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态规划</title>
-    <url>/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200911214956202.png" alt="image-20200911214956202" style="zoom:150%;">
-
-<h2 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a>爬楼梯</h2><img src="/2020/09/10/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/image-20200909193353682.png" alt="image-20200909193353682" style="zoom:80%;">
-
-<p>斐波那契数列，可以递归/求通项/动态规划。</p>
-<p>动态规划相当于从前往后推里，并只保留递推需要的值，即前两个数值，这样可以减小空间复杂度。</p>
-<h2 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h2><blockquote>
-<p>输入: [7,1,5,3,6,4]<br>输出: 5<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。<br>  注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格；同时，你不能在买入前卖出股票</p>
-</blockquote>
-<p>一次遍历或动态规划。动态规划即维护一个dp[i]列表，保存每一天的最大利润。而一次遍历相当于前者的优化，只保留最低价格，并比较当前卖出的利润是否大于最大利润。</p>
-<h2 id="最大子序和"><a href="#最大子序和" class="headerlink" title="最大子序和"></a>最大子序和</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [-2,1,-3,4,-1,2,1,-5,4]</span><br><span class="line">输出: 6</span><br><span class="line">解释: 连续子数组 [4,-1,2,1] 的和最大，为 6</span><br></pre></td></tr></table></figure>
-
-<p>动态规划。 每个dp[i]中保存dp[i-1]与当前元素的和，如果dp[i-1]为负数，则不加上这个值。dp中最大的值就是最大子序和。</p>
-<p><code>dp[i] = max(dp[i-1], nums[i]);</code></p>
-<h2 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a>打家劫舍</h2><blockquote>
-<p>示例 1：</p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>偷窃到的最高金额 = 1 + 3 = 4 。</p>
-</blockquote>
-<p>自上而下，动态规划。n所房屋的最高金额等于考虑最后一所房屋要不要偷，若不进去，则与偷前n-1所房屋一致；若进去偷，则与偷前n-2所房屋的最高金额相关。即：</p>
-<p><code>dp[i] = max(dp[i-1], dp[i-2]+nums[i];</code></p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>字符串</title>
-    <url>/2020/09/20/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="字符数组Char"><a href="#字符数组Char" class="headerlink" title="字符数组Char"></a>字符数组Char</h2><p>初始化：<code>char s[8] = &quot;China&quot;</code>最后一位以<code>‘/0’</code>保存结束标记符。</p>
-<p>输入：<code>cin&gt;&gt;s</code>, 空格/Tab/回车都是输入字符串的结束符；<code>gets(s)</code>, 只有回车才结束. 自动补全’\0’. </p>
-<p>输出: <code>cout&lt;&lt;s</code>, <code>puts(s)</code></p>
-<p>赋值: <code>strcpy(s,&quot;China&quot;)</code></p>
-<p>头文件: <code>#include &quot;stdio.h&quot;</code>包含了上述gets/puts函数;</p>
-<p>​            <code>&quot;string.h&quot;</code>包含了字符串处理函数. <code>strlen(s);strcmp(s1,s2);strcpy(s,&quot;china&quot;)</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s2[<span class="number">100</span>];</span><br><span class="line">    gets(s2);</span><br><span class="line">    <span class="built_in">puts</span>(s2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="标准库–字符串string"><a href="#标准库–字符串string" class="headerlink" title="标准库–字符串string"></a>标准库–字符串string</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;stdio.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">string</span> s1 = <span class="string">&quot;china&quot;</span>;		<span class="comment">// 初始化,赋值构造函数</span></span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">s2</span><span class="params">(<span class="string">&quot;China&quot;</span>)</span></span>;		<span class="comment">// 直接构造函数</span></span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s)&#123;		<span class="comment">// 输入,以空格/tab/回车为结束符</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; s &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(getline(<span class="built_in">cin</span>,s))	<span class="comment">//输入, getline函数相当于符号&quot;&gt;&gt;&quot;,参数为数据流cin,和保存的字符串变量</span></span><br><span class="line">        <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;s&lt;&lt;<span class="built_in">endl</span>; <span class="comment">//非空才输出s</span></span><br><span class="line">    s1 = s1+<span class="string">&quot;NO1&quot;</span>;</span><br><span class="line">    s2 = s1 + s2 ;			<span class="comment">//字符串连接</span></span><br><span class="line">    <span class="keyword">int</span> l = s.size();		<span class="comment">//返回长度</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="回文字符串"><a href="#回文字符串" class="headerlink" title="回文字符串"></a>回文字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> ch : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isalnum</span>(ch))&#123;</span><br><span class="line">                s2 += <span class="built_in">tolower</span>(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = s.size();</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>; right = len - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            left ++;</span><br><span class="line">            right --;</span><br><span class="line">        &#125;    </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典排序算法</title>
-    <url>/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/sort-an-array/solution/python-shi-xian-de-shi-da-jing-dian-pai-xu-suan-fa/">优秀连接</a></p>
-<p><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/%E6%8E%92%E5%BA%8F.png" alt="排序"></p>
-<h2 id="经典排序算法"><a href="#经典排序算法" class="headerlink" title="经典排序算法"></a>经典排序算法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">8</span>] = &#123;<span class="number">1</span>,<span class="number">56</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">65</span>,<span class="number">85</span>,<span class="number">43</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n =<span class="number">8</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//冒泡排序；</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i= <span class="number">1</span>;i&lt;=n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n-i;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])</span><br><span class="line">                &#123;<span class="keyword">int</span> temp = a[j];a[j] = a[j+<span class="number">1</span>];a[j+<span class="number">1</span>] = temp;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 选择排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j =i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;a[j])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp = a[j];a[j] = a[i];a[i] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 插入排序</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> temp = a[i];</span><br><span class="line">        <span class="keyword">int</span> j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; temp &lt; a[j])&#123;</span><br><span class="line">            a[j+<span class="number">1</span>] = a[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        a[j+<span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> k =<span class="number">0</span>;k&lt;n;k++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a[k]&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="合并两个有序数组"><a href="#合并两个有序数组" class="headerlink" title="合并两个有序数组"></a>合并两个有序数组</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200904105656076.png" alt="image-20200904105656076" style="zoom:80%;">
-
-<p>双指针。copy一个nums1内存空间res保存结果。</p>
-<p>p&lt;q, 则p值放入res，p++;反之同。退出循环的条件，指针没到末尾</p>
-<p>注意：p,q长度不一致，把未排完的依次放入res末尾。</p>
-<h3 id="第一个错误版本"><a href="#第一个错误版本" class="headerlink" title="第一个错误版本"></a>第一个错误版本</h3><img src="/2020/09/03/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%8E%92%E5%BA%8F/image-20200909183836225.png" alt="image-20200909183836225" style="zoom:80%;">
-
-<p>二分法查找。复杂度o(logn)</p>
-<p>初始化边界：left为1，right为n. </p>
-<p>判断中间值：isBadVersion(left+(right-left)/2)</p>
-<p>退出循环的条件： left &lt; right</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>枚举</title>
-    <url>/2020/09/11/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E6%9E%9A%E4%B8%BE/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>递归</title>
-    <url>/2020/09/15/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%80%92%E5%BD%92/</url>
-    <content><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一个函数调用他自己，就叫递归。</p>
-<p>栈，每个函数运行时都会有的一篇存储空间。每个函数调用时都会增加一层栈。</p>
-<p>搞清楚递归的<strong>终止条件</strong>，&amp;&amp;递归的<strong>转移关系</strong>。</p>
-<h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><h2 id="阶乘"><a href="#阶乘" class="headerlink" title="阶乘"></a>阶乘</h2><h2 id="NQueen"><a href="#NQueen" class="headerlink" title="NQueen"></a>NQueen</h2><h2 id="逆波兰表达式"><a href="#逆波兰表达式" class="headerlink" title="逆波兰表达式"></a>逆波兰表达式</h2>]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>Leecode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链表</title>
-    <url>/2020/06/30/CXX/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="设置哑结点"><a href="#设置哑结点" class="headerlink" title="设置哑结点"></a>设置哑结点</h1><figure class="highlight md"><table><tr><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode *node = head;</span><br><span class="line">        <span class="comment">//设置哑结点</span></span><br><span class="line">        ListNode *dummynode = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummynode-&gt;next = head;</span><br><span class="line">        <span class="comment">//求得链表长度</span></span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span>(node-&gt;next)&#123;</span><br><span class="line">            len++;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//工作指针归原点，将指针移动到目标前一个节点</span></span><br><span class="line">        node = dummynode;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-n+<span class="number">1</span>;i++)&#123;</span><br><span class="line">           node = node-&gt;next;            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//删除节点</span></span><br><span class="line">        node-&gt;next = node-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummynode-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
 </search>
