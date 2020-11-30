@@ -837,121 +837,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">ROS学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-05 20:20:25" itemprop="dateCreated datePublished" datetime="2020-10-05T20:20:25+08:00">2020-10-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-11-19 13:16:26" itemprop="dateModified" datetime="2020-11-19T13:16:26+08:00">2020-11-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
-<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span> = <span class="string">&quot;slot_detection&quot;</span> <span class="attr">name</span> = <span class="string">&quot;detecting slots&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">&quot;slot_width&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.7&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;thershold_length&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span>=<span class="string">&quot;slot_detection&quot;</span> <span class="attr">arg</span>=<span class="string">&quot;$&#123;arg threshold_length&#125;&quot;</span> <span class="attr">name</span> &quot;<span class="attr">detection</span> <span class="attr">slots</span>&quot; /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
-<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
-<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">&quot;slot_detection/thresh_l&quot;</span> <span class="attr">to</span>=<span class="string">&quot;thresh_l&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">&quot;$&#123;dirname&#125;/other.launch&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
-<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/12/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1073,6 +958,121 @@
 <p>Usage: static_transform_publisher <em>x y z yaw pitch roll frame_id child_frame_id  period</em>(milliseconds)<br>OR<br>Usage: static_transform_publisher <em>x y z qx qy qz qw frame_id child_frame_id  period</em>(milliseconds) </p>
 </blockquote>
 
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">ROS学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-05 20:20:25" itemprop="dateCreated datePublished" datetime="2020-10-05T20:20:25+08:00">2020-10-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-19 13:16:26" itemprop="dateModified" datetime="2020-11-19T13:16:26+08:00">2020-11-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
+<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span> = <span class="string">&quot;slot_detection&quot;</span> <span class="attr">name</span> = <span class="string">&quot;detecting slots&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">&quot;slot_width&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.7&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;thershold_length&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span>=<span class="string">&quot;slot_detection&quot;</span> <span class="attr">arg</span>=<span class="string">&quot;$&#123;arg threshold_length&#125;&quot;</span> <span class="attr">name</span> &quot;<span class="attr">detection</span> <span class="attr">slots</span>&quot; /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
+<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
+<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">&quot;slot_detection/thresh_l&quot;</span> <span class="attr">to</span>=<span class="string">&quot;thresh_l&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">&quot;$&#123;dirname&#125;/other.launch&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
+<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

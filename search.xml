@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C++代码风格</title>
+    <url>/2020/11/03/C++%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<h1 id="缺省参数"><a href="#缺省参数" class="headerlink" title="缺省参数"></a>缺省参数</h1><p>成员函数缺省参数值通常写在头文件或者源文件二者之一的地方，通常写在源文件中，但是会造成后果，没太看明白。</p>
+<h1 id="注释风格"><a href="#注释风格" class="headerlink" title="注释风格"></a>注释风格</h1><p>参考文章：<a href="https://blog.csdn.net/guyue35/article/details/46775211">https://blog.csdn.net/guyue35/article/details/46775211</a></p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1>]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CXX零碎知识点(二)</title>
     <url>/2020/10/18/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/</url>
     <content><![CDATA[<h1 id="2020年11月"><a href="#2020年11月" class="headerlink" title="2020年11月"></a>2020年11月</h1><h2 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h2><h2 id="条件-表达式"><a href="#条件-表达式" class="headerlink" title="条件?=表达式"></a>条件?=表达式</h2><p><code>int v = (w&lt;0) ? -1:1</code>表示如果w小于0, v取-1, 否则取1.</p>
@@ -44,20 +58,6 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">ParkingSlot::ParkingSlot(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;PointType2f&gt; rect_points):Object2D(rect_points)&#123;&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++代码风格</title>
-    <url>/2020/11/03/C++%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/</url>
-    <content><![CDATA[<h1 id="缺省参数"><a href="#缺省参数" class="headerlink" title="缺省参数"></a>缺省参数</h1><p>成员函数缺省参数值通常写在头文件或者源文件二者之一的地方，通常写在源文件中，但是会造成后果，没太看明白。</p>
-<h1 id="注释风格"><a href="#注释风格" class="headerlink" title="注释风格"></a>注释风格</h1><p>参考文章：<a href="https://blog.csdn.net/guyue35/article/details/46775211">https://blog.csdn.net/guyue35/article/details/46775211</a></p>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1>]]></content>
       <categories>
         <category>编程学习</category>
         <category>C++</category>
@@ -198,33 +198,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ROS学习笔记</title>
-    <url>/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
-<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span> = <span class="string">&quot;slot_detection&quot;</span> <span class="attr">name</span> = <span class="string">&quot;detecting slots&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">&quot;slot_width&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.7&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;thershold_length&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span>=<span class="string">&quot;slot_detection&quot;</span> <span class="attr">arg</span>=<span class="string">&quot;$&#123;arg threshold_length&#125;&quot;</span> <span class="attr">name</span> &quot;<span class="attr">detection</span> <span class="attr">slots</span>&quot; /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
-<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
-<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">&quot;slot_detection/thresh_l&quot;</span> <span class="attr">to</span>=<span class="string">&quot;thresh_l&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">&quot;$&#123;dirname&#125;/other.launch&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
-<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
-<a id="more"></a>
-
-<h1 id="订阅-发布接口编写"><a href="#订阅-发布接口编写" class="headerlink" title="订阅/发布接口编写"></a>订阅/发布接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;std_msg/Strings.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>ROS</category>
-      </categories>
-      <tags>
-        <tag>ROS</tag>
-        <tag>launch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ROS学习笔记(二)</title>
     <url>/2020/11/12/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%BA%8C)/</url>
     <content><![CDATA[<h1 id="rosbag"><a href="#rosbag" class="headerlink" title="rosbag"></a>rosbag</h1><p>可以采集一些topic数据并发布数据。相当于subscriber和publisher。</p>
@@ -285,6 +258,46 @@
       </tags>
   </entry>
   <entry>
+    <title>ROS学习笔记</title>
+    <url>/2020/10/05/ROS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h1><p>可以启动多个节点, 并传入节点需要的参数变量等. 同时也不需要先启动roscore了. </p>
+<h2 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span> = <span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span> = <span class="string">&quot;slot_detection&quot;</span> <span class="attr">name</span> = <span class="string">&quot;detecting slots&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span> = <span class="string">&quot;slot_width&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.7&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">&quot;thershold_length&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1.5&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">&quot;lidar_perception&quot;</span> <span class="attr">type</span>=<span class="string">&quot;slot_detection&quot;</span> <span class="attr">arg</span>=<span class="string">&quot;$&#123;arg threshold_length&#125;&quot;</span> <span class="attr">name</span> &quot;<span class="attr">detection</span> <span class="attr">slots</span>&quot; /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签node</strong>表示运行包pkg, 中的可执行cpp文件type (若使用py脚本需要添加.py后缀), 然后将这个节点的ROS名字取为name. 还可以添加需要传入的变量参数,用arg传入. </p>
+<p><strong>标签param</strong>表示定义一些参数名及其值. <strong>rosparam</strong>可以传入参数文件中所有参数.</p>
+<p><strong>标签arg</strong>定义launch内部使用的变量参数,可供其他使用.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">&quot;slot_detection/thresh_l&quot;</span> <span class="attr">to</span>=<span class="string">&quot;thresh_l&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">&quot;$&#123;dirname&#125;/other.launch&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>标签remap</strong>重新定义topic(或其他?)所有资源的名字, </p>
+<p><strong>标签include</strong>嵌套使用另外一个launch文件.</p>
+<a id="more"></a>
+
+<h1 id="订阅-发布接口编写"><a href="#订阅-发布接口编写" class="headerlink" title="订阅/发布接口编写"></a>订阅/发布接口编写</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;std_msg/Strings.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span>** argv)</span></span>&#123;</span><br><span class="line">    ros::init(argc,argv,<span class="string">&quot;listener&quot;</span>);</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line">    ros::Subscriber subscriber = </span><br><span class="line">        nh.subscribe(<span class="string">&quot;chatter&quot;</span>,<span class="number">10</span>,callback);</span><br><span class="line">    <span class="comment">//ros::Publisher publiser = </span></span><br><span class="line">    <span class="comment">//  nh.advertise&lt;std_msgs::String&gt;(&quot;chatter&quot;,1);</span></span><br><span class="line">    <span class="comment">// publisher.publish(msg1);</span></span><br><span class="line">    ros::spin();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>ROS</category>
+      </categories>
+      <tags>
+        <tag>ROS</tag>
+        <tag>launch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SAT</title>
+    <url>/2020/11/27/SAT/</url>
+    <content><![CDATA[<p><img src="/2020/11/27/SAT/clip_image001.png" alt="d JA ؤ 0.  ) . ه لا)٨١ . ٩١ (٨  (ي ور ه  A ،و طوم  ة با ز و وه .4&#39;  زا لا د  هـ "></p>
+<p><img src="/2020/11/27/SAT/clip_image002.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+      <tags>
+        <tag>SAT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/2020/11/19/%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E5%8F%91%E7%83%A7/</url>
     <content><![CDATA[<h2 id="鼠标"><a href="#鼠标" class="headerlink" title="鼠标"></a>鼠标</h2><p>logi M330C</p>
@@ -327,7 +340,7 @@
 
 <h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
 
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">&#x65;&#109;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;</a>“</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#109;</a>:xiaozhenc/rep<br><a href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x65;&#109;&#x61;&#x69;&#108;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“</p>
 ]]></content>
       <categories>
         <category>工具技能</category>
@@ -408,52 +421,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SAT</title>
-    <url>/2020/11/27/SAT/</url>
-    <content><![CDATA[<p><img src="/2020/11/27/SAT/clip_image001.png" alt="d JA ؤ 0.  ) . ه لا)٨١ . ٩١ (٨  (ي ور ه  A ،و طوم  ة با ز و وه .4&#39;  زا لا د  هـ "></p>
-<p><img src="/2020/11/27/SAT/clip_image002.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-      </categories>
-      <tags>
-        <tag>SAT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown语法</title>
-    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
-    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
-<ol>
-<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
-<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
-<li>句子前添加符号”&gt;”</li>
-</ol>
-<blockquote>
-<p>这是引用的内容 </p>
-</blockquote>
-<ol start="6">
-<li>*<em>加粗两对</em>星号**</li>
-<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
-<li>多行代码, “<strong>```C++</strong>“</li>
-</ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li><p>表格</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux系统安装注意</title>
     <url>/2019/12/15/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/suifenghahahaha/article/details/79710023#%E4%BA%B2%E6%B5%8Bdell%E7%AC%94%E8%AE%B0%E6%9C%ACUEFI%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Win10%E5%92%8CUbuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F">较好的教程</a></p>
@@ -519,6 +486,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Markdown语法</title>
+    <url>/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><p>Markdown基本语法链接: <a href="http://xianbai.me/learn-md/article/syntax/links.html">http://xianbai.me/learn-md/article/syntax/links.html</a></p>
+<ol>
+<li>引用图片<code>![pngName](blabla.png)</code><img src="/2019/12/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/markDown%E4%B9%A6%E5%86%99%E6%8C%87%E5%8D%97/test.JPG" alt="jpg" style="zoom:50%;"></li>
+<li>插入超链接<br>“[超链接] (<a href="https://www.jianshu.com/p/191d1e21f7ed)&quot;">https://www.jianshu.com/p/191d1e21f7ed)&quot;</a></li>
+<li>句子前添加符号”&gt;”</li>
+</ol>
+<blockquote>
+<p>这是引用的内容 </p>
+</blockquote>
+<ol start="6">
+<li>*<em>加粗两对</em>星号**</li>
+<li>嵌入式代码<code>单行代码,一对反单引号</code></li>
+<li>多行代码, “<strong>```C++</strong>“</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">三个反单引号成对</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><p>表格</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">| 标题1|标题2|</span><br><span class="line">|---|---|</span><br><span class="line">|内容1|内容二|</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ubuntu常用问题记录</title>
     <url>/2020/10/10/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ubuntu%E5%B8%B8%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="开机启动VPN脚本"><a href="#开机启动VPN脚本" class="headerlink" title="开机启动VPN脚本"></a>开机启动VPN脚本</h1><p>每次开机都要设置鼠标灵敏度和打开ssVPN操作,不如让这两行命令开机启动,省事.</p>
@@ -539,6 +539,39 @@
       </categories>
       <tags>
         <tag>Ubuntu小操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vscode调试运行cpp程序</title>
+    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
+    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
+<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
+
+<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数. 该文件相当于吧命令行中输入的所有参数预先保存下来，以后每次编译的时候就会来这里读取需要的参数。json只是一个字典类型文件。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>, <span class="comment">//命名</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,               </span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span>，</span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/include&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p>虽然上述可以编译了，但是我们发现vscode自身并没有链接上eigen库, 代码下不会有红色波浪线提示找不到文件，因此需要配置C/C++ Configrations链接起来，写代码时方便跳转查看。</p>
+<p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
+<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
+<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
+<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>工具技能</category>
+        <category>vscode</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -588,36 +621,18 @@
       </tags>
   </entry>
   <entry>
-    <title>vscode调试运行cpp程序</title>
-    <url>/2020/10/12/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/vscode%E9%85%8D%E7%BD%AEC++%E7%A8%8B%E5%BA%8F/</url>
-    <content><![CDATA[<p>与文档”vscode调试运行ROS程序.md”相似,本文档简单讲讲不使用Cmake配置C++/gcc环境.以简单程序调用Eigen库为例.</p>
-<h1 id="编写代码"><a href="#编写代码" class="headerlink" title="编写代码"></a>编写代码</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//mypg.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> Eigen::MatrixXd;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">MatrixXd <span class="title">m</span><span class="params">(<span class="number">2</span>,<span class="number">2</span>)</span></span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">3</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">0</span>) = <span class="number">2.5</span>;</span><br><span class="line">    m(<span class="number">0</span>,<span class="number">1</span>) = <span class="number">-1</span>;</span><br><span class="line">    m(<span class="number">1</span>,<span class="number">1</span>) = m(<span class="number">1</span>,<span class="number">0</span>) + m(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; m &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>先要将文档编译成可执行文件,但是需要链接Eigen库头文件,可利用<code>gcc -I</code>指令在终端编译</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">gcc -I /usr/include/eigen3/ mypg.cpp -o mypg</span><br></pre></td></tr></table></figure>
-
-<h2 id="Task-json"><a href="#Task-json" class="headerlink" title="Task.json"></a>Task.json</h2><p>而在vscode中, 可按<code>ctrl+shift+b</code>或F7编译. <code>ctrl+shift+P</code>输入Task指令生成<em>task.json</em>, 修改task.json中的编译相关参数. 该文件相当于吧命令行中输入的所有参数预先保存下来，以后每次编译的时候就会来这里读取需要的参数。json只是一个字典类型文件。</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;shell&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;build&quot;</span>, <span class="comment">//命名</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;/usr/bin/g++&quot;</span>,		<span class="comment">//终端运行的指令</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [ <span class="comment">//此项是上述命令G++的参数列表</span></span><br><span class="line">                <span class="string">&quot;-g&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/*.cpp&quot;</span>,</span><br><span class="line">                <span class="comment">//&quot;$&#123;workspaceFolder&#125;/src/*.cpp&quot;,	//填写需要编译的目标cpp文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-o&quot;</span>,               </span><br><span class="line">                <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">                <span class="comment">//生成的可执行文件存放的目录</span></span><br><span class="line">                <span class="comment">//$&#123;fileDirname&#125;当前工作目录; $&#123;fileBasenameNoExtension&#125;以活动文件名为基础的没有扩展名的可执行文件</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-std=c++11&quot;</span>,</span><br><span class="line">                <span class="string">&quot;-stdlib=libc++&quot;</span>,	<span class="comment">//这两句是默认的编译器C++98更改为C++11</span></span><br><span class="line">                </span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,   <span class="comment">//头文件链接目录.实践证明不好用,在c_cpp_properties中includePath设置更好.ctrl+shift+p配置C/C++.</span></span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span>，</span><br><span class="line">                <span class="string">&quot;-I&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/include&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">                <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span> <span class="comment">//the task runner&#x27;s current working directory on startup</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$gcc&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;group&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="c-cpp-properties-json"><a href="#c-cpp-properties-json" class="headerlink" title="c_cpp_properties.json"></a>c_cpp_properties.json</h2><p>虽然上述可以编译了，但是我们发现vscode自身并没有链接上eigen库, 代码下不会有红色波浪线提示找不到文件，因此需要配置C/C++ Configrations链接起来，写代码时方便跳转查看。</p>
-<p><code>ctrl+shift+P</code>调出<em>C/C++ Configrations.</em> 在includePath中添加包含路径</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Linux&quot;</span>,</span><br><span class="line">            <span class="string">&quot;includePath&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span>,</span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/usr/include/eigen3/&quot;</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&quot;defines&quot;</span>: [],</span><br><span class="line">            <span class="string">&quot;compilerPath&quot;</span>: <span class="string">&quot;/usr/bin/gcc&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cStandard&quot;</span>: <span class="string">&quot;gnu11&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cppStandard&quot;</span>: <span class="string">&quot;c++17&quot;</span>,</span><br><span class="line">            <span class="string">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;gcc-x64&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就可以编译了,<code>ctrl+shift+B</code>. 生成相应的可执行文件<code>mypg.exe</code></p>
-<h1 id="调试运行"><a href="#调试运行" class="headerlink" title="调试运行"></a>调试运行</h1><p>按F5自动生成调试用的<strong>launch.json</strong>文档.</p>
-<p>要清楚调试是基于生成的可执行文件*.exe才能调试, 因此在先没有可执行文件情况下需要设置<strong>preLaunchTask</strong>为自己的编译任务的名字. </p>
-<p>可以定义多个调试器, 以运行不同的cpp和参数调试.</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;g++ - 生成和调试活动文件&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,<span class="comment">//注意可执行文件的后缀</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;setupCommands&quot;</span>: [</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="attr">&quot;description&quot;</span>: <span class="string">&quot;为 gdb 启用整齐打印&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;text&quot;</span>: <span class="string">&quot;-enable-pretty-printing&quot;</span>,</span><br><span class="line">                    <span class="attr">&quot;ignoreFailures&quot;</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">            <span class="attr">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;/usr/bin/gdb&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
+    <title>日常计算机小问题记录</title>
+    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
+<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
+<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
       <categories>
         <category>工具技能</category>
-        <category>vscode</category>
+        <category>问题记录</category>
       </categories>
       <tags>
-        <tag>vscode</tag>
+        <tag>小问题解决</tag>
       </tags>
   </entry>
   <entry>
@@ -660,21 +675,6 @@
       </categories>
       <tags>
         <tag>win10磁盘监控</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>日常计算机小问题记录</title>
-    <url>/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/%E8%AE%A1%E7%AE%97%E6%9C%BA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="12-17"><a href="#12-17" class="headerlink" title="12.17"></a>12.17</h2><p>UBUNTU:<br>1.无法连接wifi，解决办法配置网卡<a href="https://blog.csdn.net/stay_zezo/article/details/80718369">https://blog.csdn.net/stay_zezo/article/details/80718369</a></p>
-<p>2.vscode安装<br>sudo dpkg -i &lt;*.deb&gt;<br><a href="https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1">https://blog.csdn.net/weixin_43374723/article/details/84064644#1_Vscode_1</a></p>
-<p>//todo<br>1.vscode关联hexo<br>2.Ubuntu安装ros,git<br>3.ubuntu安装hexo<br>学习：<br>1.师兄拟合算法修改<br>2.最大贴精度拟合撰写<br><img src="https://img-blog.csdn.net/20180720100435417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NjbnRfMjAxMg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
-<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
-      <categories>
-        <category>工具技能</category>
-        <category>问题记录</category>
-      </categories>
-      <tags>
-        <tag>小问题解决</tag>
       </tags>
   </entry>
   <entry>
@@ -1192,6 +1192,31 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
+    <title>How to read a paper</title>
+    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
+    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
+<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
+<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
+<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
+</blockquote>
+<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
+<p>自己要思考精读一篇文献，</p>
+<ul>
+<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
+<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
+<li>研究的具体方法是什么？用到了哪些工具手段？</li>
+<li>结果如何？哪些得到了征明？</li>
+<li>总结，可以参考和不足之处在哪？</li>
+</ul>
+<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+      <tags>
+        <tag>方法论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python深度学习笔记(一)</title>
     <url>/2020/07/13/%E7%A0%94%E7%A9%B6%E7%94%9F/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
     <content><![CDATA[<p>待整理:</p>
@@ -1232,51 +1257,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>How to read a paper</title>
-    <url>/2020/07/10/%E7%A0%94%E7%A9%B6%E7%94%9F/howtoreadapaper/</url>
-    <content><![CDATA[<h2 id="编码格式UTF-8与中文"><a href="#编码格式UTF-8与中文" class="headerlink" title="编码格式UTF-8与中文"></a>编码格式UTF-8与中文</h2><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h2 id="《How-to-read-a-paper》"><a href="#《How-to-read-a-paper》" class="headerlink" title="《How to read a paper》"></a>《How to read a paper》</h2><h3 id="读什么"><a href="#读什么" class="headerlink" title="读什么"></a>读什么</h3><blockquote>
-<p><strong>第一阶段是看论文中是否有感兴趣的东西。</strong>AI论文含有摘要，其中可能有内容的介绍，但是也有可能没有或者总结得不好，因此需要你跳读，这看一点那看一点，了解作者究竟做了些什么。内容目录（the table of contents）、结论部分（conclusion）和简介（introduction）是三个重点。如果这些方法都不行，就只好顺序快速浏览了。一旦搞清楚了论文的大概和创新点，就可以决定是否需要进行第二阶段了。</p>
-<p><strong>第二阶段，要找出论文真正具有内容的部分。</strong>很多15页的论文可以重写为一页左右的篇幅；因此需要你寻找那些真正激动人心的地方，这经常隐藏于某个地方。（Key）论文作者从其工作中所发现的感兴趣的地方，未必是你感兴趣的，反之亦然。</p>
-<p><strong>最后，如果觉得该论文确实有价值，返回去通篇精读。</strong>读论文时要牢记几个问题：“我应该如何利用该论文？”“真的像作者宣称的那样么？”“如果……会发生什么？”。理解论文得到了什么结论并不等同于理解了该论文。理解论文，就要了解论文的目的，作者所作的选择（很多都是隐含的），假设和形式化是否可行，论文指出了怎样的方向，论文所涉及领域都有哪些问题，作者的研究中持续出现的难点模式是什么，论文所表达的策略观点是什么，诸如此类。</p>
-</blockquote>
-<h3 id="记什么"><a href="#记什么" class="headerlink" title="记什么"></a>记什么</h3><p>思路：研究问题–&gt;创新点–&gt;解决方法–&gt;结果–&gt;总结</p>
-<p>自己要思考精读一篇文献，</p>
-<ul>
-<li>文章研究的问题是什么？该问题的范畴是什么？进行了何种假设？</li>
-<li>文章如何针对该问题进行解决的？创新之处在哪？</li>
-<li>研究的具体方法是什么？用到了哪些工具手段？</li>
-<li>结果如何？哪些得到了征明？</li>
-<li>总结，可以参考和不足之处在哪？</li>
-</ul>
-<h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>]]></content>
-      <categories>
-        <category>研究生</category>
-      </categories>
-      <tags>
-        <tag>方法论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>点云处理算法综述</title>
-    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</url>
-    <content><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
-<p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
-<h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
-<p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p>
-<p>类似的网络：pixorNet,pointNet++02</p>
-<h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p>
-<p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>
-]]></content>
-      <categories>
-        <category>研究生</category>
-        <category>LiDAR</category>
-      </categories>
-      <tags>
-        <tag>小知识</tag>
-        <tag>点云</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>顶会常关注优质文章,快乐科研</title>
     <url>/2019/12/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E9%A1%B6%E4%BC%9A%E5%B8%B8%E5%85%B3%E6%B3%A8/</url>
     <content><![CDATA[<h2 id="机器人邻域"><a href="#机器人邻域" class="headerlink" title="机器人邻域"></a>机器人邻域</h2><ol>
@@ -1309,6 +1289,58 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </categories>
       <tags>
         <tag>顶会</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>点云处理算法综述</title>
+    <url>/2020/09/07/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%82%B9%E4%BA%91%E5%A4%84%E7%90%86%E7%AE%97%E6%B3%95%E7%BB%BC%E8%BF%B0/</url>
+    <content><![CDATA[<p>自动驾驶对于检测算法有着比较特殊的要求：首先为了安全性考虑召回率要高，即不能漏检；其次因为检测到的物体是下游路径规划和运动决策算法的输入，这要求检测到的目标在连续帧中具有较好的稳定性，具体而言即在连续帧中检测到的同一个物体的类别、尺寸、位置和方向不能有剧烈的变化。与此同时因为激光点云的稀疏性，现有算法单用一帧点云数据无法在小物体、远处物体和被遮挡物体的检测上得到令人满意的结果。</p>
+<p>开始考虑结合多种传感器数据的方法、结合多个激光雷达的方法以及结合连续多帧的方法。虽然在学术界的排行榜中现在最好的方法是基于深度学习的算法，但是在实际问题中数据的预处理、后处理等对最终结果有着至关重要的影响，而这些部分的算法往往需要根据数据和使用场景有针对性的设计。</p>
+<h3 id="Range-Image-Graph"><a href="#Range-Image-Graph" class="headerlink" title="Range Image/Graph"></a>Range Image/Graph</h3><h3 id="VoxelNet"><a href="#VoxelNet" class="headerlink" title="VoxelNet"></a>VoxelNet</h3><p>将点云分布组织到体素网格中，再再鸟瞰图中应用深度学习框架。和二维图片检测相比VoxelNet不仅要给出物体中心的二维坐标和包围盒的长宽，还需要给出物体中心在Z轴的位置、物体的高度和物体在XY平面上的朝向。</p>
+<p>缺点：体素太多的时候，会出现计算出错或者效率问题，一些学习框架不会考虑。三维卷积太消耗计算量无法实时。</p>
+<p>类似的网络：pixorNet,pointNet++02</p>
+<h3 id="多帧"><a href="#多帧" class="headerlink" title="多帧"></a>多帧</h3><p>Luo利用深度神经网络在鸟瞰图中通过连续帧的数据进行目标检测【20】。</p>
+<p>其建立了一个“多入多出”的结构，即算法的输入是过去连续帧的鸟瞰图，而算法的输出是当前时刻和未来连续时刻的物体位置。Luo希望通过这种结构让网络不仅仅学习到物体在鸟瞰图中的形状，还可以学习到物体的速度、加速度信息。</p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+        <category>LiDAR</category>
+      </categories>
+      <tags>
+        <tag>小知识</tag>
+        <tag>点云</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Matlab小知识记录</title>
+    <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
+<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
+<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
+<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
+</ol>
+<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
+<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
+<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
+<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
+<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列 </code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
+<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
+</blockquote>
+</li>
+<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png"></li>
+<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
+<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
+</ol>
+<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
+<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>Matlab</category>
+      </categories>
+      <tags>
+        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
@@ -1356,38 +1388,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       <tags>
         <tag>CMake</tag>
         <tag>C++编译</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Matlab小知识记录</title>
-    <url>/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
-<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
-<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
-<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
-</ol>
-<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
-<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
-<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
-<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
-<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列 </code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
-<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
-</blockquote>
-</li>
-<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png"></li>
-<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
-<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
-</ol>
-<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
-<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>Matlab</category>
-      </categories>
-      <tags>
-        <tag>小知识</tag>
       </tags>
   </entry>
   <entry>
@@ -1468,28 +1468,6 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       </tags>
   </entry>
   <entry>
-    <title>Python深度学习笔记(一)</title>
-    <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
-    <content><![CDATA[<p>待整理:</p>
-<ul>
-<li>卷积层池化层</li>
-<li>梯度下降</li>
-<li>pytorch</li>
-<li>numpy</li>
-</ul>
-<p>学习网站:B站莫烦python</p>
-<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
-]]></content>
-      <categories>
-        <category>编程学习</category>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>matlab-Compiler</title>
     <url>/2020/03/20/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/matlab-Compiler/</url>
     <content><![CDATA[<p>使用simulink或者coder常常需要C++的编译器，经常因为版本等问题报错。</p>
@@ -1510,6 +1488,28 @@ b. 该边不能很好的拟合，如小车车头<pre><code> 解决：当主方�
       <tags>
         <tag>编译器</tag>
         <tag>MINGW</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python深度学习笔记(一)</title>
+    <url>/2020/07/13/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/python%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0(%E4%B8%80)/</url>
+    <content><![CDATA[<p>待整理:</p>
+<ul>
+<li>卷积层池化层</li>
+<li>梯度下降</li>
+<li>pytorch</li>
+<li>numpy</li>
+</ul>
+<p>学习网站:B站莫烦python</p>
+<p><code>namedtuple()</code>:是产生具有命名字段的元组的工厂函数</p>
+]]></content>
+      <categories>
+        <category>编程学习</category>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
