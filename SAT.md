@@ -9,6 +9,6 @@ tags:
 - SAT
 ---
 
-![d JA ؤ 0.  ) . ه لا)٨١ . ٩١ (٨  (ي ور ه  A ،و طوم  ة با ز و وه .4'  زا لا د  هـ ](SAT/clip_image001.png)
+![](SAT/clip_image001.png)
 
 ![img](SAT/clip_image002.png)

@@ -7,7 +7,7 @@ categories:
 tags:
 - Hexo
 ---
-# Markdown语法
+# Markdown基本语法
 
 Markdown基本语法链接: http://xianbai.me/learn-md/article/syntax/links.html
 
@@ -34,3 +34,8 @@ Markdown基本语法链接: http://xianbai.me/learn-md/article/syntax/links.html
    |---|---|
    |内容1|内容二|
    ```
+
+# 公式语法
+
+参考链接：https://www.cnblogs.com/hzcya1995/p/13308012.html
+
