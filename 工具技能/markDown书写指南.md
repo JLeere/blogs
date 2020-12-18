@@ -5,14 +5,16 @@ categories:
 - 工具技能
 - Hexo
 tags:
-- Hexo
+- md
+top: true
+photos: /images/cat5.webp
 ---
 # Markdown语法
 
 Markdown基本语法链接: http://xianbai.me/learn-md/article/syntax/links.html
 
 1. 引用图片`![pngName](blabla.png)`
-   <img src="Hexo写文章指南/test.JPG" alt="jpg" style="zoom:50%;" />
+   <img src="markDown书写指南/test.JPG" alt="test" style="zoom:50%;" />
 2. 插入超链接
    "[超链接] (https://www.jianshu.com/p/191d1e21f7ed)"
 3. 句子前添加符号">"
