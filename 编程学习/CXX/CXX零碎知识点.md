@@ -95,6 +95,8 @@ boost::shared_ptr<int> sp(p);
 
 ## lambda表达式
 
+
+
 ```C++
 int x = 0;
 auto b = [](int x){return x *= 2;};
