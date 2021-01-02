@@ -139,6 +139,8 @@ while (node.ok())
 
 ## static_transform_publisher节点
 
+http://wiki.ros.org/tf#static_transform_publisher
+
 ```xml
   <!--Calibration-->
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_rslidar_left"  args="-1.249000902703301e-16 0.65 -0.2 0 0.017453293 -0.8203047710000001 /rslidar /rslidar_left 1" required="true" />
