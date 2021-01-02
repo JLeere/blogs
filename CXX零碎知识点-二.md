@@ -30,7 +30,10 @@ tags:
 > - 如果参数列表不同，这时子类中重定义的函数不论是否有virtual关键字，都会隐藏父类的同名函数。
 > - 如果参数列表相同，但父类中的同名函数没有virtual关键字修饰，此时父类中的函数仍然被隐藏。
 
+<!-- more -->
+
 ```C++
+
 #include <iostream>
 using namespace std; 
 

@@ -33,7 +33,7 @@ xset m 2
 2.将这个脚本添加到开机启动的服务中.[参考链接](https://blog.csdn.net/MakerCloud/article/details/81257953?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param)
 
 ```shell
-sudo chmod +x start_test.sh #设置权限
+sudo chmod +x vpn_open.sh #设置权限
 # 将脚本添加到启动脚本,90为优先级,数值越高优先级越低
 cd /etc/init.d/
 sudo update-rc.d start_test.sh defaults 90

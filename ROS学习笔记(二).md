@@ -44,6 +44,8 @@ rosbag filter input.bag output.bag "t.to_sec() <= 1284703931.86"
 
 上面的命令需要你有inputbag，然后它会把Bag Time<=1284703931.86的部分提取出来，重新放到一个新的ouput.bag里.
 
+<!-- more-->
+
 # msg
 
 ## Header
