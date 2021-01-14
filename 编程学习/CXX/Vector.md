@@ -20,6 +20,7 @@ int main(){
     int N=5,M=6;
     //一维向量
     vector<int> obj(N);//int 类型，obj变量名，N数据尺寸
+    vector<int> vec(6,0); //数据尺寸为6个，都初始化为0
     //二位向量
     vector<vector<int> > obj2(N,vector<int>(M));//注意中间有个空格
     obj2[i][j];

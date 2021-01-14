@@ -1,5 +1,5 @@
 ---
-title: Eigen学习笔记(三)
+title: 【Eigen】变换矩阵
 date: 2020-10-28 10:18:20
 categories:
 - 编程学习
@@ -14,17 +14,19 @@ description: 实现2D的坐标系变换所需要的函数和使用方法
 
 理论学习 古月居：https://www.guyuehome.com/4463 比较清晰
 
-# 基础类
+# 旋转平移
 
-## 旋转
+[学习blog链接](http://zhaoxuhui.top/blog/2019/09/03/eigen-note-4.html#23d%E6%97%8B%E8%BD%AC)
 
 `#include <Eigen/Gometry>`
 
-### 2D旋转
+## 2D旋转
 
-**Rotation2D**类, 构造参数可以输入旋转角度, 2*2旋转矩阵, 另一个Rotation2D类.  
+**Rotation2D**类, 构造参数可以输入
 
-*注意：顺时针为正,逆时针为负值.*
+- 旋转角度, *注意：顺时针为正,逆时针为负值.*
+- 2*2旋转矩阵, 
+- 另一个Rotation2D类.  
 
 成员函数:
 
@@ -48,7 +50,9 @@ Trasnlation2f t(1.0,2.0);
 - `.vector()  &  .translation()`: 获取平移向量，可用[]索引
 - `.inverse()`: 逆方向平移
 
-## 角轴
+## 3D 旋转 
+
+### 角轴
 
 **AngleAxis**类，可调用AngleAxisf
 
