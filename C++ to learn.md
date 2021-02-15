@@ -18,3 +18,10 @@ tags:
 
 # 异常处理
 
+## to learn
+
+- const
+
+- static
+
+  

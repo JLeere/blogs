@@ -98,10 +98,14 @@ git merge <branchName> #合并远端分支到当前分支,会产生冲突,必须
 git add <filename> #改完之后提交,表示合并成功
  ```
 
-## Github
+## Github问题
 
 有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了.
 但是在clone仓库的时候就要选择相应的方式git@github.com:xiaozhenc/rep
 https://www.jianshu.com/p/c9aa544a11d3
 为了避免每次push都输密码,可以生成SSH钥匙和锁
 ssh-keygen -t rsa -C "email@example.com"
+
+### git clone慢
+
+` env | grep -i proxcy`

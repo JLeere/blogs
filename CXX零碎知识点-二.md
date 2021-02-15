@@ -147,3 +147,12 @@ https://blog.csdn.net/fchyang/article/details/81508030
 ParkingSlot::ParkingSlot(std::vector<PointType2f> rect_points):Object2D(rect_points){}
 ```
 
+## 强制类型转换
+
+```C++
+float a;
+double b = static_cast<double>(a);
+int c = int(a);
+double d  = (double)a;
+```
+
