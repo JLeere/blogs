@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/JLee.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/JLee.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Life is Fantastic，and you&#39;re fucking shit!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="J.Lee&#39;s Town">
+<meta property="og:url" content="https://www.jaylee.top/page/6/index.html">
+<meta property="og:site_name" content="J.Lee&#39;s Town">
+<meta property="og:description" content="Life is Fantastic，and you&#39;re fucking shit!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="J.Lee">
+<meta property="article:tag" content="C++, ROS, LiDAR">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.jaylee.top/page/6/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>J.Lee's Town</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="J.Lee's Town" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/cat1.webp" alt="J.Lee's Town">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">J.Lee's Town</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Life is Fantastic</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archive/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="J.Lee"
+      src="/images/name.png">
+  <p class="site-author-name" itemprop="name">J.Lee</p>
+  <div class="site-description" itemprop="description">Life is Fantastic，and you're fucking shit!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archive/">
+        
+          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaozhenc" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaozhenc" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/lj-pc@live.cn" title="E-Mail → lj-pc@live.cn"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/leejay" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;leejay" rel="noopener" target="_blank"><i class="google fa-fw"></i>Google</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/xiaozhenc" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/01/02/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Ubuntu%E7%9B%B8%E5%85%B3/Ubuntu18.04%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/02/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Ubuntu%E7%9B%B8%E5%85%B3/Ubuntu18.04%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Ubuntu18.04</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-02 14:30:09" itemprop="dateCreated datePublished" datetime="2021-01-02T14:30:09+08:00">2021-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/02/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Ubuntu%E7%9B%B8%E5%85%B3/Ubuntu18.04%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/02/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Ubuntu%E7%9B%B8%E5%85%B3/Ubuntu18.04%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Ubuntu-16-04"><a href="#Ubuntu-16-04" class="headerlink" title="Ubuntu 16.04"></a>Ubuntu 16.04</h1><h2 id="移动硬盘-Ubuntu-系统安装"><a href="#移动硬盘-Ubuntu-系统安装" class="headerlink" title="移动硬盘 Ubuntu 系统安装"></a>移动硬盘 Ubuntu 系统安装</h2><p><a href="https://www.jaylee.top/2019/12/15/Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%B3%A8%E6%84%8F/">16.04见这篇文章</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/54d9a3a695cc">18.04安装参考</a></p>
+<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>/ (根目录) &gt;&gt; / (home目录) &gt;&gt; ~ (当前用户目录) &gt;&gt; /下载 /桌面等</p>
+<h2 id="终端命令"><a href="#终端命令" class="headerlink" title="终端命令"></a>终端命令</h2><p>命令格式:</p>
+<blockquote>
+<p>command  [-options]  [parameter]<br>sudo加在命令前面表示以管理员身份执行,如:<br>sudo apt install/remove/upgrade *<br>sudo apt-get update /upgrade<br>cd (change directory) 相对/绝对路径(~ /)      cd .. 返回上层目录<br>ls (list)/ll<br>rm (remove)  删除之后无法恢复<br>clear<br>mkdir</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/02/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Ubuntu%E7%9B%B8%E5%85%B3/Ubuntu18.04%E5%AE%89%E8%A3%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E7%9B%B8%E5%85%B3/ROS%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E7%9B%B8%E5%85%B3/ROS%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">ROS入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-17 11:00:00" itemprop="dateCreated datePublished" datetime="2019-12-17T11:00:00+08:00">2019-12-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-02 14:30:09" itemprop="dateModified" datetime="2021-01-02T14:30:09+08:00">2021-01-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E7%9B%B8%E5%85%B3/ROS%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/17/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS%E7%9B%B8%E5%85%B3/ROS%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>官方学习文档：<a target="_blank" rel="noopener" href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
+<p>很好的学习视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zt411G7Vn?t=104&amp;p=21">https://www.bilibili.com/video/BV1zt411G7Vn?t=104&amp;p=21</a></p>
+<p>很好的学习论坛古月居：<a target="_blank" rel="noopener" href="https://www.guyuehome.com/">https://www.guyuehome.com/</a></p>
+<h2 id="ROS准备"><a href="#ROS准备" class="headerlink" title="ROS准备"></a>ROS准备</h2><p><a target="_blank" rel="noopener" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">安装ROS</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/huangjianxin/p/6347416.html">建立ROS工作空间</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/catkin_ws/src</span><br><span class="line">cd ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace    <span class="comment">//初始化生成cmake文件</span></span><br><span class="line">cd ~/catkin_ws</span><br><span class="line">catkin_make              <span class="comment">// 编译生成可执行文件</span></span><br><span class="line">source devel/setup.barsh <span class="comment">// 刷新环境变量</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>后面进行package创建时，当加入了新的package编译完成后，也要进行source刷新环境变量，否则会出现找不到“package XXX not found” 的问题</strong><br>用下面指令将其写入文件中，避免每次打开终端都需要刷新工作环境：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;source my_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>可以查看系统包含的package路径</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ROS_PACKAGE_PATH</span><br></pre></td></tr></table></figure>
+
+<h2 id="ROS概念"><a href="#ROS概念" class="headerlink" title="ROS概念"></a>ROS概念</h2><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a><strong>参考资料</strong>:</h4><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/79653378">https://blog.csdn.net/AdamShan/article/details/79653378</a>  </p>
+<blockquote>
+<p>建议将 ROS 接口节点（订阅，发布）和算法结点分开。<br>  <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av24585414/?p=5">MOOC ROS入门视频：</a></p>
+</blockquote>
+<h4 id="ROS目录结构"><a href="#ROS目录结构" class="headerlink" title="ROS目录结构"></a>ROS目录结构</h4><p>  node, master, topic, subscribe, publisher,msg<br> <img src="https://img-blog.csdnimg.cn/20190424195935783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_5,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTc5NDczMw==,size_5,color_FFFFFF,t_20" alt="ROS工程结构" style="zoom:50%;"></p>
+<blockquote>
+<p>ROS的软件使用package（包）进行组织，包下通常包含一下内容：<br><code>/src</code>: 源代码<br><code>/msg</code>: 定义一些message<br><code>/srv</code>: 定义一些service<br><code>/launch</code>：包含用于启动节点的launch file<br><code>/config</code>：包含配置文件<br><code>/test</code>: Unit/ROS tests<br><code>/include/package_name</code>: C++ include头文件<br><code>/doc</code>：包含文档文件<br><code>package.xml</code>: package 信息<br><code>CMakeLists.txt</code>: CMake构建文件</p>
+</blockquote>
+<h2 id="ROS项目操作"><a href="#ROS项目操作" class="headerlink" title="ROS项目操作"></a>ROS项目操作</h2><h4 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h4><p> roslaunch 启动master和多个node程序<br> <code>roslaunch [pkg_name] [file_name.launch]</code></p>
+<p>rostopic<br><code>rostopic list</code> 列出当前所有topic<br> <code>rostopic info / topic_name</code> 显示某个topic属性<br> <code>rostopic echo / topic_name</code>显示某个topic内容<br> <code>rostopic pub /topic_name ...</code> 向某个topic发布内容</p>
+<p>rosmsg<br><code>rosmsg list</code>列出系统上所有消息msg<br><code>rosmsg show /msg_name</code> 显示某个消息msg内容</p>
+<p><code>rostopic echo [topic]</code> 打印topic详细信息<br><code>rqt_gragh</code> 查看节点图</p>
+<h2 id="编译实例"><a href="#编译实例" class="headerlink" title="编译实例"></a><strong>编译实例</strong></h2><h3 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/79882668">Hello world</a></h3><p><strong>流程：</strong></p>
+<p>创建工作空间 <code>mkdir catkin_ws/src/</code><br>创建 <code>catkin_create_pkg package_name depend1 depend2 depend3(pcl_ros roscpp sensor_msgs)</code><br>创建节点node  <code>*.cpp</code><br>修改<strong>CMakeList</strong> 和 <strong>package.xml</strong><br>编译 <code>catkin_make</code>, <code>source /devel/setup.bash</code><br>终端命令:<code>roscore</code>; <code>rosrun package node</code>; <code>rosrun rviz rviz;</code><br>其他常用命令:<code>rosnode list</code>; <code>rostopic list</code>; <code>roscd</code></p>
+<p><strong>代码</strong>:<br> <code>ros::Rate</code>循环刷新频率10HZ<br> <code>ros::ok()</code>节点运行结束这返回false<br> <code>ros::spin(); ros::spinOnce()</code>不断查询订阅的话题，执行回调函数<br> <code>Logging</code> 不推荐使用std::cout</p>
+<h2 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h2><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a><br> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>CMakeList详细解读</strong></a><br> 视频讲解的更加基础。<br> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
+<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message/Service/Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
+<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
+<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/12/ROS%E4%B9%8BRviz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/12/ROS%E4%B9%8BRviz/" class="post-title-link" itemprop="url">ROS之Rviz入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-12 14:02:41" itemprop="dateCreated datePublished" datetime="2020-11-12T14:02:41+08:00">2020-11-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-02 14:30:09" itemprop="dateModified" datetime="2021-01-02T14:30:09+08:00">2021-01-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/12/ROS%E4%B9%8BRviz/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/12/ROS%E4%B9%8BRviz/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1386902">https://cloud.tencent.com/developer/article/1386902</a></p>
+<p>我主要会向rviz发布点线等可视化信息，因此会用到<strong>visualization_msgs::Marker</strong> 下的<strong>POINTS/LINE_STRIP/LINE_LIST</strong></p>
+<p>参考<a target="_blank" rel="noopener" href="http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists">http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists</a></p>
+<h2 id="points"><a href="#points" class="headerlink" title="points"></a>points</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ros::NodeHandle n;</span><br><span class="line">ros::Publisher marker_pub = n.advertise&lt;visulization_msgs::Marker&gt;(<span class="string">&quot;my_points_topic&quot;</span>, <span class="number">10</span>);</span><br><span class="line"><span class="function">ros::Rate <span class="title">r</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    visualization_msg::Marker points;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// set header</span></span><br><span class="line">    points.header.frame_id = <span class="string">&quot;my_frame&quot;</span>;</span><br><span class="line">    points.header.stamp = ros::Time::now();</span><br><span class="line">    points.ns = <span class="string">&quot;my_namespace&quot;</span>;</span><br><span class="line">    points.action = visulization_msgs::Marker::ADD;</span><br><span class="line">    points.pose.orientation.w = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set other attributes</span></span><br><span class="line">    points.id = <span class="number">0</span>;</span><br><span class="line">   	points.type = visulization_msgs::Marker::POINTS;	<span class="comment">///////////////////////////////////////</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set the size of point</span></span><br><span class="line">    points.scale.x = <span class="number">0.2</span>;</span><br><span class="line">    points.scale.y = <span class="number">0.2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set corlor</span></span><br><span class="line">    points.color.f = <span class="number">1.0</span>;</span><br><span class="line">    points.color.a = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// add vertex coordinate</span></span><br><span class="line">    geometry_msgs::Point p	<span class="comment">/////////////////////////////////////////////////</span></span><br><span class="line">     p.x = <span class="number">0</span>; p.y = <span class="number">0</span>; p.z = <span class="number">0</span>;</span><br><span class="line">    points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(points);</span><br><span class="line">    r.sleep();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="line-strip-line-list"><a href="#line-strip-line-list" class="headerlink" title="line_strip line_list"></a>line_strip line_list</h2><p>strip是按点的顺序一次连接保存多段线，[0]连[1], [1]连[2];</p>
+<p>list中的线不是相连的,[0]连[1], [2]连[3].</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">visualization_msgs::Marker line_strip,line_list;</span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    <span class="comment">//set header</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set id etc.</span></span><br><span class="line">    line_strip.type = visualization_msgs::Marker::LINE_STRIP;</span><br><span class="line">    line_list.type =  visualization_msgs::Marker::LINE_LIST;</span><br><span class="line">   </span><br><span class="line">    line_strip.scale.x = <span class="number">0.1</span>;  	line_list.scale.x = <span class="number">0.1</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.color.b = <span class="number">1.0</span>;    line_strip.color.a = <span class="number">1.0</span>;</span><br><span class="line">    line_list.color.r = <span class="number">1.0</span>;     line_list.color.a = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.points.push_back(p);</span><br><span class="line">    <span class="comment">// The line list needs two points for each line</span></span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">      p.z += <span class="number">1.0</span>;</span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(line_strip);</span><br><span class="line">    marker_pub.publish(line_list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">泊车感知框架阅读笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-28 14:22:12" itemprop="dateCreated datePublished" datetime="2020-06-28T14:22:12+08:00">2020-06-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-02 14:30:09" itemprop="dateModified" datetime="2021-01-02T14:30:09+08:00">2021-01-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lidar-perception-调试"><a href="#lidar-perception-调试" class="headerlink" title="lidar_perception 调试"></a>lidar_perception 调试</h1><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>从Chen的仓库中克隆最新分支dev,并转移到自己新建的分支dev_Lee</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http://***</span><br><span class="line">git checkout dev</span><br><span class="line">git checkout -b dev_Lee</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件架构"><a href="#文件架构" class="headerlink" title="文件架构"></a>文件架构</h2><p><strong>根目录</strong>:拉取下来的lidar_perception是ros工作空间的一个packege<br><strong>一级目录</strong>:</p>
+<ul>
+<li>include(头文件.h,每个阶段步骤所包括的类及其方法的声明),</li>
+<li>src(源文件.cpp,对头文件类的方法的具体实现进行描述,类外申明),</li>
+<li>node(*.cpp,调用其他各类方法的主函数,还包括与ros进行通信),</li>
+<li>rviz(显示的配置设置)</li>
+</ul>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>配置好packege.xml和CMakeLists,成功catkin_make编译后,会在workspace的devel文件夹下生成release版本的可执行文件.</p>
+<blockquote>
+<p>cmake和catkin_make编译都是生成release版本,优化较好跑得快,而调试用生成debug版本,可以设置断点。</p>
+</blockquote>
+<p>打开roscore,运行主节点node,将采集的点云包rosbag文件play,自动发布到topic中,打开rviz进行显示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roscore</span><br><span class="line">rosrun &lt;rospackage&gt; node</span><br><span class="line">rosbag play ~&#x2F;rosbagfiles&#x2F;**.bag -l -r 0.1</span><br><span class="line">rviz</span><br></pre></td></tr></table></figure>
+
+<p>当然，更方便的方法就是将多节点运行顺序写到roslaunch文件中，一键启动。<br><code>roslaunch &lt;rospackage&gt; **.launch</code></p>
+<h2 id="算法细节笔记"><a href="#算法细节笔记" class="headerlink" title="算法细节笔记"></a>算法细节笔记</h2><ul>
+<li>基于环视图方法组织点云, 进行地面切除和点云聚类.</li>
+<li>再在鸟瞰图中拟合, 限定拟合框的长宽比, 筛选出车辆类型的拟合框.</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/28/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/03/SLAM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/03/SLAM/" class="post-title-link" itemprop="url">SLAM基础学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-03 18:00:00" itemprop="dateCreated datePublished" datetime="2020-12-03T18:00:00+08:00">2020-12-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-02 14:29:08" itemprop="dateModified" datetime="2021-01-02T14:29:08+08:00">2021-01-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/03/SLAM/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/03/SLAM/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p><img src="/2020/12/03/SLAM/541075978d219fa03aa9357894d4d8f4.svg" alt="img"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/30/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/30/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-30 13:09:09 / 修改时间：13:58:39" itemprop="dateCreated datePublished" datetime="2020-11-30T13:09:09+08:00">2020-11-30</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/30/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/30/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>先不考虑家乡在哪,我会如何选择?</p>
+<h2 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h2><p>朝阳行业具有发财的可能性: 互联网公司</p>
+<p>夕阳行业: 汽车行业, <strong>ADAS</strong>, 智能座舱也算是偏朝阳行业</p>
+<h2 id="城市"><a href="#城市" class="headerlink" title="城市"></a>城市</h2><p>重庆,</p>
+<p>上海: 跳槽的机会多</p>
+<h2 id="公司地位-岗位门槛"><a href="#公司地位-岗位门槛" class="headerlink" title="公司地位+岗位门槛"></a>公司地位+岗位门槛</h2><ol>
+<li><p>公司越大越好(大公司的定义要结合细分的行业,比如腾讯比美团规模大,但是在吃喝娱乐这个邻域美团才算更大的公司): </p>
+<p>都是大公司.</p>
+</li>
+</ol>
+<p>公司背书+项目履历+职位类型：门槛越高越好，技术&gt;产品&gt;运营&gt;行政销售</p>
+<h2 id="领导sb"><a href="#领导sb" class="headerlink" title="领导sb"></a>领导sb</h2><h2 id="薪酬"><a href="#薪酬" class="headerlink" title="薪酬"></a>薪酬</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">PCL基础知识</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-10 11:00:00" itemprop="dateCreated datePublished" datetime="2020-10-10T11:00:00+08:00">2020-10-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-19 13:16:26" itemprop="dateModified" datetime="2020-11-19T13:16:26+08:00">2020-11-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/PCL/" itemprop="url" rel="index"><span itemprop="name">PCL</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://pcl.readthedocs.io/projects/tutorials/en/latest/walkthrough.html#common">官方文档</a></p>
+<h2 id="PCL点云数据结构"><a href="#PCL点云数据结构" class="headerlink" title="PCL点云数据结构"></a>PCL点云数据结构</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30815237/article/details/86475877?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">学习链接</a></p>
+<h3 id="PointCLoud"><a href="#PointCLoud" class="headerlink" title="PointCLoud:"></a><strong>PointCLoud</strong>:</h3><ul>
+<li>width(int),每一束激光扫描的点数</li>
+<li>height(int), 激光的线数, 当点云为无序点云时候height=1</li>
+<li>points(std::vector), 存储点的类型的向量,如XYZ,XYZI等,</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/10/PCL%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/" class="post-title-link" itemprop="url">科普常识收集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-25 16:15:29" itemprop="dateCreated datePublished" datetime="2019-12-25T16:15:29+08:00">2019-12-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-22 13:10:00" itemprop="dateModified" datetime="2020-10-22T13:10:00+08:00">2020-10-22</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常识库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="四元素表示旋转"><a href="#四元素表示旋转" class="headerlink" title="四元素表示旋转"></a><strong>四元素表示旋转</strong></h1><h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a><strong>PCA</strong></h1><h1 id="最小二乘法与正太分布"><a href="#最小二乘法与正太分布" class="headerlink" title="最小二乘法与正太分布"></a><a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/818.html">最小二乘法与正太分布</a></h1><p><img src="/2019/12/25/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E6%99%AE%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86%EF%BC%88%E4%BA%8C%EF%BC%89/MSQ.png"><br>中心极限定理,正太分布三个条件：独立随机变量，相加性.<br>如果误差的分布是正态分布(normal distribution)，那么最小二乘法得到的就是最有可能的值。</p>
+<h1 id="分离轴定律"><a href="#分离轴定律" class="headerlink" title="分离轴定律"></a><strong>分离轴定律</strong></h1><h1 id="射线检测"><a href="#射线检测" class="headerlink" title="射线检测"></a>射线检测</h1><h1 id="滑移率悖论"><a href="#滑移率悖论" class="headerlink" title="滑移率悖论"></a><strong><a target="_blank" rel="noopener" href="https://www.matongxue.com/madocs/2111/">滑移率悖论</a></strong></h1><h1 id="先验与后验"><a href="#先验与后验" class="headerlink" title="先验与后验"></a><strong>先验与后验</strong></h1><p>人的认识的基石是经验的积累。而经验的积累又分为：先验后验和超验。<br>后验指的是体验过后才知道的，比如菜是否好吃等。<br>先验是在体验之前就能知道的认识，比如人总是会死。<br>超验是超出体验外的，一般人无法共同体验，比如神话/情感等。</p>
+<blockquote>
+<p>后验的方式乍看之下最为真实可靠，其实不然。因为人的感官能力是不足的，常会受到遮蔽，受到视觉与听觉的欺骗，假如人的知识一切都要透过后验而来，那么人所知的将会非常的有限，而且往往只能知其然而不知其所以然。</p>
+</blockquote>
+<h1 id="参数和超参数hyper-parameter"><a href="#参数和超参数hyper-parameter" class="headerlink" title="参数和超参数hyper parameter"></a><strong>参数和超参数hyper parameter</strong></h1><ol>
+<li>什么是参数<br>参数，也叫参变量，是一个变量。我们在研究当前问题的时候，关心某几个变量的变化以及它们之间的相互关系，其中有一个或一些叫自变量，另一个或另一些叫因变量。如果我们引入一个或一些另外的变量来描述自变量与因变量的变化，引入的变量本来并不是当前问题必须研究的变量，我们把这样的变量叫做参变量或参数。<br>在统计学中，描述总体特征的概括性数字度量，它是研究者想要了解的总体的某种特征值。总体未知的指标叫做参数。<br>在机器学习领域，参数还有自己独特的含义，由模型通过学习得到的变量，叫参数，比如权重w和偏置b。</li>
+<li>什么是超参数<br>在机器学习的上下文中，超参数是在开始学习过程之前设置值的参数，而不是通过训练得到的参数数据。通常情况下，需要对超参数进行优化，给学习机选择一组最优超参数，以提高学习的性能和效果。</li>
+<li>区别：参数是通过模型训练得到的，超参数是人为设定得到的。但是在识别准确度上要更好。那这两个模型训练得到的参数是有很大不同的。可控程度不同：超参数是人为设定，可控性高，参数与模型有关，得到的结果有时候与期望有差距，可控性较差。<h1 id="旋转坐标变换"><a href="#旋转坐标变换" class="headerlink" title="旋转坐标变换"></a><strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoug2020/p/7842808.html">旋转坐标变换</a></strong></h1></li>
+</ol>
+<h1 id="网申题目收集"><a href="#网申题目收集" class="headerlink" title="网申题目收集"></a><strong>网申题目收集</strong></h1><p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/17/1021/15/48674417_696917253.shtml">网申图形推理规律</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010189239/article/details/89288615?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">图形</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wilsonpeng3/article/details/21469941?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task">数字规律</a></p>
+<p>牛客网你值得拥有</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/" class="post-title-link" itemprop="url">科学常识收集(一)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-12-13 11:16:38" itemprop="dateCreated datePublished" datetime="2019-12-13T11:16:38+08:00">2019-12-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-22 13:05:32" itemprop="dateModified" datetime="2020-10-22T13:05:32+08:00">2020-10-22</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%B8%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">常识库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/13/%E5%B8%B8%E8%AF%86%E5%BA%93/%E7%A7%91%E5%AD%A6%E5%B8%B8%E8%AF%86%E6%94%B6%E9%9B%86(%E4%B8%80)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="arg"><a href="#arg" class="headerlink" title="arg"></a><strong>arg</strong></h2><p>是变元（即自变量argument）的英文缩写。<br>arg min 就是使后面这个式子达到最小值时的变量的取值<br>arg max 就是使后面这个式子达到最大值时的变量的取值<br>例如 函数F(x,y):<br>arg  min F(x,y)就是指当F(x,y)取得最小值时，变量x,y的取值<br>arg  max F(x,y)就是指当F(x,y)取得最大值时，变量x,y的取值</p>
+<h2 id="静态地图："><a href="#静态地图：" class="headerlink" title="静态地图："></a><strong>静态地图</strong>：</h2><p>可以去除激光雷达点云的大部分静态障碍物点，利用立方体表示区域。</p>
+<h2 id="归一化"><a href="#归一化" class="headerlink" title="归一化:"></a><strong>归一化</strong>:</h2><p>$$(x-min(x))/(max(x)-min(x))$$</p>
+<h2 id="matlab画图"><a href="#matlab画图" class="headerlink" title="matlab画图"></a><strong>matlab画图</strong></h2><p>line([xmin,xmax],[ymin,ymax]); //可以画平行垂直的直线</p>
+<h2 id="colorMap"><a href="#colorMap" class="headerlink" title="colorMap"></a>colorMap</h2><table>
+<thead>
+<tr>
+<th align="center">颜色</th>
+<th align="center">代号</th>
+<th align="center">RGB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">red</td>
+<td align="center">‘r’</td>
+<td align="center">[1 0 0]</td>
+</tr>
+<tr>
+<td align="center">green</td>
+<td align="center">‘g’</td>
+<td align="center">[0 1 0]</td>
+</tr>
+<tr>
+<td align="center">blue</td>
+<td align="center">‘b’</td>
+<td align="center">[0 0 1]</td>
+</tr>
+<tr>
+<td align="center">cyan</td>
+<td align="center">‘c’</td>
+<td align="center">[0 1 1]</td>
+</tr>
+<tr>
+<td align="center">magenta</td>
+<td align="center">‘m’</td>
+<td align="center">[1 0 1]</td>
+</tr>
+<tr>
+<td align="center">yellow</td>
+<td align="center">‘y’</td>
+<td align="center">[1 1 0]</td>
+</tr>
+<tr>
+<td align="center">‘black’</td>
+<td align="center">‘k’</td>
+<td align="center">[1 1 1]</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">科普常识收集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-25 16:15:29" itemprop="dateCreated datePublished" datetime="2020-07-25T16:15:29+08:00">2020-07-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-21 21:07:05" itemprop="dateModified" datetime="2020-10-21T21:07:05+08:00">2020-10-21</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">研究生</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-距离变换"><a href="#1-距离变换" class="headerlink" title="1 距离变换"></a>1 距离变换</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/trent1985/article/details/18081761">优秀链接</a>： </p>
+<p>主要思想是通过表识空间点(目标点与背景点)距离的过程，最终将二值图像转换为灰度图像。边界模糊</p>
+<p>假设一幅二值图像I，包含一个连通区域S，其中有目标集O和背景集B，距离图为D，则距离变换的公式:</p>
+<p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-20201021204631120.png" alt="image-20201021204631120"></p>
+<p>欧氏距离</p>
+<p>曼哈顿距离（街区距离）</p>
+<p>契比雪夫距离（棋盘距离）可以理解为国际象棋的王后的走法：</p>
+<p><img src="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/clip_image001.png"></p>
+<p>倒角距离（chamfer）：优化二值图像的距离运算速度。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/25/%E7%A0%94%E7%A9%B6%E7%94%9F/CV%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jay Lee</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/page/6/",
+      serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
