@@ -227,20 +227,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,112 +286,6 @@
       
 
       
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/05/ROS%E4%B9%8BCMakeList/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/05/ROS%E4%B9%8BCMakeList/" class="post-title-link" itemprop="url">ROS之CMakeList</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-05 20:20:25" itemprop="dateCreated datePublished" datetime="2020-10-05T20:20:25+08:00">2020-10-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-19 12:00:00" itemprop="dateModified" datetime="2020-10-19T12:00:00+08:00">2020-10-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Cmake/" itemprop="url" rel="index"><span itemprop="name">Cmake</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/05/ROS%E4%B9%8BCMakeList/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/05/ROS%E4%B9%8BCMakeList/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>参考学习链接：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jessica-jie/p/6520481.html"><strong>catkin软件包的组成</strong></a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010122972/article/details/78216013">CMakeList的基本写法</a></p>
-<h1 id="CmakeList"><a href="#CmakeList" class="headerlink" title="CmakeList"></a>CmakeList</h1><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/AdamShan/article/details/82901295"><strong>ROS：依赖文件和环境</strong></a></p>
-<p> CMakeLists.txt文件是CMake构建系统的输入，在这里我们不会详细讨论CMake的写法（因为它本身可以很复杂），我们大致熟悉一下我们常用的CMake的语法：</p>
-<p><code>cmake_minimum_required：</code>需要的CMake的最低版本<br><code>project():</code>包的名称<br><code>find_package()</code> 查找建构是需要的其他 CMake/Catkin 包<br><code>add_message_files() add_service_files() add_action_files</code> 生成Message /Service /Action<br><code>generate_messages()</code> 调用消息生成<br><code>catkin_package()</code> 指定包的构建信息<br><code>add_library()/add_executable()/target_link_libraries()</code> 用于构建的库，可执行代码</p>
-<p>同样的，在<code>CMakeList</code>中，我们通过<code>find_package</code>查找这三个包的路径，然后将三个包添加到 <code>CATKIN_DEPENDS</code>, 在使用pcl库前，需要将PCL库的路径链接，通过<code>link_directories( $ &#123;PCL_LIBRARY_DIRS&#125;)</code>来完成，并在最后的<code>target_link_libraries</code>中添加<code>$&#123;PCL_LIBRARIES&#125;</code>。</p>
-<p> <code>package.xml</code>的内容很简单，实际上就是这个包的描述文件， <code>build_depend</code> 和 <code>run_depend</code> 两个描述符分别指定了程序包编译和运行的依赖项，通常是所用到的库文件的名称。 在这里我们指定了三个编译和运行时依赖项，分别是<code>roscpp</code>（编写C++ ROS节点），<code>sensor_msgs</code>（定义了激光雷达的msg），<code>pcl_ros</code>（连接ROS和pcl库）。</p>
-<h1 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
     
 
 
@@ -1400,6 +1294,124 @@
 <li>总结，可以参考和不足之处在哪？</li>
 </ul>
 <h2 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Matlab小知识记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-23 13:24:30" itemprop="dateCreated datePublished" datetime="2020-03-23T13:24:30+08:00">2020-03-23</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-05 14:15:17" itemprop="dateModified" datetime="2020-10-05T14:15:17+08:00">2020-10-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当然详细的内容参照官网文档，这里记录一些常用的或通常误解的。</p>
+<h1 id="固定步长和变步长"><a href="#固定步长和变步长" class="headerlink" title="固定步长和变步长"></a>固定步长和变步长</h1><ol>
+<li>一般情况下，减小步长大小将提高结果的准确性，但会增加系统仿真所需的时间。</li>
+<li>可变步长求解器会改变仿真期间的步长大小：当模型状态快速变化时，减小步长大小以提高准确性；当模型状态缓慢变化时，增加步长大小以避免执行不必要的时间步。计算步长大小会增加每个步长的计算开销，但可以减少对具有<em>快速变化的状态或分段连续状态的模型</em>维护指定级别的准确性所需的总时间步数，从而缩短仿真时间。</li>
+</ol>
+<h1 id="Matlab-funtction模块"><a href="#Matlab-funtction模块" class="headerlink" title="Matlab funtction模块"></a>Matlab funtction模块</h1><ol>
+<li><strong>%#codegen</strong>：在function 头的下一行增加%#codegen符号，其作用是为了使静态代码分析器Code Analyzer 诊断代码并提示用户对可能在代码生成的过程中导致错误的违规写法进行修正。<br>此模块自带此功能，不用特地声明</li>
+<li>内部语言因为要编译成C，因此MATLAB Function内部的M语言<strong>变量</strong>必须要给定初始值及其维度，变量类型及其虚实性，不支持变维度变量</li>
+<li>对于每次调用该函数块时需要循环使用的变量，可申明为<strong>persistent</strong>变量。注意：与global不同的是其只能在函数内部被识别，申明时为空，需要初始化赋值。</li>
+<li>其可以调用大部分工具箱的函数，支持的函数列表见<code>&gt;&gt;doc C/C++ 代码生成支持的函数和对象 - 按类别排列 </code>，但是Matlab Function输出不支持高级别的Class，比如pointCloud类，会报错：<blockquote>
+<p>A top-level output parameter containing a class is not supported in MATLAB Function Block. Output parameter ‘pointCd’ contains a class.</p>
+</blockquote>
+</li>
+<li><strong>Ports and Data Manager</strong>:<br>输出变量长度如果不同时刻会变化，应将其Size属性设置为Variable size，并在前面写下size的上限值。<br><img src="/2020/03/23/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Matlab%E5%B0%8F%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/1.png"></li>
+<li>也不能把某个工具箱的类变量作为输出，C语言不符合</li>
+<li>C默认float是single精度，而m语言默认是double类型，精度高但是占内存。可以用<code>a=single(a)</code>转换，或者Type Conversion模块转换数据格式。</li>
+</ol>
+<h1 id="prescan仿真问题记录"><a href="#prescan仿真问题记录" class="headerlink" title="prescan仿真问题记录"></a>prescan仿真问题记录</h1><ol>
+<li>构造pointCloud函数一旦放到Matlab Function中就报错，说输入的矩阵不是M by 3的形式，但事实就是M*3。断开prescan单独拎出去就可以，真是奇了怪了？干脆不用point Cloud工具箱了，直接写聚类这些。</li>
+</ol>
+
       
     </div>
 

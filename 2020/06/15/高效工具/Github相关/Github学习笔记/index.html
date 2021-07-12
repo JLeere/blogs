@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/JLee.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/JLee.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.jaylee.top","root":"/","scheme":"Muse","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="github操作指令简明教程 完整教程 工作流程 克隆 Git 资源作为工作目录。 在克隆的资源上添加或修改文件。 如果其他人修改了，你可以更新资源。 在提交前查看修改。 提交修改。 在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。  基本框架 工作区: 当前电脑下的工作目录空间 index区: .git文件夹中,保存所有改动目录文件的索引 HEAD: 本地master，保存最新提交（c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github学习笔记">
+<meta property="og:url" content="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="J.Lee&#39;s Town">
+<meta property="og:description" content="github操作指令简明教程 完整教程 工作流程 克隆 Git 资源作为工作目录。 在克隆的资源上添加或修改文件。 如果其他人修改了，你可以更新资源。 在提交前查看修改。 提交修改。 在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。  基本框架 工作区: 当前电脑下的工作目录空间 index区: .git文件夹中,保存所有改动目录文件的索引 HEAD: 本地master，保存最新提交（c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
+<meta property="og:image" content="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png">
+<meta property="article:published_time" content="2020-06-15T08:15:29.000Z">
+<meta property="article:modified_time" content="2021-07-12T14:51:13.443Z">
+<meta property="article:author" content="J.Lee">
+<meta property="article:tag" content="Github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png">
+
+
+<link rel="canonical" href="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Github学习笔记 | J.Lee's Town</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="J.Lee's Town" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+      <img class="custom-logo-image" src="/images/cat1.webp" alt="J.Lee's Town">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">J.Lee's Town</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Life is Fantastic</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archive/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#github%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">github操作指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6"><span class="nav-number">3.</span> <span class="nav-text">基本框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%93"><span class="nav-number">4.1.</span> <span class="nav-text">创建仓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%94%B9%E5%8A%A8"><span class="nav-number">4.2.</span> <span class="nav-text">提交改动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%94%AF"><span class="nav-number">4.3.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E5%88%86%E6%94%AF%E5%AE%9E%E4%BE%8B"><span class="nav-number">4.3.1.</span> <span class="nav-text">克隆分支实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%AE%9E%E4%BE%8B"><span class="nav-number">4.3.2.</span> <span class="nav-text">新建本地和远程分支实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E4%B8%8E%E5%90%88%E5%B9%B6"><span class="nav-number">4.4.</span> <span class="nav-text">更新与合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github%E9%97%AE%E9%A2%98"><span class="nav-number">4.5.</span> <span class="nav-text">Github问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-clone%E6%85%A2"><span class="nav-number">4.5.1.</span> <span class="nav-text">git clone慢</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="J.Lee"
+      src="/images/name.png">
+  <p class="site-author-name" itemprop="name">J.Lee</p>
+  <div class="site-description" itemprop="description">Life is Fantastic，and you're fucking shit!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archive/">
+        
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/xiaozhenc" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;xiaozhenc" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/lj-pc@live.cn" title="E-Mail → lj-pc@live.cn"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/leejay" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;leejay" rel="noopener" target="_blank"><i class="google fa-fw"></i>Google</a>
+      </span>
+  </div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/xiaozhenc" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Github学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-15 16:15:29" itemprop="dateCreated datePublished" datetime="2020-06-15T16:15:29+08:00">2020-06-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/Github/" itemprop="url" rel="index"><span itemprop="name">Github</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="github操作指令"><a href="#github操作指令" class="headerlink" title="github操作指令"></a>github操作指令</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/manual/git-guide/">简明教程</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/docs">完整教程</a></p>
+<h1 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h1><ul>
+<li>克隆 Git 资源作为工作目录。</li>
+<li>在克隆的资源上添加或修改文件。</li>
+<li>如果其他人修改了，你可以更新资源。</li>
+<li>在提交前查看修改。</li>
+<li>提交修改。</li>
+<li>在修改完成后，如果发现错误，可以撤回提交并再次修改并提交。</li>
+</ul>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><ol>
+<li>工作区: 当前电脑下的工作目录空间</li>
+<li>index区: .git文件夹中,保存所有改动目录文件的索引</li>
+<li>HEAD: 本地master，保存最新提交（commit）的版本。</li>
+<li>oringin/仓库：远端服务器存储的工作空间<br> <img src="/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.png" alt="1"></li>
+</ol>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="创建仓"><a href="#创建仓" class="headerlink" title="创建仓"></a>创建仓</h2><p>如果要自己定义要新建的项目目录名称，可以在上面的命令末尾指定新的名字：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> git://github.com/schacon/grit.git mygrit</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git init  <span class="comment">#初始化本地仓库</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提交改动"><a href="#提交改动" class="headerlink" title="提交改动"></a>提交改动</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git add. #add all files of workspace工作区添加到index暂存区目录</span><br><span class="line">git commit -m &quot;add files&quot; #将暂存区的索引最新版本提交commit到本地的HEAD master，并记录此次commit消息的名称为“add files”</span><br><span class="line">git push #将本地master的最新文档push到Github远端的master上保存实现同步</span><br><span class="line">git status</span><br><span class="line">git log --oneline #查看历史记录简洁信息</span><br><span class="line">git commit -am &quot;修改...&quot; #跳过git add步骤</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><img src="/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20201005163204478.png" alt="image-20201005163204478" style="zoom: 50%;">
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch newbranchname</span><br><span class="line">git branch #查看分支</span><br><span class="line">git checkout branchname #切换到分支</span><br><span class="line">git checkout -b newbranchname #新建分支并切换过去</span><br><span class="line">git merge branchname #合并分支到master</span><br><span class="line">git branch -d (name) #删除分支</span><br><span class="line">git push origin &lt;newbranchname&gt; #push到远端服务器，否则远端看不见</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆分支实例"><a href="#克隆分支实例" class="headerlink" title="克隆分支实例"></a>克隆分支实例</h3><p>远程仓库中分支post保存了所有我的文章, 我需要克隆该分支到本地.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone url_of_github_rep</span><br><span class="line">git init</span><br><span class="line">git branch -a #显示所有本地和远程的分支</span><br><span class="line">git checkout -b my_blog origin/post #将远程分支origin/post关联到本地新建的分支my_blog</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建本地和远程分支实例"><a href="#新建本地和远程分支实例" class="headerlink" title="新建本地和远程分支实例"></a>新建本地和远程分支实例</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b my_branch #新建本地分支</span><br><span class="line">git push origin my_branch #将本地分支推送到远程</span><br><span class="line">git branch --set-upstream-to = origin/my_branch #将本地分支与远程分支关联起来</span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更新与合并"><a href="#更新与合并" class="headerlink" title="更新与合并"></a>更新与合并</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull #获取(fetch)远端相联系的分支的最新改动,并合并(merge)到本地工作目录</span><br><span class="line">git merge &lt;branchName&gt; #合并远端分支到当前分支,会产生冲突,必须自己修改</span><br><span class="line">git add &lt;filename&gt; #改完之后提交,表示合并成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github问题"><a href="#Github问题" class="headerlink" title="Github问题"></a>Github问题</h2><p>有两种连接远程仓库的模式,一个是Http,每次修改都要输入帐号密码<a target="_blank" rel="noopener" href="http://github.com;一个是ssh,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了/">http://github.com；一个是SSH,将本地计算机的锁和钥匙添加到账户里面就不用每次输入了</a>.<br>但是在clone仓库的时候就要选择相应的方式<a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a>:xiaozhenc/rep<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c9aa544a11d3">https://www.jianshu.com/p/c9aa544a11d3</a><br>为了避免每次push都输密码,可以生成SSH钥匙和锁<br>ssh-keygen -t rsa -C “<a href="mailto:&#x65;&#109;&#97;&#x69;&#108;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">&#x65;&#109;&#97;&#x69;&#108;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#109;</a>“</p>
+<h3 id="git-clone慢"><a href="#git-clone慢" class="headerlink" title="git clone慢"></a>git clone慢</h3><p><code> env | grep -i proxcy</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Github/" rel="tag"># Github</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/14/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX/CXX%E4%BB%A3%E7%A0%81%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="prev" title="C++ 知识点">
+                  <i class="fa fa-chevron-left"></i> C++ 知识点
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/06/17/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/vscode%E8%B0%83%E8%AF%95%E8%BF%90%E8%A1%8CROS%E7%A8%8B%E5%BA%8F/" rel="next" title="vscode下调试运行ROS程序">
+                  vscode下调试运行ROS程序 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jay Lee</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({"enable":true,"appId":"1V9zcYzDKd6fFhxqA32rUzfP-gzGzoHsz","appKey":"q6cDdQvgLY8CC58xUeFnnuPX","serverURLs":"https://1v9zcyzd.lc-cn-n1-shared.com","placeholder":"在此留言","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":false,"comment_count":true,"recordIP":false,"enableQQ":false,"requiredFields":[]}, {
+      el: '#valine-comments',
+      path: "/2020/06/15/%E9%AB%98%E6%95%88%E5%B7%A5%E5%85%B7/Github%E7%9B%B8%E5%85%B3/Github%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/",
+      serverURLs: "https://1v9zcyzd.lc-cn-n1-shared.com"
+    }));
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
