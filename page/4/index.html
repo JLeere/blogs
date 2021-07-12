@@ -227,7 +227,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -240,7 +240,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -382,7 +382,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/02/23/TODO/%E3%80%90TODO%E3%80%91%E6%97%8B%E8%BD%AC/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/03/TODO/SLAM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -396,7 +396,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/02/23/TODO/%E3%80%90TODO%E3%80%91%E6%97%8B%E8%BD%AC/" class="post-title-link" itemprop="url">旋转</a>
+            <a href="/2020/12/03/TODO/SLAM/" class="post-title-link" itemprop="url">【SLAM】基础学习</a>
         </h2>
 
         <div class="post-meta-container">
@@ -407,7 +407,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-02-23 15:05:47" itemprop="dateCreated datePublished" datetime="2021-02-23T15:05:47+08:00">2021-02-23</time>
+      <time title="创建时间：2020-12-03 18:00:00" itemprop="dateCreated datePublished" datetime="2020-12-03T18:00:00+08:00">2020-12-03</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -416,6 +416,19 @@
         <span class="post-meta-item-text">更新于</span>
         <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
       </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/SLAM/" itemprop="url" rel="index"><span itemprop="name">SLAM</span></a>
+        </span>
+    </span>
 
   
   
@@ -426,8 +439,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/02/23/TODO/%E3%80%90TODO%E3%80%91%E6%97%8B%E8%BD%AC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/23/TODO/%E3%80%90TODO%E3%80%91%E6%97%8B%E8%BD%AC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/12/03/TODO/SLAM/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/03/TODO/SLAM/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -441,16 +454,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="旋转基础"><a href="#旋转基础" class="headerlink" title="旋转基础"></a>旋转基础</h1><p>转载链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/21207-iHome/p/6894128.html">https://www.cnblogs.com/21207-iHome/p/6894128.html</a></p>
-<h2 id="RPY角与Z-Y-X欧拉角"><a href="#RPY角与Z-Y-X欧拉角" class="headerlink" title="RPY角与Z-Y-X欧拉角"></a><strong>RPY角与Z-Y-X欧拉角</strong></h2><p>　　描述坐标系{B}相对于参考坐标系{A}的姿态有两种方式。第一种是<strong>绕固定（参考）坐标轴旋转</strong>：假设开始两个坐标系重合，先将{B}绕{A}的X轴旋转$\lambda$，然后绕{A}的Y轴旋转 $\beta$ ，最后绕{A}的Z轴旋转$\alpha$，就能旋转到当前姿态。可以称其为X-Y-Z fixed angles或RPY角(Roll, Pitch, Yaw)。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/23/TODO/%E3%80%90TODO%E3%80%91%E6%97%8B%E8%BD%AC/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p><img src="/2020/12/03/TODO/SLAM/541075978d219fa03aa9357894d4d8f4.svg" alt="img"></p>
+
       
     </div>
 
@@ -617,7 +622,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/02/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -631,7 +636,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/" class="post-title-link" itemprop="url">Readme</a>
+            <a href="/2021/02/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC/" class="post-title-link" itemprop="url">旋转</a>
         </h2>
 
         <div class="post-meta-container">
@@ -642,7 +647,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-10-19 15:00:00" itemprop="dateCreated datePublished" datetime="2020-10-19T15:00:00+08:00">2020-10-19</time>
+      <time title="创建时间：2021-02-23 15:05:47" itemprop="dateCreated datePublished" datetime="2021-02-23T15:05:47+08:00">2021-02-23</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -651,15 +656,6 @@
         <span class="post-meta-item-text">更新于</span>
         <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
       </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/live-a-lovely-life/" itemprop="url" rel="index"><span itemprop="name">live a lovely life</span></a>
-        </span>
-    </span>
 
   
   
@@ -670,8 +666,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/10/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/19/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E9%80%83%E7%A6%BB%E5%8C%97%E4%B8%8A%E5%B9%BF%E6%B7%B1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/02/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -685,18 +681,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>先不考虑家乡在哪,我会如何选择?</p>
-<h2 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h2><p>朝阳行业具有发财的可能性: 互联网公司</p>
-<p>夕阳行业: 汽车行业, <strong>ADAS</strong>, 智能座舱也算是偏朝阳行业</p>
-<h2 id="城市"><a href="#城市" class="headerlink" title="城市"></a>城市</h2><p>重庆,</p>
-<p>上海: 跳槽的机会多</p>
-<h2 id="公司地位-岗位门槛"><a href="#公司地位-岗位门槛" class="headerlink" title="公司地位+岗位门槛"></a>公司地位+岗位门槛</h2><ol>
-<li><p>公司越大越好(大公司的定义要结合细分的行业,比如腾讯比美团规模大,但是在吃喝娱乐这个邻域美团才算更大的公司): </p>
-<p>都是大公司.</p>
-</li>
-</ol>
-<p>公司背书+项目履历+职位类型：门槛越高越好，技术&gt;产品&gt;运营&gt;行政销售</p>
-<h2 id="领导sb"><a href="#领导sb" class="headerlink" title="领导sb"></a>领导sb</h2><h2 id="薪酬"><a href="#薪酬" class="headerlink" title="薪酬"></a>薪酬</h2>
+          <h1 id="旋转基础"><a href="#旋转基础" class="headerlink" title="旋转基础"></a>旋转基础</h1><p>转载链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/21207-iHome/p/6894128.html">https://www.cnblogs.com/21207-iHome/p/6894128.html</a></p>
+<h2 id="RPY角与Z-Y-X欧拉角"><a href="#RPY角与Z-Y-X欧拉角" class="headerlink" title="RPY角与Z-Y-X欧拉角"></a><strong>RPY角与Z-Y-X欧拉角</strong></h2><p>　　描述坐标系{B}相对于参考坐标系{A}的姿态有两种方式。第一种是<strong>绕固定（参考）坐标轴旋转</strong>：假设开始两个坐标系重合，先将{B}绕{A}的X轴旋转$\lambda$，然后绕{A}的Y轴旋转 $\beta$ ，最后绕{A}的Z轴旋转$\alpha$，就能旋转到当前姿态。可以称其为X-Y-Z fixed angles或RPY角(Roll, Pitch, Yaw)。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/23/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -722,7 +716,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -736,7 +730,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">202011备忘录</a>
+            <a href="/2020/11/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">202011备忘录</a>
         </h2>
 
         <div class="post-meta-container">
@@ -775,8 +769,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/11/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202011%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -935,7 +929,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -949,7 +943,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">202012备忘录</a>
+            <a href="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">202012备忘录</a>
         </h2>
 
         <div class="post-meta-container">
@@ -988,8 +982,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1084,11 +1078,11 @@
 <li>case1中出现这种情况，是由于只看见了某一辆车的车头，其拟合框的车宽大于车身的长度，此时以长边为准的角度会差90度，应该旋转修正面积小的矩形的朝向。</li>
 </ul>
 <p><strong>调试No3：</strong></p>
-<div align="left"> <img src="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/image-20201227220403955.png" alt="image-20201227220403955" style="zoom:30%;">
+<div align="left"> <img src="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/image-20201227220403955.png" alt="image-20201227220403955" style="zoom:30%;">
 
 <p>程序中给的角度是库位中线的角度，不等于BBox的角度。通过比较width和deep的长度分别给BBox构造函数初始化</p>
 <h3 id="问题总结："><a href="#问题总结：" class="headerlink" title="问题总结："></a><strong>问题总结：</strong></h3><ul>
-<li><div align="left"><img src="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/image-20201227224538834.png" alt="image-20201227224538834" style="zoom:33%;">
+<li><div align="left"><img src="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/image-20201227224538834.png" alt="image-20201227224538834" style="zoom:33%;">
 
 <p>地下车库的<strong>立柱</strong>被识别成障碍物让库位被分类为占据</p>
 </div></li>
@@ -1156,123 +1150,6 @@
 <p>今天下午和chen在寝室讨论了一下代码的merge，他定义了新的消息格式和内容。寝室太冷了。</p>
 </blockquote>
 </div>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/29/TODO/%E3%80%90ROS%E3%80%91tf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/29/TODO/%E3%80%90ROS%E3%80%91tf/" class="post-title-link" itemprop="url">【ROS】transform变换矩阵</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-29 21:39:44" itemprop="dateCreated datePublished" datetime="2020-12-29T21:39:44+08:00">2020-12-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/29/TODO/%E3%80%90ROS%E3%80%91tf/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/29/TODO/%E3%80%90ROS%E3%80%91tf/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>学习视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mJ411R7Ni?p=31">https://www.bilibili.com/video/BV1mJ411R7Ni?p=31</a></p>
-<p><em>之前零零碎碎了解了很多，但是都没系统性的学习和实现，在这里详细的总结一下每个知识，加强记忆</em></p>
-<h2 id="描述规范："><a href="#描述规范：" class="headerlink" title="描述规范："></a><strong>描述规范：</strong></h2><ol>
-<li>source、target frame是在<strong>进行坐标变换</strong>时的概念，source是坐标变换的源坐标系，target是目标坐标系。这个时候，这个变换代表的是<strong>坐标变换</strong>。</li>
-<li>parent、child frame是在<strong>描述坐标系变换</strong>时的概念，parent是原坐标系，child是变换后的坐标系，这个时候这个变换<strong>描述的是坐标系变换</strong>，也是child坐标系在parent坐标系下的描述。</li>
-<li>a frame到b frame的坐标系变换（frame transform），也表示了b frame在a frame的姿态描述，也代表了把一个点在b frame里坐标变换成在a frame里坐标的<strong>坐标变换</strong>。</li>
-<li>从parent到child的坐标系变换（frame transform）等同于把一个点从child坐标系向parent坐标系的<strong>坐标变换</strong>，等于child坐标系在parent frame坐标系的姿态描述。</li>
-</ol>
-<p>二者其实是等价的, 坐标系变换会反转一下,本子上依然是坐标系原点的坐标变换,但是该坐标系中的坐标依赖于它,因此会反一下,不难理解.</p>
-<h2 id="坐标变换举例"><a href="#坐标变换举例" class="headerlink" title="坐标变换举例"></a><strong>坐标变换举例</strong></h2><ul>
-<li><p>我记忆，为了防止混淆，都以坐标变换为基础，而不在考虑坐标系变换的角度，也不要用旋转平移的动态视角去记忆。即统一利用描述规范中的1,4点进行记忆，编程时不易出错</p>
-</li>
-<li><center><img src="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184" alt="image-20201113151857377" style="zoom: 80%;" div></center>
-</li>
-<li><p>现在我们要将局部坐标系O‘下的P点坐标（记为P_O’ ）转换到全局坐标系O下，即获得全局坐标系O的P点坐标(记为P_O) 。按照规范1来讲，O‘是source，O是target</p>
-</li>
-<li><p>首先我们要获取变换矩阵transform，记为T_O_O’，意味着从O‘到O坐标系的坐标变换矩阵。transform矩阵的参数本质也是个pose，是局部坐标系O’ 在全局坐标系O中的pose，即设置translate参数为<strong>O‘的坐标</strong>，rotation参数为<strong>O‘ x正半轴的角度</strong>（即逆时针为正）。——与之前旋转平移原坐标系到新坐标系一致。</p>
-</li>
-<li><p>$P_O’ =T_{OO’}*P_{O’}$ 类似与向量乘法，大部分库都是默认变换矩阵<strong>左乘</strong>，因此我们从右向左看。$P_{O’}$ 为<strong>列向量</strong>，因此 $T_{OO’}$ 是<strong>从右往左</strong>依次进行运算，表示<strong>从O’到O的坐标变换</strong>.</p>
-</li>
-<li><p>$P_a =T_{aO}T_{OO’}*P_{O’}$ 上式再左乘一个矩阵，从右往左看，$T_{aO}T_{OO’}=T_{aO’}$ , 下标依次抵消，最后就可以得到P在a坐标系下的坐标。</p>
-</li>
-</ul>
-<h2 id="tf-tree"><a href="#tf-tree" class="headerlink" title="tf tree"></a>tf tree</h2>
       
     </div>
 
@@ -1379,6 +1256,123 @@
 </li>
 </ul>
 
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/" class="post-title-link" itemprop="url">【ROS】transform变换矩阵</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-29 21:39:44" itemprop="dateCreated datePublished" datetime="2020-12-29T21:39:44+08:00">2020-12-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>学习视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mJ411R7Ni?p=31">https://www.bilibili.com/video/BV1mJ411R7Ni?p=31</a></p>
+<p><em>之前零零碎碎了解了很多，但是都没系统性的学习和实现，在这里详细的总结一下每个知识，加强记忆</em></p>
+<h2 id="描述规范："><a href="#描述规范：" class="headerlink" title="描述规范："></a><strong>描述规范：</strong></h2><ol>
+<li>source、target frame是在<strong>进行坐标变换</strong>时的概念，source是坐标变换的源坐标系，target是目标坐标系。这个时候，这个变换代表的是<strong>坐标变换</strong>。</li>
+<li>parent、child frame是在<strong>描述坐标系变换</strong>时的概念，parent是原坐标系，child是变换后的坐标系，这个时候这个变换<strong>描述的是坐标系变换</strong>，也是child坐标系在parent坐标系下的描述。</li>
+<li>a frame到b frame的坐标系变换（frame transform），也表示了b frame在a frame的姿态描述，也代表了把一个点在b frame里坐标变换成在a frame里坐标的<strong>坐标变换</strong>。</li>
+<li>从parent到child的坐标系变换（frame transform）等同于把一个点从child坐标系向parent坐标系的<strong>坐标变换</strong>，等于child坐标系在parent frame坐标系的姿态描述。</li>
+</ol>
+<p>二者其实是等价的, 坐标系变换会反转一下,本子上依然是坐标系原点的坐标变换,但是该坐标系中的坐标依赖于它,因此会反一下,不难理解.</p>
+<h2 id="坐标变换举例"><a href="#坐标变换举例" class="headerlink" title="坐标变换举例"></a><strong>坐标变换举例</strong></h2><ul>
+<li><p>我记忆，为了防止混淆，都以坐标变换为基础，而不在考虑坐标系变换的角度，也不要用旋转平移的动态视角去记忆。即统一利用描述规范中的1,4点进行记忆，编程时不易出错</p>
+</li>
+<li><center><img src="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184" alt="image-20201113151857377" style="zoom: 80%;" div></center>
+</li>
+<li><p>现在我们要将局部坐标系O‘下的P点坐标（记为P_O’ ）转换到全局坐标系O下，即获得全局坐标系O的P点坐标(记为P_O) 。按照规范1来讲，O‘是source，O是target</p>
+</li>
+<li><p>首先我们要获取变换矩阵transform，记为T_O_O’，意味着从O‘到O坐标系的坐标变换矩阵。transform矩阵的参数本质也是个pose，是局部坐标系O’ 在全局坐标系O中的pose，即设置translate参数为<strong>O‘的坐标</strong>，rotation参数为<strong>O‘ x正半轴的角度</strong>（即逆时针为正）。——与之前旋转平移原坐标系到新坐标系一致。</p>
+</li>
+<li><p>$P_O’ =T_{OO’}*P_{O’}$ 类似与向量乘法，大部分库都是默认变换矩阵<strong>左乘</strong>，因此我们从右向左看。$P_{O’}$ 为<strong>列向量</strong>，因此 $T_{OO’}$ 是<strong>从右往左</strong>依次进行运算，表示<strong>从O’到O的坐标变换</strong>.</p>
+</li>
+<li><p>$P_a =T_{aO}T_{OO’}*P_{O’}$ 上式再左乘一个矩阵，从右往左看，$T_{aO}T_{OO’}=T_{aO’}$ , 下标依次抵消，最后就可以得到P在a坐标系下的坐标。</p>
+</li>
+</ul>
+<h2 id="tf-tree"><a href="#tf-tree" class="headerlink" title="tf tree"></a>tf tree</h2>
       
     </div>
 
@@ -1515,15 +1509,10 @@
 
 <div class="post-block">
   
-  <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-    
-    <div class="post-gallery-image">
-      <img src="/images/cat1.webp" itemprop="contentUrl">
-    </div>
-    </div>
+  
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E3%80%90Eigen%E3%80%91%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -1537,7 +1526,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">时间管理</a>
+            <a href="/2020/10/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E3%80%90Eigen%E3%80%91%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">【Eigen】变换矩阵</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1548,14 +1537,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-03-22 15:01:44" itemprop="dateCreated datePublished" datetime="2020-03-22T15:01:44+08:00">2020-03-22</time>
+      <time title="创建时间：2020-10-28 10:18:20" itemprop="dateCreated datePublished" datetime="2020-10-28T10:18:20+08:00">2020-10-28</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-24 23:45:40" itemprop="dateModified" datetime="2021-06-24T23:45:40+08:00">2021-06-24</time>
+        <time title="修改时间：2021-01-14 20:05:26" itemprop="dateModified" datetime="2021-01-14T20:05:26+08:00">2021-01-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1563,7 +1552,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">生活随笔</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
         </span>
     </span>
 
@@ -1576,8 +1565,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E3%80%90Eigen%E3%80%91%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E3%80%90Eigen%E3%80%91%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1591,10 +1580,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>管理好自己的时间,管理好自己的生活!     白天论文！晚上调试！顺利毕业！</p>
+          <p>实现2D的坐标系变换所需要的函数和使用方法</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/03/22/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86/">
+              <a class="btn" href="/2020/10/28/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/%E3%80%90Eigen%E3%80%91%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1620,7 +1609,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

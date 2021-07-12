@@ -31,14 +31,13 @@
 <meta property="og:site_name" content="J.Lee&#39;s Town">
 <meta property="og:description" content="学习视频：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1mJ411R7Ni?p&#x3D;31 之前零零碎碎了解了很多，但是都没系统性的学习和实现，在这里详细的总结一下每个知识，加强记忆 描述规范： source、target frame是在进行坐标变换时的概念，source是坐标变换的源坐标系，target是目标坐标系。这个时候，这个变换代表的是坐标变换。 parent、child">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.jaylee.top/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/code/blog/算法学习/坐标变换/image-20201113151857377.png">
+<meta property="og:image" content="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184">
 <meta property="article:published_time" content="2020-12-29T13:39:44.000Z">
-<meta property="article:modified_time" content="2021-07-12T14:51:13.443Z">
+<meta property="article:modified_time" content="2021-07-12T14:51:13.162Z">
 <meta property="article:author" content="J.Lee">
 <meta property="article:tag" content="ROS">
-<meta property="article:tag" content="坐标变换">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.jaylee.top/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/code/blog/算法学习/坐标变换/image-20201113151857377.png">
+<meta name="twitter:image" content="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184">
 
 
 <link rel="canonical" href="https://www.jaylee.top/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/">
@@ -233,7 +232,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -246,7 +245,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -342,10 +341,6 @@
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
         </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-        </span>
     </span>
 
   
@@ -383,13 +378,14 @@
 <p>二者其实是等价的, 坐标系变换会反转一下,本子上依然是坐标系原点的坐标变换,但是该坐标系中的坐标依赖于它,因此会反一下,不难理解.</p>
 <h2 id="坐标变换举例"><a href="#坐标变换举例" class="headerlink" title="坐标变换举例"></a><strong>坐标变换举例</strong></h2><ul>
 <li><p>我记忆，为了防止混淆，都以坐标变换为基础，而不在考虑坐标系变换的角度，也不要用旋转平移的动态视角去记忆。即统一利用描述规范中的1,4点进行记忆，编程时不易出错</p>
-<img src="/2020/12/29/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/%E3%80%90ROS%E3%80%91tf/code\blog\算法学习\坐标变换\image-20201113151857377.png" alt="image-20201113151857377" style="zoom:50%;">
+</li>
+<li><center><img src="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184" alt="image-20201113151857377" style="zoom: 80%;" div></center>
 </li>
 <li><p>现在我们要将局部坐标系O‘下的P点坐标（记为P_O’ ）转换到全局坐标系O下，即获得全局坐标系O的P点坐标(记为P_O) 。按照规范1来讲，O‘是source，O是target</p>
 </li>
 <li><p>首先我们要获取变换矩阵transform，记为T_O_O’，意味着从O‘到O坐标系的坐标变换矩阵。transform矩阵的参数本质也是个pose，是局部坐标系O’ 在全局坐标系O中的pose，即设置translate参数为<strong>O‘的坐标</strong>，rotation参数为<strong>O‘ x正半轴的角度</strong>（即逆时针为正）。——与之前旋转平移原坐标系到新坐标系一致。</p>
 </li>
-<li><p>$P_O’ =T_{OO’}*P_{O’}$ 类似与向量乘法，大部分库都是默认变换矩阵<strong>左乘</strong>，因此我们从右向左看。$P{O’}$ 为<strong>列向量</strong>，因此 $T{OO’}$ 是<strong>从右往左</strong>依次进行运算，表示<strong>从O’到O的坐标变换</strong>.</p>
+<li><p>$P_O’ =T_{OO’}*P_{O’}$ 类似与向量乘法，大部分库都是默认变换矩阵<strong>左乘</strong>，因此我们从右向左看。$P_{O’}$ 为<strong>列向量</strong>，因此 $T_{OO’}$ 是<strong>从右往左</strong>依次进行运算，表示<strong>从O’到O的坐标变换</strong>.</p>
 </li>
 <li><p>$P_a =T_{aO}T_{OO’}*P_{O’}$ 上式再左乘一个矩阵，从右往左看，$T_{aO}T_{OO’}=T_{aO’}$ , 下标依次抵消，最后就可以得到P在a坐标系下的坐标。</p>
 </li>
@@ -404,20 +400,19 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/ROS/" rel="tag"># ROS</a>
-              <a href="/tags/%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2/" rel="tag"># 坐标变换</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/12/18/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" rel="prev" title="202012备忘录">
+                <a href="/2020/12/18/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202012%E5%A4%87%E5%BF%98%E5%BD%95/" rel="prev" title="202012备忘录">
                   <i class="fa fa-chevron-left"></i> 202012备忘录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/12/29/TODO/%E3%80%90ROS%E3%80%91tf/" rel="next" title="【ROS】transform变换矩阵">
-                  【ROS】transform变换矩阵 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/01/04/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/%E4%B9%A6%E5%8D%95%E5%AE%8C%E6%88%90%E6%97%B6/" rel="next" title="书单完成时">
+                  书单完成时 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

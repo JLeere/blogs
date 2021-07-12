@@ -227,7 +227,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archive/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">78</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -240,7 +240,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,6 +286,316 @@
       
 
       
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/" class="post-title-link" itemprop="url">【C++】零碎知识点(二)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-18 14:59:20" itemprop="dateCreated datePublished" datetime="2020-10-18T14:59:20+08:00">2020-10-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="2020年11月"><a href="#2020年11月" class="headerlink" title="2020年11月"></a>2020年11月</h1><h2 id="动态内存"><a href="#动态内存" class="headerlink" title="动态内存"></a>动态内存</h2><h2 id="条件-表达式"><a href="#条件-表达式" class="headerlink" title="条件?=表达式"></a>条件?=表达式</h2><p><code>int v = (w&lt;0) ? -1:1</code>表示如果w小于0, v取-1, 否则取1.</p>
+<h2 id="子类虚函数调用"><a href="#子类虚函数调用" class="headerlink" title="子类虚函数调用"></a>子类虚函数调用</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ly890700/article/details/55803398">参考链接</a></p>
+<p>覆盖override: 派生类重新写父类中virtual虚函数的实现, 参数列表返回类型需要保持一致.</p>
+<p>重载overload: 两个同名函数的参数列表不同, 包括虚函数</p>
+<blockquote>
+<p>重定义: 重定义也是描述分别位于父类与子类中的同名函数的，但返回值可以不同。</p>
+<ul>
+<li>如果参数列表不同，这时子类中重定义的函数不论是否有virtual关键字，都会隐藏父类的同名函数。</li>
+<li>如果参数列表相同，但父类中的同名函数没有virtual关键字修饰，此时父类中的函数仍然被隐藏。</li>
+</ul>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/CXX%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9-%E4%BA%8C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/01/09/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Linux%E6%89%A9%E5%A4%A7%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/09/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Linux%E6%89%A9%E5%A4%A7%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">【ubuntu18.04】扩大交换空间</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-09 12:35:01" itemprop="dateCreated datePublished" datetime="2021-01-09T12:35:01+08:00">2021-01-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">工具技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/09/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Linux%E6%89%A9%E5%A4%A7%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/09/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/Linux%E6%89%A9%E5%A4%A7%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当时建系统的时候交换空间给了1G，太小了，导致编译程序的时候一旦RAM满了就会卡死，我不得不用-j1命令限制编译的线程数，这样很慢。</p>
+<p>因而我们可以扩大交换空间，这样，内存满的时候他可以自动把一些静态的缓存放到这里面避免卡死。</p>
+<p>我也是小白，试了很多教程，就这一篇是最好的，能够成功。</p>
+<p><a target="_blank" rel="noopener" href="https://www.howtoing.com/how-to-add-swap-space-on-ubuntu-18-04%EF%BC%8C%E8%BD%AC%E8%BD%BD%E4%BF%9D%E5%AD%98%E5%A6%82%E4%B8%8B%EF%BC%9A">https://www.howtoing.com/how-to-add-swap-space-on-ubuntu-18-04，转载保存如下：</a></p>
+<p>《如何在Ubuntu 18.04上添加交换空间》</p>
+<p>防范应用程序内存不足错误的最简单方法之一是为服务器添加一些交换空间。在本指南中，我们将介绍如何将交换文件添加到Ubuntu 18.04服务器。</p>
+<p>分类:<a target="_blank" rel="noopener" href="https://www.howtoing.com/category/ubuntu">Ubuntu</a><a target="_blank" rel="noopener" href="https://www.howtoing.com/category/linux-basics">Linux基础</a><a target="_blank" rel="noopener" href="https://www.howtoing.com/category/operating-system">操作系统</a><a target="_blank" rel="noopener" href="https://www.howtoing.com/category/ubuntu-18-04">Ubuntu 18.04</a></p>
+<p> <em>2018-07-05 15:24:21</em></p>
+<p><em>本教程的先前版本由<a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/users/jellingwood">Justin Ellingwood</a>编写</em></p>
+<p>防范应用程序内存不足错误的最简单方法之一是为服务器添加一些交换空间。 在本指南中，我们将介绍如何将交换文件添加到Ubuntu 18.04服务器。</p>
+<p><strong>警告：</strong>虽然通常建议对使用传统旋转硬盘驱动器的系统进行交换，但使用SSD交换可能会导致硬件随着时间的推移而出现问题。 出于这种考虑，我们不建议在DigitalOcean或任何其他使用SSD存储的提供商上启用交换。 这样做会影响您和您的邻居的底层硬件的可靠性。 本指南是为可能在其他地方使用旋转磁盘系统的用户提供的参考。</p>
+<p>如果您需要在DigitalOcean上提高服务器的性能，我们建议您升级Droplet。 这将导致更好的结果，并将降低导致可能影响您的服务的硬件问题的可能性。</p>
+<h2 id="什么是交换？"><a href="#什么是交换？" class="headerlink" title="什么是交换？"></a>什么是交换？</h2><p><em>交换</em>是硬盘驱动器上的一个区域，它被指定为操作系统可以临时存储无法再保存在RAM中的数据的位置。 基本上，这使您能够增加服务器在其工作“内存”中可以保留的信息量，但有一些注意事项。 硬盘驱动器上的交换空间将主要用于RAM中不再有足够空间来保存正在使用的应用程序数据。</p>
+<p>写入磁盘的信息将比保存在RAM中的信息慢得多，但操作系统更愿意在内存中运行应用程序数据并使用交换旧数据。 总的来说，将交换空间作为系统RAM耗尽时的后备空间，可以很好地防范具有非SSD存储的系统上的内存不足异常。</p>
+<h2 id="第1步-检查系统的交换信息"><a href="#第1步-检查系统的交换信息" class="headerlink" title="第1步 - 检查系统的交换信息"></a>第1步 - 检查系统的交换信息</h2><p>在开始之前，我们可以检查系统是否已经有一些可用的交换空间。 可以有多个交换文件或交换分区，但通常一个就足够了。</p>
+<p>我们可以通过键入以下内容来查看系统是否已配置任</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapon --show</span><br></pre></td></tr></table></figure>
+
+<p>如果您没有收到任何输出，这意味着您的系统当前没有可用的交换空间。</p>
+<p>您可以使用<code>free</code>实用程序验证没有活动交换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br><span class="line">Output              total        used        free      shared  buff&#x2F;cache   available</span><br><span class="line">Mem:           985M         84M        222M        680K        678M        721M</span><br><span class="line">Swap:            0B          0B          0B</span><br></pre></td></tr></table></figure>
+
+<p>正如您在输出的<strong>Swap</strong>行中所看到的，系统上没有活动交换。</p>
+<h2 id="第2步-检查硬盘驱动器分区上的可用空间"><a href="#第2步-检查硬盘驱动器分区上的可用空间" class="headerlink" title="第2步 - 检查硬盘驱动器分区上的可用空间"></a>第2步 - 检查硬盘驱动器分区上的可用空间</h2><p>在我们创建交换文件之前，我们将检查当前的磁盘使用情况，以确保我们有足够的空间。 通过输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line">OutputFilesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">udev            481M     0  481M   0% &#x2F;dev</span><br><span class="line">tmpfs            99M  656K   98M   1% &#x2F;run</span><br><span class="line">&#x2F;dev&#x2F;vda1        25G  1.4G   23G   6% &#x2F;</span><br><span class="line">tmpfs           493M     0  493M   0% &#x2F;dev&#x2F;shm</span><br><span class="line">tmpfs           5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs           493M     0  493M   0% &#x2F;sys&#x2F;fs&#x2F;cgroup</span><br><span class="line">&#x2F;dev&#x2F;vda15      105M  3.4M  102M   4% &#x2F;boot&#x2F;efi</span><br><span class="line">tmpfs            99M     0   99M   0% &#x2F;run&#x2F;user&#x2F;1000</span><br></pre></td></tr></table></figure>
+
+<p>在这种情况下，带有<code>/</code>在<code>Mounted on</code>列上的设备是我们的磁盘。 在这个例子中我们有足够的空间（仅使用1.4G）。 您的用法可能会有所不同。</p>
+<p>虽然对交换空间的适当大小有很多意见，但这实际上取决于您的个人偏好和您的应用程序要求。 通常，等于或加倍系统RAM的量是一个很好的起点。 另一个好的经验法则是，如果您只是将其用作RAM后备，那么任何超过4G的交换都可能是不必要的。</p>
+<h2 id="第3步-创建交换文件"><a href="#第3步-创建交换文件" class="headerlink" title="第3步 - 创建交换文件"></a>第3步 - 创建交换文件</h2><p>现在我们知道了可用的硬盘空间，我们可以在文件系统上创建一个交换文件。 我们将在根（/）目录中分配一个我们想要的交换大小的文件，称为<code>swapfile</code> 。</p>
+<p>创建交换文件的最佳方法是使用<code>fallocate</code>程序。 此命令立即创建指定大小的文件。</p>
+<p>由于我们示例中的服务器具有1G的RAM，因此我们将在本指南中创建1G文件。 调整此项以满足您自己的服务器的需求：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fallocate -l 1G &#x2F;swapfile</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过输入以下内容来验证是否保留了正确的空间量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -lh &#x2F;swapfile</span><br><span class="line">-rw-r--r-- 1 root root 1.0G Apr 25 11:14 &#x2F;swapfile</span><br></pre></td></tr></table></figure>
+
+<p>我们的文件创建时留出了正确的空间。</p>
+<h2 id="第4步-启用交换文件"><a href="#第4步-启用交换文件" class="headerlink" title="第4步 - 启用交换文件"></a>第4步 - 启用交换文件</h2><p>现在我们有一个正确大小的文件，我们需要实际将其转换为交换空间。</p>
+<p>首先，我们需要锁定文件的权限，以便只有具有<strong>root</strong>权限的用户才能读取内容。 这可以防止普通用户访问该文件，这会产生重大的安全隐患。</p>
+<p>通过键入以下内容使该文件只能由<strong>root</strong>访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 600 &#x2F;swapfile</span><br></pre></td></tr></table></figure>
+
+<p>键入以下命令验证权限更改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -lh &#x2F;swapfile</span><br><span class="line">Output-rw------- 1 root root 1.0G Apr 25 11:14 &#x2F;swapfile</span><br></pre></td></tr></table></figure>
+
+<p>如您所见，只有<strong>root</strong>用户启用了读写标志。</p>
+<p>我们现在可以通过输入以下内容将文件标记为交换空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkswap &#x2F;swapfile</span><br><span class="line">OutputSetting up swapspace version 1, size &#x3D; 1024 MiB (1073737728 bytes)</span><br><span class="line">no label, UUID&#x3D;6e965805-2ab9-450f-aed6-577e74089dbf</span><br></pre></td></tr></table></figure>
+
+<p>标记文件后，我们可以启用交换文件，允许我们的系统开始使用它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo swapon &#x2F;swapfile</span><br></pre></td></tr></table></figure>
+
+<p>输入以下内容验证交换是否可用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo swapon --show</span><br><span class="line">OutputNAME      TYPE  SIZE USED PRIO</span><br><span class="line">&#x2F;swapfile file 1024M   0B   -2</span><br></pre></td></tr></table></figure>
+
+<p>我们可以再次检查<code>free</code>工具的输出以证实我们的发现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br><span class="line">Output              total        used        free      shared  buff&#x2F;cache   available</span><br><span class="line">Mem:           985M         84M        220M        680K        680M        722M</span><br><span class="line">Swap:          1.0G          0B        1.0G</span><br></pre></td></tr></table></figure>
+
+<p>我们的交换已成功设置，我们的操作系统将在必要时开始使用它。</p>
+<h2 id="第5步-使交换文件永久化"><a href="#第5步-使交换文件永久化" class="headerlink" title="第5步 - 使交换文件永久化"></a>第5步 - 使交换文件永久化</h2><p>我们最近的更改已启用当前会话的交换文件。 但是，如果我们重新启动，服务器将不会自动保留交换设置。 我们可以通过将交换文件添加到<code>/etc/fstab</code>文件来更改此设置。</p>
+<p>备份<code>/etc/fstab</code>文件，以防出现任何问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp &#x2F;etc&#x2F;fstab &#x2F;etc&#x2F;fstab.bak</span><br></pre></td></tr></table></figure>
+
+<p>键入以下命令，将交换文件信息添加到<code>/etc/fstab</code>文件的末尾：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &#39;&#x2F;swapfile none swap sw 0 0&#39; | sudo tee -a &#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们将查看一些我们可以更新的设置以调整我们的交换空间。</p>
+<h2 id="第6步-调整您的交换设置"><a href="#第6步-调整您的交换设置" class="headerlink" title="第6步 - 调整您的交换设置"></a>第6步 - 调整您的交换设置</h2><p>您可以配置一些选项，这些选项会在处理交换时对系统的性能产生影响。</p>
+<h3 id="调整Swappiness属性"><a href="#调整Swappiness属性" class="headerlink" title="调整Swappiness属性"></a>调整Swappiness属性</h3><p><code>swappiness</code>参数配置系统将数据从RAM交换到交换空间的频率。 这是介于0和100之间的值，表示百分比。</p>
+<p>值接近于零时，除非绝对必要，否则内核不会将数据交换到磁盘。 请记住，与交换文件的交互是“昂贵的”，因为它们比与RAM的交互花费更长的时间，并且它们可能导致性能的显着降低。 告诉系统不要太依赖交换通常会使您的系统更快。</p>
+<p>接近100的值将尝试将更多数据放入交换中以努力保持更多RAM空间。 根据应用程序的内存配置文件或服务器的使用情况，在某些情况下可能会更好。</p>
+<p>我们可以通过输入以下内容来查看当前的swappiness值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;sys&#x2F;vm&#x2F;swappiness</span><br><span class="line">Output60</span><br></pre></td></tr></table></figure>
+
+<p>对于桌面，swappiness设置为60并不是一个糟糕的值。 对于服务器，您可能希望将其移近0。</p>
+<p>我们可以使用<code>sysctl</code>命令将swappiness设置为不同的值。</p>
+<p>例如，要将swappiness设置为10，我们可以键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl vm.swappiness&#x3D;10</span><br><span class="line">Outputvm.swappiness &#x3D; 10</span><br></pre></td></tr></table></figure>
+
+<p>此设置将持续到下次重新引导。 我们可以通过在<code>/etc/sysctl.conf</code>文件中添加该行来自动设置此值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<p>在底部，您可以添加：</p>
+<p>/etc/sysctl.conf中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.swappiness&#x3D;10</span><br></pre></td></tr></table></figure>
+
+<p>完成后保存并关闭文件。</p>
+<h3 id="调整缓存压力设置"><a href="#调整缓存压力设置" class="headerlink" title="调整缓存压力设置"></a>调整缓存压力设置</h3><p>您可能想要修改的另一个相关值是<code>vfs_cache_pressure</code> 。 此设置配置系统将选择多少缓存<em>inode</em>和<em>dentry</em>信息而不是其他数据。</p>
+<p>基本上，这是关于文件系统的访问数据。 这通常是非常昂贵的查询和非常频繁的请求，所以这是你的系统缓存的一个很好的事情。 您可以通过再次查询<code>proc</code>文件系统来查看当前值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;proc&#x2F;sys&#x2F;vm&#x2F;vfs_cache_pressure</span><br><span class="line">Output100</span><br></pre></td></tr></table></figure>
+
+<p>由于它当前已配置，我们的系统会过快地从缓存中删除inode信息。 我们可以通过键入以下内容将其设置为更保守的设置（如50）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sysctl vm.vfs_cache_pressure&#x3D;50</span><br><span class="line">Outputvm.vfs_cache_pressure &#x3D; 50</span><br></pre></td></tr></table></figure>
+
+<p>同样，这仅适用于我们当前的会话。 我们可以通过将其添加到配置文件来改变它，就像我们使用swappiness设置一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<p>在底部，添加指定新值的行：</p>
+<p>/etc/sysctl.conf中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.vfs_cache_pressure&#x3D;50</span><br></pre></td></tr></table></figure>
+
+<p>完成后保存并关闭文件。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>按照本指南中的步骤将为您提供一些Wheezy空间，否则会导致内存不足异常。 交换空间在避免一些常见问题方面非常有用。</p>
+<p>如果遇到OOM（内存不足）错误，或者如果发现系统无法使用所需的应用程序，最佳解决方案是优化应用程序配置或升级服务器。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
     
 
 
@@ -381,113 +691,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E4%B9%8BRviz/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E4%B9%8BRviz/" class="post-title-link" itemprop="url">【ROS】之Rviz入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-11-12 14:02:41" itemprop="dateCreated datePublished" datetime="2020-11-12T14:02:41+08:00">2020-11-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E4%B9%8BRviz/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E4%B9%8BRviz/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1386902">https://cloud.tencent.com/developer/article/1386902</a></p>
-<p>我主要会向rviz发布点线等可视化信息，因此会用到<strong>visualization_msgs::Marker</strong> 下的<strong>POINTS/LINE_STRIP/LINE_LIST</strong></p>
-<p>参考<a target="_blank" rel="noopener" href="http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists">http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists</a></p>
-<h2 id="points"><a href="#points" class="headerlink" title="points"></a>points</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ros::NodeHandle n;</span><br><span class="line">ros::Publisher marker_pub = n.advertise&lt;visulization_msgs::Marker&gt;(<span class="string">&quot;my_points_topic&quot;</span>, <span class="number">10</span>);</span><br><span class="line"><span class="function">ros::Rate <span class="title">r</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    visualization_msg::Marker points;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// set header</span></span><br><span class="line">    points.header.frame_id = <span class="string">&quot;my_frame&quot;</span>;</span><br><span class="line">    points.header.stamp = ros::Time::now();</span><br><span class="line">    points.ns = <span class="string">&quot;my_namespace&quot;</span>;</span><br><span class="line">    points.action = visulization_msgs::Marker::ADD;</span><br><span class="line">    points.pose.orientation.w = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set other attributes</span></span><br><span class="line">    points.id = <span class="number">0</span>;</span><br><span class="line">   	points.type = visulization_msgs::Marker::POINTS;	<span class="comment">///////////////////////////////////////</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set the size of point</span></span><br><span class="line">    points.scale.x = <span class="number">0.2</span>;</span><br><span class="line">    points.scale.y = <span class="number">0.2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set corlor</span></span><br><span class="line">    points.color.f = <span class="number">1.0</span>;</span><br><span class="line">    points.color.a = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// add vertex coordinate</span></span><br><span class="line">    geometry_msgs::Point p	<span class="comment">/////////////////////////////////////////////////</span></span><br><span class="line">     p.x = <span class="number">0</span>; p.y = <span class="number">0</span>; p.z = <span class="number">0</span>;</span><br><span class="line">    points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(points);</span><br><span class="line">    r.sleep();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="line-strip-line-list"><a href="#line-strip-line-list" class="headerlink" title="line_strip line_list"></a>line_strip line_list</h2><p>strip是按点的顺序一次连接保存多段线，[0]连[1], [1]连[2];</p>
-<p>list中的线不是相连的,[0]连[1], [2]连[3].</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">visualization_msgs::Marker line_strip,line_list;</span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    <span class="comment">//set header</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set id etc.</span></span><br><span class="line">    line_strip.type = visualization_msgs::Marker::LINE_STRIP;</span><br><span class="line">    line_list.type =  visualization_msgs::Marker::LINE_LIST;</span><br><span class="line">   </span><br><span class="line">    line_strip.scale.x = <span class="number">0.1</span>;  	line_list.scale.x = <span class="number">0.1</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.color.b = <span class="number">1.0</span>;    line_strip.color.a = <span class="number">1.0</span>;</span><br><span class="line">    line_list.color.r = <span class="number">1.0</span>;     line_list.color.a = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.points.push_back(p);</span><br><span class="line">    <span class="comment">// The line list needs two points for each line</span></span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">      p.z += <span class="number">1.0</span>;</span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(line_strip);</span><br><span class="line">    marker_pub.publish(line_list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
       
     </div>
 
@@ -634,6 +837,113 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/ROS%E4%B9%8BRviz/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/name.png">
+      <meta itemprop="name" content="J.Lee">
+      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="J.Lee's Town">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/ROS%E4%B9%8BRviz/" class="post-title-link" itemprop="url">【ROS】之Rviz入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-12 14:02:41" itemprop="dateCreated datePublished" datetime="2020-11-12T14:02:41+08:00">2020-11-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">编程学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS/" itemprop="url" rel="index"><span itemprop="name">ROS</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/ROS%E4%B9%8BRviz/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/12/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0/ROS%E7%9B%B8%E5%85%B3/ROS%E4%B9%8BRviz/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1386902">https://cloud.tencent.com/developer/article/1386902</a></p>
+<p>我主要会向rviz发布点线等可视化信息，因此会用到<strong>visualization_msgs::Marker</strong> 下的<strong>POINTS/LINE_STRIP/LINE_LIST</strong></p>
+<p>参考<a target="_blank" rel="noopener" href="http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists">http://wiki.ros.org/rviz/Tutorials/Markers%3A%20Points%20and%20Lines#Using_Points.2C_Line_Strips.2C_and_Line_Lists</a></p>
+<h2 id="points"><a href="#points" class="headerlink" title="points"></a>points</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ros::NodeHandle n;</span><br><span class="line">ros::Publisher marker_pub = n.advertise&lt;visulization_msgs::Marker&gt;(<span class="string">&quot;my_points_topic&quot;</span>, <span class="number">10</span>);</span><br><span class="line"><span class="function">ros::Rate <span class="title">r</span><span class="params">(<span class="number">30</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    visualization_msg::Marker points;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// set header</span></span><br><span class="line">    points.header.frame_id = <span class="string">&quot;my_frame&quot;</span>;</span><br><span class="line">    points.header.stamp = ros::Time::now();</span><br><span class="line">    points.ns = <span class="string">&quot;my_namespace&quot;</span>;</span><br><span class="line">    points.action = visulization_msgs::Marker::ADD;</span><br><span class="line">    points.pose.orientation.w = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set other attributes</span></span><br><span class="line">    points.id = <span class="number">0</span>;</span><br><span class="line">   	points.type = visulization_msgs::Marker::POINTS;	<span class="comment">///////////////////////////////////////</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set the size of point</span></span><br><span class="line">    points.scale.x = <span class="number">0.2</span>;</span><br><span class="line">    points.scale.y = <span class="number">0.2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set corlor</span></span><br><span class="line">    points.color.f = <span class="number">1.0</span>;</span><br><span class="line">    points.color.a = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// add vertex coordinate</span></span><br><span class="line">    geometry_msgs::Point p	<span class="comment">/////////////////////////////////////////////////</span></span><br><span class="line">     p.x = <span class="number">0</span>; p.y = <span class="number">0</span>; p.z = <span class="number">0</span>;</span><br><span class="line">    points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(points);</span><br><span class="line">    r.sleep();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="line-strip-line-list"><a href="#line-strip-line-list" class="headerlink" title="line_strip line_list"></a>line_strip line_list</h2><p>strip是按点的顺序一次连接保存多段线，[0]连[1], [1]连[2];</p>
+<p>list中的线不是相连的,[0]连[1], [2]连[3].</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">visualization_msgs::Marker line_strip,line_list;</span><br><span class="line"><span class="keyword">while</span>(ros::ok())&#123;</span><br><span class="line">    <span class="comment">//set header</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//set id etc.</span></span><br><span class="line">    line_strip.type = visualization_msgs::Marker::LINE_STRIP;</span><br><span class="line">    line_list.type =  visualization_msgs::Marker::LINE_LIST;</span><br><span class="line">   </span><br><span class="line">    line_strip.scale.x = <span class="number">0.1</span>;  	line_list.scale.x = <span class="number">0.1</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.color.b = <span class="number">1.0</span>;    line_strip.color.a = <span class="number">1.0</span>;</span><br><span class="line">    line_list.color.r = <span class="number">1.0</span>;     line_list.color.a = <span class="number">1.0</span>;</span><br><span class="line">    </span><br><span class="line">    line_strip.points.push_back(p);</span><br><span class="line">    <span class="comment">// The line list needs two points for each line</span></span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">      p.z += <span class="number">1.0</span>;</span><br><span class="line">      line_list.points.push_back(p);</span><br><span class="line">    </span><br><span class="line">    marker_pub.publish(line_strip);</span><br><span class="line">    marker_pub.publish(line_list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/10/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/MST%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -741,7 +1051,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/06/28/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -755,7 +1065,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">泊车感知框架</a>
+            <a href="/2020/06/28/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="post-title-link" itemprop="url">泊车感知框架</a>
         </h2>
 
         <div class="post-meta-container">
@@ -794,8 +1104,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/06/28/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/28/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -833,7 +1143,7 @@
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/06/28/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
+              <a class="btn" href="/2020/06/28/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/LiDAR-Perception%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -864,7 +1174,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -878,7 +1188,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -901,8 +1211,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -947,7 +1257,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">kvaser驱动</span></span><br><span class="line">roslaunch kvaser_interface kvaser_can_bridge.launch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">控制v3上电程序</span></span><br><span class="line">rosrun lidar_percetion powerUp -i -m -d -g</span><br><span class="line"></span><br><span class="line">rosrun lidar_percetion kvaser_powerUp -i -m -d -g</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">雷达驱动</span></span><br><span class="line">roslaunch rslidar_sdk start.launch/start_three.launch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 感知算法</span></span><br><span class="line">roslaunch lidar_perception SLAM_and_Detection.launch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">record</span></span><br><span class="line">rosbag record  /chasis_speed /rt3000_pose /steering_angle_deg /rslidar_points /left/rslidar_points /right/rslidar_points /wheeling_count_fl_fr_rl_rr</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/image-20210124150913640.png" alt="image-20210124150913640"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%B8%E5%85%B3%E3%80%91/image-20210124150913640.png" alt="image-20210124150913640"></p>
 <p>运行一会会自动关闭</p>
 <h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><ol>
 <li>matplotlib 画图figure空白</li>
@@ -980,7 +1290,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/name.png">
@@ -994,7 +1304,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1017,8 +1327,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1057,7 +1367,7 @@
 <li><h3 id="分析jiaoyun-ver2，修改算法"><a href="#分析jiaoyun-ver2，修改算法" class="headerlink" title="分析jiaoyun-ver2，修改算法"></a>分析jiaoyun-ver2，修改算法</h3><ol>
 <li>最大误差情形1，残缺+噪点？</li>
 </ol>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305103614587.png" alt="image-20210305103614587" style="zoom:40%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305104721877.png" alt="image-20210305104721877" style="zoom:50%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305103614587.png" alt="image-20210305103614587" style="zoom:40%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305104721877.png" alt="image-20210305104721877" style="zoom:50%;"></p>
 <ul>
 <li><p>加入统计滤波看看噪声点效果如何，</p>
 <p>== 滤波参数25\1.0，过滤太多了，调小一点. 较远的地方B车点云已经被删除了大部分。</p>
@@ -1073,7 +1383,7 @@
 <ul>
 <li>无拓展</li>
 </ul>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305155221774.png" alt="image-20210305155221774" style="zoom:%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305155744775.png" alt="image-20210305155744775"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305155221774.png" alt="image-20210305155221774" style="zoom:%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305155744775.png" alt="image-20210305155744775"></p>
 <ul>
 <li>拓展</li>
 </ul>
@@ -1097,13 +1407,13 @@
 </ul>
 <ol start="2">
 <li><p>标的真值也发生了偏差，坐标转换过程中有偏差？</p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305103614587.png" alt="image-20210305103614587" style="zoom: 50%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305180903787.png" alt="image-20210305180903787" style="zoom:50%;"></p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom:33%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305180903787.png" alt="image-20210305180903787" style="zoom:50%;"></p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom:30%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181545324.png" alt="image-20210305181545324" style="zoom: 33%;"></p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom: 33%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181545324.png" alt="image-20210305181545324" style="zoom:50%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305103614587.png" alt="image-20210305103614587" style="zoom: 50%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305180903787.png" alt="image-20210305180903787" style="zoom:50%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom:33%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305180903787.png" alt="image-20210305180903787" style="zoom:50%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom:30%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181545324.png" alt="image-20210305181545324" style="zoom: 33%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181419945.png" alt="image-20210305181419945" style="zoom: 33%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305181545324.png" alt="image-20210305181545324" style="zoom:50%;"></p>
 </li>
 </ol>
-   <img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305182025204.png" alt="image-20210305182025204" style="zoom:50%;">
+   <img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210305182025204.png" alt="image-20210305182025204" style="zoom:50%;">
 
 
 
@@ -1118,13 +1428,13 @@
 <p>== 噪点过滤得太猛了</p>
 <ul>
 <li><p>k/std = 50/1.5; </p>
-<img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307112350352.png" alt="image-20210307112350352" style="zoom:33%;">
+<img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307112350352.png" alt="image-20210307112350352" style="zoom:33%;">
 </li>
 <li><p>voxelGrid Z-leafsize增大 </p>
 <p>==效果聊胜于无</p>
 </li>
 <li><p>minimunPointsNumber（2）leafsize=0.05/0.05/2</p>
-<img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307140809379.png" alt="image-20210307140809379" style="zoom:50%;">
+<img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307140809379.png" alt="image-20210307140809379" style="zoom:50%;">
 
 <p>==minNumber(1) leafsize=0.04/0.04/5,很难调好，k,sd=50,2.0</p>
 <p>==<em>放弃噪音点优化这个吧。</em></p>
@@ -1149,15 +1459,15 @@
 <ul>
 <li><p>== 对比下有switch算法和没有的差别</p>
 <p>==有switch &amp; 强制B车定位 无tuozhan</p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307204559391.png" alt="image-20210307204559391"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307205531194.png" alt="image-20210307205531194" style="zoom:80%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307204559391.png" alt="image-20210307204559391"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307205531194.png" alt="image-20210307205531194" style="zoom:80%;"></p>
 <p>==无switch和强制B，有拓展</p>
-<p>== <img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307204851097.png" alt="image-20210307204851097" style="zoom:80%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307205431178.png" alt="image-20210307205431178"></p>
+<p>== <img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307204851097.png" alt="image-20210307204851097" style="zoom:80%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307205431178.png" alt="image-20210307205431178"></p>
 <p>=有switch无强制B，有拓展</p>
-<p><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/x.svg" alt="x" style="zoom:80%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/position.svg" alt="position" style="zoom:80%;"></p>
+<p><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/x.svg" alt="x" style="zoom:80%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/position.svg" alt="position" style="zoom:80%;"></p>
 </li>
 </ul>
-<p>   <img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/y.svg" alt="y" style="zoom:80%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/angle.svg" alt="angle" style="zoom:80%;"></p>
-<p>   <img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/x_err.svg" alt="x_err" style="zoom:80%;"><img src="/2021/07/12/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307211624706.png" alt="image-20210307211624706" style="zoom:80%;"></p>
+<p>   <img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/y.svg" alt="y" style="zoom:80%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/angle.svg" alt="angle" style="zoom:80%;"></p>
+<p>   <img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/x_err.svg" alt="x_err" style="zoom:80%;"><img src="/2021/07/12/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/%E7%A0%94%E7%A9%B6%E7%94%9F/%E6%AF%95%E8%AE%BE%E7%9B%B8%E5%85%B3(%E4%B8%8D%E8%A6%81%E6%8E%A8%E9%80%81%EF%BC%89/202103%E5%A4%87%E5%BF%98%E5%BD%95/image-20210307211624706.png" alt="image-20210307211624706" style="zoom:80%;"></p>
 <p>   ==可以看出在大误差情形1的时候，依靠残缺的B定位还没有拓展可靠；而在内部的时候有switch明显改善很多。</p>
 
       
@@ -1303,202 +1613,10 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/18/TODO/%E3%80%90TODO%E3%80%91%E5%BE%85%E6%95%B4%E7%90%86%E6%96%87%E7%AB%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/18/TODO/%E3%80%90TODO%E3%80%91%E5%BE%85%E6%95%B4%E7%90%86%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">待整理文章</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-18 18:02:41" itemprop="dateCreated datePublished" datetime="2020-12-18T18:02:41+08:00">2020-12-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
-      </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/18/TODO/%E3%80%90TODO%E3%80%91%E5%BE%85%E6%95%B4%E7%90%86%E6%96%87%E7%AB%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/18/TODO/%E3%80%90TODO%E3%80%91%E5%BE%85%E6%95%B4%E7%90%86%E6%96%87%E7%AB%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>记录一些想要记录来不及记录的企划</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/18/TODO/%E3%80%90TODO%E3%80%91%E5%BE%85%E6%95%B4%E7%90%86%E6%96%87%E7%AB%A0/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.jaylee.top/2020/12/03/TODO/%E3%80%90TODO%E3%80%91SLAM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/name.png">
-      <meta itemprop="name" content="J.Lee">
-      <meta itemprop="description" content="Life is Fantastic，and you're fucking shit!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="J.Lee's Town">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/03/TODO/%E3%80%90TODO%E3%80%91SLAM/" class="post-title-link" itemprop="url">【SLAM】基础学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-03 18:00:00" itemprop="dateCreated datePublished" datetime="2020-12-03T18:00:00+08:00">2020-12-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-12 22:51:13" itemprop="dateModified" datetime="2021-07-12T22:51:13+08:00">2021-07-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法学习</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/SLAM/" itemprop="url" rel="index"><span itemprop="name">SLAM</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/03/TODO/%E3%80%90TODO%E3%80%91SLAM/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/03/TODO/%E3%80%90TODO%E3%80%91SLAM/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p><img src="/2020/12/03/TODO/%E3%80%90TODO%E3%80%91SLAM/541075978d219fa03aa9357894d4d8f4.svg" alt="img"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
