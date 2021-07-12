@@ -3,10 +3,8 @@ title: 【ROS】transform变换矩阵
 date: 2020-12-29 21:39:44
 categories:
 - 编程学习
-- ROS
 tags: 
 - ROS
-- 坐标变换
 ---
 
 学习视频：https://www.bilibili.com/video/BV1mJ411R7Ni?p=31
@@ -26,13 +24,13 @@ tags:
 
 - 我记忆，为了防止混淆，都以坐标变换为基础，而不在考虑坐标系变换的角度，也不要用旋转平移的动态视角去记忆。即统一利用描述规范中的1,4点进行记忆，编程时不易出错
 
-  <img src="D:\code\blog\算法学习\坐标变换\image-20201113151857377.png" alt="image-20201113151857377" style="zoom:50%;" />
+- <center><img src="file:///home/jlee/文档/github_repositories/Blog/source/_posts/坐标变换/image-20201113151857377.png?lastModify=1612318184" alt="image-20201113151857377" style="zoom: 80%;" div style="align: center"  /></center>
 
 - 现在我们要将局部坐标系O‘下的P点坐标（记为P_O' ）转换到全局坐标系O下，即获得全局坐标系O的P点坐标(记为P_O) 。按照规范1来讲，O‘是source，O是target
 
 - 首先我们要获取变换矩阵transform，记为T_O_O'，意味着从O‘到O坐标系的坐标变换矩阵。transform矩阵的参数本质也是个pose，是局部坐标系O' 在全局坐标系O中的pose，即设置translate参数为**O‘的坐标**，rotation参数为**O‘ x正半轴的角度**（即逆时针为正）。——与之前旋转平移原坐标系到新坐标系一致。
 
-- $P_O' =T_{OO'}*P_{O'}$ 类似与向量乘法，大部分库都是默认变换矩阵**左乘**，因此我们从右向左看。$P{O'}$ 为**列向量**，因此 $T{OO'}$ 是**从右往左**依次进行运算，表示**从O'到O的坐标变换**.
+- $P_O' =T_{OO'}*P_{O'}$ 类似与向量乘法，大部分库都是默认变换矩阵**左乘**，因此我们从右向左看。$P_{O'}$ 为**列向量**，因此 $T_{OO'}$ 是**从右往左**依次进行运算，表示**从O'到O的坐标变换**.
 
 - $P_a =T_{aO}T_{OO'}*P_{O'}$ 上式再左乘一个矩阵，从右往左看，$T_{aO}T_{OO'}=T_{aO'}$ , 下标依次抵消，最后就可以得到P在a坐标系下的坐标。
 
