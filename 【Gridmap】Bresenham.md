@@ -1,6 +1,6 @@
 ---
 title: 【Gridmap】Bresenham计算直线
-date: 
+date: 2021-7-14 11:34:43
 categories：
 - 编程学习
 tags:
@@ -11,11 +11,11 @@ tags:
 
 # 原理
 
-<img src="Untitled/直线.png" alt="Bresenham快速画直线算法 - 第1张  | 潜水的小懒猫" style="zoom:80%;" />
+<img src="【Gridmap】Bresenham/直线.png" alt="Bresenham快速画直线算法 - 第1张  | 潜水的小懒猫" style="zoom:80%;" />
 
-<img src="Untitled/直线2.png" alt="Bresenham快速画直线算法 - 第2张  | 潜水的小懒猫" style="zoom:80%;" />
+<img src="【Gridmap】Bresenham/直线2.png" alt="Bresenham快速画直线算法 - 第2张  | 潜水的小懒猫" style="zoom:80%;" />
 
-![Bresenham快速画直线算法 - 第3张  | 潜水的小懒猫](Untitled/line3.png)
+![Bresenham快速画直线算法 - 第3张  | 潜水的小懒猫](【Gridmap】Bresenham/line3.png)
 
 # 算法演变为程序的实现思路：
 
@@ -117,4 +117,4 @@ public class Line : MonoBehaviour
 
 运行如下图：
 
-![Bresenham快速画直线算法 - 第4张  | 潜水的小懒猫](Untitled/画直线.画直线.gif)
+![Bresenham快速画直线算法 - 第4张  | 潜水的小懒猫](【Gridmap】Bresenham/画直线.画直线.gif)
